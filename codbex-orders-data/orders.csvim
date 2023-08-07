@@ -1,9 +1,9 @@
 {
   "files": [
     {
-      "table": "CODBEX_PAYMENTTYPE",
+      "table": "CODBEX_ORDERTYPE",
       "schema": "PUBLIC",
-      "file": "/codbex-payments-data/payment-types.csv",
+      "file": "/codbex-orders-data/order-types.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
