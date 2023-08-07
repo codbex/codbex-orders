@@ -1,0 +1,3 @@
+PAYMENTTYPE_ID,PAYMENTTYPE_NAME
+1,Sales Order
+2,Purchase Order
