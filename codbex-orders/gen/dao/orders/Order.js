@@ -72,6 +72,21 @@ let dao = daoApi.create({
 			name: "Total",
 			column: "ORDER_TOTAL",
 			type: "DOUBLE",
+		},
+ {
+			name: "ReferenceId",
+			column: "ORDER_REFERENCEID",
+			type: "BIGINT",
+		},
+ {
+			name: "ReferenceNumber",
+			column: "ORDER_REFERENCENUMBER",
+			type: "VARCHAR",
+		},
+ {
+			name: "ReferenceContext",
+			column: "ORDER_REFERENCECONTEXT",
+			type: "VARCHAR",
 		}
 ]
 });

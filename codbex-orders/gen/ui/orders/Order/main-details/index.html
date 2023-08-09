@@ -198,6 +198,63 @@
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idReferenceId" dg-required="false" dg-colon="true">ReferenceId</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.ReferenceId ? false : true }}">
+                            <fd-input id="idReferenceId"
+                                name="ReferenceId"
+                                state="{{ formErrors.ReferenceId ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['ReferenceId'].$valid, 'ReferenceId')"
+                                ng-model="entity.ReferenceId"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter ReferenceId">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idReferenceNumber" dg-required="false" dg-colon="true">ReferenceNumber</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.ReferenceNumber ? false : true }}">
+                            <fd-input id="idReferenceNumber"
+                                name="ReferenceNumber"
+                                state="{{ formErrors.ReferenceNumber ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['ReferenceNumber'].$valid, 'ReferenceNumber')"
+                                ng-model="entity.ReferenceNumber"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="20.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter ReferenceNumber">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idReferenceContext" dg-required="false" dg-colon="true">ReferenceContext</fd-form-label>
+                        <fd-form-input-message-group dg-inactive="{{ formErrors.ReferenceContext ? false : true }}">
+                            <fd-input id="idReferenceContext"
+                                name="ReferenceContext"
+                                state="{{ formErrors.ReferenceContext ? 'error' : '' }}"
+								ng-required="false"
+                                ng-change="isValid(formFieldset['ReferenceContext'].$valid, 'ReferenceContext')"
+                                ng-model="entity.ReferenceContext"
+                                ng-readonly="action === 'select'"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="20.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter ReferenceContext">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
 
                 </fd-form-group>
             </fd-fieldset>

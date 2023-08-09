@@ -108,6 +108,28 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "ORDER_TOTAL"
+                    },
+                    {
+                        "type": "BIGINT",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "ORDER_REFERENCEID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "ORDER_REFERENCENUMBER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "ORDER_REFERENCECONTEXT"
                     }
                 ]
             },
