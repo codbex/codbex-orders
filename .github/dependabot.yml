@@ -12,6 +12,6 @@ updates:
       interval: daily
     open-pull-requests-limit: 10
     commit-message:
-      prefix: "[Docker]"
+      prefix: "[Docker] "
     labels:
       - dependencies
