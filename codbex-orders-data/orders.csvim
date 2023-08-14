@@ -1,9 +1,9 @@
 {
   "files": [
     {
-      "table": "CODBEX_ORDERTYPE",
+      "table": "CODBEX_ORDERSTATUS",
       "schema": "PUBLIC",
-      "file": "/codbex-orders-data/order-types.csv",
+      "file": "/codbex-orders-data/order-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
