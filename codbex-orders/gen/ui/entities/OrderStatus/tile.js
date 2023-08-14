@@ -5,13 +5,13 @@
  */
 exports.getTile = function () {
     return {
-        group: "settings",
+        group: "entities",
         name: "OrderStatus",
         caption: "Manage entity OrderStatus",
         tooltip: "OrderStatus",
         // icon: "file-o",
-        location: "/services/web/codbex-orders/gen/ui/settings/index.html",
+        location: "/services/web/codbex-orders/gen/ui/entities/index.html",
         order: "100",
-        groupOrder: "999"
+        groupOrder: "100"
     };
 };

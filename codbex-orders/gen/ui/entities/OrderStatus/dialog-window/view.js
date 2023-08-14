@@ -6,7 +6,7 @@
 const viewData = {
     id: "OrderStatus-details",
     label: "OrderStatus",
-    link: "/services/web/codbex-orders/gen/ui/settings/OrderStatus/dialog-window/index.html"
+    link: "/services/web/codbex-orders/gen/ui/entities/OrderStatus/dialog-window/index.html"
 };
 
 if (typeof exports !== 'undefined') {

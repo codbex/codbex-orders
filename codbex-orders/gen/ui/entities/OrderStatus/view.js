@@ -8,7 +8,7 @@ const viewData = {
     label: "OrderStatus",
     factory: "frame",
     region: "center",
-    link: "/services/web/codbex-orders/gen/ui/settings/OrderStatus/index.html",
+    link: "/services/web/codbex-orders/gen/ui/entities/OrderStatus/index.html",
 };
 
 if (typeof exports !== 'undefined') {

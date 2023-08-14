@@ -7,14 +7,14 @@ let dao = daoApi.create({
 	properties: [
 		{
 			name: "Id",
-			column: "ORDERTYPE_ID",
+			column: "ORDERSTATUS_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
 			name: "Name",
-			column: "ORDERTYPE_NAME",
+			column: "ORDERSTATUS_NAME",
 			type: "VARCHAR",
 		}
 ]
@@ -34,7 +34,7 @@ exports.create = function(entity) {
 		table: "CODBEX_ORDERSTATUS",
 		key: {
 			name: "Id",
-			column: "ORDERTYPE_ID",
+			column: "ORDERSTATUS_ID",
 			value: id
 		}
 	});
@@ -47,7 +47,7 @@ exports.update = function(entity) {
 		table: "CODBEX_ORDERSTATUS",
 		key: {
 			name: "Id",
-			column: "ORDERTYPE_ID",
+			column: "ORDERSTATUS_ID",
 			value: entity.Id
 		}
 	});
@@ -59,7 +59,7 @@ exports.delete = function(id) {
 		table: "CODBEX_ORDERSTATUS",
 		key: {
 			name: "Id",
-			column: "ORDERTYPE_ID",
+			column: "ORDERSTATUS_ID",
 			value: id
 		}
 	});
@@ -82,5 +82,5 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(operation, data) {
-	producer.queue("codbex-orders/settings/OrderStatus/" + operation).send(JSON.stringify(data));
+	producer.queue("codbex-orders/entities/OrderStatus/" + operation).send(JSON.stringify(data));
 }

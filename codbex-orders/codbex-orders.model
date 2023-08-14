@@ -257,7 +257,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_OrderStatus",
                         "relationshipEntityName": "OrderStatus",
-                        "relationshipEntityPerspectiveName": "settings"
+                        "relationshipEntityPerspectiveName": "entities"
                     }
                 ],
                 "caption": "Manage entity SalesOrder",
@@ -620,57 +620,6 @@
                 "title": "Partner",
                 "tooltip": "Partner",
                 "type": "PROJECTION"
-            },
-            {
-                "properties": [
-                    {
-                        "calculatedPropertyExpression": "",
-                        "dataAutoIncrement": "true",
-                        "dataLength": "0",
-                        "dataName": "ORDERTYPE_ID",
-                        "dataNullable": "true",
-                        "dataPrimaryKey": "true",
-                        "dataType": "INTEGER",
-                        "dataUnique": "false",
-                        "isCalculatedProperty": "false",
-                        "name": "Id",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetType": "TEXTBOX"
-                    },
-                    {
-                        "calculatedPropertyExpression": "",
-                        "dataAutoIncrement": "false",
-                        "dataLength": "20",
-                        "dataName": "ORDERTYPE_NAME",
-                        "dataNullable": "true",
-                        "dataPrimaryKey": "false",
-                        "dataType": "VARCHAR",
-                        "dataUnique": "false",
-                        "isCalculatedProperty": "false",
-                        "name": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetType": "TEXTBOX"
-                    }
-                ],
-                "caption": "Manage entity OrderStatus",
-                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_ORDERSTATUS\"",
-                "dataName": "ORDERSTATUS",
-                "dataQuery": "",
-                "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
-                "menuIndex": "100",
-                "menuKey": "orderstatus",
-                "menuLabel": "OrderStatus",
-                "name": "OrderStatus",
-                "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "settings",
-                "perspectiveOrder": "999",
-                "title": "OrderStatus",
-                "tooltip": "OrderStatus",
-                "type": "PRIMARY"
             },
             {
                 "properties": [
@@ -1480,7 +1429,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "PurchaseOrder_OrderStatus",
                         "relationshipEntityName": "OrderStatus",
-                        "relationshipEntityPerspectiveName": "settings"
+                        "relationshipEntityPerspectiveName": "entities"
                     }
                 ],
                 "caption": "Manage entity PurchaseOrder",
@@ -1706,6 +1655,57 @@
                 "title": "PurchaseOrderItem",
                 "tooltip": "PurchaseOrderItem",
                 "type": "DEPENDENT"
+            },
+            {
+                "properties": [
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "true",
+                        "dataLength": "0",
+                        "dataName": "ORDERSTATUS_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Id",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "20",
+                        "dataName": "ORDERSTATUS_NAME",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "false",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "false",
+                        "isCalculatedProperty": "false",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    }
+                ],
+                "caption": "Manage entity OrderStatus",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}_ORDERSTATUS\"",
+                "dataName": "ORDERSTATUS",
+                "dataQuery": "",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "orderstatus",
+                "menuLabel": "OrderStatus",
+                "name": "OrderStatus",
+                "navigationPath": "/Home",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveName": "entities",
+                "perspectiveOrder": "100",
+                "title": "OrderStatus",
+                "tooltip": "OrderStatus",
+                "type": "PRIMARY"
             }
         ],
         "perspectives": [

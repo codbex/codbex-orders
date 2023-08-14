@@ -2,7 +2,7 @@
   "tablePrefix": "CODBEX",
   "brand": "codbex",
   "brandUrl": "https://www.codbex.com/",
-  "title": "Orders Management Module",
+  "title": "Order Management Module",
   "description": "Managing order data",
   "projectName": "codbex-orders",
   "workspaceName": "workspace",
@@ -38,21 +38,13 @@
         "Partner",
         "Currency",
         "Product",
-        "UoM"
+        "UoM",
+        "OrderStatus"
       ],
       "name": "entities",
       "label": "entities",
       "order": "100",
       "icon": "/services/web/resources/unicons/copy.svg"
-    },
-    "settings": {
-      "views": [
-        "OrderStatus"
-      ],
-      "name": "settings",
-      "label": "settings",
-      "order": "999",
-      "icon": "/services/web/resources/unicons/wrench.svg"
     },
     "sales_order": {
       "views": [
@@ -404,7 +396,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "SalesOrder_OrderStatus",
           "relationshipEntityName": "OrderStatus",
-          "relationshipEntityPerspectiveName": "settings",
+          "relationshipEntityPerspectiveName": "entities",
           "dataNotNull": false,
           "widgetLabel": "Status",
           "inputRule": ""
@@ -717,7 +709,7 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "SalesOrder_OrderStatus",
             "relationshipEntityName": "OrderStatus",
-            "relationshipEntityPerspectiveName": "settings",
+            "relationshipEntityPerspectiveName": "entities",
             "dataNotNull": false,
             "widgetLabel": "Status",
             "inputRule": ""
@@ -1148,69 +1140,6 @@
       ],
       "primaryKeysString": "Id",
       "hasDropdowns": true
-    },
-    {
-      "properties": [
-        {
-          "calculatedPropertyExpression": "",
-          "dataAutoIncrement": true,
-          "dataLength": "0",
-          "dataName": "ORDERTYPE_ID",
-          "dataNullable": true,
-          "dataPrimaryKey": true,
-          "dataType": "INTEGER",
-          "dataUnique": false,
-          "isCalculatedProperty": false,
-          "name": "Id",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "widgetLabel": "Id",
-          "inputRule": ""
-        },
-        {
-          "calculatedPropertyExpression": "",
-          "dataAutoIncrement": false,
-          "dataLength": "20",
-          "dataName": "ORDERTYPE_NAME",
-          "dataNullable": true,
-          "dataPrimaryKey": false,
-          "dataType": "VARCHAR",
-          "dataUnique": false,
-          "isCalculatedProperty": false,
-          "name": "Name",
-          "widgetIsMajor": true,
-          "widgetLength": "20",
-          "widgetType": "TEXTBOX",
-          "dataNotNull": false,
-          "widgetLabel": "Name",
-          "minLength": 0,
-          "maxLength": 20,
-          "inputRule": ""
-        }
-      ],
-      "caption": "Manage entity OrderStatus",
-      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ORDERSTATUS\"",
-      "dataName": "ORDERSTATUS",
-      "dataQuery": "",
-      "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
-      "menuIndex": "100",
-      "menuKey": "orderstatus",
-      "menuLabel": "OrderStatus",
-      "name": "OrderStatus",
-      "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveName": "settings",
-      "perspectiveOrder": "999",
-      "title": "OrderStatus",
-      "tooltip": "OrderStatus",
-      "type": "PRIMARY",
-      "primaryKeys": [
-        "Id"
-      ],
-      "primaryKeysString": "Id"
     },
     {
       "properties": [
@@ -2184,7 +2113,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "PurchaseOrder_OrderStatus",
           "relationshipEntityName": "OrderStatus",
-          "relationshipEntityPerspectiveName": "settings",
+          "relationshipEntityPerspectiveName": "entities",
           "dataNotNull": false,
           "widgetLabel": "Status",
           "inputRule": ""
@@ -2489,7 +2418,7 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "PurchaseOrder_OrderStatus",
             "relationshipEntityName": "OrderStatus",
-            "relationshipEntityPerspectiveName": "settings",
+            "relationshipEntityPerspectiveName": "entities",
             "dataNotNull": false,
             "widgetLabel": "Status",
             "inputRule": ""
@@ -2739,6 +2668,69 @@
       ],
       "primaryKeysString": "Id",
       "hasDropdowns": true
+    },
+    {
+      "properties": [
+        {
+          "calculatedPropertyExpression": "",
+          "dataAutoIncrement": true,
+          "dataLength": "0",
+          "dataName": "ORDERSTATUS_ID",
+          "dataNullable": true,
+          "dataPrimaryKey": true,
+          "dataType": "INTEGER",
+          "dataUnique": false,
+          "isCalculatedProperty": false,
+          "name": "Id",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "widgetLabel": "Id",
+          "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpression": "",
+          "dataAutoIncrement": false,
+          "dataLength": "20",
+          "dataName": "ORDERSTATUS_NAME",
+          "dataNullable": true,
+          "dataPrimaryKey": false,
+          "dataType": "VARCHAR",
+          "dataUnique": false,
+          "isCalculatedProperty": false,
+          "name": "Name",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetType": "TEXTBOX",
+          "dataNotNull": false,
+          "widgetLabel": "Name",
+          "minLength": 0,
+          "maxLength": 20,
+          "inputRule": ""
+        }
+      ],
+      "caption": "Manage entity OrderStatus",
+      "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX_ORDERSTATUS\"",
+      "dataName": "ORDERSTATUS",
+      "dataQuery": "",
+      "icon": "/services/web/resources/unicons/file.svg",
+      "layoutType": "MANAGE",
+      "menuIndex": "100",
+      "menuKey": "orderstatus",
+      "menuLabel": "OrderStatus",
+      "name": "OrderStatus",
+      "navigationPath": "/Home",
+      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+      "perspectiveName": "entities",
+      "perspectiveOrder": "100",
+      "title": "OrderStatus",
+      "tooltip": "OrderStatus",
+      "type": "PRIMARY",
+      "primaryKeys": [
+        "Id"
+      ],
+      "primaryKeysString": "Id"
     }
   ]
 }

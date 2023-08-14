@@ -256,26 +256,6 @@
                 ]
             },
             {
-                "name": "CODBEX_ORDERSTATUS",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "ORDERTYPE_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "ORDERTYPE_NAME"
-                    }
-                ]
-            },
-            {
                 "name": "CODBEX_CURRENCY",
                 "type": "TABLE",
                 "columns": [
@@ -703,6 +683,26 @@
                 ]
             },
             {
+                "name": "CODBEX_ORDERSTATUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "ORDERSTATUS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "ORDERSTATUS_NAME"
+                    }
+                ]
+            },
+            {
                 "name": "SalesOrder_Employee",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
@@ -736,7 +736,7 @@
                 "constraintName": "SalesOrder_OrderStatus",
                 "columns": "SALESORDER_STATUS",
                 "referencedTable": "CODBEX_ORDERSTATUS",
-                "referencedColumns": "ORDERTYPE_ID"
+                "referencedColumns": "ORDERSTATUS_ID"
             },
             {
                 "name": "SalesOrderItem_SalesOrder",
@@ -799,7 +799,7 @@
                 "constraintName": "PurchaseOrder_OrderStatus",
                 "columns": "PURCHASEORDER_STATUS",
                 "referencedTable": "CODBEX_ORDERSTATUS",
-                "referencedColumns": "ORDERTYPE_ID"
+                "referencedColumns": "ORDERSTATUS_ID"
             },
             {
                 "name": "PurchaseOrderItem_PurchaseOrder",
