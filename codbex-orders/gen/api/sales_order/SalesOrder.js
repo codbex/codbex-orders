@@ -1,5 +1,5 @@
 const rs = require("http/rs");
-const dao = require("codbex-orders/gen/dao/purchase_order/PurchaseOrderItem");
+const dao = require("codbex-orders/gen/dao/sales_order/SalesOrder");
 const http = require("codbex-orders/gen/api/utils/http");
 
 rs.service()
@@ -23,11 +23,9 @@ rs.service()
 				http.sendInternalServerError(error.message);
 			}
         })
-	.resource("count/{PurchaseOrder}")
+	.resource("count")
 		.get(function(ctx, request) {
-			let PurchaseOrder = parseInt(ctx.pathParameters.PurchaseOrder);
-			PurchaseOrder = isNaN(PurchaseOrder) ? ctx.pathParameters.PurchaseOrder : PurchaseOrder;
-			http.sendResponseOk("" + dao.count(PurchaseOrder));
+			http.sendResponseOk("" + dao.count());
 		})
 		.catch(function(ctx, error) {
             if (error.name === "ForbiddenError") {
@@ -45,7 +43,7 @@ rs.service()
 			if (entity) {
 			    http.sendResponseOk(entity);
 			} else {
-				http.sendResponseNotFound("PurchaseOrderItem not found");
+				http.sendResponseNotFound("SalesOrder not found");
 			}
 		})
 		.produces(["application/json"])
@@ -62,7 +60,7 @@ rs.service()
 		.post(function(ctx, request, response) {
 			let entity = request.getJSON();
 			entity.Id = dao.create(entity);
-			response.setHeader("Content-Location", "/services/js/codbex-orders/gen/api/PurchaseOrderItem.js/" + entity.Id);
+			response.setHeader("Content-Location", "/services/js/codbex-orders/gen/api/SalesOrder.js/" + entity.Id);
 			http.sendResponseCreated(entity);
 		})
 		.produces(["application/json"])
@@ -100,7 +98,7 @@ rs.service()
 				dao.delete(id);
 				http.sendResponseNoContent();
 			} else {
-				http.sendResponseNotFound("PurchaseOrderItem not found");
+				http.sendResponseNotFound("SalesOrder not found");
 			}
 		})
 		.catch(function(ctx, error) {

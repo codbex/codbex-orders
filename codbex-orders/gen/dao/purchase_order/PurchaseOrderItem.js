@@ -105,8 +105,8 @@ exports.delete = function(id) {
 	});
 };
 
-exports.count = function () {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERITEM" WHERE  = ?', []);
+exports.count = function (PurchaseOrder) {
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERITEM" WHERE "ORDERITEM_PURCHASEORDERID" = ?', [PurchaseOrder]);
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
