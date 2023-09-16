@@ -96,20 +96,6 @@
                         "name": "ORDER_TOTAL"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 50,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "ORDER_REFERENCENUMBER"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PurchaseInvoice"
-                    },
-                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
@@ -569,20 +555,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "ORDER_TOTAL"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 50,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "ORDER_REFERENCENUMBER"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "ORDER_REFERENCECONTEXT"
                     },
                     {
                         "type": "INTEGER",

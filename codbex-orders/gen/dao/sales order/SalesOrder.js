@@ -64,16 +64,6 @@ let dao = daoApi.create({
 			type: "DOUBLE",
 		},
  {
-			name: "ReferenceNumber",
-			column: "ORDER_REFERENCENUMBER",
-			type: "VARCHAR",
-		},
- {
-			name: "PurchaseInvoice",
-			column: "PurchaseInvoice",
-			type: "VARCHAR",
-		},
- {
 			name: "Status",
 			column: "SALESORDER_STATUS",
 			type: "INTEGER",

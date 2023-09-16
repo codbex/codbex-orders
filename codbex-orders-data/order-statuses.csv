@@ -1,5 +1,7 @@
-ORDERSTATUS_ID,ORDERSTATUS_NAME
-1,Processing
-2,Complete
-3,On Hold
-4,Cancelled
+"ORDERSTATUS_ID","ORDERSTATUS_NAME"
+"1","Processing"
+"2","Complete"
+"3","On Hold"
+"4","Cancelled"
+"5","Approved"
+"6","Rejected"
