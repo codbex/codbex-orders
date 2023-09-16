@@ -53,7 +53,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_BUYER"
+                        "name": "ORDER_CUSTOMER"
                     },
                     {
                         "type": "VARCHAR",
@@ -456,7 +456,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_CUSTOMER"
+                        "name": "ORDER_SUPPLIER"
                     },
                     {
                         "type": "VARCHAR",
@@ -700,7 +700,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
                 "constraintName": "SalesOrder_Partner",
-                "columns": "ORDER_BUYER",
+                "columns": "ORDER_CUSTOMER",
                 "referencedTable": "CODBEX_PARTNER",
                 "referencedColumns": "PARTNER_ID"
             },
@@ -763,7 +763,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDER",
                 "constraintName": "PurchaseOrder_Partner",
-                "columns": "ORDER_CUSTOMER",
+                "columns": "ORDER_SUPPLIER",
                 "referencedTable": "CODBEX_PARTNER",
                 "referencedColumns": "PARTNER_ID"
             },

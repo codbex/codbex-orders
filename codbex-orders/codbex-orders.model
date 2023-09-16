@@ -97,7 +97,7 @@
                         "calculatedPropertyExpression": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
-                        "dataName": "ORDER_BUYER",
+                        "dataName": "ORDER_CUSTOMER",
                         "dataNullable": "true",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
@@ -105,7 +105,7 @@
                         "dataType": "INTEGER",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
-                        "name": "Supplier",
+                        "name": "Customer",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
@@ -225,7 +225,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_OrderStatus",
                         "relationshipEntityName": "OrderStatus",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     }
                 ],
                 "caption": "Manage entity SalesOrder",
@@ -240,8 +240,8 @@
                 "name": "SalesOrder",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
-                "perspectiveName": "sales_order",
-                "perspectiveOrder": "100",
+                "perspectiveName": "SalesOrder",
+                "perspectiveOrder": "200",
                 "title": "SalesOrder",
                 "tooltip": "SalesOrder",
                 "type": "PRIMARY"
@@ -576,7 +576,7 @@
                         "widgetLength": "20",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "SalesOrder",
-                        "relationshipEntityPerspectiveName": "sales_order"
+                        "relationshipEntityPerspectiveName": "SalesOrder"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -737,8 +737,8 @@
                 "name": "SalesOrderItem",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
-                "perspectiveName": "sales_order",
-                "perspectiveOrder": "100",
+                "perspectiveName": "SalesOrder",
+                "perspectiveOrder": "200",
                 "title": "SalesOrderItem",
                 "tooltip": "SalesOrderItem",
                 "type": "DEPENDENT"
@@ -1089,7 +1089,7 @@
                         "calculatedPropertyExpression": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "0",
-                        "dataName": "ORDER_CUSTOMER",
+                        "dataName": "ORDER_SUPPLIER",
                         "dataNullable": "true",
                         "dataPrecision": "NaN",
                         "dataPrimaryKey": "false",
@@ -1097,7 +1097,7 @@
                         "dataType": "INTEGER",
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
-                        "name": "Customer",
+                        "name": "Supplier",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
@@ -1217,7 +1217,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "PurchaseOrder_OrderStatus",
                         "relationshipEntityName": "OrderStatus",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Settings"
                     }
                 ],
                 "caption": "Manage entity PurchaseOrder",
@@ -1232,8 +1232,8 @@
                 "name": "PurchaseOrder",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
-                "perspectiveName": "purchase_order",
-                "perspectiveOrder": "100",
+                "perspectiveName": "PurchaseOrder",
+                "perspectiveOrder": "300",
                 "title": "PurchaseOrder",
                 "tooltip": "PurchaseOrder",
                 "type": "PRIMARY"
@@ -1279,7 +1279,7 @@
                         "widgetLength": "20",
                         "widgetType": "DROPDOWN",
                         "relationshipEntityName": "PurchaseOrder",
-                        "relationshipEntityPerspectiveName": "purchase_order"
+                        "relationshipEntityPerspectiveName": "PurchaseOrder"
                     },
                     {
                         "calculatedPropertyExpression": "",
@@ -1440,8 +1440,8 @@
                 "name": "PurchaseOrderItem",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
-                "perspectiveName": "purchase_order",
-                "perspectiveOrder": "100",
+                "perspectiveName": "PurchaseOrder",
+                "perspectiveOrder": "300",
                 "title": "PurchaseOrderItem",
                 "tooltip": "PurchaseOrderItem",
                 "type": "DEPENDENT"
@@ -1490,9 +1490,9 @@
                 "menuLabel": "OrderStatus",
                 "name": "OrderStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveName": "Settings",
+                "perspectiveOrder": "999",
                 "title": "OrderStatus",
                 "tooltip": "OrderStatus",
                 "type": "PRIMARY"
@@ -1673,22 +1673,22 @@
         ],
         "perspectives": [
             {
-                "name": "settings",
+                "name": "SalesOrder",
+                "label": "Sales Order",
+                "icon": "/services/web/resources/unicons/receipt.svg",
+                "order": "200"
+            },
+            {
+                "name": "PurchaseOrder",
+                "label": "Purchase Order",
+                "icon": "/services/web/resources/unicons/receipt-alt.svg",
+                "order": "300"
+            },
+            {
+                "name": "Settings",
                 "label": "Settings",
                 "icon": "/services/web/resources/unicons/wrench.svg",
                 "order": "999"
-            },
-            {
-                "name": "sales_order",
-                "label": "Sales Order",
-                "icon": "/services/web/resources/unicons/receipt.svg",
-                "order": "100"
-            },
-            {
-                "name": "purchase_order",
-                "label": "Purchase Order",
-                "icon": "/services/web/resources/unicons/receipt-alt.svg",
-                "order": "100"
             }
         ],
         "navigations": []

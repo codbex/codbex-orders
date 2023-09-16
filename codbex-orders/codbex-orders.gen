@@ -9,7 +9,7 @@
   "filePath": "codbex-orders.model",
   "templateId": "template-application-angular/template/template.js",
   "perspectives": {
-    "sales_order": {
+    "SalesOrder": {
       "views": [
         "SalesOrder",
         "SalesOrderItem",
@@ -29,9 +29,9 @@
         "SalesOrder-details",
         "SalesOrder-details"
       ],
-      "name": "sales_order",
-      "label": "sales_order",
-      "order": "100",
+      "name": "SalesOrder",
+      "label": "SalesOrder",
+      "order": "200",
       "icon": "/services/web/resources/unicons/receipt.svg"
     },
     "entities": {
@@ -40,7 +40,6 @@
         "Currency",
         "Product",
         "UoM",
-        "OrderStatus",
         "Employee"
       ],
       "name": "entities",
@@ -48,7 +47,7 @@
       "order": "100",
       "icon": "/services/web/resources/unicons/copy.svg"
     },
-    "purchase_order": {
+    "PurchaseOrder": {
       "views": [
         "PurchaseOrder",
         "PurchaseOrderItem",
@@ -68,10 +67,19 @@
         "PurchaseOrder-details",
         "PurchaseOrder-details"
       ],
-      "name": "purchase_order",
-      "label": "purchase_order",
-      "order": "100",
+      "name": "PurchaseOrder",
+      "label": "PurchaseOrder",
+      "order": "300",
       "icon": "/services/web/resources/unicons/receipt-alt.svg"
+    },
+    "Settings": {
+      "views": [
+        "OrderStatus"
+      ],
+      "name": "Settings",
+      "label": "Settings",
+      "order": "999",
+      "icon": "/services/web/resources/unicons/wrench.svg"
     }
   },
   "models": [
@@ -191,7 +199,7 @@
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
-          "dataName": "ORDER_BUYER",
+          "dataName": "ORDER_CUSTOMER",
           "dataNullable": true,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
@@ -199,7 +207,7 @@
           "dataType": "INTEGER",
           "dataUnique": false,
           "isCalculatedProperty": false,
-          "name": "Supplier",
+          "name": "Customer",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
           "widgetIsMajor": true,
@@ -209,7 +217,7 @@
           "relationshipEntityName": "Partner",
           "relationshipEntityPerspectiveName": "entities",
           "dataNotNull": false,
-          "widgetLabel": "Supplier",
+          "widgetLabel": "Customer",
           "inputRule": ""
         },
         {
@@ -339,7 +347,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "SalesOrder_OrderStatus",
           "relationshipEntityName": "OrderStatus",
-          "relationshipEntityPerspectiveName": "entities",
+          "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
           "inputRule": ""
@@ -357,8 +365,8 @@
       "name": "SalesOrder",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
-      "perspectiveName": "sales_order",
-      "perspectiveOrder": "100",
+      "perspectiveName": "SalesOrder",
+      "perspectiveOrder": "200",
       "title": "SalesOrder",
       "tooltip": "SalesOrder",
       "type": "PRIMARY",
@@ -462,7 +470,7 @@
             "calculatedPropertyExpression": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
-            "dataName": "ORDER_BUYER",
+            "dataName": "ORDER_CUSTOMER",
             "dataNullable": true,
             "dataPrecision": "NaN",
             "dataPrimaryKey": false,
@@ -470,7 +478,7 @@
             "dataType": "INTEGER",
             "dataUnique": false,
             "isCalculatedProperty": false,
-            "name": "Supplier",
+            "name": "Customer",
             "widgetDropDownKey": "Id",
             "widgetDropDownValue": "Name",
             "widgetIsMajor": true,
@@ -480,7 +488,7 @@
             "relationshipEntityName": "Partner",
             "relationshipEntityPerspectiveName": "entities",
             "dataNotNull": false,
-            "widgetLabel": "Supplier",
+            "widgetLabel": "Customer",
             "inputRule": ""
           },
           {
@@ -610,7 +618,7 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "SalesOrder_OrderStatus",
             "relationshipEntityName": "OrderStatus",
-            "relationshipEntityPerspectiveName": "entities",
+            "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Status",
             "inputRule": ""
@@ -1027,7 +1035,7 @@
           "widgetLength": "20",
           "widgetType": "DROPDOWN",
           "relationshipEntityName": "SalesOrder",
-          "relationshipEntityPerspectiveName": "sales_order",
+          "relationshipEntityPerspectiveName": "SalesOrder",
           "dataNotNull": false,
           "widgetLabel": "SalesOrder",
           "inputRule": ""
@@ -1215,8 +1223,8 @@
       "name": "SalesOrderItem",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
-      "perspectiveName": "sales_order",
-      "perspectiveOrder": "100",
+      "perspectiveName": "SalesOrder",
+      "perspectiveOrder": "200",
       "title": "SalesOrderItem",
       "tooltip": "SalesOrderItem",
       "type": "DEPENDENT",
@@ -1646,7 +1654,7 @@
           "calculatedPropertyExpression": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
-          "dataName": "ORDER_CUSTOMER",
+          "dataName": "ORDER_SUPPLIER",
           "dataNullable": true,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
@@ -1654,7 +1662,7 @@
           "dataType": "INTEGER",
           "dataUnique": false,
           "isCalculatedProperty": false,
-          "name": "Customer",
+          "name": "Supplier",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
           "widgetIsMajor": true,
@@ -1664,7 +1672,7 @@
           "relationshipEntityName": "Partner",
           "relationshipEntityPerspectiveName": "entities",
           "dataNotNull": false,
-          "widgetLabel": "Customer",
+          "widgetLabel": "Supplier",
           "inputRule": ""
         },
         {
@@ -1794,7 +1802,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "PurchaseOrder_OrderStatus",
           "relationshipEntityName": "OrderStatus",
-          "relationshipEntityPerspectiveName": "entities",
+          "relationshipEntityPerspectiveName": "Settings",
           "dataNotNull": false,
           "widgetLabel": "Status",
           "inputRule": ""
@@ -1812,8 +1820,8 @@
       "name": "PurchaseOrder",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
-      "perspectiveName": "purchase_order",
-      "perspectiveOrder": "100",
+      "perspectiveName": "PurchaseOrder",
+      "perspectiveOrder": "300",
       "title": "PurchaseOrder",
       "tooltip": "PurchaseOrder",
       "type": "PRIMARY",
@@ -1917,7 +1925,7 @@
             "calculatedPropertyExpression": "",
             "dataAutoIncrement": false,
             "dataLength": "0",
-            "dataName": "ORDER_CUSTOMER",
+            "dataName": "ORDER_SUPPLIER",
             "dataNullable": true,
             "dataPrecision": "NaN",
             "dataPrimaryKey": false,
@@ -1925,7 +1933,7 @@
             "dataType": "INTEGER",
             "dataUnique": false,
             "isCalculatedProperty": false,
-            "name": "Customer",
+            "name": "Supplier",
             "widgetDropDownKey": "Id",
             "widgetDropDownValue": "Name",
             "widgetIsMajor": true,
@@ -1935,7 +1943,7 @@
             "relationshipEntityName": "Partner",
             "relationshipEntityPerspectiveName": "entities",
             "dataNotNull": false,
-            "widgetLabel": "Customer",
+            "widgetLabel": "Supplier",
             "inputRule": ""
           },
           {
@@ -2065,7 +2073,7 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "PurchaseOrder_OrderStatus",
             "relationshipEntityName": "OrderStatus",
-            "relationshipEntityPerspectiveName": "entities",
+            "relationshipEntityPerspectiveName": "Settings",
             "dataNotNull": false,
             "widgetLabel": "Status",
             "inputRule": ""
@@ -2119,7 +2127,7 @@
           "widgetLength": "20",
           "widgetType": "DROPDOWN",
           "relationshipEntityName": "PurchaseOrder",
-          "relationshipEntityPerspectiveName": "purchase_order",
+          "relationshipEntityPerspectiveName": "PurchaseOrder",
           "dataNotNull": false,
           "widgetLabel": "PurchaseOrder",
           "inputRule": ""
@@ -2307,8 +2315,8 @@
       "name": "PurchaseOrderItem",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
-      "perspectiveName": "purchase_order",
-      "perspectiveOrder": "100",
+      "perspectiveName": "PurchaseOrder",
+      "perspectiveOrder": "300",
       "title": "PurchaseOrderItem",
       "tooltip": "PurchaseOrderItem",
       "type": "DEPENDENT",
@@ -2372,9 +2380,9 @@
       "menuLabel": "OrderStatus",
       "name": "OrderStatus",
       "navigationPath": "/Home",
-      "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-      "perspectiveName": "entities",
-      "perspectiveOrder": "100",
+      "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+      "perspectiveName": "Settings",
+      "perspectiveOrder": "999",
       "title": "OrderStatus",
       "tooltip": "OrderStatus",
       "type": "PRIMARY",
