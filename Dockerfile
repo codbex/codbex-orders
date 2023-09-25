@@ -1,7 +1,7 @@
 # Docker descriptor for codbex-orders
 # License - http://www.eclipse.org/legal/epl-v20.html
 
-FROM ghcr.io/codbex/codbex-gaia:0.11.0
+FROM ghcr.io/codbex/codbex-gaia:0.13.0
 
 COPY codbex-orders target/dirigible/repository/root/registry/public/codbex-orders
 COPY codbex-orders-data target/dirigible/repository/root/registry/public/codbex-orders-data
