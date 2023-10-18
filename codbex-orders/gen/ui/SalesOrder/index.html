@@ -47,9 +47,12 @@
                     dialogWindows: "codbex-orders-dialog-window"
                 })
                 .controller('ApplicationController', ["$scope", "messageHub", function ($scope, messageHub) {
+                    const httpRequest = new XMLHttpRequest();
+                    httpRequest.open("GET", "/services/js/resources-core/services/views.js?extensionPoint=codbex-orders-view", false);
+                    httpRequest.send();
 
                     $scope.layoutModel = {
-                        views: ['SalesOrder', 'SalesOrderItem', 'SalesOrder-details']
+                        views: JSON.parse(httpRequest.responseText).filter(e => !e.isLaunchpad && e.perspectiveName === "SalesOrder").map(e => e.id)
                     };
 
                 }]);
