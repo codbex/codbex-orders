@@ -17,6 +17,13 @@
                     },
                     {
                         "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "SALESORDER_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -417,6 +424,13 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PURCHASEORDER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "PURCHASEORDER_NAME"
                     },
                     {
                         "type": "VARCHAR",

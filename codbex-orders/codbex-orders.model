@@ -23,6 +23,23 @@
                     {
                         "calculatedPropertyExpression": "",
                         "dataAutoIncrement": "false",
+                        "dataLength": "200",
+                        "dataName": "SALESORDER_NAME",
+                        "dataNullable": "false",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "true",
+                        "isCalculatedProperty": "false",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "200",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
                         "dataLength": "20",
                         "dataName": "ORDER_NUMBER",
                         "dataNullable": "true",
@@ -1010,6 +1027,23 @@
                         "name": "Id",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "calculatedPropertyExpression": "",
+                        "dataAutoIncrement": "false",
+                        "dataLength": "200",
+                        "dataName": "PURCHASEORDER_NAME",
+                        "dataNullable": "false",
+                        "dataPrecision": "NaN",
+                        "dataPrimaryKey": "false",
+                        "dataScale": "NaN",
+                        "dataType": "VARCHAR",
+                        "dataUnique": "true",
+                        "isCalculatedProperty": "false",
+                        "name": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "200",
                         "widgetType": "TEXTBOX"
                     },
                     {
