@@ -85,6 +85,19 @@
                             dg-placeholder="Search Supplier ...">
                         </fd-combobox-input>
                     </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idOperator" dg-required="false" dg-colon="true">Operator</fd-form-label>
+                        <fd-combobox-input id="idOperator"
+                            name="Operator"
+                            state="{{ formErrors.Operator ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Operator'].$valid, 'Operator')"
+                            ng-model="entity.Operator"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsOperator"
+                            dg-placeholder="Search Operator ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
 					<fd-form-item horizontal="false">
 						<fd-form-label for="idConditions" dg-required="false" dg-colon="true">Conditions</fd-form-label>
 						<fd-textarea id="idConditions"
@@ -101,19 +114,6 @@
 						</fd-textarea>
 						<fd-form-message dg-type="error" ng-show="formErrors.Conditions">Incorrect Input</fd-form-message>
 					</fd-form-item horizontal="false">
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idOperator" dg-required="false" dg-colon="true">Operator</fd-form-label>
-                        <fd-combobox-input id="idOperator"
-                            name="Operator"
-                            state="{{ formErrors.Operator ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['Operator'].$valid, 'Operator')"
-                            ng-model="entity.Operator"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsOperator"
-                            dg-placeholder="Search Operator ...">
-                        </fd-combobox-input>
-                    </fd-form-item>
                     <fd-form-item horizontal="false">
                         <fd-form-label for="idCurrency" dg-required="false" dg-colon="true">Currency</fd-form-label>
                         <fd-combobox-input id="idCurrency"

@@ -14,47 +14,47 @@ let dao = daoApi.create({
 		},
  {
 			name: "PurchaseOrder",
-			column: "ORDERITEM_PURCHASEORDERID",
+			column: "PURCHASEORDERITEM_PURCHASEORDERID",
 			type: "INTEGER",
 		},
  {
 			name: "Product",
-			column: "ORDERITEM_PRODUCT",
+			column: "PURCHASEORDERITEM_PRODUCT",
 			type: "INTEGER",
 		},
  {
 			name: "UoM",
-			column: "ORDERITEM_UOM",
+			column: "PURCHASEORDERITEM_UOM",
 			type: "INTEGER",
 		},
  {
 			name: "Quantity",
-			column: "ORDERITEM_QUANTITY",
+			column: "PURCHASEORDERITEM_QUANTITY",
 			type: "DOUBLE",
 		},
  {
 			name: "Price",
-			column: "ORDERITEM_PRICE",
+			column: "PURCHASEORDERITEM_PRICE",
 			type: "DOUBLE",
 		},
  {
 			name: "Amount",
-			column: "ORDERITEM_AMOUNT",
+			column: "PURCHASEORDERITEM_AMOUNT",
 			type: "DOUBLE",
 		},
  {
 			name: "Discount",
-			column: "ORDERITEM_DISCOUNT",
+			column: "PURCHASEORDERITEM_DISCOUNT",
 			type: "DOUBLE",
 		},
  {
 			name: "VAT",
-			column: "ORDERITEM_VAT",
+			column: "PURCHASEORDERITEM_VAT",
 			type: "DOUBLE",
 		},
  {
 			name: "Total",
-			column: "ORDERITEM_TOTAL",
+			column: "PURCHASEORDERITEM_TOTAL",
 			type: "DOUBLE",
 		}
 ]
@@ -106,7 +106,7 @@ exports.delete = function(id) {
 };
 
 exports.count = function (PurchaseOrder) {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERITEM" WHERE "ORDERITEM_PURCHASEORDERID" = ?', [PurchaseOrder]);
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERITEM" WHERE "PURCHASEORDERITEM_PURCHASEORDERID" = ?', [PurchaseOrder]);
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;

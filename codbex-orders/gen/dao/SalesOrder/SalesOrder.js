@@ -21,12 +21,12 @@ let dao = daoApi.create({
 		},
  {
 			name: "Number",
-			column: "ORDER_NUMBER",
+			column: "SALESORDER_NUMBER",
 			type: "VARCHAR",
 		},
  {
 			name: "Date",
-			column: "ORDER_DATE",
+			column: "SALESORDER_DATE",
 			type: "DATE",
 		},
  {
@@ -35,14 +35,14 @@ let dao = daoApi.create({
 			type: "INTEGER",
 		},
  {
-			name: "Conditions",
-			column: "ORDER_CONDITIONS",
-			type: "VARCHAR",
-		},
- {
 			name: "Operator",
 			column: "SALESORDER_OPERATOR",
 			type: "INTEGER",
+		},
+ {
+			name: "Conditions",
+			column: "SALESORDER_CONDITIONS",
+			type: "VARCHAR",
 		},
  {
 			name: "Currency",
@@ -51,22 +51,22 @@ let dao = daoApi.create({
 		},
  {
 			name: "Amount",
-			column: "ORDER_AMOUNT",
+			column: "SALESORDER_AMOUNT",
 			type: "DOUBLE",
 		},
  {
 			name: "Discount",
-			column: "ORDER_DISCOUNT",
+			column: "SALESORDER_DISCOUNT",
 			type: "DOUBLE",
 		},
  {
 			name: "VAT",
-			column: "ORDER_VAT",
+			column: "SALESORDER_VAT",
 			type: "DOUBLE",
 		},
  {
 			name: "Total",
-			column: "ORDER_TOTAL",
+			column: "SALESORDER_TOTAL",
 			type: "DOUBLE",
 		},
  {

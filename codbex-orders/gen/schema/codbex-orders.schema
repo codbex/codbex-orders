@@ -28,7 +28,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_NUMBER"
+                        "name": "SALESORDER_NUMBER"
                     },
                     {
                         "type": "DATE",
@@ -36,7 +36,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_DATE"
+                        "name": "SALESORDER_DATE"
                     },
                     {
                         "type": "INTEGER",
@@ -47,20 +47,20 @@
                         "name": "SALESORDER_CUSTOMER"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 500,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "ORDER_CONDITIONS"
-                    },
-                    {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALESORDER_OPERATOR"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 500,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDER_CONDITIONS"
                     },
                     {
                         "type": "VARCHAR",
@@ -76,7 +76,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_AMOUNT"
+                        "name": "SALESORDER_AMOUNT"
                     },
                     {
                         "type": "DOUBLE",
@@ -84,7 +84,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_DISCOUNT"
+                        "name": "SALESORDER_DISCOUNT"
                     },
                     {
                         "type": "DOUBLE",
@@ -92,7 +92,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_VAT"
+                        "name": "SALESORDER_VAT"
                     },
                     {
                         "type": "DOUBLE",
@@ -100,7 +100,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_TOTAL"
+                        "name": "SALESORDER_TOTAL"
                     },
                     {
                         "type": "INTEGER",
@@ -173,7 +173,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_ORDERID"
+                        "name": "SALESORDERITEM_ORDERID"
                     },
                     {
                         "type": "INTEGER",
@@ -181,7 +181,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_PRODUCT"
+                        "name": "SALESORDERITEM_PRODUCT"
                     },
                     {
                         "type": "INTEGER",
@@ -189,7 +189,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_UOM"
+                        "name": "SALESORDERITEM_UOM"
                     },
                     {
                         "type": "DOUBLE",
@@ -197,7 +197,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_QUANTITY"
+                        "name": "SALESORDERITEM_QUANTITY"
                     },
                     {
                         "type": "DOUBLE",
@@ -205,7 +205,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_PRICE"
+                        "name": "SALESORDERITEM_PRICE"
                     },
                     {
                         "type": "DOUBLE",
@@ -213,7 +213,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_AMOUNT"
+                        "name": "SALESORDERITEM_AMOUNT"
                     },
                     {
                         "type": "DOUBLE",
@@ -221,7 +221,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_DISCOUNT"
+                        "name": "SALESORDERITEM_DISCOUNT"
                     },
                     {
                         "type": "DOUBLE",
@@ -229,7 +229,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_VAT"
+                        "name": "SALESORDERITEM_VAT"
                     },
                     {
                         "type": "DOUBLE",
@@ -237,7 +237,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_TOTAL"
+                        "name": "SALESORDERITEM_TOTAL"
                     }
                 ]
             },
@@ -364,7 +364,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_NUMBER"
+                        "name": "PURCHASEORDER_NUMBER"
                     },
                     {
                         "type": "DATE",
@@ -372,7 +372,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_DATE"
+                        "name": "PURCHASEORDER_DATE"
                     },
                     {
                         "type": "INTEGER",
@@ -381,14 +381,6 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PURCHASEORDER_SUPPLIER"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 500,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "ORDER_CONDITIONS"
                     },
                     {
                         "type": "INTEGER",
@@ -400,11 +392,19 @@
                     },
                     {
                         "type": "VARCHAR",
+                        "length": 500,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PURCHASEORDER_CONDITIONS"
+                    },
+                    {
+                        "type": "VARCHAR",
                         "length": 3,
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_CURRENCY"
+                        "name": "PURCHASEORDER_CURRENCY"
                     },
                     {
                         "type": "DOUBLE",
@@ -412,7 +412,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_AMOUNT"
+                        "name": "PURCHASEORDER_AMOUNT"
                     },
                     {
                         "type": "DOUBLE",
@@ -420,7 +420,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_DISCOUNT"
+                        "name": "PURCHASEORDER_DISCOUNT"
                     },
                     {
                         "type": "DOUBLE",
@@ -428,7 +428,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_VAT"
+                        "name": "PURCHASEORDER_VAT"
                     },
                     {
                         "type": "DOUBLE",
@@ -436,7 +436,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDER_TOTAL"
+                        "name": "PURCHASEORDER_TOTAL"
                     },
                     {
                         "type": "INTEGER",
@@ -468,7 +468,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_PURCHASEORDERID"
+                        "name": "PURCHASEORDERITEM_PURCHASEORDERID"
                     },
                     {
                         "type": "INTEGER",
@@ -476,7 +476,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_PRODUCT"
+                        "name": "PURCHASEORDERITEM_PRODUCT"
                     },
                     {
                         "type": "INTEGER",
@@ -484,7 +484,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_UOM"
+                        "name": "PURCHASEORDERITEM_UOM"
                     },
                     {
                         "type": "DOUBLE",
@@ -492,7 +492,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_QUANTITY"
+                        "name": "PURCHASEORDERITEM_QUANTITY"
                     },
                     {
                         "type": "DOUBLE",
@@ -500,7 +500,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_PRICE"
+                        "name": "PURCHASEORDERITEM_PRICE"
                     },
                     {
                         "type": "DOUBLE",
@@ -508,7 +508,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_AMOUNT"
+                        "name": "PURCHASEORDERITEM_AMOUNT"
                     },
                     {
                         "type": "DOUBLE",
@@ -516,7 +516,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_DISCOUNT"
+                        "name": "PURCHASEORDERITEM_DISCOUNT"
                     },
                     {
                         "type": "DOUBLE",
@@ -524,7 +524,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_VAT"
+                        "name": "PURCHASEORDERITEM_VAT"
                     },
                     {
                         "type": "DOUBLE",
@@ -532,7 +532,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "ORDERITEM_TOTAL"
+                        "name": "PURCHASEORDERITEM_TOTAL"
                     }
                 ]
             },
@@ -827,7 +827,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERITEM",
                 "constraintName": "SalesOrderItem_SalesOrder",
-                "columns": "ORDERITEM_ORDERID",
+                "columns": "SALESORDERITEM_ORDERID",
                 "referencedTable": "CODBEX_SALESORDER",
                 "referencedColumns": "SALESORDER_ID"
             },
@@ -836,7 +836,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERITEM",
                 "constraintName": "SalesOrderItem_Product",
-                "columns": "ORDERITEM_PRODUCT",
+                "columns": "SALESORDERITEM_PRODUCT",
                 "referencedTable": "CODBEX_PRODUCT",
                 "referencedColumns": "PRODUCT_ID"
             },
@@ -845,7 +845,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERITEM",
                 "constraintName": "SalesOrderItem_UoM",
-                "columns": "ORDERITEM_UOM",
+                "columns": "SALESORDERITEM_UOM",
                 "referencedTable": "CODBEX_UOM",
                 "referencedColumns": "UOM_ID"
             },
@@ -872,7 +872,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDER",
                 "constraintName": "PurchaseOrder_Currency",
-                "columns": "ORDER_CURRENCY",
+                "columns": "PURCHASEORDER_CURRENCY",
                 "referencedTable": "CODBEX_CURRENCY",
                 "referencedColumns": "CURRENCY_CODE"
             },
@@ -890,7 +890,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDERITEM",
                 "constraintName": "PurchaseOrderItem_PurchaseOrder",
-                "columns": "ORDERITEM_PURCHASEORDERID",
+                "columns": "PURCHASEORDERITEM_PURCHASEORDERID",
                 "referencedTable": "CODBEX_PURCHASEORDER",
                 "referencedColumns": "PURCHASEORDER_ID"
             },
@@ -899,7 +899,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDERITEM",
                 "constraintName": "PurchaseOrderItem_Product",
-                "columns": "ORDERITEM_PRODUCT",
+                "columns": "PURCHASEORDERITEM_PRODUCT",
                 "referencedTable": "CODBEX_PRODUCT",
                 "referencedColumns": "PRODUCT_ID"
             },
@@ -908,7 +908,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDERITEM",
                 "constraintName": "PurchaseOrderItem_UoM",
-                "columns": "ORDERITEM_UOM",
+                "columns": "PURCHASEORDERITEM_UOM",
                 "referencedTable": "CODBEX_UOM",
                 "referencedColumns": "UOM_ID"
             }
