@@ -30,6 +30,11 @@ let dao = daoApi.create({
 			type: "DATE",
 		},
  {
+			name: "Customer",
+			column: "SALESORDER_CUSTOMER",
+			type: "INTEGER",
+		},
+ {
 			name: "Conditions",
 			column: "ORDER_CONDITIONS",
 			type: "VARCHAR",
@@ -37,11 +42,6 @@ let dao = daoApi.create({
  {
 			name: "Operator",
 			column: "SALESORDER_OPERATOR",
-			type: "INTEGER",
-		},
- {
-			name: "Customer",
-			column: "ORDER_CUSTOMER",
 			type: "INTEGER",
 		},
  {

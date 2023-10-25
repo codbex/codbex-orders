@@ -21,8 +21,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.formErrors = {};
-				$scope.optionsOperator = [];
 				$scope.optionsCustomer = [];
+				$scope.optionsOperator = [];
 				$scope.optionsCurrency = [];
 				$scope.optionsStatus = [];
 				$scope.action = 'select';
@@ -35,8 +35,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.action = 'select';
@@ -46,8 +46,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.action = 'create';
@@ -64,8 +64,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.optionsStatus = msg.data.optionsStatus;
 				$scope.action = 'update';

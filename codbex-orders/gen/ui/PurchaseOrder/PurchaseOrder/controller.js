@@ -80,8 +80,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("entitySelected", {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
-				optionsOperator: $scope.optionsOperator,
 				optionsSupplier: $scope.optionsSupplier,
+				optionsOperator: $scope.optionsOperator,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsStatus: $scope.optionsStatus,
 			});
@@ -93,8 +93,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 			messageHub.postMessage("createEntity", {
 				entity: {},
-				optionsOperator: $scope.optionsOperator,
 				optionsSupplier: $scope.optionsSupplier,
+				optionsOperator: $scope.optionsOperator,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsStatus: $scope.optionsStatus,
 			});
@@ -104,8 +104,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.action = "update";
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
-				optionsOperator: $scope.optionsOperator,
 				optionsSupplier: $scope.optionsSupplier,
+				optionsOperator: $scope.optionsOperator,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsStatus: $scope.optionsStatus,
 			});
@@ -142,13 +142,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		};
 
 		//----------------Dropdowns-----------------//
-		$scope.optionsOperator = [];
 		$scope.optionsSupplier = [];
+		$scope.optionsOperator = [];
 		$scope.optionsCurrency = [];
 		$scope.optionsStatus = [];
 
-		$http.get("/services/js/codbex-orders/gen/api/entities/Employee.js").then(function (response) {
-			$scope.optionsOperator = response.data.map(e => {
+		$http.get("/services/js/codbex-orders/gen/api/partners/Supplier.js").then(function (response) {
+			$scope.optionsSupplier = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -156,8 +156,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-orders/gen/api/entities/Partner.js").then(function (response) {
-			$scope.optionsSupplier = response.data.map(e => {
+		$http.get("/services/js/codbex-orders/gen/api/entities/Employee.js").then(function (response) {
+			$scope.optionsOperator = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -182,18 +182,18 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 			});
 		});
-		$scope.optionsOperatorValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsOperator.length; i++) {
-				if ($scope.optionsOperator[i].value === optionKey) {
-					return $scope.optionsOperator[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsSupplierValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsSupplier.length; i++) {
 				if ($scope.optionsSupplier[i].value === optionKey) {
 					return $scope.optionsSupplier[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsOperatorValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsOperator.length; i++) {
+				if ($scope.optionsOperator[i].value === optionKey) {
+					return $scope.optionsOperator[i].text;
 				}
 			}
 			return null;

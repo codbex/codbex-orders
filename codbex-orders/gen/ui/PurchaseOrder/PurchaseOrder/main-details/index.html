@@ -72,6 +72,19 @@
                             <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
                         </fd-form-input-message-group>
                     </fd-form-item>
+                    <fd-form-item horizontal="false">
+                        <fd-form-label for="idSupplier" dg-required="false" dg-colon="true">Supplier</fd-form-label>
+                        <fd-combobox-input id="idSupplier"
+                            name="Supplier"
+                            state="{{ formErrors.Supplier ? 'error' : '' }}"
+                            ng-required="true"
+                            ng-change="isValid(formFieldset['Supplier'].$valid, 'Supplier')"
+                            ng-model="entity.Supplier"
+                            dg-disabled="action === 'select'"
+                            dropdown-items="optionsSupplier"
+                            dg-placeholder="Search Supplier ...">
+                        </fd-combobox-input>
+                    </fd-form-item>
 					<fd-form-item horizontal="false">
 						<fd-form-label for="idConditions" dg-required="false" dg-colon="true">Conditions</fd-form-label>
 						<fd-textarea id="idConditions"
@@ -99,19 +112,6 @@
                             dg-disabled="action === 'select'"
                             dropdown-items="optionsOperator"
                             dg-placeholder="Search Operator ...">
-                        </fd-combobox-input>
-                    </fd-form-item>
-                    <fd-form-item horizontal="false">
-                        <fd-form-label for="idSupplier" dg-required="false" dg-colon="true">Supplier</fd-form-label>
-                        <fd-combobox-input id="idSupplier"
-                            name="Supplier"
-                            state="{{ formErrors.Supplier ? 'error' : '' }}"
-                            ng-required="true"
-                            ng-change="isValid(formFieldset['Supplier'].$valid, 'Supplier')"
-                            ng-model="entity.Supplier"
-                            dg-disabled="action === 'select'"
-                            dropdown-items="optionsSupplier"
-                            dg-placeholder="Search Supplier ...">
                         </fd-combobox-input>
                     </fd-form-item>
                     <fd-form-item horizontal="false">

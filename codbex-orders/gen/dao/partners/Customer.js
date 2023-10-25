@@ -3,58 +3,53 @@ const producer = require("messaging/producer");
 const daoApi = require("db/dao");
 
 let dao = daoApi.create({
-	table: "CODBEX_PARTNER",
+	table: "CODBEX_CUSTOMER",
 	properties: [
 		{
 			name: "Id",
-			column: "PARTNER_ID",
+			column: "CUSTOMER_ID",
 			type: "INTEGER",
 			id: true,
 			autoIncrement: true,
 		},
  {
 			name: "Name",
-			column: "PARTNER_NAME",
+			column: "CUSTOMER_NAME",
 			type: "VARCHAR",
 		},
  {
-			name: "PartnerTypeId",
-			column: "PARTNER_PARTNERTYPEID",
-			type: "INTEGER",
-		},
- {
 			name: "Address",
-			column: "PARTNER_ADDRESS",
+			column: "CUSTOMER_ADDRESS",
 			type: "VARCHAR",
 		},
  {
 			name: "City",
-			column: "PARTNER_CITY",
+			column: "CUSTOMER_CITY",
 			type: "VARCHAR",
 		},
  {
 			name: "PostalCode",
-			column: "PARTNER_POSTALCODE",
+			column: "CUSTOMER_POSTALCODE",
 			type: "VARCHAR",
 		},
  {
 			name: "Email",
-			column: "PARTNER_EMAIL",
+			column: "CUSTOMER_EMAIL",
 			type: "VARCHAR",
 		},
  {
 			name: "Phone",
-			column: "PARTNER_PHONE",
+			column: "CUSTOMER_PHONE",
 			type: "VARCHAR",
 		},
  {
 			name: "Fax",
-			column: "PARTNER_FAX",
+			column: "CUSTOMER_FAX",
 			type: "VARCHAR",
 		},
  {
-			name: "CountryId",
-			column: "PARTNER_COUNTRYID",
+			name: "Country",
+			column: "CUSTOMER_COUNTRYID",
 			type: "INTEGER",
 		}
 ]
@@ -71,10 +66,10 @@ exports.get = function(id) {
 exports.create = function(entity) {
 	let id = dao.insert(entity);
 	triggerEvent("Create", {
-		table: "CODBEX_PARTNER",
+		table: "CODBEX_CUSTOMER",
 		key: {
 			name: "Id",
-			column: "PARTNER_ID",
+			column: "CUSTOMER_ID",
 			value: id
 		}
 	});
@@ -84,10 +79,10 @@ exports.create = function(entity) {
 exports.update = function(entity) {
 	dao.update(entity);
 	triggerEvent("Update", {
-		table: "CODBEX_PARTNER",
+		table: "CODBEX_CUSTOMER",
 		key: {
 			name: "Id",
-			column: "PARTNER_ID",
+			column: "CUSTOMER_ID",
 			value: entity.Id
 		}
 	});
@@ -96,10 +91,10 @@ exports.update = function(entity) {
 exports.delete = function(id) {
 	dao.remove(id);
 	triggerEvent("Delete", {
-		table: "CODBEX_PARTNER",
+		table: "CODBEX_CUSTOMER",
 		key: {
 			name: "Id",
-			column: "PARTNER_ID",
+			column: "CUSTOMER_ID",
 			value: id
 		}
 	});
@@ -110,7 +105,7 @@ exports.count = function() {
 };
 
 exports.customDataCount = function() {
-	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PARTNER"');
+	let resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_CUSTOMER"');
 	if (resultSet !== null && resultSet[0] !== null) {
 		if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
 			return resultSet[0].COUNT;
@@ -122,5 +117,5 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(operation, data) {
-	producer.queue("codbex-orders/entities/Partner/" + operation).send(JSON.stringify(data));
+	producer.queue("codbex-orders/partners/Customer/" + operation).send(JSON.stringify(data));
 }
