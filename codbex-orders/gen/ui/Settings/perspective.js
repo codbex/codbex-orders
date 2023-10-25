@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: "Settings",
 	name: "Settings",
 	link: "/services/web/codbex-orders/gen/ui/Settings/index.html",
-	order: "100",
-	icon: "/services/web/resources/unicons/copy.svg",
+	order: "999",
+	icon: "/services/web/resources/unicons/wrench.svg",
 };
 
 if (typeof exports !== 'undefined') {

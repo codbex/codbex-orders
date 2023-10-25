@@ -256,9 +256,9 @@
                 "menuLabel": "SalesOrder",
                 "name": "SalesOrder",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
                 "perspectiveName": "SalesOrder",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "200",
                 "title": "SalesOrder",
                 "tooltip": "SalesOrder",
                 "type": "PRIMARY"
@@ -566,9 +566,9 @@
                 "menuLabel": "SalesOrderItem",
                 "name": "SalesOrderItem",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
                 "perspectiveName": "SalesOrder",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "200",
                 "title": "SalesOrderItem",
                 "tooltip": "SalesOrderItem",
                 "type": "DEPENDENT"
@@ -1078,9 +1078,9 @@
                 "menuLabel": "PurchaseOrder",
                 "name": "PurchaseOrder",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
                 "perspectiveName": "PurchaseOrder",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "300",
                 "title": "PurchaseOrder",
                 "tooltip": "PurchaseOrder",
                 "type": "PRIMARY"
@@ -1286,9 +1286,9 @@
                 "menuLabel": "PurchaseOrderItem",
                 "name": "PurchaseOrderItem",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
                 "perspectiveName": "PurchaseOrder",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "300",
                 "title": "PurchaseOrderItem",
                 "tooltip": "PurchaseOrderItem",
                 "type": "DEPENDENT"
@@ -1337,9 +1337,9 @@
                 "menuLabel": "OrderStatus",
                 "name": "OrderStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
                 "perspectiveName": "Settings",
-                "perspectiveOrder": "100",
+                "perspectiveOrder": "999",
                 "title": "OrderStatus",
                 "tooltip": "OrderStatus",
                 "type": "PRIMARY"
@@ -1880,10 +1880,22 @@
         ],
         "perspectives": [
             {
-                "name": "partners",
-                "label": "Partners",
-                "icon": "/services/web/resources/unicons/user-arrows.svg",
-                "order": "400"
+                "name": "SalesOrder",
+                "label": "Sales Order",
+                "icon": "/services/web/resources/unicons/receipt.svg",
+                "order": "200"
+            },
+            {
+                "name": "PurchaseOrder",
+                "label": "Purchase Order",
+                "icon": "/services/web/resources/unicons/receipt-alt.svg",
+                "order": "300"
+            },
+            {
+                "name": "Settings",
+                "label": "Settings",
+                "icon": "/services/web/resources/unicons/wrench.svg",
+                "order": "999"
             }
         ],
         "navigations": []
