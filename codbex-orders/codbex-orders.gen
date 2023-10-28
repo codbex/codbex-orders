@@ -31,7 +31,7 @@
       ],
       "name": "SalesOrder",
       "label": "SalesOrder",
-      "order": "200",
+      "order": "510",
       "icon": "/services/web/resources/unicons/receipt.svg"
     },
     "entities": {
@@ -67,16 +67,16 @@
       ],
       "name": "PurchaseOrder",
       "label": "PurchaseOrder",
-      "order": "300",
+      "order": "520",
       "icon": "/services/web/resources/unicons/receipt-alt.svg"
     },
-    "Settings": {
+    "OrdersSettings": {
       "views": [
         "OrderStatus"
       ],
-      "name": "Settings",
-      "label": "Settings",
-      "order": "999",
+      "name": "OrdersSettings",
+      "label": "OrdersSettings",
+      "order": "590",
       "icon": "/services/web/resources/unicons/wrench.svg"
     },
     "Employees": {
@@ -386,7 +386,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "SalesOrder_OrderStatus",
           "relationshipEntityName": "OrderStatus",
-          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveName": "OrdersSettings",
           "dataNotNull": false,
           "widgetLabel": "Status",
           "inputRule": ""
@@ -405,7 +405,7 @@
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
       "perspectiveName": "SalesOrder",
-      "perspectiveOrder": "200",
+      "perspectiveOrder": "510",
       "title": "SalesOrder",
       "tooltip": "SalesOrder",
       "type": "PRIMARY",
@@ -679,7 +679,7 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "SalesOrder_OrderStatus",
             "relationshipEntityName": "OrderStatus",
-            "relationshipEntityPerspectiveName": "Settings",
+            "relationshipEntityPerspectiveName": "OrdersSettings",
             "dataNotNull": false,
             "widgetLabel": "Status",
             "inputRule": ""
@@ -1049,7 +1049,7 @@
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
       "perspectiveName": "SalesOrder",
-      "perspectiveOrder": "200",
+      "perspectiveOrder": "510",
       "title": "SalesOrderItem",
       "tooltip": "SalesOrderItem",
       "type": "DEPENDENT",
@@ -1649,7 +1649,7 @@
           "widgetType": "DROPDOWN",
           "relationshipName": "PurchaseOrder_OrderStatus",
           "relationshipEntityName": "OrderStatus",
-          "relationshipEntityPerspectiveName": "Settings",
+          "relationshipEntityPerspectiveName": "OrdersSettings",
           "dataNotNull": false,
           "widgetLabel": "Status",
           "inputRule": ""
@@ -1668,7 +1668,7 @@
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
       "perspectiveName": "PurchaseOrder",
-      "perspectiveOrder": "300",
+      "perspectiveOrder": "520",
       "title": "PurchaseOrder",
       "tooltip": "PurchaseOrder",
       "type": "PRIMARY",
@@ -1942,7 +1942,7 @@
             "widgetType": "DROPDOWN",
             "relationshipName": "PurchaseOrder_OrderStatus",
             "relationshipEntityName": "OrderStatus",
-            "relationshipEntityPerspectiveName": "Settings",
+            "relationshipEntityPerspectiveName": "OrdersSettings",
             "dataNotNull": false,
             "widgetLabel": "Status",
             "inputRule": ""
@@ -2185,7 +2185,7 @@
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
       "perspectiveName": "PurchaseOrder",
-      "perspectiveOrder": "300",
+      "perspectiveOrder": "520",
       "title": "PurchaseOrderItem",
       "tooltip": "PurchaseOrderItem",
       "type": "DEPENDENT",
@@ -2250,8 +2250,8 @@
       "name": "OrderStatus",
       "navigationPath": "/Home",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveName": "Settings",
-      "perspectiveOrder": "999",
+      "perspectiveName": "OrdersSettings",
+      "perspectiveOrder": "590",
       "title": "OrderStatus",
       "tooltip": "OrderStatus",
       "type": "PRIMARY",

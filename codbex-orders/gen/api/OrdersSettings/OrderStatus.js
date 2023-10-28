@@ -1,5 +1,5 @@
 const rs = require("http/rs");
-const dao = require("codbex-orders/gen/dao/Settings/OrderStatus");
+const dao = require("codbex-orders/gen/dao/OrdersSettings/OrderStatus");
 const http = require("codbex-orders/gen/api/utils/http");
 
 rs.service()

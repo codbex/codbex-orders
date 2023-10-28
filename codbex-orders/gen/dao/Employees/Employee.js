@@ -73,7 +73,7 @@ exports.create = function(entity) {
 };
 
 exports.update = function(entity) {
-	entity["Name"] = entity['FirstName'] + ' ' + entity['LastName']
+	entity["Name"] = entity['FirstName'] + ' ' + entity['LastName'];
 	dao.update(entity);
 	triggerEvent("Update", {
 		table: "CODBEX_EMPLOYEE",

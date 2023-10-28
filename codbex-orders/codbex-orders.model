@@ -242,7 +242,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_OrderStatus",
                         "relationshipEntityName": "OrderStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "OrdersSettings"
                     }
                 ],
                 "caption": "Manage entity SalesOrder",
@@ -258,7 +258,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
                 "perspectiveName": "SalesOrder",
-                "perspectiveOrder": "200",
+                "perspectiveOrder": "510",
                 "title": "SalesOrder",
                 "tooltip": "SalesOrder",
                 "type": "PRIMARY"
@@ -568,7 +568,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
                 "perspectiveName": "SalesOrder",
-                "perspectiveOrder": "200",
+                "perspectiveOrder": "510",
                 "title": "SalesOrderItem",
                 "tooltip": "SalesOrderItem",
                 "type": "DEPENDENT"
@@ -1064,7 +1064,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "PurchaseOrder_OrderStatus",
                         "relationshipEntityName": "OrderStatus",
-                        "relationshipEntityPerspectiveName": "Settings"
+                        "relationshipEntityPerspectiveName": "OrdersSettings"
                     }
                 ],
                 "caption": "Manage entity PurchaseOrder",
@@ -1080,7 +1080,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
                 "perspectiveName": "PurchaseOrder",
-                "perspectiveOrder": "300",
+                "perspectiveOrder": "520",
                 "title": "PurchaseOrder",
                 "tooltip": "PurchaseOrder",
                 "type": "PRIMARY"
@@ -1288,7 +1288,7 @@
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
                 "perspectiveName": "PurchaseOrder",
-                "perspectiveOrder": "300",
+                "perspectiveOrder": "520",
                 "title": "PurchaseOrderItem",
                 "tooltip": "PurchaseOrderItem",
                 "type": "DEPENDENT"
@@ -1338,8 +1338,8 @@
                 "name": "OrderStatus",
                 "navigationPath": "/Home",
                 "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveName": "Settings",
-                "perspectiveOrder": "999",
+                "perspectiveName": "OrdersSettings",
+                "perspectiveOrder": "590",
                 "title": "OrderStatus",
                 "tooltip": "OrderStatus",
                 "type": "PRIMARY"
@@ -1883,19 +1883,19 @@
                 "name": "SalesOrder",
                 "label": "Sales Order",
                 "icon": "/services/web/resources/unicons/receipt.svg",
-                "order": "200"
+                "order": "510"
             },
             {
                 "name": "PurchaseOrder",
                 "label": "Purchase Order",
                 "icon": "/services/web/resources/unicons/receipt-alt.svg",
-                "order": "300"
+                "order": "520"
             },
             {
-                "name": "Settings",
-                "label": "Settings",
+                "name": "OrdersSettings",
+                "label": "Orders Settings",
                 "icon": "/services/web/resources/unicons/wrench.svg",
-                "order": "999"
+                "order": "590"
             }
         ],
         "navigations": []

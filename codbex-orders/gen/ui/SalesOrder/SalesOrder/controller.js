@@ -174,7 +174,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/js/codbex-orders/gen/api/Settings/OrderStatus.js").then(function (response) {
+		$http.get("/services/js/codbex-orders/gen/api/OrdersSettings/OrderStatus.js").then(function (response) {
 			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,

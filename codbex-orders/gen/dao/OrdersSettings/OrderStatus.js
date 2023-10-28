@@ -82,5 +82,5 @@ exports.customDataCount = function() {
 };
 
 function triggerEvent(operation, data) {
-	producer.queue("codbex-orders/Settings/OrderStatus/" + operation).send(JSON.stringify(data));
+	producer.queue("codbex-orders/OrdersSettings/OrderStatus/" + operation).send(JSON.stringify(data));
 }

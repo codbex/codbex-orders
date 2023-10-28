@@ -4,14 +4,16 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "OrderStatus-details",
+    id: "OrderStatus",
     label: "OrderStatus",
-    link: "/services/web/codbex-orders/gen/ui/Settings/OrderStatus/dialog-window/index.html",
-    perspectiveName: "Settings"
+    factory: "frame",
+    region: "center",
+    link: "/services/web/codbex-orders/gen/ui/OrdersSettings/OrderStatus/index.html",
+    perspectiveName: "OrdersSettings"
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }
