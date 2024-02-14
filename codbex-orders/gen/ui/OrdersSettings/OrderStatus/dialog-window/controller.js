@@ -3,7 +3,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-orders.OrdersSettings.OrderStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-orders/gen/api/OrdersSettings/OrderStatus.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/api/OrdersSettings/OrderStatusService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
 

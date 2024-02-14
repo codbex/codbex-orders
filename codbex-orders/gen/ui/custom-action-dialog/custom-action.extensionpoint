@@ -1,0 +1,4 @@
+{
+    "name": "codbex-orders-custom-action",
+    "description": "codbex-orders - Extension Point for the Application Custom Action Providers"
+}

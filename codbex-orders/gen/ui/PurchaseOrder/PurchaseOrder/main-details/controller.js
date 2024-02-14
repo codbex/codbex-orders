@@ -3,9 +3,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHubProvider.eventIdPrefix = 'codbex-orders.PurchaseOrder.PurchaseOrder';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/js/codbex-orders/gen/api/PurchaseOrder/PurchaseOrder.js";
+		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/api/PurchaseOrder/PurchaseOrderService.ts";
 	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
+	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.formHeaders = {
@@ -16,15 +16,35 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.formErrors = {};
 		$scope.action = 'select';
 
+		//-----------------Custom Actions-------------------//
+		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-orders-custom-action").then(function (response) {
+			$scope.entityActions = response.data.filter(e => e.perspective === "PurchaseOrder" && e.view === "PurchaseOrder" && e.type === "entity");
+		});
+
+		$scope.triggerEntityAction = function (actionId, selectedEntity) {
+			for (const next of $scope.entityActions) {
+				if (next.id === actionId) {
+					messageHub.showDialogWindow("codbex-orders-custom-action", {
+						src: `${next.link}?id=${$scope.entity.Id}`,
+					});
+					break;
+				}
+			}
+		};
+		//-----------------Custom Actions-------------------//
+
 		//-----------------Events-------------------//
 		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.formErrors = {};
-				$scope.optionsSupplier = [];
-				$scope.optionsOperator = [];
+				$scope.optionsCustomer = [];
 				$scope.optionsCurrency = [];
+				$scope.optionsPaymentMethod = [];
+				$scope.optionsSentMethod = [];
 				$scope.optionsStatus = [];
+				$scope.optionsOperator = [];
+				$scope.optionsCompany = [];
 				$scope.action = 'select';
 			});
 		});
@@ -34,11 +54,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data.entity.Date) {
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
+				if (msg.data.entity.Due) {
+					msg.data.entity.Due = new Date(msg.data.entity.Due);
+				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsSupplier = msg.data.optionsSupplier;
-				$scope.optionsOperator = msg.data.optionsOperator;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
+				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsOperator = msg.data.optionsOperator;
+				$scope.optionsCompany = msg.data.optionsCompany;
 				$scope.action = 'select';
 			});
 		});
@@ -46,14 +72,21 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		messageHub.onDidReceiveMessage("createEntity", function (msg) {
 			$scope.$apply(function () {
 				$scope.entity = {};
-				$scope.optionsSupplier = msg.data.optionsSupplier;
-				$scope.optionsOperator = msg.data.optionsOperator;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
+				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsOperator = msg.data.optionsOperator;
+				$scope.optionsCompany = msg.data.optionsCompany;
 				$scope.action = 'create';
 				// Set Errors for required fields only
 				$scope.formErrors = {
+					Number: true,
+					Date: true,
+					Currency: true,
 					Name: true,
+					UUID: true,
 				};
 			});
 		});
@@ -63,11 +96,17 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data.entity.Date) {
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
+				if (msg.data.entity.Due) {
+					msg.data.entity.Due = new Date(msg.data.entity.Due);
+				}
 				$scope.entity = msg.data.entity;
-				$scope.optionsSupplier = msg.data.optionsSupplier;
-				$scope.optionsOperator = msg.data.optionsOperator;
+				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
+				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsStatus = msg.data.optionsStatus;
+				$scope.optionsOperator = msg.data.optionsOperator;
+				$scope.optionsCompany = msg.data.optionsCompany;
 				$scope.action = 'update';
 			});
 		});

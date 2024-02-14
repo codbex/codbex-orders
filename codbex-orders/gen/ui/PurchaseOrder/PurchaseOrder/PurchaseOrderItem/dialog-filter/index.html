@@ -1,0 +1,223 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=" dg-brand-icon />
+        <title dg-brand-title></title>
+        <theme></theme>
+        <script type="text/javascript"
+            src="/services/js/resources-core/services/loader.js?id=application-view-js"></script>
+        <link type="text/css" rel="stylesheet"
+            href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+
+        <script type="text/javascript" src="controller.js"></script>
+    </head>
+
+    <body class="dg-vbox" dg-contextmenu="contextMenuContent">
+        <fd-scrollbar class="dg-full-height">
+            <div class="fd-margin--md fd-message-strip fd-message-strip--error fd-message-strip--dismissible"
+                role="alert" ng-show="errorMessage">
+                <p class="fd-message-strip__text">{{ errorMessage }}</p>
+                <fd-button glyph="sap-icon--decline" compact="true" dg-type="transparent" aria-label="Close" in-msg-strip="true" ng-click="clearErrorMessage()">
+		        </fd-button>
+            </div>
+
+            <fd-fieldset class="fd-margin--md" ng-form="formFieldset">
+                <fd-form-group dg-header="PurchaseOrderItem Filter" name="entityForm" class="fd-container fd-form-layout-grid-container fd-form-group">
+                    <fd-form-item class="fd-row fd-form-item">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idPurchaseOrder" dg-required="true" dg-colon="true">PurchaseOrder</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-combobox-input id="idPurchaseOrder"
+	                            name="PurchaseOrder"
+	                            state="{{ formErrors.PurchaseOrder ? 'error' : '' }}"
+	                            ng-required="true"
+	                            ng-change="isValid(formFieldset['PurchaseOrder'].$valid, 'PurchaseOrder')"
+	                            ng-model="entity.PurchaseOrder"
+	                            dropdown-items="optionsPurchaseOrder"
+	                            dg-placeholder="Search PurchaseOrder ...">
+	                        </fd-combobox-input>
+	                    </div>
+                    </fd-form-item>
+					<fd-form-item class="fd-row fd-form-item">
+						<div class="fd-col fd-col-md--2">
+							<fd-form-label for="idName" dg-required="true" dg-colon="true">Name</fd-form-label>
+						</div>
+						<div class="fd-col fd-col-md--8">
+							<fd-textarea id="idName"
+								name="Name"
+								state="{{ formErrors.Name ? 'error' : '' }}"
+								ng-required="true"
+								ng-change="isValid(formFieldset['Name'].$valid, 'Name')"
+								ng-model="entity.Name"
+	                            ng-readonly="action === 'select'"
+								ng-minlength="0.0 || 0"
+								ng-maxlength="2000.0 || -1"
+								dg-input-rules="{ patterns: [''] }"
+								placeholder="Enter Name">
+							</fd-textarea>
+							<fd-form-message dg-type="error" ng-show="formErrors.Name">Incorrect Input</fd-form-message>
+						</div>
+					</fd-form-item>
+                    <fd-form-item class="fd-row fd-form-item">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idProduct" dg-required="true" dg-colon="true">Product</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-combobox-input id="idProduct"
+	                            name="Product"
+	                            state="{{ formErrors.Product ? 'error' : '' }}"
+	                            ng-required="true"
+	                            ng-change="isValid(formFieldset['Product'].$valid, 'Product')"
+	                            ng-model="entity.Product"
+	                            dropdown-items="optionsProduct"
+	                            dg-placeholder="Search Product ...">
+	                        </fd-combobox-input>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row fd-form-item">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idQuantity" dg-required="true" dg-colon="true">Quantity</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--4">
+	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Quantity ? false : true }}">
+	                            <fd-input id="idQuantity"
+	                                name="Quantity"
+	                                state="{{ formErrors.Quantity ? 'error' : '' }}"
+									ng-required="true"
+	                                ng-change="isValid(formFieldset['Quantity'].$valid, 'Quantity')"
+	                                ng-model="entity.Quantity"
+	                                ng-readonly="action === 'select'"
+	                                type="number"
+	                                placeholder="Enter Quantity"
+	                                class="right-align">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row fd-form-item">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idUoM" dg-required="true" dg-colon="true">UoM</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-combobox-input id="idUoM"
+	                            name="UoM"
+	                            state="{{ formErrors.UoM ? 'error' : '' }}"
+	                            ng-required="true"
+	                            ng-change="isValid(formFieldset['UoM'].$valid, 'UoM')"
+	                            ng-model="entity.UoM"
+	                            dropdown-items="optionsUoM"
+	                            dg-placeholder="Search UoM ...">
+	                        </fd-combobox-input>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row fd-form-item">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idPrice" dg-required="true" dg-colon="true">Price</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--4">
+	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Price ? false : true }}">
+	                            <fd-input id="idPrice"
+	                                name="Price"
+	                                state="{{ formErrors.Price ? 'error' : '' }}"
+									ng-required="true"
+	                                ng-change="isValid(formFieldset['Price'].$valid, 'Price')"
+	                                ng-model="entity.Price"
+	                                ng-readonly="action === 'select'"
+	                                type="number"
+	                                placeholder="Enter Price"
+	                                class="right-align">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row fd-form-item">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idNet" dg-required="false" dg-colon="true">Net</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--4">
+	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Net ? false : true }}">
+	                            <fd-input id="idNet"
+	                                name="Net"
+	                                state="{{ formErrors.Net ? 'error' : '' }}"
+									ng-required="false"
+	                                ng-change="isValid(formFieldset['Net'].$valid, 'Net')"
+	                                ng-model="entity.Net"
+	                                ng-readonly="true"
+	                                type="number"
+	                                placeholder="Enter Net"
+	                                class="right-align">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row fd-form-item">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idVAT" dg-required="false" dg-colon="true">VAT</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--4">
+	                        <fd-form-input-message-group dg-inactive="{{ formErrors.VAT ? false : true }}">
+	                            <fd-input id="idVAT"
+	                                name="VAT"
+	                                state="{{ formErrors.VAT ? 'error' : '' }}"
+									ng-required="false"
+	                                ng-change="isValid(formFieldset['VAT'].$valid, 'VAT')"
+	                                ng-model="entity.VAT"
+	                                ng-readonly="true"
+	                                type="number"
+	                                placeholder="Enter VAT"
+	                                class="right-align">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row fd-form-item">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idGross" dg-required="false" dg-colon="true">Gross</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--4">
+	                        <fd-form-input-message-group dg-inactive="{{ formErrors.Gross ? false : true }}">
+	                            <fd-input id="idGross"
+	                                name="Gross"
+	                                state="{{ formErrors.Gross ? 'error' : '' }}"
+									ng-required="false"
+	                                ng-change="isValid(formFieldset['Gross'].$valid, 'Gross')"
+	                                ng-model="entity.Gross"
+	                                ng-readonly="true"
+	                                type="number"
+	                                placeholder="Enter Gross"
+	                                class="right-align">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+            </fd-fieldset>
+        </fd-scrollbar>
+
+        <footer class="fd-dialog__footer fd-bar fd-bar--footer" ng-show="action !== 'select'">
+            <div class="fd-bar__right">
+                <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true" dg-type="emphasized"
+                    dg-label="Filter"
+                    ng-click="filter()">
+                </fd-button>
+                <fd-button class="fd-margin-end--tiny fd-dialog__decisive-button" compact="true" dg-type="transparent"
+                    dg-label="Reset"
+                    ng-click="resetFilter()">
+                </fd-button>
+                <fd-button class="fd-dialog__decisive-button" compact="true" dg-type="transparent" dg-label="Cancel"
+                    ng-click="cancel()"></fd-button>
+            </div>
+        </footer>
+
+    </body>
+
+</html>
