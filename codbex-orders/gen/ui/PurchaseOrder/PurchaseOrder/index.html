@@ -51,7 +51,7 @@
 							<fd-list-byline dg-align="left">
 								{{next.Date | date: "dd/MMM/yyyy"}} |
 								{{next.Due | date: "dd/MMM/yyyy"}} |
-								{{optionsCustomerValue(next.Customer)}} |
+								{{optionsSupplierValue(next.Supplier)}} |
 								{{next.Net}} |
 								{{optionsCurrencyValue(next.Currency)}} |
 								{{next.Gross}} |
@@ -61,8 +61,8 @@
 								{{next.Total}} |
 								{{next.Conditions}} |
 								{{optionsPaymentMethodValue(next.PaymentMethod)}} |
-								{{optionsSentMethodValue(next.SentMethod)}} |
-								{{optionsStatusValue(next.Status)}} |
+								{{optionsSentMethodsValue(next.SentMethods)}} |
+								{{optionsPurchaseOrderStatusValue(next.PurchaseOrderStatus)}} |
 								{{optionsOperatorValue(next.Operator)}} |
 								{{next.Document}} |
 								{{optionsCompanyValue(next.Company)}} |

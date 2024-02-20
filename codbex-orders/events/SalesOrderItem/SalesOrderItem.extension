@@ -1,0 +1,5 @@
+{
+    "module": "codbex-orders/events/SalesOrderItem/SalesOrderItemHandler.ts",
+    "extensionPoint": "codbex-orders/SalesOrder/SalesOrderItem",
+    "description": "SalesOrderItem Extension"
+}

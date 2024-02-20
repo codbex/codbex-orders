@@ -42,14 +42,13 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_CUSTOMER"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "SALESORDER_NET"
                     },
@@ -61,42 +60,44 @@
                         "name": "SALESORDER_CURRENCY"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "SALESORDER_GROSS"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "18",
+                        "scale": "2",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "SALESORDER_DISCOUNT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "SALESORDER_TAXES"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "SALESORDER_VAT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "SALESORDER_TOTAL"
                     },
@@ -122,15 +123,14 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDER_SENTMETHOD"
+                        "name": "SALESORDER_SENTMETHODS"
                     },
                     {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "SALESORDER_STATUS"
+                        "name": "SALESORDER_SALESORDERSTATUS"
                     },
                     {
                         "type": "INTEGER",
@@ -210,13 +210,6 @@
                         "name": "SALESORDERITEM_NAME"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "SALESORDERITEM_PRODUCT"
-                    },
-                    {
                         "type": "DOUBLE",
                         "length": 20,
                         "precision": "NaN",
@@ -231,33 +224,33 @@
                         "name": "SALESORDERITEM_UOM"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "name": "SALESORDERITEM_PRICE"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "SALESORDERITEM_NET"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "SALESORDERITEM_VAT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "SALESORDERITEM_TOTAL"
                     }
@@ -303,14 +296,13 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "PURCHASEORDER_CUSTOMER"
+                        "name": "PURCHASEORDER_SUPPLIER"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDER_NET"
                     },
@@ -322,42 +314,44 @@
                         "name": "PURCHASEORDER_CURRENCY"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDER_GROSS"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "PURCHASEORDER_DISCOUNT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
+                        "defaultValue": "0",
                         "nullable": true,
                         "name": "PURCHASEORDER_TAXES"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDER_VAT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDER_TOTAL"
                     },
@@ -383,15 +377,14 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PURCHASEORDER_SENTMETHOD"
+                        "name": "PURCHASEORDER_SENTMETHODS"
                     },
                     {
                         "type": "INTEGER",
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
-                        "name": "PURCHASEORDER_STATUS"
+                        "name": "PURCHASEORDER_PURCHASEORDERSTATUS"
                     },
                     {
                         "type": "INTEGER",
@@ -469,13 +462,6 @@
                         "name": "PURCHASEORDERITEM_NAME"
                     },
                     {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "name": "PURCHASEORDERITEM_PRODUCT"
-                    },
-                    {
                         "type": "DOUBLE",
                         "length": 20,
                         "precision": "NaN",
@@ -490,40 +476,40 @@
                         "name": "PURCHASEORDERITEM_UOM"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "name": "PURCHASEORDERITEM_PRICE"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDERITEM_NET"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDERITEM_VAT"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
                         "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDERITEM_GROSS"
                     }
                 ]
             },
             {
-                "name": "CODBEX_ORDERSTATUS",
+                "name": "CODBEX_SALESORDERSTATUS",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -532,18 +518,18 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "ORDERSTATUS_ID"
+                        "name": "SALESORDERSTATUS_ID"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "ORDERSTATUS_NAME"
+                        "name": "SALESORDERSTATUS_NAME"
                     }
                 ]
             },
             {
-                "name": "CODBEX_PAYMENTMETHOD",
+                "name": "CODBEX_PURCHASEORDERSTATUS",
                 "type": "TABLE",
                 "columns": [
                     {
@@ -552,541 +538,13 @@
                         "primaryKey": true,
                         "identity": true,
                         "nullable": true,
-                        "name": "PAYMENTMETHOD_ID"
+                        "name": "PURCHASEORDERSTATUS_ID"
                     },
                     {
                         "type": "VARCHAR",
                         "length": 20,
                         "nullable": true,
-                        "name": "PAYMENTMETHOD_NAME"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_SENTMETHOD",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "SENTMETHOD_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "SENTMETHOD_NAME"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_COMPANY",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "COMPANY_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COMPANY_NAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 50,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COMPANY_MANAGER"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COMPANY_EMAIL"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COMPANY_PHONE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 200,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COMPANY_ADDRESS"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "COMPANY_POSTCODE"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COMPANY_CITY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COMPANY_COUNTRY"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "COMPANY_TIN"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 22,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "COMPANY_IBAN"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_UOM",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "UOM_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 255,
-                        "nullable": true,
-                        "name": "UOM_NAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "UOM_UNIT"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "nullable": true,
-                        "name": "UOM_DIMENSION"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "nullable": true,
-                        "name": "UOM_NUMERATOR"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "nullable": true,
-                        "name": "UOM_DENOMINATOR"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "nullable": true,
-                        "name": "UOM_ROUNDING"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_PRODUCT",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "PRODUCT_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 500,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_NAME"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_TYPE"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_CATEGORY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_BASEUNIT"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 200,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_MODEL"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_COMPANY"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 64,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_SKU"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PRODUCT_UPC"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PRODUCT_EAN"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PRODUCT_JAN"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "PRODUCT_ISBN"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 40,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_MPN"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_MANUFACTURER"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_WEIGHT"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_HEIGHT"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_LENGTH"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "PRODUCT_VAT"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_CURRENCY",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "CURRENCY_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 3,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CURRENCY_CODE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 127,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CURRENCY_NAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 3,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CURRENCY_NUMERIC"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CURRENCY_ROUNDING"
-                    },
-                    {
-                        "type": "BOOLEAN",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CURRENCY_BASE"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CURRENCY_RATE"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_EMPLOYEE",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "EMPLOYEE_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "EMPLOYEE_FIRSTNAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "EMPLOYEE_MIDDLENAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "EMPLOYEE_LASTNAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 200,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "EMPLOYEE_EMAIL"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "EMPLOYEE_PHONE"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "EMPLOYEE_ORGANISATION"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 200,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "EMPLOYEE_NAME"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_CUSTOMER",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_NAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_ADDRESS"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_POSTALCODE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_EMAIL"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_PHONE"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_FAX"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_CITY"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_COUNTRYID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "CUSTOMER_TIN"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 36,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "CUSTOMER_IBAN"
+                        "name": "PURCHASEORDERSTATUS_NAME"
                     }
                 ]
             },
@@ -1118,22 +576,22 @@
                 "referencedColumns": "PAYMENTMETHOD_ID"
             },
             {
-                "name": "SalesOrder_SentMethod",
+                "name": "SalesOrder_SentMethods",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_SentMethod",
-                "columns": "SALESORDER_SENTMETHOD",
-                "referencedTable": "CODBEX_SENTMETHOD",
-                "referencedColumns": "SENTMETHOD_ID"
+                "constraintName": "SalesOrder_SentMethods",
+                "columns": "SALESORDER_SENTMETHODS",
+                "referencedTable": "CODBEX_SENTMETHODS",
+                "referencedColumns": "SENTMETHODS_ID"
             },
             {
-                "name": "SalesOrder_OrderStatus",
+                "name": "SalesOrder_SalesOrderStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_OrderStatus",
-                "columns": "SALESORDER_STATUS",
-                "referencedTable": "CODBEX_ORDERSTATUS",
-                "referencedColumns": "ORDERSTATUS_ID"
+                "constraintName": "SalesOrder_SalesOrderStatus",
+                "columns": "SALESORDER_SALESORDERSTATUS",
+                "referencedTable": "CODBEX_SALESORDERSTATUS",
+                "referencedColumns": "SALESORDERSTATUS_ID"
             },
             {
                 "name": "SalesOrder_Employee",
@@ -1163,15 +621,6 @@
                 "referencedColumns": "SALESORDER_ID"
             },
             {
-                "name": "SalesOrderItem_Product",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDERITEM",
-                "constraintName": "SalesOrderItem_Product",
-                "columns": "SALESORDERITEM_PRODUCT",
-                "referencedTable": "CODBEX_PRODUCT",
-                "referencedColumns": "PRODUCT_ID"
-            },
-            {
                 "name": "SalesOrderItem_UoM",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERITEM",
@@ -1181,13 +630,13 @@
                 "referencedColumns": "UOM_ID"
             },
             {
-                "name": "PurchaseOrder_Customer",
+                "name": "PurchaseOrder_Supplier",
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDER",
-                "constraintName": "PurchaseOrder_Customer",
-                "columns": "PURCHASEORDER_CUSTOMER",
-                "referencedTable": "CODBEX_CUSTOMER",
-                "referencedColumns": "CUSTOMER_ID"
+                "constraintName": "PurchaseOrder_Supplier",
+                "columns": "PURCHASEORDER_SUPPLIER",
+                "referencedTable": "CODBEX_SUPPLIER",
+                "referencedColumns": "SUPPLIER_ID"
             },
             {
                 "name": "PurchaseOrder_Currency",
@@ -1208,22 +657,22 @@
                 "referencedColumns": "PAYMENTMETHOD_ID"
             },
             {
-                "name": "PurchaseOrder_SentMethod",
+                "name": "PurchaseOrder_SentMethods",
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDER",
-                "constraintName": "PurchaseOrder_SentMethod",
-                "columns": "PURCHASEORDER_SENTMETHOD",
-                "referencedTable": "CODBEX_SENTMETHOD",
-                "referencedColumns": "SENTMETHOD_ID"
+                "constraintName": "PurchaseOrder_SentMethods",
+                "columns": "PURCHASEORDER_SENTMETHODS",
+                "referencedTable": "CODBEX_SENTMETHODS",
+                "referencedColumns": "SENTMETHODS_ID"
             },
             {
-                "name": "PurchaseOrder_OrderStatus",
+                "name": "PurchaseOrder_PurchaseOrderStatus",
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDER",
-                "constraintName": "PurchaseOrder_OrderStatus",
-                "columns": "PURCHASEORDER_STATUS",
-                "referencedTable": "CODBEX_ORDERSTATUS",
-                "referencedColumns": "ORDERSTATUS_ID"
+                "constraintName": "PurchaseOrder_PurchaseOrderStatus",
+                "columns": "PURCHASEORDER_PURCHASEORDERSTATUS",
+                "referencedTable": "CODBEX_PURCHASEORDERSTATUS",
+                "referencedColumns": "PURCHASEORDERSTATUS_ID"
             },
             {
                 "name": "PurchaseOrder_Employee",
@@ -1251,15 +700,6 @@
                 "columns": "PURCHASEORDERITEM_PURCHASEORDER",
                 "referencedTable": "CODBEX_PURCHASEORDER",
                 "referencedColumns": "PURCHASEORDER_ID"
-            },
-            {
-                "name": "PurchaseOrderItem_Product",
-                "type": "foreignKey",
-                "table": "CODBEX_PURCHASEORDERITEM",
-                "constraintName": "PurchaseOrderItem_Product",
-                "columns": "PURCHASEORDERITEM_PRODUCT",
-                "referencedTable": "CODBEX_PRODUCT",
-                "referencedColumns": "PRODUCT_ID"
             },
             {
                 "name": "PurchaseOrderItem_UoM",

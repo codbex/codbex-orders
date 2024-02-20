@@ -1,0 +1,7 @@
+SALESORDERSTATUS_ID,SALESORDERSTATUS_NAME
+1,New
+2,Approved
+3,Rejected
+4,Sent
+5,Partially Paid
+6,Paid

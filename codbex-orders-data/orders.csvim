@@ -1,15 +1,26 @@
 {
   "files": [
     {
-      "table": "CODBEX_ORDERSTATUS",
+      "table": "CODBEX_SALESORDERSTATUS",
       "schema": "PUBLIC",
-      "file": "/codbex-orders-data/order-statuses.csv",
+      "file": "/codbex-orders-data/sales-order-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
-      "version": "1.0"
+      "version": ""
+    },
+    {
+      "table": "CODBEX_PURCHASEORDERSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-orders-data/purchase-order-statuses.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": ""
     }
   ]
 }

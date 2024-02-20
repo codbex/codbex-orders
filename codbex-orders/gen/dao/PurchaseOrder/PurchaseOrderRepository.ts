@@ -9,7 +9,7 @@ export interface PurchaseOrderEntity {
     Number: string;
     Date: Date;
     Due?: Date;
-    Customer?: number;
+    Supplier: number;
     Net?: number;
     Currency: number;
     Gross?: number;
@@ -19,8 +19,8 @@ export interface PurchaseOrderEntity {
     Total?: number;
     Conditions?: string;
     PaymentMethod?: number;
-    SentMethod?: number;
-    Status?: number;
+    SentMethods?: number;
+    PurchaseOrderStatus: number;
     Operator?: number;
     Document?: string;
     Company?: number;
@@ -33,21 +33,21 @@ export interface PurchaseOrderCreateEntity {
     readonly Number: string;
     readonly Date: Date;
     readonly Due?: Date;
-    readonly Customer?: number;
+    readonly Supplier: number;
     readonly Net?: number;
     readonly Currency: number;
     readonly Gross?: number;
     readonly Discount?: number;
     readonly Taxes?: number;
     readonly VAT?: number;
+    readonly Total?: number;
     readonly Conditions?: string;
     readonly PaymentMethod?: number;
-    readonly SentMethod?: number;
-    readonly Status?: number;
+    readonly SentMethods?: number;
+    readonly PurchaseOrderStatus: number;
     readonly Operator?: number;
     readonly Document?: string;
     readonly Company?: number;
-    readonly UUID: string;
     readonly Reference?: string;
 }
 
@@ -62,7 +62,7 @@ export interface PurchaseOrderEntityOptions {
             Number?: string | string[];
             Date?: Date | Date[];
             Due?: Date | Date[];
-            Customer?: number | number[];
+            Supplier?: number | number[];
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
@@ -72,8 +72,8 @@ export interface PurchaseOrderEntityOptions {
             Total?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethod?: number | number[];
-            Status?: number | number[];
+            SentMethods?: number | number[];
+            PurchaseOrderStatus?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
@@ -86,7 +86,7 @@ export interface PurchaseOrderEntityOptions {
             Number?: string | string[];
             Date?: Date | Date[];
             Due?: Date | Date[];
-            Customer?: number | number[];
+            Supplier?: number | number[];
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
@@ -96,8 +96,8 @@ export interface PurchaseOrderEntityOptions {
             Total?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethod?: number | number[];
-            Status?: number | number[];
+            SentMethods?: number | number[];
+            PurchaseOrderStatus?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
@@ -110,7 +110,7 @@ export interface PurchaseOrderEntityOptions {
             Number?: string;
             Date?: Date;
             Due?: Date;
-            Customer?: number;
+            Supplier?: number;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -120,8 +120,8 @@ export interface PurchaseOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
-            Status?: number;
+            SentMethods?: number;
+            PurchaseOrderStatus?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -134,7 +134,7 @@ export interface PurchaseOrderEntityOptions {
             Number?: string;
             Date?: Date;
             Due?: Date;
-            Customer?: number;
+            Supplier?: number;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -144,8 +144,8 @@ export interface PurchaseOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
-            Status?: number;
+            SentMethods?: number;
+            PurchaseOrderStatus?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -158,7 +158,7 @@ export interface PurchaseOrderEntityOptions {
             Number?: string;
             Date?: Date;
             Due?: Date;
-            Customer?: number;
+            Supplier?: number;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -168,8 +168,8 @@ export interface PurchaseOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
-            Status?: number;
+            SentMethods?: number;
+            PurchaseOrderStatus?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -182,7 +182,7 @@ export interface PurchaseOrderEntityOptions {
             Number?: string;
             Date?: Date;
             Due?: Date;
-            Customer?: number;
+            Supplier?: number;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -192,8 +192,8 @@ export interface PurchaseOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
-            Status?: number;
+            SentMethods?: number;
+            PurchaseOrderStatus?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -206,7 +206,7 @@ export interface PurchaseOrderEntityOptions {
             Number?: string;
             Date?: Date;
             Due?: Date;
-            Customer?: number;
+            Supplier?: number;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -216,8 +216,8 @@ export interface PurchaseOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
-            Status?: number;
+            SentMethods?: number;
+            PurchaseOrderStatus?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -275,14 +275,15 @@ export class PurchaseOrderRepository {
                 type: "DATE",
             },
             {
-                name: "Customer",
-                column: "PURCHASEORDER_CUSTOMER",
+                name: "Supplier",
+                column: "PURCHASEORDER_SUPPLIER",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Net",
                 column: "PURCHASEORDER_NET",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Currency",
@@ -293,27 +294,27 @@ export class PurchaseOrderRepository {
             {
                 name: "Gross",
                 column: "PURCHASEORDER_GROSS",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Discount",
                 column: "PURCHASEORDER_DISCOUNT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Taxes",
                 column: "PURCHASEORDER_TAXES",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "VAT",
                 column: "PURCHASEORDER_VAT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Total",
                 column: "PURCHASEORDER_TOTAL",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Conditions",
@@ -326,14 +327,15 @@ export class PurchaseOrderRepository {
                 type: "INTEGER",
             },
             {
-                name: "SentMethod",
-                column: "PURCHASEORDER_SENTMETHOD",
+                name: "SentMethods",
+                column: "PURCHASEORDER_SENTMETHODS",
                 type: "INTEGER",
             },
             {
-                name: "Status",
-                column: "PURCHASEORDER_STATUS",
+                name: "PurchaseOrderStatus",
+                column: "PURCHASEORDER_PURCHASEORDERSTATUS",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Operator",
@@ -395,9 +397,15 @@ export class PurchaseOrderRepository {
         EntityUtils.setLocalDate(entity, "Date");
         EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
-        (entity as PurchaseOrderEntity).Total = entity["Gross"] - (entity["Gross"] * (entity["Discount"] / 100)) + (entity["Taxes"] / 100) + entity["VAT"];;
+        (entity as PurchaseOrderEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Total"];
         // @ts-ignore
-        (entity as PurchaseOrderEntity).Name = entity['Number'] + '/' + entity['Date'] + '/' + entity["Total"];;
+        (entity as PurchaseOrderEntity).UUID = require("sdk/utils/uuid").random();
+        if (!entity.Discount) {
+            entity.Discount = "0";
+        }
+        if (!entity.Taxes) {
+            entity.Taxes = "0";
+        }
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -415,10 +423,6 @@ export class PurchaseOrderRepository {
     public update(entity: PurchaseOrderUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
         // EntityUtils.setLocalDate(entity, "Due");
-        // @ts-ignore
-        (entity as PurchaseOrderEntity).Total = entity["Gross"] - (entity["Gross"] * (entity["Discount"] / 100)) + (entity["Taxes"] / 100) + entity["VAT"];;
-        // @ts-ignore
-        (entity as PurchaseOrderEntity).Name = entity['Number'] + '/' + entity['Date'] + '/' + entity["Total"];;
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

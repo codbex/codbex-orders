@@ -7,7 +7,6 @@ export interface SalesOrderItemEntity {
     readonly Id: number;
     SalesOrder: number;
     Name: string;
-    Product: number;
     Quantity: number;
     UoM: number;
     Price: number;
@@ -19,7 +18,6 @@ export interface SalesOrderItemEntity {
 export interface SalesOrderItemCreateEntity {
     readonly SalesOrder: number;
     readonly Name: string;
-    readonly Product: number;
     readonly Quantity: number;
     readonly UoM: number;
     readonly Price: number;
@@ -35,7 +33,6 @@ export interface SalesOrderItemEntityOptions {
             Id?: number | number[];
             SalesOrder?: number | number[];
             Name?: string | string[];
-            Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
             Price?: number | number[];
@@ -47,7 +44,6 @@ export interface SalesOrderItemEntityOptions {
             Id?: number | number[];
             SalesOrder?: number | number[];
             Name?: string | string[];
-            Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
             Price?: number | number[];
@@ -59,7 +55,6 @@ export interface SalesOrderItemEntityOptions {
             Id?: number;
             SalesOrder?: number;
             Name?: string;
-            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -71,7 +66,6 @@ export interface SalesOrderItemEntityOptions {
             Id?: number;
             SalesOrder?: number;
             Name?: string;
-            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -83,7 +77,6 @@ export interface SalesOrderItemEntityOptions {
             Id?: number;
             SalesOrder?: number;
             Name?: string;
-            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -95,7 +88,6 @@ export interface SalesOrderItemEntityOptions {
             Id?: number;
             SalesOrder?: number;
             Name?: string;
-            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -107,7 +99,6 @@ export interface SalesOrderItemEntityOptions {
             Id?: number;
             SalesOrder?: number;
             Name?: string;
-            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -159,12 +150,6 @@ export class SalesOrderItemRepository {
                 required: true
             },
             {
-                name: "Product",
-                column: "SALESORDERITEM_PRODUCT",
-                type: "INTEGER",
-                required: true
-            },
-            {
                 name: "Quantity",
                 column: "SALESORDERITEM_QUANTITY",
                 type: "DOUBLE",
@@ -179,23 +164,23 @@ export class SalesOrderItemRepository {
             {
                 name: "Price",
                 column: "SALESORDERITEM_PRICE",
-                type: "DOUBLE",
+                type: "DECIMAL",
                 required: true
             },
             {
                 name: "Net",
                 column: "SALESORDERITEM_NET",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "VAT",
                 column: "SALESORDERITEM_VAT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Gross",
                 column: "SALESORDERITEM_TOTAL",
-                type: "DOUBLE",
+                type: "DECIMAL",
             }
         ]
     };
@@ -217,11 +202,11 @@ export class SalesOrderItemRepository {
 
     public create(entity: SalesOrderItemCreateEntity): number {
         // @ts-ignore
-        (entity as SalesOrderItemEntity).Net = entity["Quantity"] * entity["Price"];;
+        (entity as SalesOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
         (entity as SalesOrderItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
-        (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VAT"];;
+        (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -238,11 +223,11 @@ export class SalesOrderItemRepository {
 
     public update(entity: SalesOrderItemUpdateEntity): void {
         // @ts-ignore
-        (entity as SalesOrderItemEntity).Net = entity["Quantity"] * entity["Price"];;
+        (entity as SalesOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
         (entity as SalesOrderItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
-        (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VAT"];;
+        (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

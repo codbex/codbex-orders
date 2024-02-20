@@ -7,7 +7,6 @@ export interface PurchaseOrderItemEntity {
     readonly Id: number;
     PurchaseOrder: number;
     Name: string;
-    Product: number;
     Quantity: number;
     UoM: number;
     Price: number;
@@ -19,7 +18,6 @@ export interface PurchaseOrderItemEntity {
 export interface PurchaseOrderItemCreateEntity {
     readonly PurchaseOrder: number;
     readonly Name: string;
-    readonly Product: number;
     readonly Quantity: number;
     readonly UoM: number;
     readonly Price: number;
@@ -35,7 +33,6 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number | number[];
             PurchaseOrder?: number | number[];
             Name?: string | string[];
-            Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
             Price?: number | number[];
@@ -47,7 +44,6 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number | number[];
             PurchaseOrder?: number | number[];
             Name?: string | string[];
-            Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
             Price?: number | number[];
@@ -59,7 +55,6 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number;
             PurchaseOrder?: number;
             Name?: string;
-            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -71,7 +66,6 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number;
             PurchaseOrder?: number;
             Name?: string;
-            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -83,7 +77,6 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number;
             PurchaseOrder?: number;
             Name?: string;
-            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -95,7 +88,6 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number;
             PurchaseOrder?: number;
             Name?: string;
-            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -107,7 +99,6 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number;
             PurchaseOrder?: number;
             Name?: string;
-            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -160,12 +151,6 @@ export class PurchaseOrderItemRepository {
                 required: true
             },
             {
-                name: "Product",
-                column: "PURCHASEORDERITEM_PRODUCT",
-                type: "INTEGER",
-                required: true
-            },
-            {
                 name: "Quantity",
                 column: "PURCHASEORDERITEM_QUANTITY",
                 type: "DOUBLE",
@@ -180,23 +165,23 @@ export class PurchaseOrderItemRepository {
             {
                 name: "Price",
                 column: "PURCHASEORDERITEM_PRICE",
-                type: "DOUBLE",
+                type: "DECIMAL",
                 required: true
             },
             {
                 name: "Net",
                 column: "PURCHASEORDERITEM_NET",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "VAT",
                 column: "PURCHASEORDERITEM_VAT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Gross",
                 column: "PURCHASEORDERITEM_GROSS",
-                type: "DOUBLE",
+                type: "DECIMAL",
             }
         ]
     };
@@ -218,11 +203,11 @@ export class PurchaseOrderItemRepository {
 
     public create(entity: PurchaseOrderItemCreateEntity): number {
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];;
+        (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VAT"];;
+        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -239,11 +224,11 @@ export class PurchaseOrderItemRepository {
 
     public update(entity: PurchaseOrderItemUpdateEntity): void {
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];;
+        (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VAT"];;
+        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

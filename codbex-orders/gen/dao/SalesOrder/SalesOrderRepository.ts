@@ -9,7 +9,7 @@ export interface SalesOrderEntity {
     Number: string;
     Date: Date;
     Due?: number;
-    Customer?: number;
+    Customer: number;
     Net?: number;
     Currency: number;
     Gross?: number;
@@ -19,8 +19,8 @@ export interface SalesOrderEntity {
     Total?: number;
     Conditions?: string;
     PaymentMethod?: number;
-    SentMethod?: number;
-    Status?: number;
+    SentMethods?: number;
+    SalesOrderStatus: number;
     Operator?: number;
     Document?: string;
     Company?: number;
@@ -33,21 +33,21 @@ export interface SalesOrderCreateEntity {
     readonly Number: string;
     readonly Date: Date;
     readonly Due?: number;
-    readonly Customer?: number;
+    readonly Customer: number;
     readonly Net?: number;
     readonly Currency: number;
     readonly Gross?: number;
     readonly Discount?: number;
     readonly Taxes?: number;
     readonly VAT?: number;
+    readonly Total?: number;
     readonly Conditions?: string;
     readonly PaymentMethod?: number;
-    readonly SentMethod?: number;
-    readonly Status?: number;
+    readonly SentMethods?: number;
+    readonly SalesOrderStatus: number;
     readonly Operator?: number;
     readonly Document?: string;
     readonly Company?: number;
-    readonly UUID: string;
     readonly Reference?: string;
 }
 
@@ -72,8 +72,8 @@ export interface SalesOrderEntityOptions {
             Total?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethod?: number | number[];
-            Status?: number | number[];
+            SentMethods?: number | number[];
+            SalesOrderStatus?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
@@ -96,8 +96,8 @@ export interface SalesOrderEntityOptions {
             Total?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethod?: number | number[];
-            Status?: number | number[];
+            SentMethods?: number | number[];
+            SalesOrderStatus?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
@@ -120,8 +120,8 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
-            Status?: number;
+            SentMethods?: number;
+            SalesOrderStatus?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -144,8 +144,8 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
-            Status?: number;
+            SentMethods?: number;
+            SalesOrderStatus?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -168,8 +168,8 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
-            Status?: number;
+            SentMethods?: number;
+            SalesOrderStatus?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -192,8 +192,8 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
-            Status?: number;
+            SentMethods?: number;
+            SalesOrderStatus?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -216,8 +216,8 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
-            Status?: number;
+            SentMethods?: number;
+            SalesOrderStatus?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -277,11 +277,12 @@ export class SalesOrderRepository {
                 name: "Customer",
                 column: "SALESORDER_CUSTOMER",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Net",
                 column: "SALESORDER_NET",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Currency",
@@ -292,27 +293,27 @@ export class SalesOrderRepository {
             {
                 name: "Gross",
                 column: "SALESORDER_GROSS",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Discount",
                 column: "SALESORDER_DISCOUNT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Taxes",
                 column: "SALESORDER_TAXES",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "VAT",
                 column: "SALESORDER_VAT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Total",
                 column: "SALESORDER_TOTAL",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Conditions",
@@ -325,14 +326,15 @@ export class SalesOrderRepository {
                 type: "INTEGER",
             },
             {
-                name: "SentMethod",
-                column: "SALESORDER_SENTMETHOD",
+                name: "SentMethods",
+                column: "SALESORDER_SENTMETHODS",
                 type: "INTEGER",
             },
             {
-                name: "Status",
-                column: "SALESORDER_STATUS",
+                name: "SalesOrderStatus",
+                column: "SALESORDER_SALESORDERSTATUS",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Operator",
@@ -390,9 +392,15 @@ export class SalesOrderRepository {
     public create(entity: SalesOrderCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         // @ts-ignore
-        (entity as SalesOrderEntity).Total = entity["Gross"] - (entity["Gross"] * (entity["Discount"] / 100)) + (entity["Taxes"] / 100) + entity["VAT"];;
+        (entity as SalesOrderEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Total"];
         // @ts-ignore
-        (entity as SalesOrderEntity).Name = entity['Number'] + '/' + entity['Date'] + '/' + entity["Total"];;
+        (entity as SalesOrderEntity).UUID = require("sdk/utils/uuid").random();
+        if (!entity.Discount) {
+            entity.Discount = "0";
+        }
+        if (!entity.Taxes) {
+            entity.Taxes = "0";
+        }
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -409,10 +417,6 @@ export class SalesOrderRepository {
 
     public update(entity: SalesOrderUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
-        // @ts-ignore
-        (entity as SalesOrderEntity).Total = entity["Gross"] - (entity["Gross"] * (entity["Discount"] / 100)) + (entity["Taxes"] / 100) + entity["VAT"];;
-        // @ts-ignore
-        (entity as SalesOrderEntity).Name = entity['Number'] + '/' + entity['Date'] + '/' + entity["Total"];;
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
