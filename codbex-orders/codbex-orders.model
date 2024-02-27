@@ -171,7 +171,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "18",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -213,7 +213,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "18",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -884,7 +884,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "18",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -926,7 +926,7 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "18",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "NUMBER"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",

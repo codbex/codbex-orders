@@ -129,22 +129,16 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idGross" dg-required="false" dg-colon="true">Gross</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Gross'].$valid }}">
-	                            <fd-input id="idGross"
-	                                name="Gross"
-	                                state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
-									ng-required="false"
-	                                ng-model="entity.Gross"
-	                                ng-readonly="action === 'select'"
-	                                ng-minlength="${property.minLength} || 0"
-	                                ng-maxlength="${property.maxLength} || -1"
-	                                dg-input-rules="{ patterns: [''] }"
-	                                type="text"
-	                                placeholder="Enter Gross">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
+                        <div class="fd-col  fd-col-md--4 ">
+							<fd-step-input dg-id="idGross"
+								name="Gross"
+								state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
+								dg-required="false"
+								ng-model="entity.Gross"
+								is-readonly="action === 'select'"
+								placeholder="Enter Gross"
+								>
+							</fd-step-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -167,22 +161,16 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idTaxes" dg-required="false" dg-colon="true">Taxes</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
-	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Taxes'].$valid }}">
-	                            <fd-input id="idTaxes"
-	                                name="Taxes"
-	                                state="{{ forms.details['Taxes'].$valid ? '' : 'error' }}"
-									ng-required="false"
-	                                ng-model="entity.Taxes"
-	                                ng-readonly="action === 'select'"
-	                                ng-minlength="${property.minLength} || 0"
-	                                ng-maxlength="${property.maxLength} || -1"
-	                                dg-input-rules="{ patterns: [''] }"
-	                                type="text"
-	                                placeholder="Enter Taxes">
-	                            </fd-input>
-	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-	                        </fd-form-input-message-group>
+                        <div class="fd-col  fd-col-md--4 ">
+							<fd-step-input dg-id="idTaxes"
+								name="Taxes"
+								state="{{ forms.details['Taxes'].$valid ? '' : 'error' }}"
+								dg-required="false"
+								ng-model="entity.Taxes"
+								is-readonly="action === 'select'"
+								placeholder="Enter Taxes"
+								>
+							</fd-step-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
