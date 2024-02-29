@@ -3,6 +3,8 @@ import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 export interface PurchaseOrderEntity {
     readonly Id: number;
@@ -19,7 +21,7 @@ export interface PurchaseOrderEntity {
     Total?: number;
     Conditions?: string;
     PaymentMethod?: number;
-    SentMethods?: number;
+    SentMethod?: number;
     PurchaseOrderStatus: number;
     Operator?: number;
     Document?: string;
@@ -30,7 +32,6 @@ export interface PurchaseOrderEntity {
 }
 
 export interface PurchaseOrderCreateEntity {
-    readonly Number: string;
     readonly Date: Date;
     readonly Due?: Date;
     readonly Supplier: number;
@@ -43,7 +44,7 @@ export interface PurchaseOrderCreateEntity {
     readonly Total?: number;
     readonly Conditions?: string;
     readonly PaymentMethod?: number;
-    readonly SentMethods?: number;
+    readonly SentMethod?: number;
     readonly PurchaseOrderStatus: number;
     readonly Operator?: number;
     readonly Document?: string;
@@ -72,7 +73,7 @@ export interface PurchaseOrderEntityOptions {
             Total?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethods?: number | number[];
+            SentMethod?: number | number[];
             PurchaseOrderStatus?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
@@ -96,7 +97,7 @@ export interface PurchaseOrderEntityOptions {
             Total?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethods?: number | number[];
+            SentMethod?: number | number[];
             PurchaseOrderStatus?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
@@ -120,7 +121,7 @@ export interface PurchaseOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethods?: number;
+            SentMethod?: number;
             PurchaseOrderStatus?: number;
             Operator?: number;
             Document?: string;
@@ -144,7 +145,7 @@ export interface PurchaseOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethods?: number;
+            SentMethod?: number;
             PurchaseOrderStatus?: number;
             Operator?: number;
             Document?: string;
@@ -168,7 +169,7 @@ export interface PurchaseOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethods?: number;
+            SentMethod?: number;
             PurchaseOrderStatus?: number;
             Operator?: number;
             Document?: string;
@@ -192,7 +193,7 @@ export interface PurchaseOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethods?: number;
+            SentMethod?: number;
             PurchaseOrderStatus?: number;
             Operator?: number;
             Document?: string;
@@ -216,7 +217,7 @@ export interface PurchaseOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethods?: number;
+            SentMethod?: number;
             PurchaseOrderStatus?: number;
             Operator?: number;
             Document?: string;
@@ -327,8 +328,8 @@ export class PurchaseOrderRepository {
                 type: "INTEGER",
             },
             {
-                name: "SentMethods",
-                column: "PURCHASEORDER_SENTMETHODS",
+                name: "SentMethod",
+                column: "PURCHASEORDER_SENTMETHOD",
                 type: "INTEGER",
             },
             {
@@ -396,6 +397,8 @@ export class PurchaseOrderRepository {
     public create(entity: PurchaseOrderCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
         EntityUtils.setLocalDate(entity, "Due");
+        // @ts-ignore
+        (entity as PurchaseOrderEntity).Number = new NumberGeneratorService().generate(9);
         // @ts-ignore
         (entity as PurchaseOrderEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Total"];
         // @ts-ignore
@@ -491,6 +494,6 @@ export class PurchaseOrderRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-orders/PurchaseOrder/PurchaseOrder").send(JSON.stringify(data));
+        producer.topic("codbex-orders/PurchaseOrder/PurchaseOrder").send(JSON.stringify(data));
     }
 }

@@ -123,7 +123,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "SALESORDER_SENTMETHODS"
+                        "name": "SALESORDER_SENTMETHOD"
                     },
                     {
                         "type": "INTEGER",
@@ -377,7 +377,7 @@
                         "precision": "NaN",
                         "scale": "NaN",
                         "nullable": true,
-                        "name": "PURCHASEORDER_SENTMETHODS"
+                        "name": "PURCHASEORDER_SENTMETHOD"
                     },
                     {
                         "type": "INTEGER",
@@ -549,6 +549,30 @@
                 ]
             },
             {
+                "name": "CODBEX_SENTMETHOD",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SENTMETHOD_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SENTMETHOD_NAME"
+                    }
+                ]
+            },
+            {
                 "name": "SalesOrder_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
@@ -576,13 +600,13 @@
                 "referencedColumns": "PAYMENTMETHOD_ID"
             },
             {
-                "name": "SalesOrder_SentMethods",
+                "name": "SalesOrder_SentMethod",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_SentMethods",
-                "columns": "SALESORDER_SENTMETHODS",
-                "referencedTable": "CODBEX_SENTMETHODS",
-                "referencedColumns": "SENTMETHODS_ID"
+                "constraintName": "SalesOrder_SentMethod",
+                "columns": "SALESORDER_SENTMETHOD",
+                "referencedTable": "CODBEX_SENTMETHOD",
+                "referencedColumns": "SENTMETHOD_ID"
             },
             {
                 "name": "SalesOrder_SalesOrderStatus",
@@ -657,13 +681,13 @@
                 "referencedColumns": "PAYMENTMETHOD_ID"
             },
             {
-                "name": "PurchaseOrder_SentMethods",
+                "name": "PurchaseOrder_SentMethod",
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDER",
-                "constraintName": "PurchaseOrder_SentMethods",
-                "columns": "PURCHASEORDER_SENTMETHODS",
-                "referencedTable": "CODBEX_SENTMETHODS",
-                "referencedColumns": "SENTMETHODS_ID"
+                "constraintName": "PurchaseOrder_SentMethod",
+                "columns": "PURCHASEORDER_SENTMETHOD",
+                "referencedTable": "CODBEX_SENTMETHOD",
+                "referencedColumns": "SENTMETHOD_ID"
             },
             {
                 "name": "PurchaseOrder_PurchaseOrderStatus",

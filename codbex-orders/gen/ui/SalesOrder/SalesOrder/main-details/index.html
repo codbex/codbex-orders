@@ -21,16 +21,16 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idNumber" dg-required="true" dg-colon="true">Number</fd-form-label>
+                        	<fd-form-label for="idNumber" dg-required="false" dg-colon="true">Number</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Number'].$valid }}">
 	                            <fd-input id="idNumber"
 	                                name="Number"
 	                                state="{{ forms.details['Number'].$valid ? '' : 'error' }}"
-									ng-required="true"
+									ng-required="false"
 	                                ng-model="entity.Number"
-	                                ng-readonly="action === 'select'"
+	                                ng-readonly="true"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
 	                                dg-input-rules="{ patterns: [''] }"
@@ -242,17 +242,17 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idSentMethods" dg-required="false" dg-colon="true">SentMethods</fd-form-label>
+                        	<fd-form-label for="idSentMethod" dg-required="false" dg-colon="true">SentMethod</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-combobox-input id="idSentMethods"
-	                            name="SentMethods"
-	                            state="{{ forms.details['SentMethods'].$valid ? '' : 'error' }}"
+	                        <fd-combobox-input id="idSentMethod"
+	                            name="SentMethod"
+	                            state="{{ forms.details['SentMethod'].$valid ? '' : 'error' }}"
 	                            ng-required="false"
-	                            ng-model="entity.SentMethods"
+	                            ng-model="entity.SentMethod"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsSentMethods"
-	                            dg-placeholder="Search SentMethods ...">
+	                            dropdown-items="optionsSentMethod"
+	                            dg-placeholder="Search SentMethod ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>

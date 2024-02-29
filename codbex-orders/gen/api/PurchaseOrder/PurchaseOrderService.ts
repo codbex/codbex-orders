@@ -1,6 +1,8 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { PurchaseOrderRepository, PurchaseOrderEntityOptions } from "../../dao/PurchaseOrder/PurchaseOrderRepository";
 import { HttpUtils } from "../utils/HttpUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 @Controller
 class PurchaseOrderService {

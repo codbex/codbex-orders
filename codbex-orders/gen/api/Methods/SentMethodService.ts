@@ -1,18 +1,16 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
-import { SalesOrderRepository, SalesOrderEntityOptions } from "../../dao/SalesOrder/SalesOrderRepository";
+import { SentMethodRepository, SentMethodEntityOptions } from "../../dao/Methods/SentMethodRepository";
 import { HttpUtils } from "../utils/HttpUtils";
-// custom imports
-import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 @Controller
-class SalesOrderService {
+class SentMethodService {
 
-    private readonly repository = new SalesOrderRepository();
+    private readonly repository = new SentMethodRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            const options: SalesOrderEntityOptions = {
+            const options: SentMethodEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -27,7 +25,7 @@ class SalesOrderService {
     public create(entity: any) {
         try {
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/api/SalesOrder/SalesOrderService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/api/Methods/SentMethodService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -70,7 +68,7 @@ class SalesOrderService {
             if (entity) {
                 return entity
             } else {
-                HttpUtils.sendResponseNotFound("SalesOrder not found");
+                HttpUtils.sendResponseNotFound("SentMethod not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -97,7 +95,7 @@ class SalesOrderService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("SalesOrder not found");
+                HttpUtils.sendResponseNotFound("SentMethod not found");
             }
         } catch (error: any) {
             this.handleError(error);

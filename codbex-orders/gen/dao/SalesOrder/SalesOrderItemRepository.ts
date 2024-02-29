@@ -296,6 +296,6 @@ export class SalesOrderItemRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-orders/SalesOrder/SalesOrderItem").send(JSON.stringify(data));
+        producer.topic("codbex-orders/SalesOrder/SalesOrderItem").send(JSON.stringify(data));
     }
 }

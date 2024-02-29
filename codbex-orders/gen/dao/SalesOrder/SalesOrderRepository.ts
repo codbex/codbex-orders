@@ -3,6 +3,8 @@ import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 export interface SalesOrderEntity {
     readonly Id: number;
@@ -19,7 +21,7 @@ export interface SalesOrderEntity {
     Total?: number;
     Conditions?: string;
     PaymentMethod?: number;
-    SentMethods?: number;
+    SentMethod?: number;
     SalesOrderStatus: number;
     Operator?: number;
     Document?: string;
@@ -30,7 +32,6 @@ export interface SalesOrderEntity {
 }
 
 export interface SalesOrderCreateEntity {
-    readonly Number: string;
     readonly Date: Date;
     readonly Due?: number;
     readonly Customer: number;
@@ -43,7 +44,7 @@ export interface SalesOrderCreateEntity {
     readonly Total?: number;
     readonly Conditions?: string;
     readonly PaymentMethod?: number;
-    readonly SentMethods?: number;
+    readonly SentMethod?: number;
     readonly SalesOrderStatus: number;
     readonly Operator?: number;
     readonly Document?: string;
@@ -72,7 +73,7 @@ export interface SalesOrderEntityOptions {
             Total?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethods?: number | number[];
+            SentMethod?: number | number[];
             SalesOrderStatus?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
@@ -96,7 +97,7 @@ export interface SalesOrderEntityOptions {
             Total?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethods?: number | number[];
+            SentMethod?: number | number[];
             SalesOrderStatus?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
@@ -120,7 +121,7 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethods?: number;
+            SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
             Document?: string;
@@ -144,7 +145,7 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethods?: number;
+            SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
             Document?: string;
@@ -168,7 +169,7 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethods?: number;
+            SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
             Document?: string;
@@ -192,7 +193,7 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethods?: number;
+            SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
             Document?: string;
@@ -216,7 +217,7 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethods?: number;
+            SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
             Document?: string;
@@ -326,8 +327,8 @@ export class SalesOrderRepository {
                 type: "INTEGER",
             },
             {
-                name: "SentMethods",
-                column: "SALESORDER_SENTMETHODS",
+                name: "SentMethod",
+                column: "SALESORDER_SENTMETHOD",
                 type: "INTEGER",
             },
             {
@@ -391,6 +392,8 @@ export class SalesOrderRepository {
 
     public create(entity: SalesOrderCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
+        // @ts-ignore
+        (entity as SalesOrderEntity).Number = new NumberGeneratorService().generate(4);
         // @ts-ignore
         (entity as SalesOrderEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Total"];
         // @ts-ignore
@@ -485,6 +488,6 @@ export class SalesOrderRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-orders/SalesOrder/SalesOrder").send(JSON.stringify(data));
+        producer.topic("codbex-orders/SalesOrder/SalesOrder").send(JSON.stringify(data));
     }
 }

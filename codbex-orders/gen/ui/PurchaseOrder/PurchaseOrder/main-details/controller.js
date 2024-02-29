@@ -42,7 +42,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsSupplier = [];
 				$scope.optionsCurrency = [];
 				$scope.optionsPaymentMethod = [];
-				$scope.optionsSentMethods = [];
+				$scope.optionsSentMethod = [];
 				$scope.optionsPurchaseOrderStatus = [];
 				$scope.optionsOperator = [];
 				$scope.optionsCompany = [];
@@ -62,7 +62,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
-				$scope.optionsSentMethods = msg.data.optionsSentMethods;
+				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsPurchaseOrderStatus = msg.data.optionsPurchaseOrderStatus;
 				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsCompany = msg.data.optionsCompany;
@@ -76,7 +76,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
-				$scope.optionsSentMethods = msg.data.optionsSentMethods;
+				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsPurchaseOrderStatus = msg.data.optionsPurchaseOrderStatus;
 				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsCompany = msg.data.optionsCompany;
@@ -96,7 +96,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsSupplier = msg.data.optionsSupplier;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
 				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
-				$scope.optionsSentMethods = msg.data.optionsSentMethods;
+				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsPurchaseOrderStatus = msg.data.optionsPurchaseOrderStatus;
 				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsCompany = msg.data.optionsCompany;

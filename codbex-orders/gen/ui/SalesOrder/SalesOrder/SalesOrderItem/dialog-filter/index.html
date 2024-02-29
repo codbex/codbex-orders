@@ -27,21 +27,6 @@
 
             <fd-fieldset class="fd-margin--md" ng-form="forms.details">
                 <fd-form-group dg-header="SalesOrderItem Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idSalesOrder" dg-required="true" dg-colon="true">SalesOrder</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--8">
-	                        <fd-combobox-input id="idSalesOrder"
-	                            name="SalesOrder"
-	                            state="{{ forms.details['SalesOrder'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
-	                            ng-model="entity.SalesOrder"
-	                            dropdown-items="optionsSalesOrder"
-	                            dg-placeholder="Search SalesOrder ...">
-	                        </fd-combobox-input>
-	                    </div>
-                    </fd-form-item>
 					<fd-form-item class="fd-row">
 						<div class="fd-col fd-col-md--2">
 							<fd-form-label for="idName" dg-required="true" dg-colon="true">Name</fd-form-label>

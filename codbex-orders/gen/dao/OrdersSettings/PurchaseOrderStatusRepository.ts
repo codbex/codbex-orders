@@ -184,6 +184,6 @@ export class PurchaseOrderStatusRepository {
                 console.error(error);
             }            
         });
-        producer.queue("codbex-orders/OrdersSettings/PurchaseOrderStatus").send(JSON.stringify(data));
+        producer.topic("codbex-orders/OrdersSettings/PurchaseOrderStatus").send(JSON.stringify(data));
     }
 }

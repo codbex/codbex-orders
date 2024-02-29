@@ -3,20 +3,20 @@ import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 
-export interface SalesOrderStatusEntity {
+export interface SentMethodEntity {
     readonly Id: number;
     Name?: string;
 }
 
-export interface SalesOrderStatusCreateEntity {
+export interface SentMethodCreateEntity {
     readonly Name?: string;
 }
 
-export interface SalesOrderStatusUpdateEntity extends SalesOrderStatusCreateEntity {
+export interface SentMethodUpdateEntity extends SentMethodCreateEntity {
     readonly Id: number;
 }
 
-export interface SalesOrderStatusEntityOptions {
+export interface SentMethodEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
@@ -47,17 +47,17 @@ export interface SalesOrderStatusEntityOptions {
             Name?: string;
         };
     },
-    $select?: (keyof SalesOrderStatusEntity)[],
-    $sort?: string | (keyof SalesOrderStatusEntity)[],
+    $select?: (keyof SentMethodEntity)[],
+    $sort?: string | (keyof SentMethodEntity)[],
     $order?: 'asc' | 'desc',
     $offset?: number,
     $limit?: number,
 }
 
-interface SalesOrderStatusEntityEvent {
+interface SentMethodEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
-    readonly entity: Partial<SalesOrderStatusEntity>;
+    readonly entity: Partial<SentMethodEntity>;
     readonly key: {
         name: string;
         column: string;
@@ -65,21 +65,21 @@ interface SalesOrderStatusEntityEvent {
     }
 }
 
-export class SalesOrderStatusRepository {
+export class SentMethodRepository {
 
     private static readonly DEFINITION = {
-        table: "CODBEX_SALESORDERSTATUS",
+        table: "CODBEX_SENTMETHOD",
         properties: [
             {
                 name: "Id",
-                column: "SALESORDERSTATUS_ID",
+                column: "SENTMETHOD_ID",
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
             },
             {
                 name: "Name",
-                column: "SALESORDERSTATUS_NAME",
+                column: "SENTMETHOD_NAME",
                 type: "VARCHAR",
             }
         ]
@@ -88,56 +88,56 @@ export class SalesOrderStatusRepository {
     private readonly dao;
 
     constructor(dataSource?: string) {
-        this.dao = daoApi.create(SalesOrderStatusRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(SentMethodRepository.DEFINITION, null, dataSource);
     }
 
-    public findAll(options?: SalesOrderStatusEntityOptions): SalesOrderStatusEntity[] {
+    public findAll(options?: SentMethodEntityOptions): SentMethodEntity[] {
         return this.dao.list(options);
     }
 
-    public findById(id: number): SalesOrderStatusEntity | undefined {
+    public findById(id: number): SentMethodEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }
 
-    public create(entity: SalesOrderStatusCreateEntity): number {
+    public create(entity: SentMethodCreateEntity): number {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "CODBEX_SALESORDERSTATUS",
+            table: "CODBEX_SENTMETHOD",
             entity: entity,
             key: {
                 name: "Id",
-                column: "SALESORDERSTATUS_ID",
+                column: "SENTMETHOD_ID",
                 value: id
             }
         });
         return id;
     }
 
-    public update(entity: SalesOrderStatusUpdateEntity): void {
+    public update(entity: SentMethodUpdateEntity): void {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "CODBEX_SALESORDERSTATUS",
+            table: "CODBEX_SENTMETHOD",
             entity: entity,
             key: {
                 name: "Id",
-                column: "SALESORDERSTATUS_ID",
+                column: "SENTMETHOD_ID",
                 value: entity.Id
             }
         });
     }
 
-    public upsert(entity: SalesOrderStatusCreateEntity | SalesOrderStatusUpdateEntity): number {
-        const id = (entity as SalesOrderStatusUpdateEntity).Id;
+    public upsert(entity: SentMethodCreateEntity | SentMethodUpdateEntity): number {
+        const id = (entity as SentMethodUpdateEntity).Id;
         if (!id) {
             return this.create(entity);
         }
 
         const existingEntity = this.findById(id);
         if (existingEntity) {
-            this.update(entity as SalesOrderStatusUpdateEntity);
+            this.update(entity as SentMethodUpdateEntity);
             return id;
         } else {
             return this.create(entity);
@@ -149,22 +149,22 @@ export class SalesOrderStatusRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "CODBEX_SALESORDERSTATUS",
+            table: "CODBEX_SENTMETHOD",
             entity: entity,
             key: {
                 name: "Id",
-                column: "SALESORDERSTATUS_ID",
+                column: "SENTMETHOD_ID",
                 value: id
             }
         });
     }
 
-    public count(options?: SalesOrderStatusEntityOptions): number {
+    public count(options?: SentMethodEntityOptions): number {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: SalesOrderStatusEntityOptions): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERSTATUS"');
+    public customDataCount(options?: SentMethodEntityOptions): number {
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SENTMETHOD"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;
@@ -175,8 +175,8 @@ export class SalesOrderStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: SalesOrderStatusEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders/OrdersSettings/SalesOrderStatus", ["trigger"]);
+    private async triggerEvent(data: SentMethodEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders/Methods/SentMethod", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -184,6 +184,6 @@ export class SalesOrderStatusRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-orders/OrdersSettings/SalesOrderStatus").send(JSON.stringify(data));
+        producer.topic("codbex-orders/Methods/SentMethod").send(JSON.stringify(data));
     }
 }

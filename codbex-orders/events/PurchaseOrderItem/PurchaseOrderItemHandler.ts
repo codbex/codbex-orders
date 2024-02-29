@@ -33,7 +33,7 @@ export const trigger = (event) => {
     header.VAT = vat;
     header.Gross = gross;
 
-    total = header.Gross - (header.Gross * header.Discount / 100) + (header.Gross * header.Taxes / 100) + header.VAT;
+    total = header.Gross - (header.Gross * header.Discount / 100) + (header.Gross * header.Taxes / 100);
     header.Total = total;
 
     header.Name = header.Name.substring(0, header.Name.lastIndexOf("/") + 1) + header.Total;
