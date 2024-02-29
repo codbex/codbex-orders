@@ -23,7 +23,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idNumber" dg-required="false" dg-colon="true">Number</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Number'].$valid }}">
 	                            <fd-input id="idNumber"
 	                                name="Number"
@@ -45,7 +45,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idDate" dg-required="true" dg-colon="true">Date</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--2 ">
+                        <div class="fd-col fd-col-md--2 fd-col--3">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Date'].$valid }}">
 	                            <fd-input id="idDate"
 	                                name="Date"
@@ -63,7 +63,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idDue" dg-required="false" dg-colon="true">Due</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--2 ">
+                        <div class="fd-col fd-col-md--2 fd-col--3">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Due'].$valid }}">
 	                            <fd-input id="idDue"
 	                                name="Due"
@@ -81,7 +81,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCustomer" dg-required="true" dg-colon="true">Customer</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 	                        <fd-combobox-input id="idCustomer"
 	                            name="Customer"
 	                            state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
@@ -97,7 +97,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idNet" dg-required="false" dg-colon="true">Net</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 							<fd-step-input dg-id="idNet"
 								name="Net"
 								state="{{ forms.details['Net'].$valid ? '' : 'error' }}"
@@ -113,7 +113,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCurrency" dg-required="true" dg-colon="true">Currency</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--2 fd-col--3">
 	                        <fd-combobox-input id="idCurrency"
 	                            name="Currency"
 	                            state="{{ forms.details['Currency'].$valid ? '' : 'error' }}"
@@ -129,7 +129,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idGross" dg-required="false" dg-colon="true">Gross</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 							<fd-step-input dg-id="idGross"
 								name="Gross"
 								state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
@@ -145,7 +145,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idDiscount" dg-required="false" dg-colon="true">Discount</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 							<fd-step-input dg-id="idDiscount"
 								name="Discount"
 								state="{{ forms.details['Discount'].$valid ? '' : 'error' }}"
@@ -161,7 +161,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idTaxes" dg-required="false" dg-colon="true">Taxes</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 							<fd-step-input dg-id="idTaxes"
 								name="Taxes"
 								state="{{ forms.details['Taxes'].$valid ? '' : 'error' }}"
@@ -177,7 +177,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idVAT" dg-required="false" dg-colon="true">VAT</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 							<fd-step-input dg-id="idVAT"
 								name="VAT"
 								state="{{ forms.details['VAT'].$valid ? '' : 'error' }}"
@@ -193,7 +193,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idTotal" dg-required="false" dg-colon="true">Total</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 							<fd-step-input dg-id="idTotal"
 								name="Total"
 								state="{{ forms.details['Total'].$valid ? '' : 'error' }}"
@@ -209,7 +209,7 @@
 						<div class="fd-col fd-col-md--2">
 							<fd-form-label for="idConditions" dg-required="false" dg-colon="true">Conditions</fd-form-label>
 						</div>
-						<div class="fd-col  fd-col-md--8 ">
+						<div class="fd-col fd-col-md--8 fd-col--12">
 							<fd-textarea id="idConditions"
 								name="Conditions"
 								state="{{ forms.details['Conditions'].$valid ? '' : 'error' }}"
@@ -228,7 +228,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idPaymentMethod" dg-required="false" dg-colon="true">PaymentMethod</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 	                        <fd-combobox-input id="idPaymentMethod"
 	                            name="PaymentMethod"
 	                            state="{{ forms.details['PaymentMethod'].$valid ? '' : 'error' }}"
@@ -244,7 +244,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idSentMethod" dg-required="false" dg-colon="true">SentMethod</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 	                        <fd-combobox-input id="idSentMethod"
 	                            name="SentMethod"
 	                            state="{{ forms.details['SentMethod'].$valid ? '' : 'error' }}"
@@ -260,7 +260,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idSalesOrderStatus" dg-required="true" dg-colon="true">SalesOrderStatus</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 	                        <fd-combobox-input id="idSalesOrderStatus"
 	                            name="SalesOrderStatus"
 	                            state="{{ forms.details['SalesOrderStatus'].$valid ? '' : 'error' }}"
@@ -276,7 +276,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idOperator" dg-required="false" dg-colon="true">Operator</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 	                        <fd-combobox-input id="idOperator"
 	                            name="Operator"
 	                            state="{{ forms.details['Operator'].$valid ? '' : 'error' }}"
@@ -292,7 +292,7 @@
 						<div class="fd-col fd-col-md--2">
 							<fd-form-label for="idDocument" dg-required="false" dg-colon="true">Document</fd-form-label>
 						</div>
-						<div class="fd-col  fd-col-md--8 ">
+						<div class="fd-col fd-col-md--8 fd-col--12">
 							<fd-textarea id="idDocument"
 								name="Document"
 								state="{{ forms.details['Document'].$valid ? '' : 'error' }}"
@@ -311,7 +311,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCompany" dg-required="false" dg-colon="true">Company</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 	                        <fd-combobox-input id="idCompany"
 	                            name="Company"
 	                            state="{{ forms.details['Company'].$valid ? '' : 'error' }}"
@@ -327,7 +327,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--8 fd-col--12">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
 	                            <fd-input id="idName"
 	                                name="Name"
@@ -349,7 +349,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idUUID" dg-required="false" dg-colon="true">UUID</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['UUID'].$valid }}">
 	                            <fd-input id="idUUID"
 	                                name="UUID"
@@ -371,7 +371,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idReference" dg-required="false" dg-colon="true">Reference</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--8 ">
+                        <div class="fd-col fd-col-md--4 fd-col--6">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Reference'].$valid }}">
 	                            <fd-input id="idReference"
 	                                name="Reference"
