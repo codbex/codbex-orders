@@ -6,7 +6,7 @@ import { dao as daoApi } from "sdk/db";
 export interface SalesOrderItemEntity {
     readonly Id: number;
     SalesOrder: number;
-    Name: string;
+    Product: number;
     Quantity: number;
     UoM: number;
     Price: number;
@@ -17,7 +17,7 @@ export interface SalesOrderItemEntity {
 
 export interface SalesOrderItemCreateEntity {
     readonly SalesOrder: number;
-    readonly Name: string;
+    readonly Product: number;
     readonly Quantity: number;
     readonly UoM: number;
     readonly Price: number;
@@ -32,7 +32,7 @@ export interface SalesOrderItemEntityOptions {
         equals?: {
             Id?: number | number[];
             SalesOrder?: number | number[];
-            Name?: string | string[];
+            Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
             Price?: number | number[];
@@ -43,7 +43,7 @@ export interface SalesOrderItemEntityOptions {
         notEquals?: {
             Id?: number | number[];
             SalesOrder?: number | number[];
-            Name?: string | string[];
+            Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
             Price?: number | number[];
@@ -54,7 +54,7 @@ export interface SalesOrderItemEntityOptions {
         contains?: {
             Id?: number;
             SalesOrder?: number;
-            Name?: string;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -65,7 +65,7 @@ export interface SalesOrderItemEntityOptions {
         greaterThan?: {
             Id?: number;
             SalesOrder?: number;
-            Name?: string;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -76,7 +76,7 @@ export interface SalesOrderItemEntityOptions {
         greaterThanOrEqual?: {
             Id?: number;
             SalesOrder?: number;
-            Name?: string;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -87,7 +87,7 @@ export interface SalesOrderItemEntityOptions {
         lessThan?: {
             Id?: number;
             SalesOrder?: number;
-            Name?: string;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -98,7 +98,7 @@ export interface SalesOrderItemEntityOptions {
         lessThanOrEqual?: {
             Id?: number;
             SalesOrder?: number;
-            Name?: string;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -144,9 +144,9 @@ export class SalesOrderItemRepository {
                 required: true
             },
             {
-                name: "Name",
-                column: "SALESORDERITEM_NAME",
-                type: "VARCHAR",
+                name: "Product",
+                column: "SALESORDERITEM_PRODUCT",
+                type: "INTEGER",
                 required: true
             },
             {
@@ -275,7 +275,7 @@ export class SalesOrderItemRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: SalesOrderItemEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__SALESINVOICEITEM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -288,7 +288,7 @@ export class SalesOrderItemRepository {
     }
 
     private async triggerEvent(data: SalesOrderItemEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders/SalesOrder/SalesOrderItem", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-SalesOrder-SalesOrderItem", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

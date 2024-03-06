@@ -10,7 +10,7 @@ export interface PurchaseOrderEntity {
     readonly Id: number;
     Number: string;
     Date: Date;
-    Due?: Date;
+    Due: Date;
     Supplier: number;
     Net?: number;
     Currency: number;
@@ -33,7 +33,7 @@ export interface PurchaseOrderEntity {
 
 export interface PurchaseOrderCreateEntity {
     readonly Date: Date;
-    readonly Due?: Date;
+    readonly Due: Date;
     readonly Supplier: number;
     readonly Net?: number;
     readonly Currency: number;
@@ -274,6 +274,7 @@ export class PurchaseOrderRepository {
                 name: "Due",
                 column: "PURCHASEORDER_DUE",
                 type: "DATE",
+                required: true
             },
             {
                 name: "Supplier",
@@ -473,7 +474,7 @@ export class PurchaseOrderRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: PurchaseOrderEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__PURCHASEORDER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -486,7 +487,7 @@ export class PurchaseOrderRepository {
     }
 
     private async triggerEvent(data: PurchaseOrderEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders/PurchaseOrder/PurchaseOrder", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-PurchaseOrder-PurchaseOrder", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

@@ -1,6 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { SalesOrderItemRepository, SalesOrderItemEntityOptions } from "../../dao/SalesOrder/SalesOrderItemRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-orders-SalesOrder-SalesOrderItem", ["validate"]);
 
 @Controller
 class SalesOrderItemService {
@@ -31,6 +35,7 @@ class SalesOrderItemService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/api/SalesOrder/SalesOrderItemService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -73,7 +78,7 @@ class SalesOrderItemService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("SalesOrderItem not found");
             }
@@ -86,6 +91,7 @@ class SalesOrderItemService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -118,4 +124,26 @@ class SalesOrderItemService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.SalesOrder === null || entity.SalesOrder === undefined) {
+            throw new ValidationError(`The 'SalesOrder' property is required, provide a valid value`);
+        }
+        if (entity.Product === null || entity.Product === undefined) {
+            throw new ValidationError(`The 'Product' property is required, provide a valid value`);
+        }
+        if (entity.Quantity === null || entity.Quantity === undefined) {
+            throw new ValidationError(`The 'Quantity' property is required, provide a valid value`);
+        }
+        if (entity.UoM === null || entity.UoM === undefined) {
+            throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
+        }
+        if (entity.Price === null || entity.Price === undefined) {
+            throw new ValidationError(`The 'Price' property is required, provide a valid value`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

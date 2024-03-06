@@ -38,10 +38,8 @@
 	                                state="{{ forms.details['Number'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Number"
-	                                ng-readonly="true"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Number">
 	                            </fd-input>
@@ -60,7 +58,6 @@
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 									ng-required="true"
 	                                ng-model="entity.DateFrom"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -76,7 +73,6 @@
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 									ng-required="true"
 	                                ng-model="entity.DateTo"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -85,32 +81,30 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDueFrom" dg-required="false" dg-colon="true">From Due</fd-form-label>
+                        	<fd-form-label for="idDueFrom" dg-required="true" dg-colon="true">From Due</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Due'].$valid }}">
 	                            <fd-input id="idDueFrom"
 	                                name="Due"
 	                                state="{{ forms.details['Due'].$valid ? '' : 'error' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-model="entity.DueFrom"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
 	                        </fd-form-input-message-group>
 	                    </div>
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDueTo" dg-required="false" dg-colon="true">To Due</fd-form-label>
+                        	<fd-form-label for="idDueTo" dg-required="true" dg-colon="true">To Due</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Due'].$valid }}">
 	                            <fd-input id="idDueTo"
 	                                name="Due"
 	                                state="{{ forms.details['Due'].$valid ? '' : 'error' }}"
-									ng-required="false"
+									ng-required="true"
 	                                ng-model="entity.DueTo"
-	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </fd-input>
 	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
@@ -142,7 +136,6 @@
 								state="{{ forms.details['Net'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Net"
-								is-readonly="action === 'select'"
 								placeholder="Enter Net"
 								>
 							</fd-step-input>
@@ -173,7 +166,6 @@
 								state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Gross"
-								is-readonly="action === 'select'"
 								placeholder="Enter Gross"
 								>
 							</fd-step-input>
@@ -189,7 +181,6 @@
 								state="{{ forms.details['Discount'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Discount"
-								is-readonly="action === 'select'"
 								placeholder="Enter Discount"
 								>
 							</fd-step-input>
@@ -205,7 +196,6 @@
 								state="{{ forms.details['Taxes'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Taxes"
-								is-readonly="action === 'select'"
 								placeholder="Enter Taxes"
 								>
 							</fd-step-input>
@@ -221,7 +211,6 @@
 								state="{{ forms.details['VAT'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.VAT"
-								is-readonly="action === 'select'"
 								placeholder="Enter VAT"
 								>
 							</fd-step-input>
@@ -237,7 +226,6 @@
 								state="{{ forms.details['Total'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.Total"
-								is-readonly="action === 'select'"
 								placeholder="Enter Total"
 								>
 							</fd-step-input>
@@ -253,10 +241,8 @@
 								state="{{ forms.details['Conditions'].$valid ? '' : 'error' }}"
 								ng-required="false"
 								ng-model="entity.Conditions"
-	                            ng-readonly="action === 'select'"
 								ng-minlength="0.0 || 0"
 								ng-maxlength="200.0 || -1"
-								dg-input-rules="{ patterns: [''] }"
 								placeholder="Enter Conditions">
 							</fd-textarea>
 							<fd-form-message dg-type="error" ng-show="!forms.details['Conditions'].$valid">Incorrect Input</fd-form-message>
@@ -332,10 +318,8 @@
 								state="{{ forms.details['Document'].$valid ? '' : 'error' }}"
 								ng-required="false"
 								ng-model="entity.Document"
-	                            ng-readonly="action === 'select'"
 								ng-minlength="0.0 || 0"
 								ng-maxlength="200.0 || -1"
-								dg-input-rules="{ patterns: [''] }"
 								placeholder="Enter Document">
 							</fd-textarea>
 							<fd-form-message dg-type="error" ng-show="!forms.details['Document'].$valid">Incorrect Input</fd-form-message>
@@ -367,10 +351,8 @@
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Name"
-	                                ng-readonly="true"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="200.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Name">
 	                            </fd-input>
@@ -389,10 +371,8 @@
 	                                state="{{ forms.details['UUID'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.UUID"
-	                                ng-readonly="true"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="36.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter UUID">
 	                            </fd-input>
@@ -411,10 +391,8 @@
 	                                state="{{ forms.details['Reference'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Reference"
-	                                ng-readonly="action === 'select'"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"
-	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Reference">
 	                            </fd-input>

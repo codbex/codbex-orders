@@ -34,7 +34,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDER_DUE"
                     },
                     {
@@ -203,11 +202,11 @@
                         "name": "SALESORDERITEM_ORDER"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 2000,
+                        "type": "INTEGER",
+                        "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "name": "SALESORDERITEM_NAME"
+                        "name": "SALESORDERITEM_PRODUCT"
                     },
                     {
                         "type": "DOUBLE",
@@ -288,7 +287,6 @@
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "PURCHASEORDER_DUE"
                     },
                     {
@@ -455,11 +453,11 @@
                         "name": "PURCHASEORDERITEM_PURCHASEORDER"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 2000,
+                        "type": "INTEGER",
+                        "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "name": "PURCHASEORDERITEM_NAME"
+                        "name": "PURCHASEORDERITEM_PRODUCT"
                     },
                     {
                         "type": "DOUBLE",
@@ -549,30 +547,6 @@
                 ]
             },
             {
-                "name": "CODBEX_SENTMETHOD",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "primaryKey": true,
-                        "identity": true,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SENTMETHOD_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "SENTMETHOD_NAME"
-                    }
-                ]
-            },
-            {
                 "name": "SalesOrder_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
@@ -643,6 +617,15 @@
                 "columns": "SALESORDERITEM_ORDER",
                 "referencedTable": "CODBEX_SALESORDER",
                 "referencedColumns": "SALESORDER_ID"
+            },
+            {
+                "name": "SalesOrderItem_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDERITEM",
+                "constraintName": "SalesOrderItem_Product",
+                "columns": "SALESORDERITEM_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
             },
             {
                 "name": "SalesOrderItem_UoM",
@@ -724,6 +707,15 @@
                 "columns": "PURCHASEORDERITEM_PURCHASEORDER",
                 "referencedTable": "CODBEX_PURCHASEORDER",
                 "referencedColumns": "PURCHASEORDER_ID"
+            },
+            {
+                "name": "PurchaseOrderItem_Product",
+                "type": "foreignKey",
+                "table": "CODBEX_PURCHASEORDERITEM",
+                "constraintName": "PurchaseOrderItem_Product",
+                "columns": "PURCHASEORDERITEM_PRODUCT",
+                "referencedTable": "CODBEX_PRODUCT",
+                "referencedColumns": "PRODUCT_ID"
             },
             {
                 "name": "PurchaseOrderItem_UoM",

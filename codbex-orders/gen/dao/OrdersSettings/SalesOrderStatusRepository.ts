@@ -163,7 +163,7 @@ export class SalesOrderStatusRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: SalesOrderStatusEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_SALESORDERSTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -176,7 +176,7 @@ export class SalesOrderStatusRepository {
     }
 
     private async triggerEvent(data: SalesOrderStatusEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders/OrdersSettings/SalesOrderStatus", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-OrdersSettings-SalesOrderStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

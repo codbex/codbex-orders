@@ -1,8 +1,12 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Extensions } from "sdk/extensions"
 import { SalesOrderRepository, SalesOrderEntityOptions } from "../../dao/SalesOrder/SalesOrderRepository";
+import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
+
+const validationModules = await Extensions.loadExtensionModules("codbex-orders-SalesOrder-SalesOrder", ["validate"]);
 
 @Controller
 class SalesOrderService {
@@ -26,6 +30,7 @@ class SalesOrderService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/api/SalesOrder/SalesOrderService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -68,7 +73,7 @@ class SalesOrderService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return entity
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("SalesOrder not found");
             }
@@ -81,6 +86,7 @@ class SalesOrderService {
     public update(entity: any, ctx: any) {
         try {
             entity.Id = ctx.pathParameters.id;
+            this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -113,4 +119,44 @@ class SalesOrderService {
             HttpUtils.sendInternalServerError(error.message);
         }
     }
+
+    private validateEntity(entity: any): void {
+        if (entity.Number?.length > 20) {
+            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Date === null || entity.Date === undefined) {
+            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
+        }
+        if (entity.Due === null || entity.Due === undefined) {
+            throw new ValidationError(`The 'Due' property is required, provide a valid value`);
+        }
+        if (entity.Customer === null || entity.Customer === undefined) {
+            throw new ValidationError(`The 'Customer' property is required, provide a valid value`);
+        }
+        if (entity.Currency === null || entity.Currency === undefined) {
+            throw new ValidationError(`The 'Currency' property is required, provide a valid value`);
+        }
+        if (entity.Conditions?.length > 200) {
+            throw new ValidationError(`The 'Conditions' exceeds the maximum length of [200] characters`);
+        }
+        if (entity.SalesOrderStatus === null || entity.SalesOrderStatus === undefined) {
+            throw new ValidationError(`The 'SalesOrderStatus' property is required, provide a valid value`);
+        }
+        if (entity.Document?.length > 200) {
+            throw new ValidationError(`The 'Document' exceeds the maximum length of [200] characters`);
+        }
+        if (entity.Name?.length > 200) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
+        }
+        if (entity.UUID?.length > 36) {
+            throw new ValidationError(`The 'UUID' exceeds the maximum length of [36] characters`);
+        }
+        if (entity.Reference?.length > 36) {
+            throw new ValidationError(`The 'Reference' exceeds the maximum length of [36] characters`);
+        }
+        for (const next of validationModules) {
+            next.validate(entity);
+        }
+    }
+
 }

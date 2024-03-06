@@ -6,7 +6,7 @@ import { dao as daoApi } from "sdk/db";
 export interface PurchaseOrderItemEntity {
     readonly Id: number;
     PurchaseOrder: number;
-    Name: string;
+    Product: number;
     Quantity: number;
     UoM: number;
     Price: number;
@@ -17,7 +17,7 @@ export interface PurchaseOrderItemEntity {
 
 export interface PurchaseOrderItemCreateEntity {
     readonly PurchaseOrder: number;
-    readonly Name: string;
+    readonly Product: number;
     readonly Quantity: number;
     readonly UoM: number;
     readonly Price: number;
@@ -32,7 +32,7 @@ export interface PurchaseOrderItemEntityOptions {
         equals?: {
             Id?: number | number[];
             PurchaseOrder?: number | number[];
-            Name?: string | string[];
+            Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
             Price?: number | number[];
@@ -43,7 +43,7 @@ export interface PurchaseOrderItemEntityOptions {
         notEquals?: {
             Id?: number | number[];
             PurchaseOrder?: number | number[];
-            Name?: string | string[];
+            Product?: number | number[];
             Quantity?: number | number[];
             UoM?: number | number[];
             Price?: number | number[];
@@ -54,7 +54,7 @@ export interface PurchaseOrderItemEntityOptions {
         contains?: {
             Id?: number;
             PurchaseOrder?: number;
-            Name?: string;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -65,7 +65,7 @@ export interface PurchaseOrderItemEntityOptions {
         greaterThan?: {
             Id?: number;
             PurchaseOrder?: number;
-            Name?: string;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -76,7 +76,7 @@ export interface PurchaseOrderItemEntityOptions {
         greaterThanOrEqual?: {
             Id?: number;
             PurchaseOrder?: number;
-            Name?: string;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -87,7 +87,7 @@ export interface PurchaseOrderItemEntityOptions {
         lessThan?: {
             Id?: number;
             PurchaseOrder?: number;
-            Name?: string;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -98,7 +98,7 @@ export interface PurchaseOrderItemEntityOptions {
         lessThanOrEqual?: {
             Id?: number;
             PurchaseOrder?: number;
-            Name?: string;
+            Product?: number;
             Quantity?: number;
             UoM?: number;
             Price?: number;
@@ -145,9 +145,9 @@ export class PurchaseOrderItemRepository {
                 required: true
             },
             {
-                name: "Name",
-                column: "PURCHASEORDERITEM_NAME",
-                type: "VARCHAR",
+                name: "Product",
+                column: "PURCHASEORDERITEM_PRODUCT",
+                type: "INTEGER",
                 required: true
             },
             {
@@ -276,7 +276,7 @@ export class PurchaseOrderItemRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: PurchaseOrderItemEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__PURCHASEORDERITEM"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -289,7 +289,7 @@ export class PurchaseOrderItemRepository {
     }
 
     private async triggerEvent(data: PurchaseOrderItemEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders/PurchaseOrder/PurchaseOrderItem", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-PurchaseOrder-PurchaseOrderItem", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

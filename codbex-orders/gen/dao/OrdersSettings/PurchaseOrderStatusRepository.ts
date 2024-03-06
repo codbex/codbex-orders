@@ -163,7 +163,7 @@ export class PurchaseOrderStatusRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: PurchaseOrderStatusEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERSTATUS"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -176,7 +176,7 @@ export class PurchaseOrderStatusRepository {
     }
 
     private async triggerEvent(data: PurchaseOrderStatusEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders/OrdersSettings/PurchaseOrderStatus", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-OrdersSettings-PurchaseOrderStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

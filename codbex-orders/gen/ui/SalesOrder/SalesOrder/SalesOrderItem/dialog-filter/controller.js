@@ -20,6 +20,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
 				$scope.optionsSalesOrder = params.optionsSalesOrder;
+				$scope.optionsProduct = params.optionsProduct;
 				$scope.optionsUoM = params.optionsUoM;
 			}
 		}
@@ -50,8 +51,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (entity.SalesOrder) {
 				filter.$filter.equals.SalesOrder = entity.SalesOrder;
 			}
-			if (entity.Name) {
-				filter.$filter.contains.Name = entity.Name;
+			if (entity.Product) {
+				filter.$filter.equals.Product = entity.Product;
 			}
 			if (entity.Quantity) {
 				filter.$filter.equals.Quantity = entity.Quantity;

@@ -10,7 +10,7 @@ export interface SalesOrderEntity {
     readonly Id: number;
     Number: string;
     Date: Date;
-    Due?: number;
+    Due: number;
     Customer: number;
     Net?: number;
     Currency: number;
@@ -33,7 +33,7 @@ export interface SalesOrderEntity {
 
 export interface SalesOrderCreateEntity {
     readonly Date: Date;
-    readonly Due?: number;
+    readonly Due: number;
     readonly Customer: number;
     readonly Net?: number;
     readonly Currency: number;
@@ -273,6 +273,7 @@ export class SalesOrderRepository {
                 name: "Due",
                 column: "SALESORDER_DUE",
                 type: "DOUBLE",
+                required: true
             },
             {
                 name: "Customer",
@@ -467,7 +468,7 @@ export class SalesOrderRepository {
         return this.dao.count(options);
     }
 
-    public customDataCount(options?: SalesOrderEntityOptions): number {
+    public customDataCount(): number {
         const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX__SALESORDER"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
@@ -480,7 +481,7 @@ export class SalesOrderRepository {
     }
 
     private async triggerEvent(data: SalesOrderEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders/SalesOrder/SalesOrder", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-SalesOrder-SalesOrder", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);

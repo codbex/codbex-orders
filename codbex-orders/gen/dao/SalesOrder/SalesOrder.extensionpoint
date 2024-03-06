@@ -1,1 +1,4 @@
-{"location":"codbex-orders/gen/dao/SalesOrder/SalesOrder.extensionpoint","name":"codbex-orders/SalesOrder/SalesOrder","description":"Extension Point for codbex-orders SalesOrder SalesOrder"}
+{
+    "name": "codbex-orders-SalesOrder-SalesOrder",
+    "description": "Extension Point for the codbex-orders-SalesOrder-SalesOrder entity"
+}

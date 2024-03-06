@@ -15,7 +15,7 @@ export const trigger = (event) => {
     });
 
     let net = 0;
-    let vat = 0;
+    let vat = 0.0;
     let gross = 0;
     let total = 0;
     for (let i = 0; i < items.length; i++) {
