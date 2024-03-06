@@ -232,7 +232,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-methods/gen/api/entities/PaymentMethodService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-methods/gen/api/Methods/PaymentMethodService.ts").then(function (response) {
 			$scope.optionsPaymentMethod = response.data.map(e => {
 				return {
 					value: e.Id,
