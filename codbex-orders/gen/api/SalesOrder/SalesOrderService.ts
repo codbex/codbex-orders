@@ -139,8 +139,17 @@ class SalesOrderService {
         if (entity.Conditions?.length > 200) {
             throw new ValidationError(`The 'Conditions' exceeds the maximum length of [200] characters`);
         }
+        if (entity.PaymentMethod === null || entity.PaymentMethod === undefined) {
+            throw new ValidationError(`The 'PaymentMethod' property is required, provide a valid value`);
+        }
+        if (entity.SentMethod === null || entity.SentMethod === undefined) {
+            throw new ValidationError(`The 'SentMethod' property is required, provide a valid value`);
+        }
         if (entity.SalesOrderStatus === null || entity.SalesOrderStatus === undefined) {
             throw new ValidationError(`The 'SalesOrderStatus' property is required, provide a valid value`);
+        }
+        if (entity.Operator === null || entity.Operator === undefined) {
+            throw new ValidationError(`The 'Operator' property is required, provide a valid value`);
         }
         if (entity.Document?.length > 200) {
             throw new ValidationError(`The 'Document' exceeds the maximum length of [200] characters`);

@@ -1,5 +1,5 @@
 {
     "module": "codbex-orders/events/PurchaseOrderItem/PurchaseOrderItemHandler.ts",
-    "extensionPoint": "codbex-orders/PurchaseOrder/PurchaseOrderItem",
+    "extensionPoint": "codbex-orders-PurchaseOrder-PurchaseOrderItem",
     "description": "PurchaseOrderItem Extension"
 }

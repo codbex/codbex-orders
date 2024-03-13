@@ -1,22 +1,20 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { PurchaseOrderRepository, PurchaseOrderEntityOptions } from "../../dao/PurchaseOrder/PurchaseOrderRepository";
+import { CurrencyRepository, CurrencyEntityOptions } from "../../dao/Currencies/CurrencyRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
-// custom imports
-import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-orders-PurchaseOrder-PurchaseOrder", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-orders-Currencies-Currency", ["validate"]);
 
 @Controller
-class PurchaseOrderService {
+class CurrencyService {
 
-    private readonly repository = new PurchaseOrderRepository();
+    private readonly repository = new CurrencyRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            const options: PurchaseOrderEntityOptions = {
+            const options: CurrencyEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
@@ -32,7 +30,7 @@ class PurchaseOrderService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/api/PurchaseOrder/PurchaseOrderService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/api/Currencies/CurrencyService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -75,7 +73,7 @@ class PurchaseOrderService {
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("PurchaseOrder not found");
+                HttpUtils.sendResponseNotFound("Currency not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -103,7 +101,7 @@ class PurchaseOrderService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("PurchaseOrder not found");
+                HttpUtils.sendResponseNotFound("Currency not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -121,47 +119,14 @@ class PurchaseOrderService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.Number?.length > 20) {
-            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        if (entity.Code?.length > 3) {
+            throw new ValidationError(`The 'Code' exceeds the maximum length of [3] characters`);
         }
-        if (entity.Date === null || entity.Date === undefined) {
-            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
+        if (entity.Name?.length > 127) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [127] characters`);
         }
-        if (entity.Due === null || entity.Due === undefined) {
-            throw new ValidationError(`The 'Due' property is required, provide a valid value`);
-        }
-        if (entity.Supplier === null || entity.Supplier === undefined) {
-            throw new ValidationError(`The 'Supplier' property is required, provide a valid value`);
-        }
-        if (entity.Currency === null || entity.Currency === undefined) {
-            throw new ValidationError(`The 'Currency' property is required, provide a valid value`);
-        }
-        if (entity.Conditions?.length > 200) {
-            throw new ValidationError(`The 'Conditions' exceeds the maximum length of [200] characters`);
-        }
-        if (entity.PaymentMethod === null || entity.PaymentMethod === undefined) {
-            throw new ValidationError(`The 'PaymentMethod' property is required, provide a valid value`);
-        }
-        if (entity.SentMethod === null || entity.SentMethod === undefined) {
-            throw new ValidationError(`The 'SentMethod' property is required, provide a valid value`);
-        }
-        if (entity.PurchaseOrderStatus === null || entity.PurchaseOrderStatus === undefined) {
-            throw new ValidationError(`The 'PurchaseOrderStatus' property is required, provide a valid value`);
-        }
-        if (entity.Operator === null || entity.Operator === undefined) {
-            throw new ValidationError(`The 'Operator' property is required, provide a valid value`);
-        }
-        if (entity.Document?.length > 200) {
-            throw new ValidationError(`The 'Document' exceeds the maximum length of [200] characters`);
-        }
-        if (entity.Name?.length > 200) {
-            throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
-        }
-        if (entity.UUID?.length > 36) {
-            throw new ValidationError(`The 'UUID' exceeds the maximum length of [36] characters`);
-        }
-        if (entity.Reference?.length > 36) {
-            throw new ValidationError(`The 'Reference' exceeds the maximum length of [36] characters`);
+        if (entity.Numeric?.length > 3) {
+            throw new ValidationError(`The 'Numeric' exceeds the maximum length of [3] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

@@ -20,10 +20,10 @@ export interface SalesOrderEntity {
     VAT?: number;
     Total?: number;
     Conditions?: string;
-    PaymentMethod?: number;
-    SentMethod?: number;
+    PaymentMethod: number;
+    SentMethod: number;
     SalesOrderStatus: number;
-    Operator?: number;
+    Operator: number;
     Document?: string;
     Company?: number;
     Name?: string;
@@ -43,10 +43,10 @@ export interface SalesOrderCreateEntity {
     readonly VAT?: number;
     readonly Total?: number;
     readonly Conditions?: string;
-    readonly PaymentMethod?: number;
-    readonly SentMethod?: number;
+    readonly PaymentMethod: number;
+    readonly SentMethod: number;
     readonly SalesOrderStatus: number;
-    readonly Operator?: number;
+    readonly Operator: number;
     readonly Document?: string;
     readonly Company?: number;
     readonly Reference?: string;
@@ -326,11 +326,13 @@ export class SalesOrderRepository {
                 name: "PaymentMethod",
                 column: "SALESORDER_PAYMENTMETHOD",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "SentMethod",
                 column: "SALESORDER_SENTMETHOD",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "SalesOrderStatus",
@@ -342,6 +344,7 @@ export class SalesOrderRepository {
                 name: "Operator",
                 column: "SALESORDER_OPERATOR",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Document",
@@ -489,6 +492,6 @@ export class SalesOrderRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-orders/SalesOrder/SalesOrder").send(JSON.stringify(data));
+        producer.topic("codbex-orders-SalesOrder-SalesOrder").send(JSON.stringify(data));
     }
 }

@@ -3,20 +3,20 @@ import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 
-export interface PurchaseOrderStatusEntity {
+export interface PaymentMethodEntity {
     readonly Id: number;
     Name?: string;
 }
 
-export interface PurchaseOrderStatusCreateEntity {
+export interface PaymentMethodCreateEntity {
     readonly Name?: string;
 }
 
-export interface PurchaseOrderStatusUpdateEntity extends PurchaseOrderStatusCreateEntity {
+export interface PaymentMethodUpdateEntity extends PaymentMethodCreateEntity {
     readonly Id: number;
 }
 
-export interface PurchaseOrderStatusEntityOptions {
+export interface PaymentMethodEntityOptions {
     $filter?: {
         equals?: {
             Id?: number | number[];
@@ -47,17 +47,17 @@ export interface PurchaseOrderStatusEntityOptions {
             Name?: string;
         };
     },
-    $select?: (keyof PurchaseOrderStatusEntity)[],
-    $sort?: string | (keyof PurchaseOrderStatusEntity)[],
+    $select?: (keyof PaymentMethodEntity)[],
+    $sort?: string | (keyof PaymentMethodEntity)[],
     $order?: 'asc' | 'desc',
     $offset?: number,
     $limit?: number,
 }
 
-interface PurchaseOrderStatusEntityEvent {
+interface PaymentMethodEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
-    readonly entity: Partial<PurchaseOrderStatusEntity>;
+    readonly entity: Partial<PaymentMethodEntity>;
     readonly key: {
         name: string;
         column: string;
@@ -65,21 +65,21 @@ interface PurchaseOrderStatusEntityEvent {
     }
 }
 
-export class PurchaseOrderStatusRepository {
+export class PaymentMethodRepository {
 
     private static readonly DEFINITION = {
-        table: "CODBEX_PURCHASEORDERSTATUS",
+        table: "CODBEX_PAYMENTMETHOD",
         properties: [
             {
                 name: "Id",
-                column: "PURCHASEORDERSTATUS_ID",
+                column: "PAYMENTMETHOD_ID",
                 type: "INTEGER",
                 id: true,
                 autoIncrement: true,
             },
             {
                 name: "Name",
-                column: "PURCHASEORDERSTATUS_NAME",
+                column: "PAYMENTMETHOD_NAME",
                 type: "VARCHAR",
             }
         ]
@@ -88,56 +88,56 @@ export class PurchaseOrderStatusRepository {
     private readonly dao;
 
     constructor(dataSource?: string) {
-        this.dao = daoApi.create(PurchaseOrderStatusRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(PaymentMethodRepository.DEFINITION, null, dataSource);
     }
 
-    public findAll(options?: PurchaseOrderStatusEntityOptions): PurchaseOrderStatusEntity[] {
+    public findAll(options?: PaymentMethodEntityOptions): PaymentMethodEntity[] {
         return this.dao.list(options);
     }
 
-    public findById(id: number): PurchaseOrderStatusEntity | undefined {
+    public findById(id: number): PaymentMethodEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }
 
-    public create(entity: PurchaseOrderStatusCreateEntity): number {
+    public create(entity: PaymentMethodCreateEntity): number {
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "CODBEX_PURCHASEORDERSTATUS",
+            table: "CODBEX_PAYMENTMETHOD",
             entity: entity,
             key: {
                 name: "Id",
-                column: "PURCHASEORDERSTATUS_ID",
+                column: "PAYMENTMETHOD_ID",
                 value: id
             }
         });
         return id;
     }
 
-    public update(entity: PurchaseOrderStatusUpdateEntity): void {
+    public update(entity: PaymentMethodUpdateEntity): void {
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "CODBEX_PURCHASEORDERSTATUS",
+            table: "CODBEX_PAYMENTMETHOD",
             entity: entity,
             key: {
                 name: "Id",
-                column: "PURCHASEORDERSTATUS_ID",
+                column: "PAYMENTMETHOD_ID",
                 value: entity.Id
             }
         });
     }
 
-    public upsert(entity: PurchaseOrderStatusCreateEntity | PurchaseOrderStatusUpdateEntity): number {
-        const id = (entity as PurchaseOrderStatusUpdateEntity).Id;
+    public upsert(entity: PaymentMethodCreateEntity | PaymentMethodUpdateEntity): number {
+        const id = (entity as PaymentMethodUpdateEntity).Id;
         if (!id) {
             return this.create(entity);
         }
 
         const existingEntity = this.findById(id);
         if (existingEntity) {
-            this.update(entity as PurchaseOrderStatusUpdateEntity);
+            this.update(entity as PaymentMethodUpdateEntity);
             return id;
         } else {
             return this.create(entity);
@@ -149,22 +149,22 @@ export class PurchaseOrderStatusRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "CODBEX_PURCHASEORDERSTATUS",
+            table: "CODBEX_PAYMENTMETHOD",
             entity: entity,
             key: {
                 name: "Id",
-                column: "PURCHASEORDERSTATUS_ID",
+                column: "PAYMENTMETHOD_ID",
                 value: id
             }
         });
     }
 
-    public count(options?: PurchaseOrderStatusEntityOptions): number {
+    public count(options?: PaymentMethodEntityOptions): number {
         return this.dao.count(options);
     }
 
     public customDataCount(): number {
-        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PURCHASEORDERSTATUS"');
+        const resultSet = query.execute('SELECT COUNT(*) AS COUNT FROM "CODBEX_PAYMENTMETHOD"');
         if (resultSet !== null && resultSet[0] !== null) {
             if (resultSet[0].COUNT !== undefined && resultSet[0].COUNT !== null) {
                 return resultSet[0].COUNT;
@@ -175,8 +175,8 @@ export class PurchaseOrderStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: PurchaseOrderStatusEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-OrdersSettings-PurchaseOrderStatus", ["trigger"]);
+    private async triggerEvent(data: PaymentMethodEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-Methods-PaymentMethod", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -184,6 +184,6 @@ export class PurchaseOrderStatusRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-orders-OrdersSettings-PurchaseOrderStatus").send(JSON.stringify(data));
+        producer.topic("codbex-orders-Methods-PaymentMethod").send(JSON.stringify(data));
     }
 }

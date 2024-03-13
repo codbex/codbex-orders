@@ -2,6 +2,7 @@ import { SalesOrderRepository } from "../../gen/dao/SalesOrder/SalesOrderReposit
 import { SalesOrderItemRepository } from "../../gen/dao/SalesOrder/SalesOrderItemRepository";
 
 export const trigger = (event) => {
+    console.log("HERE TRIGGER");
     const SalesOrderDao = new SalesOrderRepository();
     const SalesOrderItemDao = new SalesOrderItemRepository();
     const item = event.entity;
@@ -18,6 +19,7 @@ export const trigger = (event) => {
     let vat = 0;
     let gross = 0;
     let total = 0;
+
     for (let i = 0; i < items.length; i++) {
         if (items[i].Net) {
             net += items[i].Net;

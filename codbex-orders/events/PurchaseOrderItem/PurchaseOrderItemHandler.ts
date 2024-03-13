@@ -18,6 +18,7 @@ export const trigger = (event) => {
     let vat = 0.0;
     let gross = 0;
     let total = 0;
+
     for (let i = 0; i < items.length; i++) {
         if (items[i].Net) {
             net += items[i].Net;

@@ -184,6 +184,6 @@ export class SalesOrderStatusRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-orders/OrdersSettings/SalesOrderStatus").send(JSON.stringify(data));
+        producer.topic("codbex-orders-OrdersSettings-SalesOrderStatus").send(JSON.stringify(data));
     }
 }

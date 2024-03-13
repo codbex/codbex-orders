@@ -20,10 +20,10 @@ export interface PurchaseOrderEntity {
     VAT?: number;
     Total?: number;
     Conditions?: string;
-    PaymentMethod?: number;
-    SentMethod?: number;
+    PaymentMethod: number;
+    SentMethod: number;
     PurchaseOrderStatus: number;
-    Operator?: number;
+    Operator: number;
     Document?: string;
     Company?: number;
     Name: string;
@@ -43,10 +43,10 @@ export interface PurchaseOrderCreateEntity {
     readonly VAT?: number;
     readonly Total?: number;
     readonly Conditions?: string;
-    readonly PaymentMethod?: number;
-    readonly SentMethod?: number;
+    readonly PaymentMethod: number;
+    readonly SentMethod: number;
     readonly PurchaseOrderStatus: number;
-    readonly Operator?: number;
+    readonly Operator: number;
     readonly Document?: string;
     readonly Company?: number;
     readonly Reference?: string;
@@ -327,11 +327,13 @@ export class PurchaseOrderRepository {
                 name: "PaymentMethod",
                 column: "PURCHASEORDER_PAYMENTMETHOD",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "SentMethod",
                 column: "PURCHASEORDER_SENTMETHOD",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "PurchaseOrderStatus",
@@ -343,6 +345,7 @@ export class PurchaseOrderRepository {
                 name: "Operator",
                 column: "PURCHASEORDER_OPERATOR",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Document",
@@ -495,6 +498,6 @@ export class PurchaseOrderRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-orders/PurchaseOrder/PurchaseOrder").send(JSON.stringify(data));
+        producer.topic("codbex-orders-PurchaseOrder-PurchaseOrder").send(JSON.stringify(data));
     }
 }

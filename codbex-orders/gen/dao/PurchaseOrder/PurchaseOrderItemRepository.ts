@@ -297,6 +297,6 @@ export class PurchaseOrderItemRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-orders/PurchaseOrder/PurchaseOrderItem").send(JSON.stringify(data));
+        producer.topic("codbex-orders-PurchaseOrder-PurchaseOrderItem").send(JSON.stringify(data));
     }
 }
