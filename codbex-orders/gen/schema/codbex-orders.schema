@@ -153,6 +153,14 @@
                         "name": "SALESORDER_COMPANY"
                     },
                     {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "SALESORDER_PAID"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 200,
                         "precision": "NaN",
@@ -401,6 +409,14 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PURCHASEORDER_COMPANY"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "PURCHASEORDER_PAID"
                     },
                     {
                         "type": "VARCHAR",
@@ -1199,6 +1215,298 @@
                 ]
             },
             {
+                "name": "CODBEX_SALESORDERPAYMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SALESORDERPAYMENT_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERPAYMENT_SALESORDER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERPAYMENT_CUSTOMERPAYMENT"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "SALESORDERPAYMENT_AMOUNT"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_CUSTOMERPAYMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_ID"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_DATE"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_VALOR"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_COMPANYIBAN"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_AMOUNT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_CURRENCY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_REASON"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_DESCRIPTION"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_COMPANY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_UUID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "CUSTOMERPAYMENT_REFERENCE"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_PURCHASEORDERPAYMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "PURCHASEORDERPAYMENT_ID"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PURCHASEORDERPAYMENT_PURCHASEORDER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "PURCHASEORDERPAYMENT_SUPPLIERPAYMENT"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "PURCHASEORDERPAYMENT_AMOUNT"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_SUPPLIERPAYMENT",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_ID"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_DATE"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_VALOR"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 22,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_COMPANYIBAN"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 22,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_COUNTERPARTYIBAN"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_COUNTERPARTYNAME"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_AMOUNT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_CURRENCY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_REASON"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_DESCRIPTION"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_COMPANY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_UUID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SUPPLIERPAYMENT_REFERENCE"
+                    }
+                ]
+            },
+            {
                 "name": "SalesOrder_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
@@ -1377,6 +1685,42 @@
                 "columns": "PURCHASEORDERITEM_UOM",
                 "referencedTable": "CODBEX_UOM",
                 "referencedColumns": "UOM_ID"
+            },
+            {
+                "name": "SalesOrderPayment_SalesOrder",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDERPAYMENT",
+                "constraintName": "SalesOrderPayment_SalesOrder",
+                "columns": "SALESORDERPAYMENT_SALESORDER",
+                "referencedTable": "CODBEX_SALESORDER",
+                "referencedColumns": "SALESORDER_ID"
+            },
+            {
+                "name": "SalesOrderPayment_CustomerPayment",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDERPAYMENT",
+                "constraintName": "SalesOrderPayment_CustomerPayment",
+                "columns": "SALESORDERPAYMENT_CUSTOMERPAYMENT",
+                "referencedTable": "CODBEX_CUSTOMERPAYMENT",
+                "referencedColumns": "CUSTOMERPAYMENT_ID"
+            },
+            {
+                "name": "PurchaseOrderPayment_PurchaseOrder",
+                "type": "foreignKey",
+                "table": "CODBEX_PURCHASEORDERPAYMENT",
+                "constraintName": "PurchaseOrderPayment_PurchaseOrder",
+                "columns": "PURCHASEORDERPAYMENT_PURCHASEORDER",
+                "referencedTable": "CODBEX_PURCHASEORDER",
+                "referencedColumns": "PURCHASEORDER_ID"
+            },
+            {
+                "name": "PurchaseOrderPayment_SupplierPayment",
+                "type": "foreignKey",
+                "table": "CODBEX_PURCHASEORDERPAYMENT",
+                "constraintName": "PurchaseOrderPayment_SupplierPayment",
+                "columns": "PURCHASEORDERPAYMENT_SUPPLIERPAYMENT",
+                "referencedTable": "CODBEX_SUPPLIERPAYMENT",
+                "referencedColumns": "SUPPLIERPAYMENT_ID"
             }
         ]
     },

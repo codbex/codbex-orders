@@ -1,0 +1,4 @@
+{
+    "name": "codbex-orders-PurchaseOrder-PurchaseOrderPayment",
+    "description": "Extension Point for the codbex-orders-PurchaseOrder-PurchaseOrderPayment entity"
+}

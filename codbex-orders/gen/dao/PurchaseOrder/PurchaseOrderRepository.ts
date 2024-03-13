@@ -26,6 +26,7 @@ export interface PurchaseOrderEntity {
     Operator: number;
     Document?: string;
     Company?: number;
+    Paid?: number;
     Name: string;
     UUID: string;
     Reference?: string;
@@ -49,6 +50,7 @@ export interface PurchaseOrderCreateEntity {
     readonly Operator: number;
     readonly Document?: string;
     readonly Company?: number;
+    readonly Paid?: number;
     readonly Reference?: string;
 }
 
@@ -78,6 +80,7 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
+            Paid?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
@@ -102,6 +105,7 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
+            Paid?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
@@ -126,6 +130,7 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
+            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -150,6 +155,7 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
+            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -174,6 +180,7 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
+            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -198,6 +205,7 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
+            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -222,6 +230,7 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
+            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -356,6 +365,11 @@ export class PurchaseOrderRepository {
                 name: "Company",
                 column: "PURCHASEORDER_COMPANY",
                 type: "INTEGER",
+            },
+            {
+                name: "Paid",
+                column: "PURCHASEORDER_PAID",
+                type: "DECIMAL",
             },
             {
                 name: "Name",
