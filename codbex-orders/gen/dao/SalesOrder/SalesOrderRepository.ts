@@ -19,6 +19,7 @@ export interface SalesOrderEntity {
     Taxes?: number;
     VAT?: number;
     Total?: number;
+    Paid?: number;
     Conditions?: string;
     PaymentMethod: number;
     SentMethod: number;
@@ -26,7 +27,6 @@ export interface SalesOrderEntity {
     Operator: number;
     Document?: string;
     Company?: number;
-    Paid?: number;
     Name?: string;
     UUID: string;
     Reference?: string;
@@ -43,6 +43,7 @@ export interface SalesOrderCreateEntity {
     readonly Taxes?: number;
     readonly VAT?: number;
     readonly Total?: number;
+    readonly Paid?: number;
     readonly Conditions?: string;
     readonly PaymentMethod: number;
     readonly SentMethod: number;
@@ -50,7 +51,6 @@ export interface SalesOrderCreateEntity {
     readonly Operator: number;
     readonly Document?: string;
     readonly Company?: number;
-    readonly Paid?: number;
     readonly Reference?: string;
 }
 
@@ -73,6 +73,7 @@ export interface SalesOrderEntityOptions {
             Taxes?: number | number[];
             VAT?: number | number[];
             Total?: number | number[];
+            Paid?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
             SentMethod?: number | number[];
@@ -80,7 +81,6 @@ export interface SalesOrderEntityOptions {
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
-            Paid?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
@@ -98,6 +98,7 @@ export interface SalesOrderEntityOptions {
             Taxes?: number | number[];
             VAT?: number | number[];
             Total?: number | number[];
+            Paid?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
             SentMethod?: number | number[];
@@ -105,7 +106,6 @@ export interface SalesOrderEntityOptions {
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
-            Paid?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
@@ -123,6 +123,7 @@ export interface SalesOrderEntityOptions {
             Taxes?: number;
             VAT?: number;
             Total?: number;
+            Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
@@ -130,7 +131,6 @@ export interface SalesOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
-            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -148,6 +148,7 @@ export interface SalesOrderEntityOptions {
             Taxes?: number;
             VAT?: number;
             Total?: number;
+            Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
@@ -155,7 +156,6 @@ export interface SalesOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
-            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -173,6 +173,7 @@ export interface SalesOrderEntityOptions {
             Taxes?: number;
             VAT?: number;
             Total?: number;
+            Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
@@ -180,7 +181,6 @@ export interface SalesOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
-            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -198,6 +198,7 @@ export interface SalesOrderEntityOptions {
             Taxes?: number;
             VAT?: number;
             Total?: number;
+            Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
@@ -205,7 +206,6 @@ export interface SalesOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
-            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -223,6 +223,7 @@ export interface SalesOrderEntityOptions {
             Taxes?: number;
             VAT?: number;
             Total?: number;
+            Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
@@ -230,7 +231,6 @@ export interface SalesOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
-            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -327,6 +327,11 @@ export class SalesOrderRepository {
                 type: "DECIMAL",
             },
             {
+                name: "Paid",
+                column: "SALESORDER_PAID",
+                type: "DECIMAL",
+            },
+            {
                 name: "Conditions",
                 column: "SALESORDER_CONDITIONS",
                 type: "VARCHAR",
@@ -364,11 +369,6 @@ export class SalesOrderRepository {
                 name: "Company",
                 column: "SALESORDER_COMPANY",
                 type: "INTEGER",
-            },
-            {
-                name: "Paid",
-                column: "SALESORDER_PAID",
-                type: "DECIMAL",
             },
             {
                 name: "Name",
@@ -421,6 +421,9 @@ export class SalesOrderRepository {
         }
         if (!entity.Taxes) {
             entity.Taxes = "0";
+        }
+        if (!entity.Paid) {
+            entity.Paid = "0";
         }
         const id = this.dao.insert(entity);
         this.triggerEvent({

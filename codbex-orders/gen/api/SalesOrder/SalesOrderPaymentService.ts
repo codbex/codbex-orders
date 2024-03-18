@@ -126,6 +126,15 @@ class SalesOrderPaymentService {
     }
 
     private validateEntity(entity: any): void {
+        if (entity.SalesOrder === null || entity.SalesOrder === undefined) {
+            throw new ValidationError(`The 'SalesOrder' property is required, provide a valid value`);
+        }
+        if (entity.CustomerPayment === null || entity.CustomerPayment === undefined) {
+            throw new ValidationError(`The 'CustomerPayment' property is required, provide a valid value`);
+        }
+        if (entity.Amount === null || entity.Amount === undefined) {
+            throw new ValidationError(`The 'Amount' property is required, provide a valid value`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }

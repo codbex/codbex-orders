@@ -21,13 +21,13 @@
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idSupplierPayment" dg-required="false" dg-colon="true">SupplierPayment</fd-form-label>
+                        	<fd-form-label for="idSupplierPayment" dg-required="true" dg-colon="true">SupplierPayment</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-combobox-input id="idSupplierPayment"
 	                            name="SupplierPayment"
 	                            state="{{ forms.details['SupplierPayment'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
+	                            ng-required="true"
 	                            ng-model="entity.SupplierPayment"
 	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsSupplierPayment"
@@ -37,13 +37,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idAmount" dg-required="false" dg-colon="true">Amount</fd-form-label>
+                        	<fd-form-label for="idAmount" dg-required="true" dg-colon="true">Amount</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <fd-step-input dg-id="idAmount"
 								name="Amount"
 								state="{{ forms.details['Amount'].$valid ? '' : 'error' }}"
-								dg-required="false"
+								dg-required="true"
 								ng-model="entity.Amount"
 								is-readonly="action === 'select'"
 								placeholder="Enter Amount"

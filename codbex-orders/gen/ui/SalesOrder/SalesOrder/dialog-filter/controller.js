@@ -94,6 +94,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (entity.Total) {
 				filter.$filter.equals.Total = entity.Total;
 			}
+			if (entity.Paid) {
+				filter.$filter.equals.Paid = entity.Paid;
+			}
 			if (entity.Conditions) {
 				filter.$filter.contains.Conditions = entity.Conditions;
 			}
@@ -114,9 +117,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			if (entity.Company) {
 				filter.$filter.equals.Company = entity.Company;
-			}
-			if (entity.Paid) {
-				filter.$filter.equals.Paid = entity.Paid;
 			}
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;

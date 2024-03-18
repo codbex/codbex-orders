@@ -1,5 +1,5 @@
 {
-    "module": "codbex-orders/events/SalesOrderItem/SalesOrderItemHandler.ts",
+    "module": "codbex-orders/events/SalesOrderPayment/SalesOrderPaymentHandler.ts",
     "extensionPoint": "codbex-orders-SalesOrder-SalesOrderPayment",
     "description": "SalesOrderItem Extension"
 }

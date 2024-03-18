@@ -5,15 +5,15 @@ import { dao as daoApi } from "sdk/db";
 
 export interface PurchaseOrderPaymentEntity {
     readonly Id: number;
-    PurchaseOrder?: number;
-    SupplierPayment?: number;
-    Amount?: number;
+    PurchaseOrder: number;
+    SupplierPayment: number;
+    Amount: number;
 }
 
 export interface PurchaseOrderPaymentCreateEntity {
-    readonly PurchaseOrder?: number;
-    readonly SupplierPayment?: number;
-    readonly Amount?: number;
+    readonly PurchaseOrder: number;
+    readonly SupplierPayment: number;
+    readonly Amount: number;
 }
 
 export interface PurchaseOrderPaymentUpdateEntity extends PurchaseOrderPaymentCreateEntity {
@@ -99,16 +99,19 @@ export class PurchaseOrderPaymentRepository {
                 name: "PurchaseOrder",
                 column: "PURCHASEORDERPAYMENT_PURCHASEORDER",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "SupplierPayment",
                 column: "PURCHASEORDERPAYMENT_SUPPLIERPAYMENT",
                 type: "INTEGER",
+                required: true
             },
             {
                 name: "Amount",
                 column: "PURCHASEORDERPAYMENT_AMOUNT",
                 type: "DECIMAL",
+                required: true
             }
         ]
     };

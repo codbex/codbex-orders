@@ -58,7 +58,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				filter.$filter.equals.Quantity = entity.Quantity;
 			}
 			if (entity.UoM) {
-				filter.$filter.equals.UoM = entity.UoM;
+				filter.$filter.contains.UoM = entity.UoM;
 			}
 			if (entity.Price) {
 				filter.$filter.equals.Price = entity.Price;

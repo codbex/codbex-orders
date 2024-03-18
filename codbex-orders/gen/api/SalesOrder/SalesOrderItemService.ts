@@ -138,6 +138,9 @@ class SalesOrderItemService {
         if (entity.UoM === null || entity.UoM === undefined) {
             throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
         }
+        if (entity.UoM?.length > 20) {
+            throw new ValidationError(`The 'UoM' exceeds the maximum length of [20] characters`);
+        }
         if (entity.Price === null || entity.Price === undefined) {
             throw new ValidationError(`The 'Price' property is required, provide a valid value`);
         }

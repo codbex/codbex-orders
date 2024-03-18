@@ -2,7 +2,6 @@ import { SalesOrderRepository } from "../../gen/dao/SalesOrder/SalesOrderReposit
 import { SalesOrderItemRepository } from "../../gen/dao/SalesOrder/SalesOrderItemRepository";
 
 export const trigger = (event) => {
-    console.log("HERE TRIGGER");
     const SalesOrderDao = new SalesOrderRepository();
     const SalesOrderItemDao = new SalesOrderItemRepository();
     const item = event.entity;

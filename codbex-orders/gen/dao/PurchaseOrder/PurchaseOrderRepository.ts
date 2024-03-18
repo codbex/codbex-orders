@@ -19,6 +19,7 @@ export interface PurchaseOrderEntity {
     Taxes?: number;
     VAT?: number;
     Total?: number;
+    Paid?: number;
     Conditions?: string;
     PaymentMethod: number;
     SentMethod: number;
@@ -26,7 +27,6 @@ export interface PurchaseOrderEntity {
     Operator: number;
     Document?: string;
     Company?: number;
-    Paid?: number;
     Name: string;
     UUID: string;
     Reference?: string;
@@ -43,6 +43,7 @@ export interface PurchaseOrderCreateEntity {
     readonly Taxes?: number;
     readonly VAT?: number;
     readonly Total?: number;
+    readonly Paid?: number;
     readonly Conditions?: string;
     readonly PaymentMethod: number;
     readonly SentMethod: number;
@@ -50,7 +51,6 @@ export interface PurchaseOrderCreateEntity {
     readonly Operator: number;
     readonly Document?: string;
     readonly Company?: number;
-    readonly Paid?: number;
     readonly Reference?: string;
 }
 
@@ -73,6 +73,7 @@ export interface PurchaseOrderEntityOptions {
             Taxes?: number | number[];
             VAT?: number | number[];
             Total?: number | number[];
+            Paid?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
             SentMethod?: number | number[];
@@ -80,7 +81,6 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
-            Paid?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
@@ -98,6 +98,7 @@ export interface PurchaseOrderEntityOptions {
             Taxes?: number | number[];
             VAT?: number | number[];
             Total?: number | number[];
+            Paid?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
             SentMethod?: number | number[];
@@ -105,7 +106,6 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
-            Paid?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
@@ -123,6 +123,7 @@ export interface PurchaseOrderEntityOptions {
             Taxes?: number;
             VAT?: number;
             Total?: number;
+            Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
@@ -130,7 +131,6 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
-            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -148,6 +148,7 @@ export interface PurchaseOrderEntityOptions {
             Taxes?: number;
             VAT?: number;
             Total?: number;
+            Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
@@ -155,7 +156,6 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
-            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -173,6 +173,7 @@ export interface PurchaseOrderEntityOptions {
             Taxes?: number;
             VAT?: number;
             Total?: number;
+            Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
@@ -180,7 +181,6 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
-            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -198,6 +198,7 @@ export interface PurchaseOrderEntityOptions {
             Taxes?: number;
             VAT?: number;
             Total?: number;
+            Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
@@ -205,7 +206,6 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
-            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -223,6 +223,7 @@ export interface PurchaseOrderEntityOptions {
             Taxes?: number;
             VAT?: number;
             Total?: number;
+            Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
@@ -230,7 +231,6 @@ export interface PurchaseOrderEntityOptions {
             Operator?: number;
             Document?: string;
             Company?: number;
-            Paid?: number;
             Name?: string;
             UUID?: string;
             Reference?: string;
@@ -328,6 +328,11 @@ export class PurchaseOrderRepository {
                 type: "DECIMAL",
             },
             {
+                name: "Paid",
+                column: "PURCHASEORDER_PAID",
+                type: "DECIMAL",
+            },
+            {
                 name: "Conditions",
                 column: "PURCHASEORDER_CONDITIONS",
                 type: "VARCHAR",
@@ -365,11 +370,6 @@ export class PurchaseOrderRepository {
                 name: "Company",
                 column: "PURCHASEORDER_COMPANY",
                 type: "INTEGER",
-            },
-            {
-                name: "Paid",
-                column: "PURCHASEORDER_PAID",
-                type: "DECIMAL",
             },
             {
                 name: "Name",
@@ -426,6 +426,9 @@ export class PurchaseOrderRepository {
         }
         if (!entity.Taxes) {
             entity.Taxes = "0";
+        }
+        if (!entity.Paid) {
+            entity.Paid = "0";
         }
         const id = this.dao.insert(entity);
         this.triggerEvent({

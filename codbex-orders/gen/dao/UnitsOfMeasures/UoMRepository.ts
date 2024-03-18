@@ -2,94 +2,113 @@ import { query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+import { EntityUtils } from "../utils/EntityUtils";
 
 export interface UoMEntity {
-    readonly Id: number;
+    readonly Id: string;
     Name?: string;
-    Unit?: string;
-    Dimension?: number;
+    ISO?: string;
+    SAP?: string;
+    Dimension?: string;
     Numerator?: number;
     Denominator?: number;
     Rounding?: number;
+    Base?: boolean;
 }
 
 export interface UoMCreateEntity {
     readonly Name?: string;
-    readonly Unit?: string;
-    readonly Dimension?: number;
+    readonly ISO?: string;
+    readonly SAP?: string;
+    readonly Dimension?: string;
     readonly Numerator?: number;
     readonly Denominator?: number;
     readonly Rounding?: number;
+    readonly Base?: boolean;
 }
 
 export interface UoMUpdateEntity extends UoMCreateEntity {
-    readonly Id: number;
+    readonly Id: string;
 }
 
 export interface UoMEntityOptions {
     $filter?: {
         equals?: {
-            Id?: number | number[];
+            Id?: string | string[];
             Name?: string | string[];
-            Unit?: string | string[];
-            Dimension?: number | number[];
+            ISO?: string | string[];
+            SAP?: string | string[];
+            Dimension?: string | string[];
             Numerator?: number | number[];
             Denominator?: number | number[];
             Rounding?: number | number[];
+            Base?: boolean | boolean[];
         };
         notEquals?: {
-            Id?: number | number[];
+            Id?: string | string[];
             Name?: string | string[];
-            Unit?: string | string[];
-            Dimension?: number | number[];
+            ISO?: string | string[];
+            SAP?: string | string[];
+            Dimension?: string | string[];
             Numerator?: number | number[];
             Denominator?: number | number[];
             Rounding?: number | number[];
+            Base?: boolean | boolean[];
         };
         contains?: {
-            Id?: number;
+            Id?: string;
             Name?: string;
-            Unit?: string;
-            Dimension?: number;
+            ISO?: string;
+            SAP?: string;
+            Dimension?: string;
             Numerator?: number;
             Denominator?: number;
             Rounding?: number;
+            Base?: boolean;
         };
         greaterThan?: {
-            Id?: number;
+            Id?: string;
             Name?: string;
-            Unit?: string;
-            Dimension?: number;
+            ISO?: string;
+            SAP?: string;
+            Dimension?: string;
             Numerator?: number;
             Denominator?: number;
             Rounding?: number;
+            Base?: boolean;
         };
         greaterThanOrEqual?: {
-            Id?: number;
+            Id?: string;
             Name?: string;
-            Unit?: string;
-            Dimension?: number;
+            ISO?: string;
+            SAP?: string;
+            Dimension?: string;
             Numerator?: number;
             Denominator?: number;
             Rounding?: number;
+            Base?: boolean;
         };
         lessThan?: {
-            Id?: number;
+            Id?: string;
             Name?: string;
-            Unit?: string;
-            Dimension?: number;
+            ISO?: string;
+            SAP?: string;
+            Dimension?: string;
             Numerator?: number;
             Denominator?: number;
             Rounding?: number;
+            Base?: boolean;
         };
         lessThanOrEqual?: {
-            Id?: number;
+            Id?: string;
             Name?: string;
-            Unit?: string;
-            Dimension?: number;
+            ISO?: string;
+            SAP?: string;
+            Dimension?: string;
             Numerator?: number;
             Denominator?: number;
             Rounding?: number;
+            Base?: boolean;
         };
     },
     $select?: (keyof UoMEntity)[],
@@ -106,7 +125,7 @@ interface UoMEntityEvent {
     readonly key: {
         name: string;
         column: string;
-        value: number;
+        value: string;
     }
 }
 
@@ -118,7 +137,7 @@ export class UoMRepository {
             {
                 name: "Id",
                 column: "UOM_ID",
-                type: "INTEGER",
+                type: "VARCHAR",
                 id: true,
                 autoIncrement: true,
             },
@@ -128,29 +147,39 @@ export class UoMRepository {
                 type: "VARCHAR",
             },
             {
-                name: "Unit",
-                column: "UOM_UNIT",
+                name: "ISO",
+                column: "UOM_ISO",
+                type: "VARCHAR",
+            },
+            {
+                name: "SAP",
+                column: "UOM_SAP",
                 type: "VARCHAR",
             },
             {
                 name: "Dimension",
                 column: "UOM_DIMENSION",
-                type: "INTEGER",
+                type: "VARCHAR",
             },
             {
                 name: "Numerator",
                 column: "UOM_NUMERATOR",
-                type: "INTEGER",
+                type: "BIGINT",
             },
             {
                 name: "Denominator",
                 column: "UOM_DENOMINATOR",
-                type: "INTEGER",
+                type: "BIGINT",
             },
             {
                 name: "Rounding",
                 column: "UOM_ROUNDING",
                 type: "INTEGER",
+            },
+            {
+                name: "Base",
+                column: "UOM_BASE",
+                type: "BOOLEAN",
             }
         ]
     };
@@ -162,15 +191,20 @@ export class UoMRepository {
     }
 
     public findAll(options?: UoMEntityOptions): UoMEntity[] {
-        return this.dao.list(options);
+        return this.dao.list(options).map((e: UoMEntity) => {
+            EntityUtils.setBoolean(e, "Base");
+            return e;
+        });
     }
 
-    public findById(id: number): UoMEntity | undefined {
+    public findById(id: string): UoMEntity | undefined {
         const entity = this.dao.find(id);
+        EntityUtils.setBoolean(entity, "Base");
         return entity ?? undefined;
     }
 
-    public create(entity: UoMCreateEntity): number {
+    public create(entity: UoMCreateEntity): string {
+        EntityUtils.setBoolean(entity, "Base");
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -186,6 +220,7 @@ export class UoMRepository {
     }
 
     public update(entity: UoMUpdateEntity): void {
+        EntityUtils.setBoolean(entity, "Base");
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
@@ -199,7 +234,7 @@ export class UoMRepository {
         });
     }
 
-    public upsert(entity: UoMCreateEntity | UoMUpdateEntity): number {
+    public upsert(entity: UoMCreateEntity | UoMUpdateEntity): string {
         const id = (entity as UoMUpdateEntity).Id;
         if (!id) {
             return this.create(entity);
@@ -214,7 +249,7 @@ export class UoMRepository {
         }
     }
 
-    public deleteById(id: number): void {
+    public deleteById(id: string): void {
         const entity = this.dao.find(id);
         this.dao.remove(id);
         this.triggerEvent({
