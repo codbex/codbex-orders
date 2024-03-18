@@ -10,7 +10,7 @@ export interface SalesOrderEntity {
     readonly Id: number;
     Number: string;
     Date: Date;
-    Due: number;
+    Due: Date;
     Customer: number;
     Net?: number;
     Currency: number;
@@ -34,7 +34,7 @@ export interface SalesOrderEntity {
 
 export interface SalesOrderCreateEntity {
     readonly Date: Date;
-    readonly Due: number;
+    readonly Due: Date;
     readonly Customer: number;
     readonly Net?: number;
     readonly Currency: number;
@@ -64,7 +64,7 @@ export interface SalesOrderEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             Date?: Date | Date[];
-            Due?: number | number[];
+            Due?: Date | Date[];
             Customer?: number | number[];
             Net?: number | number[];
             Currency?: number | number[];
@@ -89,7 +89,7 @@ export interface SalesOrderEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             Date?: Date | Date[];
-            Due?: number | number[];
+            Due?: Date | Date[];
             Customer?: number | number[];
             Net?: number | number[];
             Currency?: number | number[];
@@ -114,7 +114,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Due?: number;
+            Due?: Date;
             Customer?: number;
             Net?: number;
             Currency?: number;
@@ -139,7 +139,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Due?: number;
+            Due?: Date;
             Customer?: number;
             Net?: number;
             Currency?: number;
@@ -164,7 +164,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Due?: number;
+            Due?: Date;
             Customer?: number;
             Net?: number;
             Currency?: number;
@@ -189,7 +189,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Due?: number;
+            Due?: Date;
             Customer?: number;
             Net?: number;
             Currency?: number;
@@ -214,7 +214,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Due?: number;
+            Due?: Date;
             Customer?: number;
             Net?: number;
             Currency?: number;
@@ -281,7 +281,7 @@ export class SalesOrderRepository {
             {
                 name: "Due",
                 column: "SALESORDER_DUE",
-                type: "DOUBLE",
+                type: "DATE",
                 required: true
             },
             {
@@ -398,6 +398,7 @@ export class SalesOrderRepository {
     public findAll(options?: SalesOrderEntityOptions): SalesOrderEntity[] {
         return this.dao.list(options).map((e: SalesOrderEntity) => {
             EntityUtils.setDate(e, "Date");
+            EntityUtils.setDate(e, "Due");
             return e;
         });
     }
@@ -405,11 +406,13 @@ export class SalesOrderRepository {
     public findById(id: number): SalesOrderEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "Date");
+        EntityUtils.setDate(entity, "Due");
         return entity ?? undefined;
     }
 
     public create(entity: SalesOrderCreateEntity): number {
         EntityUtils.setLocalDate(entity, "Date");
+        EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
         (entity as SalesOrderEntity).Number = new NumberGeneratorService().generate(4);
         // @ts-ignore
@@ -441,6 +444,7 @@ export class SalesOrderRepository {
 
     public update(entity: SalesOrderUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
+        // EntityUtils.setLocalDate(entity, "Due");
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",

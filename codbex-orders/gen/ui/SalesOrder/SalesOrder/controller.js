@@ -104,6 +104,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 						if (e.Date) {
 							e.Date = new Date(e.Date);
 						}
+						if (e.Due) {
+							e.Due = new Date(e.Due);
+						}
 					});
 
 					$scope.data = $scope.data.concat(response.data);

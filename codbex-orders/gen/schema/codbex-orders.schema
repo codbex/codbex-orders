@@ -30,7 +30,7 @@
                         "name": "SALESORDER_DATE"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DATE",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -625,84 +625,6 @@
                         "precision": "16",
                         "scale": "2",
                         "name": "PURCHASEORDERPAYMENT_AMOUNT"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_UOM",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "primaryKey": true,
-                        "identity": true,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "UOM_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 100,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "UOM_NAME"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "UOM_ISO"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "UOM_SAP"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 50,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "UOM_DIMENSION"
-                    },
-                    {
-                        "type": "BIGINT",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "UOM_NUMERATOR"
-                    },
-                    {
-                        "type": "BIGINT",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "UOM_DENOMINATOR"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "length": 0,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "UOM_ROUNDING"
-                    },
-                    {
-                        "type": "BOOLEAN",
-                        "length": 20,
-                        "precision": "NaN",
-                        "scale": "NaN",
-                        "nullable": true,
-                        "name": "UOM_BASE"
                     }
                 ]
             },

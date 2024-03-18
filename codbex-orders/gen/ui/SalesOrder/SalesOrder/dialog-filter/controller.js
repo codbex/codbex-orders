@@ -22,6 +22,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (params?.entity?.DateTo) {
 					params.entity.DateTo = new Date(params.entity.DateTo);
 				}
+				if (params?.entity?.DueFrom) {
+					params.entity.DueFrom = new Date(params.entity.DueFrom);
+				}
+				if (params?.entity?.DueTo) {
+					params.entity.DueTo = new Date(params.entity.DueTo);
+				}
 				$scope.entity = params.entity ?? {};
 				$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 				$scope.selectedMainEntityId = params.selectedMainEntityId;
@@ -67,8 +73,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			if (entity.DateTo) {
 				filter.$filter.lessThanOrEqual.Date = entity.DateTo;
 			}
-			if (entity.Due) {
-				filter.$filter.equals.Due = entity.Due;
+			if (entity.DueFrom) {
+				filter.$filter.greaterThanOrEqual.Due = entity.DueFrom;
+			}
+			if (entity.DueTo) {
+				filter.$filter.lessThanOrEqual.Due = entity.DueTo;
 			}
 			if (entity.Customer) {
 				filter.$filter.equals.Customer = entity.Customer;

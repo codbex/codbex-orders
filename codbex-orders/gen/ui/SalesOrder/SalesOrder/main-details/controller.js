@@ -55,6 +55,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				if (msg.data.entity.Date) {
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
 				}
+				if (msg.data.entity.Due) {
+					msg.data.entity.Due = new Date(msg.data.entity.Due);
+				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
@@ -85,6 +88,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				if (msg.data.entity.Date) {
 					msg.data.entity.Date = new Date(msg.data.entity.Date);
+				}
+				if (msg.data.entity.Due) {
+					msg.data.entity.Due = new Date(msg.data.entity.Due);
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
