@@ -16,4 +16,8 @@
 
 ![model](images/orders-management.png)
 
-![model](images/orders-order-type.png)
+![model](images/orders-sales-order.png)
+
+![model](images/orders-purchase-order.png)
+
+![model](images/orders-order-status.png)
