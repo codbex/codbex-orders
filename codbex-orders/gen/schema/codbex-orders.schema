@@ -222,7 +222,7 @@
                         "name": "SALESORDERITEM_QUANTITY"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "INTEGER",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",
@@ -479,7 +479,7 @@
                         "name": "PURCHASEORDERITEM_QUANTITY"
                     },
                     {
-                        "type": "VARCHAR",
+                        "type": "INTEGER",
                         "length": 20,
                         "precision": "NaN",
                         "scale": "NaN",

@@ -4,6 +4,7 @@
   "brandUrl": "https://www.codbex.com/",
   "title": "Order Management Module",
   "description": "Managing order data",
+  "dataSource": "DefaultDB",
   "projectName": "codbex-orders",
   "workspaceName": "workspace",
   "filePath": "codbex-orders.model",
@@ -858,6 +859,7 @@
       "title": "SalesOrder",
       "tooltip": "SalesOrder",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [
         {
           "name": "Customer",
@@ -1647,7 +1649,7 @@
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
-          "dataType": "VARCHAR",
+          "dataType": "INTEGER",
           "dataUnique": false,
           "isCalculatedProperty": false,
           "isRequiredProperty": true,
@@ -1664,10 +1666,8 @@
           "dataNotNull": true,
           "widgetLabel": "UoM",
           "widgetDropdownUrl": "\"/services/ts/codbex-uoms/gen/api/UnitsOfMeasures/UoMService.ts\"",
-          "dataTypeJava": "string",
-          "dataTypeTypescript": "string",
-          "minLength": 0,
-          "maxLength": 20,
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -1794,6 +1794,7 @@
       "title": "SalesOrderItem",
       "tooltip": "SalesOrderItem",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [
         {
           "name": "Product",
@@ -2485,6 +2486,7 @@
       "title": "PurchaseOrder",
       "tooltip": "PurchaseOrder",
       "type": "PRIMARY",
+      "dataSource": "DefaultDB",
       "referencedProjections": [
         {
           "name": "Supplier",
@@ -3274,7 +3276,7 @@
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,
           "dataScale": "NaN",
-          "dataType": "VARCHAR",
+          "dataType": "INTEGER",
           "dataUnique": false,
           "isCalculatedProperty": false,
           "isRequiredProperty": true,
@@ -3291,10 +3293,8 @@
           "dataNotNull": true,
           "widgetLabel": "UoM",
           "widgetDropdownUrl": "\"/services/ts/codbex-uoms/gen/api/UnitsOfMeasures/UoMService.ts\"",
-          "dataTypeJava": "string",
-          "dataTypeTypescript": "string",
-          "minLength": 0,
-          "maxLength": 20,
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -3421,6 +3421,7 @@
       "title": "PurchaseOrderItem",
       "tooltip": "PurchaseOrderItem",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [
         {
           "name": "Product",
@@ -3511,6 +3512,7 @@
       "title": "SalesOrderStatus",
       "tooltip": "SalesOrderStatus",
       "type": "SETTING",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -3589,6 +3591,7 @@
       "title": "PurchaseOrderStatus",
       "tooltip": "PurchaseOrderStatus",
       "type": "SETTING",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -3929,6 +3932,7 @@
       "title": "Customer",
       "tooltip": "Customer",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -4270,6 +4274,7 @@
       "title": "Supplier",
       "tooltip": "Supplier",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -4795,6 +4800,7 @@
       "title": "Product",
       "tooltip": "Product",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5134,6 +5140,7 @@
       "title": "Company",
       "tooltip": "Company",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5215,6 +5222,7 @@
       "title": "PaymentMethod",
       "tooltip": "PaymentMethod",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5299,6 +5307,7 @@
       "title": "SentMethod",
       "tooltip": "SentMethod",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5529,6 +5538,7 @@
       "title": "Employee",
       "tooltip": "Employee",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5746,6 +5756,7 @@
       "title": "Currency",
       "tooltip": "Currency",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -5888,6 +5899,7 @@
       "title": "SalesOrderPayment",
       "tooltip": "SalesOrderPayment",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [
         {
           "name": "CustomerPayment",
@@ -6254,6 +6266,7 @@
       "title": "CustomerPayment",
       "tooltip": "CustomerPayment",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -6398,6 +6411,7 @@
       "title": "PurchaseOrderPayment",
       "tooltip": "PurchaseOrderPayment",
       "type": "DEPENDENT",
+      "dataSource": "DefaultDB",
       "referencedProjections": [
         {
           "name": "SupplierPayment",
@@ -6824,6 +6838,7 @@
       "title": "SupplierPayment",
       "tooltip": "SupplierPayment",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"
@@ -6844,7 +6859,7 @@
           "dataPrecision": "NaN",
           "dataPrimaryKey": true,
           "dataScale": "NaN",
-          "dataType": "VARCHAR",
+          "dataType": "INTEGER",
           "dataUnique": false,
           "isCalculatedProperty": false,
           "isRequiredProperty": false,
@@ -6856,10 +6871,8 @@
           "dataNotNull": false,
           "widgetLabel": "Id",
           "widgetDropdownUrl": "",
-          "dataTypeJava": "string",
-          "dataTypeTypescript": "string",
-          "minLength": 0,
-          "maxLength": 20,
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         },
         {
@@ -7100,6 +7113,7 @@
       "title": "UoM",
       "tooltip": "UoM",
       "type": "PROJECTION",
+      "dataSource": "DefaultDB",
       "referencedProjections": [],
       "primaryKeys": [
         "Id"

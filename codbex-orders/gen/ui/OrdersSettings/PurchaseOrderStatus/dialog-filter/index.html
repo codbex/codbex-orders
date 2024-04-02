@@ -29,14 +29,13 @@
                 <fd-form-group dg-header="PurchaseOrderStatus Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
+                        	<fd-form-label for="idName" dg-colon="true">Name</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
 	                            <fd-input id="idName"
 	                                name="Name"
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
-									ng-required="false"
 	                                ng-model="entity.Name"
 	                                ng-minlength="0.0 || 0"
 	                                ng-maxlength="20.0 || -1"

@@ -8,7 +8,7 @@ export interface PurchaseOrderItemEntity {
     PurchaseOrder: number;
     Product: number;
     Quantity: number;
-    UoM: string;
+    UoM: number;
     Price: number;
     Net?: number;
     VAT?: number;
@@ -19,7 +19,7 @@ export interface PurchaseOrderItemCreateEntity {
     readonly PurchaseOrder: number;
     readonly Product: number;
     readonly Quantity: number;
-    readonly UoM: string;
+    readonly UoM: number;
     readonly Price: number;
 }
 
@@ -34,7 +34,7 @@ export interface PurchaseOrderItemEntityOptions {
             PurchaseOrder?: number | number[];
             Product?: number | number[];
             Quantity?: number | number[];
-            UoM?: string | string[];
+            UoM?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
@@ -45,7 +45,7 @@ export interface PurchaseOrderItemEntityOptions {
             PurchaseOrder?: number | number[];
             Product?: number | number[];
             Quantity?: number | number[];
-            UoM?: string | string[];
+            UoM?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
@@ -56,7 +56,7 @@ export interface PurchaseOrderItemEntityOptions {
             PurchaseOrder?: number;
             Product?: number;
             Quantity?: number;
-            UoM?: string;
+            UoM?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
@@ -67,7 +67,7 @@ export interface PurchaseOrderItemEntityOptions {
             PurchaseOrder?: number;
             Product?: number;
             Quantity?: number;
-            UoM?: string;
+            UoM?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
@@ -78,7 +78,7 @@ export interface PurchaseOrderItemEntityOptions {
             PurchaseOrder?: number;
             Product?: number;
             Quantity?: number;
-            UoM?: string;
+            UoM?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
@@ -89,7 +89,7 @@ export interface PurchaseOrderItemEntityOptions {
             PurchaseOrder?: number;
             Product?: number;
             Quantity?: number;
-            UoM?: string;
+            UoM?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
@@ -100,7 +100,7 @@ export interface PurchaseOrderItemEntityOptions {
             PurchaseOrder?: number;
             Product?: number;
             Quantity?: number;
-            UoM?: string;
+            UoM?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
@@ -159,7 +159,7 @@ export class PurchaseOrderItemRepository {
             {
                 name: "UoM",
                 column: "PURCHASEORDERITEM_UOM",
-                type: "VARCHAR",
+                type: "INTEGER",
                 required: true
             },
             {
@@ -188,7 +188,7 @@ export class PurchaseOrderItemRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(PurchaseOrderItemRepository.DEFINITION, null, dataSource);
     }
 

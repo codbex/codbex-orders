@@ -29,13 +29,12 @@
                 <fd-form-group dg-header="SalesOrderPayment Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idCustomerPayment" dg-required="true" dg-colon="true">CustomerPayment</fd-form-label>
+                        	<fd-form-label for="idCustomerPayment" dg-colon="true">CustomerPayment</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <fd-combobox-input id="idCustomerPayment"
 	                            name="CustomerPayment"
 	                            state="{{ forms.details['CustomerPayment'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
 	                            ng-model="entity.CustomerPayment"
 	                            dropdown-items="optionsCustomerPayment"
 	                            dg-placeholder="Search CustomerPayment ...">
@@ -44,13 +43,12 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idAmount" dg-required="true" dg-colon="true">Amount</fd-form-label>
+                        	<fd-form-label for="idAmount" dg-colon="true">Amount</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <fd-step-input dg-id="idAmount"
 								name="Amount"
 								state="{{ forms.details['Amount'].$valid ? '' : 'error' }}"
-								dg-required="true"
 								ng-model="entity.Amount"
 								placeholder="Enter Amount"
 								>

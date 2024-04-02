@@ -87,7 +87,7 @@ export class SalesOrderStatusRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(SalesOrderStatusRepository.DEFINITION, null, dataSource);
     }
 

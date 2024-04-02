@@ -7,6 +7,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	}])
 	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
 
+		$scope.dataPage = 1;
+		$scope.dataCount = 0;
+		$scope.dataLimit = 20;
+
 		//-----------------Custom Actions-------------------//
 		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-orders-custom-action").then(function (response) {
 			$scope.pageActions = response.data.filter(e => e.perspective === "OrdersSettings" && e.view === "PurchaseOrderStatus" && (e.type === "page" || e.type === undefined));
@@ -70,7 +74,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					messageHub.showAlertError("PurchaseOrderStatus", `Unable to count PurchaseOrderStatus: '${response.message}'`);
 					return;
 				}
-				$scope.dataCount = response.data;
+				if (response.data) {
+					$scope.dataCount = response.data;
+				}
 				let offset = (pageNumber - 1) * $scope.dataLimit;
 				let limit = $scope.dataLimit;
 				let request;

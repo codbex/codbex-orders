@@ -391,7 +391,7 @@ export class SalesOrderRepository {
 
     private readonly dao;
 
-    constructor(dataSource?: string) {
+    constructor(dataSource = "DefaultDB") {
         this.dao = daoApi.create(SalesOrderRepository.DEFINITION, null, dataSource);
     }
 
@@ -419,14 +419,14 @@ export class SalesOrderRepository {
         (entity as SalesOrderEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Total"];
         // @ts-ignore
         (entity as SalesOrderEntity).UUID = require("sdk/utils/uuid").random();
-        if (!entity.Discount) {
-            entity.Discount = "0";
+        if (entity.Discount === undefined || entity.Discount === null) {
+            (entity as SalesOrderEntity).Discount = 0;
         }
-        if (!entity.Taxes) {
-            entity.Taxes = "0";
+        if (entity.Taxes === undefined || entity.Taxes === null) {
+            (entity as SalesOrderEntity).Taxes = 0;
         }
-        if (!entity.Paid) {
-            entity.Paid = "0";
+        if (entity.Paid === undefined || entity.Paid === null) {
+            (entity as SalesOrderEntity).Paid = 0;
         }
         const id = this.dao.insert(entity);
         this.triggerEvent({

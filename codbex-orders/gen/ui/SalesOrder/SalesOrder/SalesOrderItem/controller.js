@@ -102,7 +102,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					messageHub.showAlertError("SalesOrderItem", `Unable to count SalesOrderItem: '${response.message}'`);
 					return;
 				}
-				$scope.dataCount = response.data;
+				if (response.data) {
+					$scope.dataCount = response.data;
+				}
 				filter.$offset = (pageNumber - 1) * $scope.dataLimit;
 				filter.$limit = $scope.dataLimit;
 				entityApi.search(filter).then(function (response) {
