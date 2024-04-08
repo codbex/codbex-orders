@@ -5,34 +5,33 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/api/SalesOrder/SalesOrderPaymentService.ts";
 	}])
-	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
-
+	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
 		//-----------------Custom Actions-------------------//
-		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-orders-custom-action").then(function (response) {
-			$scope.pageActions = response.data.filter(e => e.perspective === "SalesOrder" && e.view === "SalesOrderPayment" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === "SalesOrder" && e.view === "SalesOrderPayment" && e.type === "entity");
+		Extensions.get('dialogWindow', 'codbex-orders-custom-action').then(function (response) {
+			$scope.pageActions = response.filter(e => e.perspective === "SalesOrder" && e.view === "SalesOrderPayment" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "SalesOrder" && e.view === "SalesOrderPayment" && e.type === "entity");
 		});
 
-		$scope.triggerPageAction = function (actionId) {
-			for (const next of $scope.pageActions) {
-				if (next.id === actionId) {
-					messageHub.showDialogWindow("codbex-orders-custom-action", {
-						src: next.link,
-					});
-					break;
-				}
-			}
+		$scope.triggerPageAction = function (action) {
+			messageHub.showDialogWindow(
+				action.id,
+				{},
+				null,
+				true,
+				action
+			);
 		};
 
-		$scope.triggerEntityAction = function (actionId, selectedEntity) {
-			for (const next of $scope.entityActions) {
-				if (next.id === actionId) {
-					messageHub.showDialogWindow("codbex-orders-custom-action", {
-						src: `${next.link}?id=${selectedEntity.Id}`,
-					});
-					break;
-				}
-			}
+		$scope.triggerEntityAction = function (action) {
+			messageHub.showDialogWindow(
+				action.id,
+				{
+					id: $scope.entity.Id
+				},
+				null,
+				true,
+				action
+			);
 		};
 		//-----------------Custom Actions-------------------//
 

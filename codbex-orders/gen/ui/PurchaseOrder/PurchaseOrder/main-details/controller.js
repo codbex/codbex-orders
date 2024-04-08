@@ -5,7 +5,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["entityApiProvider", function (entityApiProvider) {
 		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/api/PurchaseOrder/PurchaseOrderService.ts";
 	}])
-	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', function ($scope, $http, messageHub, entityApi) {
+	.controller('PageController', ['$scope', 'Extensions', 'messageHub', 'entityApi', function ($scope, Extensions, messageHub, entityApi) {
 
 		$scope.entity = {};
 		$scope.forms = {
@@ -19,19 +19,20 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.action = 'select';
 
 		//-----------------Custom Actions-------------------//
-		$http.get("/services/js/resources-core/services/custom-actions.js?extensionPoint=codbex-orders-custom-action").then(function (response) {
-			$scope.entityActions = response.data.filter(e => e.perspective === "PurchaseOrder" && e.view === "PurchaseOrder" && e.type === "entity");
+		Extensions.get('dialogWindow', 'codbex-orders-custom-action').then(function (response) {
+			$scope.entityActions = response.filter(e => e.perspective === "PurchaseOrder" && e.view === "PurchaseOrder" && e.type === "entity");
 		});
 
-		$scope.triggerEntityAction = function (actionId, selectedEntity) {
-			for (const next of $scope.entityActions) {
-				if (next.id === actionId) {
-					messageHub.showDialogWindow("codbex-orders-custom-action", {
-						src: `${next.link}?id=${$scope.entity.Id}`,
-					});
-					break;
-				}
-			}
+		$scope.triggerEntityAction = function (action) {
+			messageHub.showDialogWindow(
+				action.id,
+				{
+					id: $scope.entity.Id
+				},
+				null,
+				true,
+				action
+			);
 		};
 		//-----------------Custom Actions-------------------//
 
