@@ -1567,7 +1567,7 @@
           "calculatedPropertyExpressionUpdate": "",
           "dataAutoIncrement": false,
           "dataLength": "0",
-          "dataName": "SALESORDERITEM_ORDER",
+          "dataName": "SALESORDERITEM_SALESORDER",
           "dataNullable": false,
           "dataPrecision": "NaN",
           "dataPrimaryKey": false,

@@ -205,7 +205,7 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "name": "SALESORDERITEM_ORDER"
+                        "name": "SALESORDERITEM_SALESORDER"
                     },
                     {
                         "type": "INTEGER",
@@ -696,7 +696,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERITEM",
                 "constraintName": "SalesOrderItem_SalesOrder",
-                "columns": "SALESORDERITEM_ORDER",
+                "columns": "SALESORDERITEM_SALESORDER",
                 "referencedTable": "CODBEX_SALESORDER",
                 "referencedColumns": "SALESORDER_ID"
             },

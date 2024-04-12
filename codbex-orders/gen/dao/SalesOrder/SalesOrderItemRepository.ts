@@ -139,7 +139,7 @@ export class SalesOrderItemRepository {
             },
             {
                 name: "SalesOrder",
-                column: "SALESORDERITEM_ORDER",
+                column: "SALESORDERITEM_SALESORDER",
                 type: "INTEGER",
                 required: true
             },
