@@ -1766,7 +1766,7 @@
           "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
           "dataAutoIncrement": false,
           "dataLength": "20",
-          "dataName": "SALESORDERITEM_TOTAL",
+          "dataName": "SALESORDERITEM_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
           "dataPrimaryKey": false,

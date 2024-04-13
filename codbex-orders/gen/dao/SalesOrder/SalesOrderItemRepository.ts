@@ -179,7 +179,7 @@ export class SalesOrderItemRepository {
             },
             {
                 name: "Gross",
-                column: "SALESORDERITEM_TOTAL",
+                column: "SALESORDERITEM_GROSS",
                 type: "DECIMAL",
             }
         ]

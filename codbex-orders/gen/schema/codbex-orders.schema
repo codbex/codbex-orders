@@ -257,7 +257,7 @@
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
-                        "name": "SALESORDERITEM_TOTAL"
+                        "name": "SALESORDERITEM_GROSS"
                     }
                 ]
             },
