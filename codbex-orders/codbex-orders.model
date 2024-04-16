@@ -4327,9 +4327,9 @@
                 "menuLabel": "OrdersReport",
                 "name": "SalesOrdersReport",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/file-graph.svg",
+                "perspectiveName": "Reports",
+                "perspectiveOrder": "800",
                 "perspectiveRole": "",
                 "title": "OrdersReport",
                 "tooltip": "OrdersReport",
@@ -4360,7 +4360,7 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrdersReport",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Reports"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4518,9 +4518,9 @@
                 "menuLabel": "SalesOrdersTotalReport",
                 "name": "SalesOrdersTotalReport",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/file-graph.svg",
+                "perspectiveName": "Reports",
+                "perspectiveOrder": "800",
                 "perspectiveRole": "",
                 "title": "SalesOrdersTotalReport",
                 "tooltip": "SalesOrdersTotalReport",
@@ -4551,7 +4551,7 @@
                         "widgetSize": "",
                         "widgetType": "TEXTBOX",
                         "relationshipEntityName": "SalesOrdersTotalReport",
-                        "relationshipEntityPerspectiveName": "entities"
+                        "relationshipEntityPerspectiveName": "Reports"
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
@@ -4635,6 +4635,13 @@
                 "label": "Orders Settings",
                 "icon": "/services/web/resources/unicons/wrench.svg",
                 "order": "590",
+                "role": {}
+            },
+            {
+                "name": "Reports",
+                "label": "Reports",
+                "icon": "/services/web/resources/unicons/file-graph.svg",
+                "order": "800",
                 "role": {}
             }
         ],
