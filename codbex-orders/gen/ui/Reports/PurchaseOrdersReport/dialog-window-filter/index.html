@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=" dg-brand-icon />
+        <title dg-brand-title></title>
+        <theme></theme>
+        <script type="text/javascript"
+            src="/services/js/resources-core/services/loader.js?id=application-view-js"></script>
+        <link type="text/css" rel="stylesheet"
+            href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+        <script type="text/javascript" src="controller.js"></script>
+    </head>
+
+    <body class="dg-vbox">
+        <fd-scrollbar class="dg-full-height">
+            <div class="fd-margin--md fd-message-strip fd-message-strip--error fd-message-strip--dismissible"
+                role="alert" ng-show="errorMessage">
+                <p class="fd-message-strip__text">{{ errorMessage }}</p>
+            </div>
+
+            <fd-fieldset ng-form="forms.details">
+                <fd-form-group dg-header="Report Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idNumber" dg-required="false" dg-colon="true">Number</fd-form-label>
+                        </div>
+                        <fd-form-input-message-group dg-inactive="{{ forms.details['Number'].$valid }}">
+                            <fd-input id="idNumber"
+                                name="Number"
+                                state="{{ forms.details['Number'].$valid ? '' : 'error' }}"
+								ng-required="false"
+                                ng-model="entity.Number"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="20.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Number">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
+                        </div>
+                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
+                            <fd-input id="idName"
+                                name="Name"
+                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
+								ng-required="false"
+                                ng-model="entity.Name"
+                                ng-minlength="0.0 || 0"
+                                ng-maxlength="20.0 || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Name">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idDate" dg-required="false" dg-colon="true">Date</fd-form-label>
+                        </div>
+                        <fd-form-input-message-group dg-inactive="{{ forms.details['Date'].$valid }}">
+                            <fd-input id="idDate"
+                                name="Date"
+                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
+								ng-required="false"
+                                ng-model="entity.Date"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Date">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idDue" dg-required="false" dg-colon="true">Due</fd-form-label>
+                        </div>
+                        <fd-form-input-message-group dg-inactive="{{ forms.details['Due'].$valid }}">
+                            <fd-input id="idDue"
+                                name="Due"
+                                state="{{ forms.details['Due'].$valid ? '' : 'error' }}"
+								ng-required="false"
+                                ng-model="entity.Due"
+                                ng-minlength="${property.minLength} || 0"
+                                ng-maxlength="${property.maxLength} || -1"
+                                dg-input-rules="{ patterns: [''] }"
+                                type="text"
+                                placeholder="Enter Due">
+                            </fd-input>
+                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+                        </fd-form-input-message-group>
+                    </fd-form-item>
+				</fd-form-group>
+            </fd-fieldset>
+        </fd-scrollbar>
+
+
+        <fd-bar bar-design="footer" compact="true">
+			<fd-bar-right>
+				<fd-bar-element>
+					<fd-button dg-label="Filter" dg-type="emphasized" ng-click="filter()" state="{{ forms.details.$valid ? '' : 'disabled' }}"></fd-button>
+				</fd-bar-element>
+				<fd-bar-element>
+					<fd-button dg-label="Reset" dg-type="transparent" ng-click="resetFilter()"></fd-button>
+				</fd-bar-element>
+				<fd-bar-element>
+					<fd-button dg-label="Cancel" dg-type="transparent" ng-click="cancel()"></fd-button>
+				</fd-bar-element>
+			</fd-bar-right>
+		</fd-bar>
+
+    </body>
+
+</html>
