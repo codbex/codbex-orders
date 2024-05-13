@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="templateApp" ng-controller="templateController">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+        <title dg-view-title></title>
+        <script type="text/javascript" src="purchase-order-print.js"></script>
+        <script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=ide-view-js"></script>
+        <link type="text/css" rel="stylesheet" href="/services/js/resources-core/services/loader.js?id=ide-view-css" />
+        <theme></theme>
+        <link rel="stylesheet" href="/services/web/codbex-orders/print/PurchaseOrder/print-purchase-order.css">
+        <script src="/services/web/codbex-orders/print/PurchaseOrder/print-purchase-order-controller.js">
+        </script>
+    </head>
+
+    <body>
+        <div class="order-box">
+            <table cellpadding="0" cellspacing="0">
+                <tr class="top">
+                    <td colspan="2">
+                        <table>
+                            <tr>
+                                <td class="title">
+                                    <img src="https://www.codbex.com/favicon.png"
+                                        style="width: 100%; max-width: 50px" />
+                                </td>
+
+                                <td>
+                                    Order #: <b>{{Order.Number}}</b><br />
+                                    Order Date: <b>{{Order.Date | date: 'yyyy-MM-dd'}}</b><br />
+                                    Due Date: <b>{{Order.Due | date: 'yyyy-MM-dd'}}</b>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="order-jumbo">Purchase ORDER</div>
+
+            <table cellpadding="0" cellspacing="0">
+                <tr class="information">
+                    <td colspan="2">
+                        <table>
+                            <tr>
+                                <td>
+                                    <b>{{Company.Name}}</b><br />
+                                    {{Company.Address}}<br />
+                                    {{Company.PostCode}}, {{Company.City}}, {{Company.Country}}
+                                </td>
+
+                                <td>
+                                    <b>{{Supplier.Name}}</b><br />
+                                    {{Supplier.Contact}}<br />
+                                    {{Supplier.Email}}<br />
+                                    VAT #: <b>{{Supplier.TIN}}</b>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <table cellpadding="0" cellspacing="0">
+                <tr class="heading">
+                    <td>Payment Method</td>
+                    <td>Sent Via</td>
+                    <td>Conditions</td>
+                </tr>
+
+                <tr class="details">
+                    <td>{{Order.PaymentMethod.Name}}</td>
+                    <td>{{Order.SentMethod.Name}}</td>
+                    <td>{{Order.Conditions}}</td>
+                </tr>
+            </table>
+            <table cellpadding="0" cellspacing="0">
+                <tr class="heading">
+                    <td>Item</td>
+                    <td>Quantity</td>
+                    <td>Price</td>
+                    <td>Net</td>
+                    <td>VAT</td>
+                    <td>Gross</td>
+                </tr>
+
+                <tr class="item" ng-repeat="next in OrderItems">
+                    <td>{{next.Product}}</td>
+                    <td>{{next.Quantity| number}}</td>
+                    <td>{{next.Price| number}}</td>
+                    <td>{{next.Net| number}}</td>
+                    <td>{{next.VAT| number}}</td>
+                    <td>{{next.Gross| number}}</td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Net: {{Order.Net| number}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Gross: {{Order.Gross| number}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Discount: {{Order.Discount| number}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Taxes: {{Order.Taxes| number}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>VAT: {{Order.VAT| number}}</td>
+                </tr>
+                <tr class="total">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total: {{Order.Total| number}}</td>
+                </tr>
+            </table>
+
+            <hr />
+            <br />
+
+            <table cellpadding="0" cellspacing="0">
+                <tr class="information">
+                    <td colspan="2">
+                        <table>
+                            <tr>
+                                <td>
+                                    TIN #: <b>{{Company.TIN}}</b><br />
+                                    e-mail: {{Company.Email}}<br />
+                                    Phone: {{Company.Phone}}
+                                </td>
+
+                                <td>
+                                    IBAN: <b>{{Company.IBAN}}</b><br />
+                                    SWIFT: {{Company.SWIFT}}<br />
+                                    Bank: {{Company.Bank}}
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="order-footer">THANK YOU FOR YOUR BUSINESS!</div>
+
+        </div>
+    </body>
+
+</html>

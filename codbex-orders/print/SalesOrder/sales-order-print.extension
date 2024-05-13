@@ -1,0 +1,5 @@
+{
+    "module": "codbex-orders/print/SalesOrder/sales-order-print.js",
+    "extensionPoint": "codbex-orders-custom-action",
+    "description": "Print Sales Order Custom Action"
+}
