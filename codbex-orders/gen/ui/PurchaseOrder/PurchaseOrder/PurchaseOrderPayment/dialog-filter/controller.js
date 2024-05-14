@@ -38,16 +38,16 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.PurchaseOrder) {
+			if (entity.PurchaseOrder !== undefined) {
 				filter.$filter.equals.PurchaseOrder = entity.PurchaseOrder;
 			}
-			if (entity.SupplierPayment) {
+			if (entity.SupplierPayment !== undefined) {
 				filter.$filter.equals.SupplierPayment = entity.SupplierPayment;
 			}
-			if (entity.Amount) {
+			if (entity.Amount !== undefined) {
 				filter.$filter.equals.Amount = entity.Amount;
 			}
 			messageHub.postMessage("entitySearch", {

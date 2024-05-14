@@ -5,7 +5,7 @@
  */
 const perspectiveData = {
 	id: 'PurchaseOrder',
-	name: 'PurchaseOrder',
+	name: 'Purchase Order',
 	link: '/services/web/codbex-orders/gen/ui/PurchaseOrder/index.html',
 	order: 520,
 	icon: '/services/web/resources/unicons/receipt-alt.svg',

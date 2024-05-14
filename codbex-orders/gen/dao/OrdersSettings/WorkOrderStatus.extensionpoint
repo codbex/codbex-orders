@@ -1,0 +1,4 @@
+{
+    "name": "codbex-orders-OrdersSettings-WorkOrderStatus",
+    "description": "Extension Point for the codbex-orders-OrdersSettings-WorkOrderStatus entity"
+}

@@ -55,7 +55,7 @@ angular.module('page', ["ideUI", "ideView"])
 					}
 				},
 			};
-			if (entity.Id) {
+			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
 			if (entity.Number) {
@@ -73,52 +73,52 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.DueTo) {
 				filter.$filter.lessThanOrEqual.Due = entity.DueTo;
 			}
-			if (entity.Supplier) {
+			if (entity.Supplier !== undefined) {
 				filter.$filter.equals.Supplier = entity.Supplier;
 			}
-			if (entity.Net) {
+			if (entity.Net !== undefined) {
 				filter.$filter.equals.Net = entity.Net;
 			}
-			if (entity.Currency) {
+			if (entity.Currency !== undefined) {
 				filter.$filter.equals.Currency = entity.Currency;
 			}
-			if (entity.Gross) {
+			if (entity.Gross !== undefined) {
 				filter.$filter.equals.Gross = entity.Gross;
 			}
-			if (entity.Discount) {
+			if (entity.Discount !== undefined) {
 				filter.$filter.equals.Discount = entity.Discount;
 			}
-			if (entity.Taxes) {
+			if (entity.Taxes !== undefined) {
 				filter.$filter.equals.Taxes = entity.Taxes;
 			}
-			if (entity.VAT) {
+			if (entity.VAT !== undefined) {
 				filter.$filter.equals.VAT = entity.VAT;
 			}
-			if (entity.Total) {
+			if (entity.Total !== undefined) {
 				filter.$filter.equals.Total = entity.Total;
 			}
-			if (entity.Paid) {
+			if (entity.Paid !== undefined) {
 				filter.$filter.equals.Paid = entity.Paid;
 			}
 			if (entity.Conditions) {
 				filter.$filter.contains.Conditions = entity.Conditions;
 			}
-			if (entity.PaymentMethod) {
+			if (entity.PaymentMethod !== undefined) {
 				filter.$filter.equals.PaymentMethod = entity.PaymentMethod;
 			}
-			if (entity.SentMethod) {
+			if (entity.SentMethod !== undefined) {
 				filter.$filter.equals.SentMethod = entity.SentMethod;
 			}
-			if (entity.PurchaseOrderStatus) {
+			if (entity.PurchaseOrderStatus !== undefined) {
 				filter.$filter.equals.PurchaseOrderStatus = entity.PurchaseOrderStatus;
 			}
-			if (entity.Operator) {
+			if (entity.Operator !== undefined) {
 				filter.$filter.equals.Operator = entity.Operator;
 			}
 			if (entity.Document) {
 				filter.$filter.contains.Document = entity.Document;
 			}
-			if (entity.Company) {
+			if (entity.Company !== undefined) {
 				filter.$filter.equals.Company = entity.Company;
 			}
 			if (entity.Name) {

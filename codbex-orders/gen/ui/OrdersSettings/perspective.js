@@ -5,7 +5,7 @@
  */
 const perspectiveData = {
 	id: 'OrdersSettings',
-	name: 'OrdersSettings',
+	name: 'Orders Settings',
 	link: '/services/web/codbex-orders/gen/ui/OrdersSettings/index.html',
 	order: 590,
 	icon: '/services/web/resources/unicons/wrench.svg',
