@@ -12,19 +12,11 @@
             src="/services/js/resources-core/services/loader.js?id=application-view-js"></script>
         <link type="text/css" rel="stylesheet"
             href="/services/js/resources-core/services/loader.js?id=application-view-css" />
-
         <script type="text/javascript" src="controller.js"></script>
     </head>
 
     <body class="dg-vbox">
         <fd-scrollbar class="dg-full-height">
-            <div class="fd-margin--md fd-message-strip fd-message-strip--error fd-message-strip--dismissible"
-                role="alert" ng-show="errorMessage">
-                <p class="fd-message-strip__text">{{ errorMessage }}</p>
-                <fd-button glyph="sap-icon--decline" compact="true" dg-type="transparent" aria-label="Close" in-msg-strip="true" ng-click="clearErrorMessage()">
-		        </fd-button>
-            </div>
-
             <fd-fieldset ng-form="forms.details">
                 <fd-form-group dg-header="{{formHeaders[action]}}" name="entityForm" class="fd-container fd-form-layout-grid-container">
                     <fd-form-item class="fd-row">
@@ -128,7 +120,7 @@
                         	<fd-form-label for="idNet" dg-required="false" dg-colon="true">Net</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
-	                        <fd-step-input dg-id="idNet"
+							<fd-step-input dg-id="idNet"
 								name="Net"
 								state="{{ forms.details['Net'].$valid ? '' : 'error' }}"
 								dg-required="false"
@@ -166,7 +158,7 @@
                         	<fd-form-label for="idGross" dg-required="false" dg-colon="true">Gross</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
-	                        <fd-step-input dg-id="idGross"
+							<fd-step-input dg-id="idGross"
 								name="Gross"
 								state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
 								dg-required="false"
@@ -182,7 +174,7 @@
                         	<fd-form-label for="idDisscount" dg-required="false" dg-colon="true">Disscount</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
-	                        <fd-step-input dg-id="idDisscount"
+							<fd-step-input dg-id="idDisscount"
 								name="Disscount"
 								state="{{ forms.details['Disscount'].$valid ? '' : 'error' }}"
 								dg-required="false"
@@ -198,7 +190,7 @@
                         	<fd-form-label for="idTaxes" dg-required="false" dg-colon="true">Taxes</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
-	                        <fd-step-input dg-id="idTaxes"
+							<fd-step-input dg-id="idTaxes"
 								name="Taxes"
 								state="{{ forms.details['Taxes'].$valid ? '' : 'error' }}"
 								dg-required="false"
@@ -214,7 +206,7 @@
                         	<fd-form-label for="idVAT" dg-required="false" dg-colon="true">VAT</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
-	                        <fd-step-input dg-id="idVAT"
+							<fd-step-input dg-id="idVAT"
 								name="VAT"
 								state="{{ forms.details['VAT'].$valid ? '' : 'error' }}"
 								dg-required="false"
@@ -230,7 +222,7 @@
                         	<fd-form-label for="idTotal" dg-required="false" dg-colon="true">Total</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
-	                        <fd-step-input dg-id="idTotal"
+							<fd-step-input dg-id="idTotal"
 								name="Total"
 								state="{{ forms.details['Total'].$valid ? '' : 'error' }}"
 								dg-required="false"
@@ -246,7 +238,7 @@
                         	<fd-form-label for="idPaid" dg-required="false" dg-colon="true">Paid</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
-	                        <fd-step-input dg-id="idPaid"
+							<fd-step-input dg-id="idPaid"
 								name="Paid"
 								state="{{ forms.details['Paid'].$valid ? '' : 'error' }}"
 								dg-required="false"
@@ -523,7 +515,13 @@
 				</fd-bar-element>
 			</fd-bar-right>
 		</fd-bar>
-
+		<fd-bar bar-design="footer" ng-show="action === 'select' && entityActions.length && entity.Id">
+			<fd-bar-right>
+				<fd-bar-element ng-repeat="action in entityActions">
+					<fd-button dg-label="{{action.label}}" dg-type="emphasized" ng-click="triggerEntityAction(action)"></fd-button>
+				</fd-bar-element>
+			</fd-bar-right>
+		</fd-bar>
     </body>
 
 </html>

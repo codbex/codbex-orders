@@ -7,7 +7,7 @@ const viewData = {
     id: "WorkOrder",
     label: "WorkOrder",
     factory: "frame",
-    region: "center",
+    region: "left",
     link: "/services/web/codbex-orders/gen/ui/WorkOrder/WorkOrder/index.html",
     perspectiveName: "WorkOrder",
 };

@@ -6,12 +6,14 @@
 const viewData = {
     id: "WorkOrder-details",
     label: "WorkOrder",
-    link: "/services/web/codbex-orders/gen/ui/WorkOrder/WorkOrder/dialog-window/index.html",
+    factory: "frame",
+    region: "center",
+    link: "/services/web/codbex-orders/gen/ui/WorkOrder/WorkOrder/main-details/index.html",
     perspectiveName: "WorkOrder",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
+    exports.getView = function () {
         return viewData;
     }
 }

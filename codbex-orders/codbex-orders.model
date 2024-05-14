@@ -5580,7 +5580,7 @@
                 "feedPassword": "YWRtaW4=",
                 "feedUsername": "YWRtaW4=",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
                 "menuKey": "workorder",
                 "menuLabel": "WorkOrder",
