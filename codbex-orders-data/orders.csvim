@@ -25,7 +25,7 @@
     {
       "table": "CODBEX_WORKORDERSTATUS",
       "schema": "PUBLIC",
-      "file": "/codbex-orders-data/work-order-status.csv",
+      "file": "/codbex-orders-data/work-order-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
