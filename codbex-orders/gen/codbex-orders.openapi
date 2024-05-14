@@ -11297,6 +11297,13 @@ components:
     WorkOrder:
       type: object
       required:
+        - Date
+        - Due
+        - Currency
+        - PaymentMethod
+        - SentMethod
+        - WorkOrderStatus
+        - Operator
       properties:
         Id:
           type: integer

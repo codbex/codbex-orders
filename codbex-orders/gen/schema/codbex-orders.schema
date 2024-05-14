@@ -691,6 +691,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "WORKORDER_CURRENCY"
                     },
@@ -753,18 +755,24 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "WORKORDER_PAYMENTMETHOD"
                     },
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "WORKORDER_SENTMETHOD"
                     },
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "WORKORDER_WORKORDERSTATUS"
                     },

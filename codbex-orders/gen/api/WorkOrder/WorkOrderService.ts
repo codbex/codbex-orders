@@ -122,11 +122,32 @@ class WorkOrderService {
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
         }
+        if (entity.Date === null || entity.Date === undefined) {
+            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
+        }
+        if (entity.Due === null || entity.Due === undefined) {
+            throw new ValidationError(`The 'Due' property is required, provide a valid value`);
+        }
         if (entity.Task?.length > 200) {
             throw new ValidationError(`The 'Task' exceeds the maximum length of [200] characters`);
         }
+        if (entity.Currency === null || entity.Currency === undefined) {
+            throw new ValidationError(`The 'Currency' property is required, provide a valid value`);
+        }
         if (entity.Conditions?.length > 200) {
             throw new ValidationError(`The 'Conditions' exceeds the maximum length of [200] characters`);
+        }
+        if (entity.PaymentMethod === null || entity.PaymentMethod === undefined) {
+            throw new ValidationError(`The 'PaymentMethod' property is required, provide a valid value`);
+        }
+        if (entity.SentMethod === null || entity.SentMethod === undefined) {
+            throw new ValidationError(`The 'SentMethod' property is required, provide a valid value`);
+        }
+        if (entity.WorkOrderStatus === null || entity.WorkOrderStatus === undefined) {
+            throw new ValidationError(`The 'WorkOrderStatus' property is required, provide a valid value`);
+        }
+        if (entity.Operator === null || entity.Operator === undefined) {
+            throw new ValidationError(`The 'Operator' property is required, provide a valid value`);
         }
         if (entity.Document?.length > 200) {
             throw new ValidationError(`The 'Document' exceeds the maximum length of [200] characters`);
