@@ -123,7 +123,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsCustomer: $scope.optionsCustomer,
+				optionsCurrency: $scope.optionsCurrency,
+				optionsPaymentMethod: $scope.optionsPaymentMethod,
+				optionsSentMethod: $scope.optionsSentMethod,
+				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
+				optionsOperator: $scope.optionsOperator,
 				optionsExecutor: $scope.optionsExecutor,
+				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
 		};
 
@@ -134,7 +140,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("createEntity", {
 				entity: {},
 				optionsCustomer: $scope.optionsCustomer,
+				optionsCurrency: $scope.optionsCurrency,
+				optionsPaymentMethod: $scope.optionsPaymentMethod,
+				optionsSentMethod: $scope.optionsSentMethod,
+				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
+				optionsOperator: $scope.optionsOperator,
 				optionsExecutor: $scope.optionsExecutor,
+				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
 		};
 
@@ -143,7 +155,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.postMessage("updateEntity", {
 				entity: $scope.selectedEntity,
 				optionsCustomer: $scope.optionsCustomer,
+				optionsCurrency: $scope.optionsCurrency,
+				optionsPaymentMethod: $scope.optionsPaymentMethod,
+				optionsSentMethod: $scope.optionsSentMethod,
+				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
+				optionsOperator: $scope.optionsOperator,
 				optionsExecutor: $scope.optionsExecutor,
+				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
 		};
 
@@ -181,17 +199,74 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			messageHub.showDialogWindow("WorkOrder-filter", {
 				entity: $scope.filterEntity,
 				optionsCustomer: $scope.optionsCustomer,
+				optionsCurrency: $scope.optionsCurrency,
+				optionsPaymentMethod: $scope.optionsPaymentMethod,
+				optionsSentMethod: $scope.optionsSentMethod,
+				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
+				optionsOperator: $scope.optionsOperator,
 				optionsExecutor: $scope.optionsExecutor,
+				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
 		};
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsCustomer = [];
+		$scope.optionsCurrency = [];
+		$scope.optionsPaymentMethod = [];
+		$scope.optionsSentMethod = [];
+		$scope.optionsWorkOrderStatus = [];
+		$scope.optionsOperator = [];
 		$scope.optionsExecutor = [];
+		$scope.optionsSalesOrder = [];
 
 
 		$http.get("/services/ts/codbex-partners/gen/api/Customers/CustomerService.ts").then(function (response) {
 			$scope.optionsCustomer = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-currencies/gen/api/Currencies/CurrencyService.ts").then(function (response) {
+			$scope.optionsCurrency = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-methods/gen/api/Methods/PaymentMethodService.ts").then(function (response) {
+			$scope.optionsPaymentMethod = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-methods/gen/api/Methods/SentMethodService.ts").then(function (response) {
+			$scope.optionsSentMethod = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-orders/gen/api/OrdersSettings/WorkOrderStatusService.ts").then(function (response) {
+			$scope.optionsWorkOrderStatus = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-employees/gen/api/Employees/EmployeeService.ts").then(function (response) {
+			$scope.optionsOperator = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -208,6 +283,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
+		$http.get("/services/ts/codbex-orders/gen/api/SalesOrder/SalesOrderService.ts").then(function (response) {
+			$scope.optionsSalesOrder = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
 		$scope.optionsCustomerValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
 				if ($scope.optionsCustomer[i].value === optionKey) {
@@ -216,10 +300,58 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
+		$scope.optionsCurrencyValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
+				if ($scope.optionsCurrency[i].value === optionKey) {
+					return $scope.optionsCurrency[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsPaymentMethodValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsPaymentMethod.length; i++) {
+				if ($scope.optionsPaymentMethod[i].value === optionKey) {
+					return $scope.optionsPaymentMethod[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsSentMethodValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsSentMethod.length; i++) {
+				if ($scope.optionsSentMethod[i].value === optionKey) {
+					return $scope.optionsSentMethod[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsWorkOrderStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsWorkOrderStatus.length; i++) {
+				if ($scope.optionsWorkOrderStatus[i].value === optionKey) {
+					return $scope.optionsWorkOrderStatus[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsOperatorValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsOperator.length; i++) {
+				if ($scope.optionsOperator[i].value === optionKey) {
+					return $scope.optionsOperator[i].text;
+				}
+			}
+			return null;
+		};
 		$scope.optionsExecutorValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsExecutor.length; i++) {
 				if ($scope.optionsExecutor[i].value === optionKey) {
 					return $scope.optionsExecutor[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsSalesOrderValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsSalesOrder.length; i++) {
+				if ($scope.optionsSalesOrder[i].value === optionKey) {
+					return $scope.optionsSalesOrder[i].text;
 				}
 			}
 			return null;

@@ -14,7 +14,7 @@ export interface WorkOrderEntity {
     Net?: number;
     Currency?: number;
     Gross?: number;
-    Disscount?: number;
+    Discount?: number;
     Taxes?: number;
     VAT?: number;
     Total?: number;
@@ -28,7 +28,7 @@ export interface WorkOrderEntity {
     Company?: number;
     UUID: string;
     Name?: string;
-    Referances?: string;
+    Referance?: string;
     Executor?: number;
     SalesOrder?: number;
 }
@@ -41,7 +41,7 @@ export interface WorkOrderCreateEntity {
     readonly Net?: number;
     readonly Currency?: number;
     readonly Gross?: number;
-    readonly Disscount?: number;
+    readonly Discount?: number;
     readonly Taxes?: number;
     readonly VAT?: number;
     readonly Total?: number;
@@ -53,7 +53,7 @@ export interface WorkOrderCreateEntity {
     readonly Operator?: number;
     readonly Document?: string;
     readonly Company?: number;
-    readonly Referances?: string;
+    readonly Referance?: string;
     readonly Executor?: number;
     readonly SalesOrder?: number;
 }
@@ -74,7 +74,7 @@ export interface WorkOrderEntityOptions {
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
-            Disscount?: number | number[];
+            Discount?: number | number[];
             Taxes?: number | number[];
             VAT?: number | number[];
             Total?: number | number[];
@@ -88,7 +88,7 @@ export interface WorkOrderEntityOptions {
             Company?: number | number[];
             UUID?: string | string[];
             Name?: string | string[];
-            Referances?: string | string[];
+            Referance?: string | string[];
             Executor?: number | number[];
             SalesOrder?: number | number[];
         };
@@ -102,7 +102,7 @@ export interface WorkOrderEntityOptions {
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
-            Disscount?: number | number[];
+            Discount?: number | number[];
             Taxes?: number | number[];
             VAT?: number | number[];
             Total?: number | number[];
@@ -116,7 +116,7 @@ export interface WorkOrderEntityOptions {
             Company?: number | number[];
             UUID?: string | string[];
             Name?: string | string[];
-            Referances?: string | string[];
+            Referance?: string | string[];
             Executor?: number | number[];
             SalesOrder?: number | number[];
         };
@@ -130,7 +130,7 @@ export interface WorkOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            Disscount?: number;
+            Discount?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -144,7 +144,7 @@ export interface WorkOrderEntityOptions {
             Company?: number;
             UUID?: string;
             Name?: string;
-            Referances?: string;
+            Referance?: string;
             Executor?: number;
             SalesOrder?: number;
         };
@@ -158,7 +158,7 @@ export interface WorkOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            Disscount?: number;
+            Discount?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -172,7 +172,7 @@ export interface WorkOrderEntityOptions {
             Company?: number;
             UUID?: string;
             Name?: string;
-            Referances?: string;
+            Referance?: string;
             Executor?: number;
             SalesOrder?: number;
         };
@@ -186,7 +186,7 @@ export interface WorkOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            Disscount?: number;
+            Discount?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -200,7 +200,7 @@ export interface WorkOrderEntityOptions {
             Company?: number;
             UUID?: string;
             Name?: string;
-            Referances?: string;
+            Referance?: string;
             Executor?: number;
             SalesOrder?: number;
         };
@@ -214,7 +214,7 @@ export interface WorkOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            Disscount?: number;
+            Discount?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -228,7 +228,7 @@ export interface WorkOrderEntityOptions {
             Company?: number;
             UUID?: string;
             Name?: string;
-            Referances?: string;
+            Referance?: string;
             Executor?: number;
             SalesOrder?: number;
         };
@@ -242,7 +242,7 @@ export interface WorkOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            Disscount?: number;
+            Discount?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -256,7 +256,7 @@ export interface WorkOrderEntityOptions {
             Company?: number;
             UUID?: string;
             Name?: string;
-            Referances?: string;
+            Referance?: string;
             Executor?: number;
             SalesOrder?: number;
         };
@@ -332,7 +332,7 @@ export class WorkOrderRepository {
                 type: "DECIMAL",
             },
             {
-                name: "Disscount",
+                name: "Discount",
                 column: "WORKORDER_DISSCOUNT",
                 type: "DECIMAL",
             },
@@ -403,7 +403,7 @@ export class WorkOrderRepository {
                 type: "VARCHAR",
             },
             {
-                name: "Referances",
+                name: "Referance",
                 column: "WORKORDER_REFERANCES",
                 type: "VARCHAR",
             },

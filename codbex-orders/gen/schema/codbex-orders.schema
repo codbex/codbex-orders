@@ -832,6 +832,8 @@
                     {
                         "type": "INTEGER",
                         "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "WORKORDER_SALESORDER"
                     }

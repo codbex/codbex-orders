@@ -41,7 +41,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsCustomer = [];
+				$scope.optionsCurrency = [];
+				$scope.optionsPaymentMethod = [];
+				$scope.optionsSentMethod = [];
+				$scope.optionsWorkOrderStatus = [];
+				$scope.optionsOperator = [];
 				$scope.optionsExecutor = [];
+				$scope.optionsSalesOrder = [];
 				$scope.action = 'select';
 			});
 		});
@@ -56,7 +62,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
+				$scope.optionsSentMethod = msg.data.optionsSentMethod;
+				$scope.optionsWorkOrderStatus = msg.data.optionsWorkOrderStatus;
+				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsExecutor = msg.data.optionsExecutor;
+				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
 				$scope.action = 'select';
 			});
 		});
@@ -65,7 +77,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.$apply(function () {
 				$scope.entity = {};
 				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
+				$scope.optionsSentMethod = msg.data.optionsSentMethod;
+				$scope.optionsWorkOrderStatus = msg.data.optionsWorkOrderStatus;
+				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsExecutor = msg.data.optionsExecutor;
+				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
 				$scope.action = 'create';
 			});
 		});
@@ -80,7 +98,13 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				}
 				$scope.entity = msg.data.entity;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
+				$scope.optionsCurrency = msg.data.optionsCurrency;
+				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
+				$scope.optionsSentMethod = msg.data.optionsSentMethod;
+				$scope.optionsWorkOrderStatus = msg.data.optionsWorkOrderStatus;
+				$scope.optionsOperator = msg.data.optionsOperator;
 				$scope.optionsExecutor = msg.data.optionsExecutor;
+				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
 				$scope.action = 'update';
 			});
 		});

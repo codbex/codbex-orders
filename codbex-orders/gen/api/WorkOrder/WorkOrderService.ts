@@ -158,8 +158,8 @@ class WorkOrderService {
         if (entity.Name?.length > 200) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
         }
-        if (entity.Referances?.length > 36) {
-            throw new ValidationError(`The 'Referances' exceeds the maximum length of [36] characters`);
+        if (entity.Referance?.length > 36) {
+            throw new ValidationError(`The 'Referance' exceeds the maximum length of [36] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

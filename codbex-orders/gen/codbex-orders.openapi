@@ -6631,7 +6631,7 @@ paths:
                       Document: "abcd"
                       UUID: "abcd"
                       Name: "abcd"
-                      Referances: "abcd"
+                      Referance: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -6659,7 +6659,7 @@ paths:
                       Document: "abcd"
                       UUID: "abcd"
                       Name: "abcd"
-                      Referances: "abcd"
+                      Referance: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
                 value:
@@ -6729,7 +6729,7 @@ paths:
                       Document: "abcd"
                       UUID: "abcd"
                       Name: "abcd"
-                      Referances: "abcd"
+                      Referance: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -6757,7 +6757,7 @@ paths:
                       Document: "abcd"
                       UUID: "abcd"
                       Name: "abcd"
-                      Referances: "abcd"
+                      Referance: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
                 value:
@@ -11331,7 +11331,7 @@ components:
         Gross:
           type: number
           format: double
-        Disscount:
+        Discount:
           type: number
           format: double
         Taxes:
@@ -11379,7 +11379,7 @@ components:
           minLength: 0
           maxLength: 200
           readOnly: true
-        Referances:
+        Referance:
           type: string
           minLength: 0
           maxLength: 36
@@ -11464,7 +11464,7 @@ components:
                       items:
                         type: number
                         format: double
-                Disscount:
+                Discount:
                   oneOf:
                     - type: number
                       format: double
@@ -11588,7 +11588,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 200
-                Referances:
+                Referance:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -11684,7 +11684,7 @@ components:
                       items:
                         type: number
                         format: double
-                Disscount:
+                Discount:
                   oneOf:
                     - type: number
                       format: double
@@ -11808,7 +11808,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 200
-                Referances:
+                Referance:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -11853,7 +11853,7 @@ components:
                 Net:
                 Currency:
                 Gross:
-                Disscount:
+                Discount:
                 Taxes:
                 VAT:
                 Total:
@@ -11879,7 +11879,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                Referances:
+                Referance:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -11913,7 +11913,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                Disscount:
+                Discount:
                   type: number
                   format: double
                 Taxes:
@@ -11959,7 +11959,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                Referances:
+                Referance:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -11997,7 +11997,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                Disscount:
+                Discount:
                   type: number
                   format: double
                 Taxes:
@@ -12043,7 +12043,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                Referances:
+                Referance:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -12081,7 +12081,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                Disscount:
+                Discount:
                   type: number
                   format: double
                 Taxes:
@@ -12127,7 +12127,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                Referances:
+                Referance:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -12165,7 +12165,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                Disscount:
+                Discount:
                   type: number
                   format: double
                 Taxes:
@@ -12211,7 +12211,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                Referances:
+                Referance:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -12223,12 +12223,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "Task", "Net", "Currency", "Gross", "Disscount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "WorkOrderStatus", "Operator", "Document", "Company", "UUID", "Name", "Referances", "Executor", "SalesOrder"]
+          example: ["Id", "Number", "Date", "Due", "Customer", "Task", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "WorkOrderStatus", "Operator", "Document", "Company", "UUID", "Name", "Referance", "Executor", "SalesOrder"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,Task,Net,Currency,Gross,Disscount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,WorkOrderStatus,Operator,Document,Company,UUID,Name,Referances,Executor,SalesOrder"
+            example: "Id,Number,Date,Due,Customer,Task,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,WorkOrderStatus,Operator,Document,Company,UUID,Name,Referance,Executor,SalesOrder"
         $order:
           type: string
           enum: ["asc", "desc"]

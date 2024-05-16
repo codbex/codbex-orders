@@ -27,7 +27,13 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsCustomer = params.optionsCustomer;
+			$scope.optionsCurrency = params.optionsCurrency;
+			$scope.optionsPaymentMethod = params.optionsPaymentMethod;
+			$scope.optionsSentMethod = params.optionsSentMethod;
+			$scope.optionsWorkOrderStatus = params.optionsWorkOrderStatus;
+			$scope.optionsOperator = params.optionsOperator;
 			$scope.optionsExecutor = params.optionsExecutor;
+			$scope.optionsSalesOrder = params.optionsSalesOrder;
 		}
 
 		$scope.filter = function () {
@@ -83,8 +89,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Gross !== undefined) {
 				filter.$filter.equals.Gross = entity.Gross;
 			}
-			if (entity.Disscount !== undefined) {
-				filter.$filter.equals.Disscount = entity.Disscount;
+			if (entity.Discount !== undefined) {
+				filter.$filter.equals.Discount = entity.Discount;
 			}
 			if (entity.Taxes !== undefined) {
 				filter.$filter.equals.Taxes = entity.Taxes;
@@ -125,8 +131,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Name) {
 				filter.$filter.contains.Name = entity.Name;
 			}
-			if (entity.Referances) {
-				filter.$filter.contains.Referances = entity.Referances;
+			if (entity.Referance) {
+				filter.$filter.contains.Referance = entity.Referance;
 			}
 			if (entity.Executor !== undefined) {
 				filter.$filter.equals.Executor = entity.Executor;
