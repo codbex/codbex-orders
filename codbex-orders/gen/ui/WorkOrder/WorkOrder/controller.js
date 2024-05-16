@@ -128,7 +128,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
 				optionsOperator: $scope.optionsOperator,
-				optionsExecutor: $scope.optionsExecutor,
+				optionsWorker: $scope.optionsWorker,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
 		};
@@ -145,7 +145,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
 				optionsOperator: $scope.optionsOperator,
-				optionsExecutor: $scope.optionsExecutor,
+				optionsWorker: $scope.optionsWorker,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
 		};
@@ -160,7 +160,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
 				optionsOperator: $scope.optionsOperator,
-				optionsExecutor: $scope.optionsExecutor,
+				optionsWorker: $scope.optionsWorker,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
 		};
@@ -204,7 +204,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
 				optionsOperator: $scope.optionsOperator,
-				optionsExecutor: $scope.optionsExecutor,
+				optionsWorker: $scope.optionsWorker,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
 		};
@@ -216,7 +216,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsSentMethod = [];
 		$scope.optionsWorkOrderStatus = [];
 		$scope.optionsOperator = [];
-		$scope.optionsExecutor = [];
+		$scope.optionsWorker = [];
 		$scope.optionsSalesOrder = [];
 
 
@@ -275,7 +275,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		$http.get("/services/ts/codbex-employees/gen/api/Employees/EmployeeService.ts").then(function (response) {
-			$scope.optionsExecutor = response.data.map(e => {
+			$scope.optionsWorker = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -340,10 +340,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsExecutorValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsExecutor.length; i++) {
-				if ($scope.optionsExecutor[i].value === optionKey) {
-					return $scope.optionsExecutor[i].text;
+		$scope.optionsWorkerValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsWorker.length; i++) {
+				if ($scope.optionsWorker[i].value === optionKey) {
+					return $scope.optionsWorker[i].text;
 				}
 			}
 			return null;

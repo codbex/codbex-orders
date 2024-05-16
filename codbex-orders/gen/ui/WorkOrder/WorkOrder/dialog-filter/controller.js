@@ -32,7 +32,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.optionsSentMethod = params.optionsSentMethod;
 			$scope.optionsWorkOrderStatus = params.optionsWorkOrderStatus;
 			$scope.optionsOperator = params.optionsOperator;
-			$scope.optionsExecutor = params.optionsExecutor;
+			$scope.optionsWorker = params.optionsWorker;
 			$scope.optionsSalesOrder = params.optionsSalesOrder;
 		}
 
@@ -134,8 +134,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Referance) {
 				filter.$filter.contains.Referance = entity.Referance;
 			}
-			if (entity.Executor !== undefined) {
-				filter.$filter.equals.Executor = entity.Executor;
+			if (entity.Worker !== undefined) {
+				filter.$filter.equals.Worker = entity.Worker;
 			}
 			if (entity.SalesOrder !== undefined) {
 				filter.$filter.equals.SalesOrder = entity.SalesOrder;

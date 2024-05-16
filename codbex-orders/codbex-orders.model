@@ -5045,7 +5045,7 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(4)",
+                        "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(24)",
                         "calculatedPropertyExpressionUpdate": "",
                         "dataAutoIncrement": "false",
                         "dataLength": "20",
@@ -5556,7 +5556,7 @@
                         "dataUnique": "false",
                         "isCalculatedProperty": "false",
                         "isRequiredProperty": "false",
-                        "name": "Executor",
+                        "name": "Worker",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",
@@ -5602,6 +5602,7 @@
                 "feedPassword": "YWRtaW4=",
                 "feedUsername": "YWRtaW4=",
                 "icon": "/services/web/resources/unicons/file.svg",
+                "importsCode": "aW1wb3J0IHsgTnVtYmVyR2VuZXJhdG9yU2VydmljZSB9IGZyb20gIi9jb2RiZXgtbnVtYmVyLWdlbmVyYXRvci9zZXJ2aWNlL2dlbmVyYXRvciI7",
                 "layoutType": "MANAGE_MASTER",
                 "menuIndex": "100",
                 "menuKey": "workorder",

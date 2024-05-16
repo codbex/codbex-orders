@@ -441,17 +441,17 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idExecutor" dg-required="false" dg-colon="true">Executor</fd-form-label>
+                        	<fd-form-label for="idWorker" dg-required="false" dg-colon="true">Worker</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-combobox-input id="idExecutor"
-	                            name="Executor"
-	                            state="{{ forms.details['Executor'].$valid ? '' : 'error' }}"
+	                        <fd-combobox-input id="idWorker"
+	                            name="Worker"
+	                            state="{{ forms.details['Worker'].$valid ? '' : 'error' }}"
 	                            ng-required="false"
-	                            ng-model="entity.Executor"
+	                            ng-model="entity.Worker"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsExecutor"
-	                            dg-placeholder="Search Executor ...">
+	                            dropdown-items="optionsWorker"
+	                            dg-placeholder="Search Worker ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>

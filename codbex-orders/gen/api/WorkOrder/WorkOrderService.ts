@@ -3,6 +3,8 @@ import { Extensions } from "sdk/extensions"
 import { WorkOrderRepository, WorkOrderEntityOptions } from "../../dao/WorkOrder/WorkOrderRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 const validationModules = await Extensions.loadExtensionModules("codbex-orders-WorkOrder-WorkOrder", ["validate"]);
 

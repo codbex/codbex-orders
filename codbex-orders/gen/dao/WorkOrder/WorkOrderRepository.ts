@@ -3,6 +3,8 @@ import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
+// custom imports
+import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
 export interface WorkOrderEntity {
     readonly Id: number;
@@ -29,7 +31,7 @@ export interface WorkOrderEntity {
     UUID: string;
     Name?: string;
     Referance?: string;
-    Executor?: number;
+    Worker?: number;
     SalesOrder?: number;
 }
 
@@ -54,7 +56,7 @@ export interface WorkOrderCreateEntity {
     readonly Document?: string;
     readonly Company?: number;
     readonly Referance?: string;
-    readonly Executor?: number;
+    readonly Worker?: number;
     readonly SalesOrder?: number;
 }
 
@@ -89,7 +91,7 @@ export interface WorkOrderEntityOptions {
             UUID?: string | string[];
             Name?: string | string[];
             Referance?: string | string[];
-            Executor?: number | number[];
+            Worker?: number | number[];
             SalesOrder?: number | number[];
         };
         notEquals?: {
@@ -117,7 +119,7 @@ export interface WorkOrderEntityOptions {
             UUID?: string | string[];
             Name?: string | string[];
             Referance?: string | string[];
-            Executor?: number | number[];
+            Worker?: number | number[];
             SalesOrder?: number | number[];
         };
         contains?: {
@@ -145,7 +147,7 @@ export interface WorkOrderEntityOptions {
             UUID?: string;
             Name?: string;
             Referance?: string;
-            Executor?: number;
+            Worker?: number;
             SalesOrder?: number;
         };
         greaterThan?: {
@@ -173,7 +175,7 @@ export interface WorkOrderEntityOptions {
             UUID?: string;
             Name?: string;
             Referance?: string;
-            Executor?: number;
+            Worker?: number;
             SalesOrder?: number;
         };
         greaterThanOrEqual?: {
@@ -201,7 +203,7 @@ export interface WorkOrderEntityOptions {
             UUID?: string;
             Name?: string;
             Referance?: string;
-            Executor?: number;
+            Worker?: number;
             SalesOrder?: number;
         };
         lessThan?: {
@@ -229,7 +231,7 @@ export interface WorkOrderEntityOptions {
             UUID?: string;
             Name?: string;
             Referance?: string;
-            Executor?: number;
+            Worker?: number;
             SalesOrder?: number;
         };
         lessThanOrEqual?: {
@@ -257,7 +259,7 @@ export interface WorkOrderEntityOptions {
             UUID?: string;
             Name?: string;
             Referance?: string;
-            Executor?: number;
+            Worker?: number;
             SalesOrder?: number;
         };
     },
@@ -408,7 +410,7 @@ export class WorkOrderRepository {
                 type: "VARCHAR",
             },
             {
-                name: "Executor",
+                name: "Worker",
                 column: "WORKORDER_EXECUTOR",
                 type: "INTEGER",
             },
@@ -445,7 +447,7 @@ export class WorkOrderRepository {
         EntityUtils.setLocalDate(entity, "Date");
         EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
-        (entity as WorkOrderEntity).Number = new NumberGeneratorService().generate(4);
+        (entity as WorkOrderEntity).Number = new NumberGeneratorService().generate(24);
         // @ts-ignore
         (entity as WorkOrderEntity).UUID = require("sdk/utils/uuid").random();
         // @ts-ignore

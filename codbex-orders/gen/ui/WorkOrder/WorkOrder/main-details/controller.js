@@ -46,7 +46,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsSentMethod = [];
 				$scope.optionsWorkOrderStatus = [];
 				$scope.optionsOperator = [];
-				$scope.optionsExecutor = [];
+				$scope.optionsWorker = [];
 				$scope.optionsSalesOrder = [];
 				$scope.action = 'select';
 			});
@@ -67,7 +67,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsWorkOrderStatus = msg.data.optionsWorkOrderStatus;
 				$scope.optionsOperator = msg.data.optionsOperator;
-				$scope.optionsExecutor = msg.data.optionsExecutor;
+				$scope.optionsWorker = msg.data.optionsWorker;
 				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
 				$scope.action = 'select';
 			});
@@ -82,7 +82,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsWorkOrderStatus = msg.data.optionsWorkOrderStatus;
 				$scope.optionsOperator = msg.data.optionsOperator;
-				$scope.optionsExecutor = msg.data.optionsExecutor;
+				$scope.optionsWorker = msg.data.optionsWorker;
 				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
 				$scope.action = 'create';
 			});
@@ -103,7 +103,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsWorkOrderStatus = msg.data.optionsWorkOrderStatus;
 				$scope.optionsOperator = msg.data.optionsOperator;
-				$scope.optionsExecutor = msg.data.optionsExecutor;
+				$scope.optionsWorker = msg.data.optionsWorker;
 				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
 				$scope.action = 'update';
 			});

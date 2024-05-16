@@ -11383,7 +11383,7 @@ components:
           type: string
           minLength: 0
           maxLength: 36
-        Executor:
+        Worker:
           type: integer
           format: int32
         SalesOrder:
@@ -11599,7 +11599,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 36
-                Executor:
+                Worker:
                   oneOf:
                     - type: integer
                       format: int32
@@ -11819,7 +11819,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 36
-                Executor:
+                Worker:
                   oneOf:
                     - type: integer
                       format: int32
@@ -11883,7 +11883,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
-                Executor:
+                Worker:
                 SalesOrder:
             greaterThan:
               type: object
@@ -11963,7 +11963,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
-                Executor:
+                Worker:
                   type: integer
                   format: int32
                 SalesOrder:
@@ -12047,7 +12047,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
-                Executor:
+                Worker:
                   type: integer
                   format: int32
                 SalesOrder:
@@ -12131,7 +12131,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
-                Executor:
+                Worker:
                   type: integer
                   format: int32
                 SalesOrder:
@@ -12215,7 +12215,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
-                Executor:
+                Worker:
                   type: integer
                   format: int32
                 SalesOrder:
@@ -12223,12 +12223,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "Task", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "WorkOrderStatus", "Operator", "Document", "Company", "UUID", "Name", "Referance", "Executor", "SalesOrder"]
+          example: ["Id", "Number", "Date", "Due", "Customer", "Task", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "WorkOrderStatus", "Operator", "Document", "Company", "UUID", "Name", "Referance", "Worker", "SalesOrder"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,Task,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,WorkOrderStatus,Operator,Document,Company,UUID,Name,Referance,Executor,SalesOrder"
+            example: "Id,Number,Date,Due,Customer,Task,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,WorkOrderStatus,Operator,Document,Company,UUID,Name,Referance,Worker,SalesOrder"
         $order:
           type: string
           enum: ["asc", "desc"]
