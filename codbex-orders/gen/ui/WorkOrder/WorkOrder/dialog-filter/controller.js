@@ -32,6 +32,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.optionsSentMethod = params.optionsSentMethod;
 			$scope.optionsWorkOrderStatus = params.optionsWorkOrderStatus;
 			$scope.optionsOperator = params.optionsOperator;
+			$scope.optionsCompany = params.optionsCompany;
 			$scope.optionsWorker = params.optionsWorker;
 			$scope.optionsSalesOrder = params.optionsSalesOrder;
 		}

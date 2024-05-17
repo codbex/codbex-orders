@@ -128,6 +128,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
 				optionsOperator: $scope.optionsOperator,
+				optionsCompany: $scope.optionsCompany,
 				optionsWorker: $scope.optionsWorker,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
@@ -145,6 +146,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
 				optionsOperator: $scope.optionsOperator,
+				optionsCompany: $scope.optionsCompany,
 				optionsWorker: $scope.optionsWorker,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
@@ -160,6 +162,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
 				optionsOperator: $scope.optionsOperator,
+				optionsCompany: $scope.optionsCompany,
 				optionsWorker: $scope.optionsWorker,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
@@ -204,6 +207,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsWorkOrderStatus: $scope.optionsWorkOrderStatus,
 				optionsOperator: $scope.optionsOperator,
+				optionsCompany: $scope.optionsCompany,
 				optionsWorker: $scope.optionsWorker,
 				optionsSalesOrder: $scope.optionsSalesOrder,
 			});
@@ -216,6 +220,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsSentMethod = [];
 		$scope.optionsWorkOrderStatus = [];
 		$scope.optionsOperator = [];
+		$scope.optionsCompany = [];
 		$scope.optionsWorker = [];
 		$scope.optionsSalesOrder = [];
 
@@ -269,6 +274,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.optionsOperator = response.data.map(e => {
 				return {
 					value: e.Id,
+					text: e.FirstName
+				}
+			});
+		});
+
+		$http.get("/services/ts/codbex-companies/gen/api/Companies/CompanyService.ts").then(function (response) {
+			$scope.optionsCompany = response.data.map(e => {
+				return {
+					value: e.Id,
 					text: e.Name
 				}
 			});
@@ -278,7 +292,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.optionsWorker = response.data.map(e => {
 				return {
 					value: e.Id,
-					text: e.Name
+					text: e.FirstName
 				}
 			});
 		});
@@ -336,6 +350,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsOperator.length; i++) {
 				if ($scope.optionsOperator[i].value === optionKey) {
 					return $scope.optionsOperator[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCompanyValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsCompany.length; i++) {
+				if ($scope.optionsCompany[i].value === optionKey) {
+					return $scope.optionsCompany[i].text;
 				}
 			}
 			return null;
