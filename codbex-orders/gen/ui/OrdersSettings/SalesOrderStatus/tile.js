@@ -5,7 +5,7 @@
  */
 exports.getTile = function () {
     return {
-        group: "OrdersSettings",
+        group: "Orders Settings",
         name: "SalesOrderStatus",
         caption: "Manage entity SalesOrderStatus",
         tooltip: "SalesOrderStatus",

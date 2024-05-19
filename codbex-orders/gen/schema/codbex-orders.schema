@@ -629,6 +629,241 @@
                 ]
             },
             {
+                "name": "CODBEX_WORKORDER",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "WORKORDER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_NUMBER"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_DATE"
+                    },
+                    {
+                        "type": "DATE",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_DUE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_CUSTOMER"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_TASK"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "WORKORDER_NET"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_CURRENCY"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "WORKORDER_GROSS"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "WORKORDER_DISSCOUNT"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "WORKORDER_TAXES"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "WORKORDER_VAT"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "WORKORDER_TOTAL"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 20,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "WORKORDER_PAID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_CONDITIONS"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_PAYMENTMETHOD"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_SENTMETHOD"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_WORKORDERSTATUS"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_OPERATOR"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_DOCUMENT"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_COMPANY"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "name": "WORKORDER_UUID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 200,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_NAME"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_REFERANCES"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_EXECUTOR"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDER_SALESORDER"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_WORKORDERSTATUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "WORKORDERSTATUS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "WORKORDERSTATUS_NAME"
+                    }
+                ]
+            },
+            {
                 "name": "SalesOrder_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
@@ -843,6 +1078,87 @@
                 "columns": "PURCHASEORDERPAYMENT_SUPPLIERPAYMENT",
                 "referencedTable": "CODBEX_SUPPLIERPAYMENT",
                 "referencedColumns": "SUPPLIERPAYMENT_ID"
+            },
+            {
+                "name": "WorkOrder_Customer",
+                "type": "foreignKey",
+                "table": "CODBEX_WORKORDER",
+                "constraintName": "WorkOrder_Customer",
+                "columns": "WORKORDER_CUSTOMER",
+                "referencedTable": "CODBEX_CUSTOMER",
+                "referencedColumns": "CUSTOMER_ID"
+            },
+            {
+                "name": "WorkOrder_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_WORKORDER",
+                "constraintName": "WorkOrder_Currency",
+                "columns": "WORKORDER_CURRENCY",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_ID"
+            },
+            {
+                "name": "WorkOrder_PaymentMethod",
+                "type": "foreignKey",
+                "table": "CODBEX_WORKORDER",
+                "constraintName": "WorkOrder_PaymentMethod",
+                "columns": "WORKORDER_PAYMENTMETHOD",
+                "referencedTable": "CODBEX_PAYMENTMETHOD",
+                "referencedColumns": "PAYMENTMETHOD_ID"
+            },
+            {
+                "name": "WorkOrder_SentMethod",
+                "type": "foreignKey",
+                "table": "CODBEX_WORKORDER",
+                "constraintName": "WorkOrder_SentMethod",
+                "columns": "WORKORDER_SENTMETHOD",
+                "referencedTable": "CODBEX_SENTMETHOD",
+                "referencedColumns": "SENTMETHOD_ID"
+            },
+            {
+                "name": "WorkOrder_WorkOrderStatus",
+                "type": "foreignKey",
+                "table": "CODBEX_WORKORDER",
+                "constraintName": "WorkOrder_WorkOrderStatus",
+                "columns": "WORKORDER_WORKORDERSTATUS",
+                "referencedTable": "CODBEX_WORKORDERSTATUS",
+                "referencedColumns": "WORKORDERSTATUS_ID"
+            },
+            {
+                "name": "WorkOrder_Employee",
+                "type": "foreignKey",
+                "table": "CODBEX_WORKORDER",
+                "constraintName": "WorkOrder_Employee",
+                "columns": "WORKORDER_OPERATOR",
+                "referencedTable": "CODBEX_EMPLOYEE",
+                "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "WorkOrder_Company",
+                "type": "foreignKey",
+                "table": "CODBEX_WORKORDER",
+                "constraintName": "WorkOrder_Company",
+                "columns": "WORKORDER_COMPANY",
+                "referencedTable": "CODBEX_COMPANY",
+                "referencedColumns": "COMPANY_ID"
+            },
+            {
+                "name": "WorkOrder_Employee",
+                "type": "foreignKey",
+                "table": "CODBEX_WORKORDER",
+                "constraintName": "WorkOrder_Employee",
+                "columns": "WORKORDER_EXECUTOR",
+                "referencedTable": "CODBEX_EMPLOYEE",
+                "referencedColumns": "EMPLOYEE_ID"
+            },
+            {
+                "name": "WorkOrder_SalesOrder",
+                "type": "foreignKey",
+                "table": "CODBEX_WORKORDER",
+                "constraintName": "WorkOrder_SalesOrder",
+                "columns": "WORKORDER_SALESORDER",
+                "referencedTable": "CODBEX_SALESORDER",
+                "referencedColumns": "SALESORDER_ID"
             }
         ]
     },

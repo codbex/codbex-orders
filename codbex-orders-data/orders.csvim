@@ -21,6 +21,17 @@
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
       "version": ""
+    },
+    {
+      "table": "CODBEX_WORKORDERSTATUS",
+      "schema": "PUBLIC",
+      "file": "/codbex-orders-data/work-order-statuses.csv",
+      "header": true,
+      "useHeaderNames": true,
+      "delimField": ",",
+      "delimEnclosing": "\"",
+      "distinguishEmptyFromNull": true,
+      "version": "1.0"
     }
   ]
 }
