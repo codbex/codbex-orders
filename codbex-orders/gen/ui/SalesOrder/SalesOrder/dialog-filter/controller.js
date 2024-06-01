@@ -130,6 +130,9 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Reference) {
 				filter.$filter.contains.Reference = entity.Reference;
 			}
+			if (entity.Store !== undefined) {
+				filter.$filter.equals.Store = entity.Store;
+			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter

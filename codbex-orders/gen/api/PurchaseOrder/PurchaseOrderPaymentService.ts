@@ -14,17 +14,21 @@ class PurchaseOrderPaymentService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            let PurchaseOrder = parseInt(ctx.queryParameters.PurchaseOrder);
-            PurchaseOrder = isNaN(PurchaseOrder) ? ctx.queryParameters.PurchaseOrder : PurchaseOrder;
             const options: PurchaseOrderPaymentEntityOptions = {
-                $filter: {
-                    equals: {
-                        PurchaseOrder: PurchaseOrder
-                    }
-                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
+
+            let PurchaseOrder = parseInt(ctx.queryParameters.PurchaseOrder);
+            PurchaseOrder = isNaN(PurchaseOrder) ? ctx.queryParameters.PurchaseOrder : PurchaseOrder;
+
+            if (PurchaseOrder !== undefined) {
+                options.$filter = {
+                    equals: {
+                        PurchaseOrder: PurchaseOrder
+                    }
+                };
+            }
 
             return this.repository.findAll(options);
         } catch (error: any) {

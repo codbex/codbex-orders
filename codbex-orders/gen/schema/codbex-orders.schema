@@ -183,6 +183,12 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "SALESORDER_REFERENCE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "SALESORDER_STORE"
                     }
                 ]
             },
@@ -925,6 +931,15 @@
                 "columns": "SALESORDER_COMPANY",
                 "referencedTable": "CODBEX_COMPANY",
                 "referencedColumns": "COMPANY_ID"
+            },
+            {
+                "name": "SalesOrder_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDER",
+                "constraintName": "SalesOrder_Store",
+                "columns": "SALESORDER_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
             },
             {
                 "name": "SalesOrderItem_SalesOrder",

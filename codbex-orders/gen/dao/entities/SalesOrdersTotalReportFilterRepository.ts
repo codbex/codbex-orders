@@ -75,6 +75,10 @@ interface SalesOrdersTotalReportFilterEntityEvent {
     }
 }
 
+interface SalesOrdersTotalReportFilterUpdateEntityEvent extends SalesOrdersTotalReportFilterEntityEvent {
+    readonly previousEntity: SalesOrdersTotalReportFilterEntity;
+}
+
 export class SalesOrdersTotalReportFilterRepository {
 
     private static readonly DEFINITION = {
@@ -141,11 +145,13 @@ export class SalesOrdersTotalReportFilterRepository {
     public update(entity: SalesOrdersTotalReportFilterUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "StartDate");
         // EntityUtils.setLocalDate(entity, "EndDate");
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_SALESORDERSTOTALREPORTFILTER",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "SalesOrdersTotalReport",
                 column: "SALESORDERSTOTALREPORTFILTER_SALESORDERSTOTALREPORT",
@@ -200,7 +206,7 @@ export class SalesOrdersTotalReportFilterRepository {
         return 0;
     }
 
-    private async triggerEvent(data: SalesOrdersTotalReportFilterEntityEvent) {
+    private async triggerEvent(data: SalesOrdersTotalReportFilterEntityEvent | SalesOrdersTotalReportFilterUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-entities-SalesOrdersTotalReportFilter", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

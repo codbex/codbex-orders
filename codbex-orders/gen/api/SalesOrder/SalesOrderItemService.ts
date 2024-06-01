@@ -14,17 +14,21 @@ class SalesOrderItemService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            let SalesOrder = parseInt(ctx.queryParameters.SalesOrder);
-            SalesOrder = isNaN(SalesOrder) ? ctx.queryParameters.SalesOrder : SalesOrder;
             const options: SalesOrderItemEntityOptions = {
-                $filter: {
-                    equals: {
-                        SalesOrder: SalesOrder
-                    }
-                },
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
+
+            let SalesOrder = parseInt(ctx.queryParameters.SalesOrder);
+            SalesOrder = isNaN(SalesOrder) ? ctx.queryParameters.SalesOrder : SalesOrder;
+
+            if (SalesOrder !== undefined) {
+                options.$filter = {
+                    equals: {
+                        SalesOrder: SalesOrder
+                    }
+                };
+            }
 
             return this.repository.findAll(options);
         } catch (error: any) {

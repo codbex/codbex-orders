@@ -30,6 +30,7 @@ export interface SalesOrderEntity {
     Name?: string;
     UUID: string;
     Reference?: string;
+    Store?: number;
 }
 
 export interface SalesOrderCreateEntity {
@@ -52,6 +53,7 @@ export interface SalesOrderCreateEntity {
     readonly Document?: string;
     readonly Company?: number;
     readonly Reference?: string;
+    readonly Store?: number;
 }
 
 export interface SalesOrderUpdateEntity extends SalesOrderCreateEntity {
@@ -84,6 +86,7 @@ export interface SalesOrderEntityOptions {
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
+            Store?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -109,6 +112,7 @@ export interface SalesOrderEntityOptions {
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
+            Store?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -134,6 +138,7 @@ export interface SalesOrderEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Store?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -159,6 +164,7 @@ export interface SalesOrderEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Store?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -184,6 +190,7 @@ export interface SalesOrderEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Store?: number;
         };
         lessThan?: {
             Id?: number;
@@ -209,6 +216,7 @@ export interface SalesOrderEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Store?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -234,6 +242,7 @@ export interface SalesOrderEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Store?: number;
         };
     },
     $select?: (keyof SalesOrderEntity)[],
@@ -252,6 +261,10 @@ interface SalesOrderEntityEvent {
         column: string;
         value: number;
     }
+}
+
+interface SalesOrderUpdateEntityEvent extends SalesOrderEntityEvent {
+    readonly previousEntity: SalesOrderEntity;
 }
 
 export class SalesOrderRepository {
@@ -385,6 +398,11 @@ export class SalesOrderRepository {
                 name: "Reference",
                 column: "SALESORDER_REFERENCE",
                 type: "VARCHAR",
+            },
+            {
+                name: "Store",
+                column: "SALESORDER_STORE",
+                type: "INTEGER",
             }
         ]
     };
@@ -445,11 +463,13 @@ export class SalesOrderRepository {
     public update(entity: SalesOrderUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
         // EntityUtils.setLocalDate(entity, "Due");
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_SALESORDER",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "SALESORDER_ID",
@@ -504,7 +524,7 @@ export class SalesOrderRepository {
         return 0;
     }
 
-    private async triggerEvent(data: SalesOrderEntityEvent) {
+    private async triggerEvent(data: SalesOrderEntityEvent | SalesOrderUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-SalesOrder-SalesOrder", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

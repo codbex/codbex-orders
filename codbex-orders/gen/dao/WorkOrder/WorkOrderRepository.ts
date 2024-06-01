@@ -281,6 +281,10 @@ interface WorkOrderEntityEvent {
     }
 }
 
+interface WorkOrderUpdateEntityEvent extends WorkOrderEntityEvent {
+    readonly previousEntity: WorkOrderEntity;
+}
+
 export class WorkOrderRepository {
 
     private static readonly DEFINITION = {
@@ -469,11 +473,13 @@ export class WorkOrderRepository {
     public update(entity: WorkOrderUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
         // EntityUtils.setLocalDate(entity, "Due");
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_WORKORDER",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "WORKORDER_ID",
@@ -528,7 +534,7 @@ export class WorkOrderRepository {
         return 0;
     }
 
-    private async triggerEvent(data: WorkOrderEntityEvent) {
+    private async triggerEvent(data: WorkOrderEntityEvent | WorkOrderUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-WorkOrder-WorkOrder", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
