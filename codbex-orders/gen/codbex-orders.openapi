@@ -7217,6 +7217,7 @@ components:
         - SentMethod
         - SalesOrderStatus
         - Operator
+        - Store
       properties:
         Id:
           type: integer

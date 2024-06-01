@@ -163,6 +163,9 @@ class SalesOrderService {
         if (entity.Reference?.length > 36) {
             throw new ValidationError(`The 'Reference' exceeds the maximum length of [36] characters`);
         }
+        if (entity.Store === null || entity.Store === undefined) {
+            throw new ValidationError(`The 'Store' property is required, provide a valid value`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }

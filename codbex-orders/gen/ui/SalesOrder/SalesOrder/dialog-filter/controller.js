@@ -33,6 +33,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.optionsSalesOrderStatus = params.optionsSalesOrderStatus;
 			$scope.optionsOperator = params.optionsOperator;
 			$scope.optionsCompany = params.optionsCompany;
+			$scope.optionsStore = params.optionsStore;
 		}
 
 		$scope.filter = function () {

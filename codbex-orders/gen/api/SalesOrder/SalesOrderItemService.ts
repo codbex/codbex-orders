@@ -1,8 +1,6 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { SalesOrderItemRepository, SalesOrderItemEntityOptions } from "../../dao/SalesOrder/SalesOrderItemRepository";
-import { SalesOrderRepository } from "../../dao/SalesOrder/SalesOrderRepository";
-import { CatalogueRepository } from "codbex-products/gen/dao/Catalogues/CatalogueRepository"
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
@@ -12,8 +10,6 @@ const validationModules = await Extensions.loadExtensionModules("codbex-orders-S
 class SalesOrderItemService {
 
     private readonly repository = new SalesOrderItemRepository();
-    private readonly salesOrderRepository = new SalesOrderRepository();
-    private readonly catalogueRepository = new CatalogueRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
@@ -41,60 +37,13 @@ class SalesOrderItemService {
     }
 
     @Post("/")
-    public async create(entity: any) {
+    public create(entity: any) {
         try {
             this.validateEntity(entity);
-
-            // Fetch the SalesOrder to get the Store
-            const salesOrder = await this.salesOrderRepository.findById(entity.SalesOrder);
-
-            if (!salesOrder) {
-                throw new ValidationError("SalesOrder not found");
-            }
-
-            // Fetch available stock for the product in the given store
-            const availableStockResults = await this.catalogueRepository.findAll({
-                $filter: {
-                    equals: {
-                        Store: salesOrder.Store,
-                        Product: entity.Product,
-                    },
-                },
-            });
-
-            const availableStock = availableStockResults.length > 0 ? availableStockResults[0].Quantity : 0;
-
-            const createdEntities = [];
-
-            if (entity.Quantity > availableStock) {
-                // Create the first item with the available stock
-                const entityWithAvailableStock = { ...entity, Quantity: availableStock };
-                entityWithAvailableStock.Id = this.repository.create(entityWithAvailableStock);
-                createdEntities.push(entityWithAvailableStock);
-
-                // Create the second item with the remaining quantity
-                const remainingQuantity = entity.Quantity - availableStock;
-                const entityWithRemainingQuantity = { ...entity, Quantity: remainingQuantity };
-                entityWithRemainingQuantity.Id = this.repository.create(entityWithRemainingQuantity);
-                createdEntities.push(entityWithRemainingQuantity);
-
-                response.setHeader(
-                    "Content-Location",
-                    `/services/ts/codbex-orders/gen/api/SalesOrder/SalesOrderItemService.ts/${entityWithAvailableStock.Id},${entityWithRemainingQuantity.Id}`
-                );
-            } else {
-                // Create the item with the requested quantity
-                entity.Id = this.repository.create(entity);
-                createdEntities.push(entity);
-
-                response.setHeader(
-                    "Content-Location",
-                    `/services/ts/codbex-orders/gen/api/SalesOrder/SalesOrderItemService.ts/${entity.Id}`
-                );
-            }
-
+            entity.Id = this.repository.create(entity);
+            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/api/SalesOrder/SalesOrderItemService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
-            return createdEntities.length > 1 ? createdEntities : createdEntities[0];
+            return entity;
         } catch (error: any) {
             this.handleError(error);
         }
