@@ -125,6 +125,10 @@ interface SalesOrderItemEntityEvent {
     }
 }
 
+interface SalesOrderItemUpdateEntityEvent extends SalesOrderItemEntityEvent {
+    readonly previousEntity: SalesOrderItemEntity;
+}
+
 export class SalesOrderItemRepository {
 
     private static readonly DEFINITION = {
@@ -228,11 +232,13 @@ export class SalesOrderItemRepository {
         (entity as SalesOrderItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
         (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_SALESORDERITEM",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "SALESORDERITEM_ID",
@@ -287,7 +293,7 @@ export class SalesOrderItemRepository {
         return 0;
     }
 
-    private async triggerEvent(data: SalesOrderItemEntityEvent) {
+    private async triggerEvent(data: SalesOrderItemEntityEvent | SalesOrderItemUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-SalesOrder-SalesOrderItem", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {

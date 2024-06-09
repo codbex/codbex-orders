@@ -5,11 +5,13 @@
  */
 exports.getTile = function () {
     return {
-        group: "Reports",
+        group: "codbex-orders",
         name: "PurchaseOrdersReport",
         caption: "Manage entity PurchaseOrdersReport",
         tooltip: "PurchaseOrdersReport",
-        // icon: "file-o",
+        type: "REPORT",
+        report: "${generateReport}",
+        icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-orders/gen/ui/Reports/index.html",
         order: "100",
         groupOrder: "800",

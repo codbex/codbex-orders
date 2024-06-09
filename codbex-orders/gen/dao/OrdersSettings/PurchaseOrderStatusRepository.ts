@@ -65,6 +65,10 @@ interface PurchaseOrderStatusEntityEvent {
     }
 }
 
+interface PurchaseOrderStatusUpdateEntityEvent extends PurchaseOrderStatusEntityEvent {
+    readonly previousEntity: PurchaseOrderStatusEntity;
+}
+
 export class PurchaseOrderStatusRepository {
 
     private static readonly DEFINITION = {
@@ -116,11 +120,13 @@ export class PurchaseOrderStatusRepository {
     }
 
     public update(entity: PurchaseOrderStatusUpdateEntity): void {
+        const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
             table: "CODBEX_PURCHASEORDERSTATUS",
             entity: entity,
+            previousEntity: previousEntity,
             key: {
                 name: "Id",
                 column: "PURCHASEORDERSTATUS_ID",
@@ -175,7 +181,7 @@ export class PurchaseOrderStatusRepository {
         return 0;
     }
 
-    private async triggerEvent(data: PurchaseOrderStatusEntityEvent) {
+    private async triggerEvent(data: PurchaseOrderStatusEntityEvent | PurchaseOrderStatusUpdateEntityEvent) {
         const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-OrdersSettings-PurchaseOrderStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
