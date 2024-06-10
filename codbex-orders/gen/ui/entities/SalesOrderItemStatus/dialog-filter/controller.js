@@ -1,6 +1,6 @@
 angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-orders.SalesOrder.SalesOrderItem';
+		messageHubProvider.eventIdPrefix = 'codbex-orders.entities.SalesOrderItemStatus';
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
@@ -14,10 +14,6 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.entity = params.entity ?? {};
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
-			$scope.optionsSalesOrder = params.optionsSalesOrder;
-			$scope.optionsProduct = params.optionsProduct;
-			$scope.optionsUoM = params.optionsUoM;
-			$scope.optionsSalesOrderItemStatus = params.optionsSalesOrderItemStatus;
 		}
 
 		$scope.filter = function () {
@@ -43,32 +39,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Id !== undefined) {
 				filter.$filter.equals.Id = entity.Id;
 			}
-			if (entity.SalesOrder !== undefined) {
-				filter.$filter.equals.SalesOrder = entity.SalesOrder;
-			}
-			if (entity.Product !== undefined) {
-				filter.$filter.equals.Product = entity.Product;
-			}
-			if (entity.Quantity !== undefined) {
-				filter.$filter.equals.Quantity = entity.Quantity;
-			}
-			if (entity.UoM !== undefined) {
-				filter.$filter.equals.UoM = entity.UoM;
-			}
-			if (entity.Price !== undefined) {
-				filter.$filter.equals.Price = entity.Price;
-			}
-			if (entity.Net !== undefined) {
-				filter.$filter.equals.Net = entity.Net;
-			}
-			if (entity.VAT !== undefined) {
-				filter.$filter.equals.VAT = entity.VAT;
-			}
-			if (entity.Gross !== undefined) {
-				filter.$filter.equals.Gross = entity.Gross;
-			}
-			if (entity.SalesOrderItemStatus !== undefined) {
-				filter.$filter.equals.SalesOrderItemStatus = entity.SalesOrderItemStatus;
+			if (entity.Name) {
+				filter.$filter.contains.Name = entity.Name;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
@@ -83,7 +55,7 @@ angular.module('page', ["ideUI", "ideView"])
 		};
 
 		$scope.cancel = function () {
-			messageHub.closeDialogWindow("SalesOrderItem-filter");
+			messageHub.closeDialogWindow("SalesOrderItemStatus-filter");
 		};
 
 		$scope.clearErrorMessage = function () {

@@ -13,6 +13,7 @@ export interface SalesOrderItemEntity {
     Net?: number;
     VAT?: number;
     Gross?: number;
+    SalesOrderItemStatus?: number;
 }
 
 export interface SalesOrderItemCreateEntity {
@@ -21,6 +22,7 @@ export interface SalesOrderItemCreateEntity {
     readonly Quantity: number;
     readonly UoM: number;
     readonly Price: number;
+    readonly SalesOrderItemStatus?: number;
 }
 
 export interface SalesOrderItemUpdateEntity extends SalesOrderItemCreateEntity {
@@ -39,6 +41,7 @@ export interface SalesOrderItemEntityOptions {
             Net?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
+            SalesOrderItemStatus?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -50,6 +53,7 @@ export interface SalesOrderItemEntityOptions {
             Net?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
+            SalesOrderItemStatus?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -61,6 +65,7 @@ export interface SalesOrderItemEntityOptions {
             Net?: number;
             VAT?: number;
             Gross?: number;
+            SalesOrderItemStatus?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -72,6 +77,7 @@ export interface SalesOrderItemEntityOptions {
             Net?: number;
             VAT?: number;
             Gross?: number;
+            SalesOrderItemStatus?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -83,6 +89,7 @@ export interface SalesOrderItemEntityOptions {
             Net?: number;
             VAT?: number;
             Gross?: number;
+            SalesOrderItemStatus?: number;
         };
         lessThan?: {
             Id?: number;
@@ -94,6 +101,7 @@ export interface SalesOrderItemEntityOptions {
             Net?: number;
             VAT?: number;
             Gross?: number;
+            SalesOrderItemStatus?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -105,6 +113,7 @@ export interface SalesOrderItemEntityOptions {
             Net?: number;
             VAT?: number;
             Gross?: number;
+            SalesOrderItemStatus?: number;
         };
     },
     $select?: (keyof SalesOrderItemEntity)[],
@@ -185,6 +194,11 @@ export class SalesOrderItemRepository {
                 name: "Gross",
                 column: "SALESORDERITEM_GROSS",
                 type: "DECIMAL",
+            },
+            {
+                name: "SalesOrderItemStatus",
+                column: "SALESORDERITEM_SALESORDERITEMSTATUS",
+                type: "INTEGER",
             }
         ]
     };

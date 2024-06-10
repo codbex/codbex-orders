@@ -10,7 +10,7 @@ exports.getTile = function () {
         caption: "Manage entity OrdersReport",
         tooltip: "OrdersReport",
         type: "REPORT",
-        report: "${generateReport}",
+        report: "false",
         icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-orders/gen/ui/Reports/index.html",
         order: "100",

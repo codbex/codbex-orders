@@ -1,34 +1,23 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { SalesOrderItemRepository, SalesOrderItemEntityOptions } from "../../dao/SalesOrder/SalesOrderItemRepository";
+import { SalesOrderItemStatusRepository, SalesOrderItemStatusEntityOptions } from "../../dao/entities/SalesOrderItemStatusRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-orders-SalesOrder-SalesOrderItem", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-orders-entities-SalesOrderItemStatus", ["validate"]);
 
 @Controller
-class SalesOrderItemService {
+class SalesOrderItemStatusService {
 
-    private readonly repository = new SalesOrderItemRepository();
+    private readonly repository = new SalesOrderItemStatusRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            const options: SalesOrderItemEntityOptions = {
+            const options: SalesOrderItemStatusEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
-
-            let SalesOrder = parseInt(ctx.queryParameters.SalesOrder);
-            SalesOrder = isNaN(SalesOrder) ? ctx.queryParameters.SalesOrder : SalesOrder;
-
-            if (SalesOrder !== undefined) {
-                options.$filter = {
-                    equals: {
-                        SalesOrder: SalesOrder
-                    }
-                };
-            }
 
             return this.repository.findAll(options);
         } catch (error: any) {
@@ -41,7 +30,7 @@ class SalesOrderItemService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/api/SalesOrder/SalesOrderItemService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/api/entities/SalesOrderItemStatusService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -84,7 +73,7 @@ class SalesOrderItemService {
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("SalesOrderItem not found");
+                HttpUtils.sendResponseNotFound("SalesOrderItemStatus not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -112,7 +101,7 @@ class SalesOrderItemService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("SalesOrderItem not found");
+                HttpUtils.sendResponseNotFound("SalesOrderItemStatus not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -130,20 +119,8 @@ class SalesOrderItemService {
     }
 
     private validateEntity(entity: any): void {
-        if (entity.SalesOrder === null || entity.SalesOrder === undefined) {
-            throw new ValidationError(`The 'SalesOrder' property is required, provide a valid value`);
-        }
-        if (entity.Product === null || entity.Product === undefined) {
-            throw new ValidationError(`The 'Product' property is required, provide a valid value`);
-        }
-        if (entity.Quantity === null || entity.Quantity === undefined) {
-            throw new ValidationError(`The 'Quantity' property is required, provide a valid value`);
-        }
-        if (entity.UoM === null || entity.UoM === undefined) {
-            throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
-        }
-        if (entity.Price === null || entity.Price === undefined) {
-            throw new ValidationError(`The 'Price' property is required, provide a valid value`);
+        if (entity.Name?.length > 20) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

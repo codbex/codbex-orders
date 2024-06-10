@@ -6,14 +6,14 @@
 exports.getTile = function () {
     return {
         group: "codbex-orders",
-        name: "WorkOrderStatus",
-        caption: "Manage entity WorkOrderStatus",
-        tooltip: "WorkOrderStatus",
+        name: "SalesOrderItemStatus",
+        caption: "Manage entity SalesOrderItemStatus",
+        tooltip: "SalesOrderItemStatus",
         type: "PRIMARY",
         report: "false",
         icon: "/services/web/resources/unicons/file.svg",
-        location: "/services/web/codbex-orders/gen/ui/OrdersSettings/index.html",
+        location: "/services/web/codbex-orders/gen/ui/entities/index.html",
         order: "100",
-        groupOrder: "590",
+        groupOrder: "100",
     };
 };

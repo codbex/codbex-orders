@@ -10,7 +10,7 @@ exports.getTile = function () {
         caption: "Manage entity WorkOrder",
         tooltip: "WorkOrder",
         type: "PRIMARY",
-        report: "${generateReport}",
+        report: "false",
         icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-orders/gen/ui/WorkOrder/index.html",
         order: "100",

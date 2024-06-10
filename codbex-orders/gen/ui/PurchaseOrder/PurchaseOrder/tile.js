@@ -10,7 +10,7 @@ exports.getTile = function () {
         caption: "Manage entity PurchaseOrder",
         tooltip: "PurchaseOrder",
         type: "PRIMARY",
-        report: "${generateReport}",
+        report: "false",
         icon: "/services/web/resources/unicons/file.svg",
         location: "/services/web/codbex-orders/gen/ui/PurchaseOrder/index.html",
         order: "100",

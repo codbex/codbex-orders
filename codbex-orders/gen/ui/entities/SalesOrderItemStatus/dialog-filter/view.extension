@@ -1,0 +1,5 @@
+{
+    "module": "codbex-orders/gen/ui/entities/SalesOrderItemStatus/dialog-filter/view.js",
+    "extensionPoint": "codbex-orders-dialog-window",
+    "description": "codbex-orders - Application Dialog Window"
+}

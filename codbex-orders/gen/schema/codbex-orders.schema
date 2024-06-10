@@ -266,6 +266,14 @@
                         "scale": "2",
                         "nullable": true,
                         "name": "SALESORDERITEM_GROSS"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "precision": "NaN",
+                        "scale": "NaN",
+                        "nullable": true,
+                        "name": "SALESORDERITEM_SALESORDERITEMSTATUS"
                     }
                 ]
             },
@@ -872,6 +880,26 @@
                 ]
             },
             {
+                "name": "CODBEX_SALESORDERITEMSTATUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SALESORDERITEMSTATUS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SALESORDERITEMSTATUS_NAME"
+                    }
+                ]
+            },
+            {
                 "name": "SalesOrder_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
@@ -969,6 +997,15 @@
                 "columns": "SALESORDERITEM_UOM",
                 "referencedTable": "CODBEX_UOM",
                 "referencedColumns": "UOM_ID"
+            },
+            {
+                "name": "SalesOrderItem_SalesOrderItemStatus",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDERITEM",
+                "constraintName": "SalesOrderItem_SalesOrderItemStatus",
+                "columns": "SALESORDERITEM_SALESORDERITEMSTATUS",
+                "referencedTable": "CODBEX_SALESORDERITEMSTATUS",
+                "referencedColumns": "SALESORDERITEMSTATUS_ID"
             },
             {
                 "name": "PurchaseOrder_Supplier",
