@@ -13,7 +13,7 @@ export interface SalesOrderItemEntity {
     Net?: number;
     VAT?: number;
     Gross?: number;
-    SalesOrderItemStatus?: number;
+    SalesOrderItemStatus: number;
 }
 
 export interface SalesOrderItemCreateEntity {
@@ -22,7 +22,6 @@ export interface SalesOrderItemCreateEntity {
     readonly Quantity: number;
     readonly UoM: number;
     readonly Price: number;
-    readonly SalesOrderItemStatus?: number;
 }
 
 export interface SalesOrderItemUpdateEntity extends SalesOrderItemCreateEntity {
@@ -199,6 +198,7 @@ export class SalesOrderItemRepository {
                 name: "SalesOrderItemStatus",
                 column: "SALESORDERITEM_SALESORDERITEMSTATUS",
                 type: "INTEGER",
+                required: true
             }
         ]
     };
@@ -225,6 +225,8 @@ export class SalesOrderItemRepository {
         (entity as SalesOrderItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
         (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
+        // @ts-ignore
+        (entity as SalesOrderItemEntity).SalesOrderItemStatus = 1;
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

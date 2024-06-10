@@ -232,7 +232,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
-		$http.get("/services/ts/codbex-orders/gen/api/entities/SalesOrderItemStatusService.ts").then(function (response) {
+		$http.get("/services/ts/codbex-orders/gen/api/SalesOrder/SalesOrderItemStatusService.ts").then(function (response) {
 			$scope.optionsSalesOrderItemStatus = response.data.map(e => {
 				return {
 					value: e.Id,

@@ -783,7 +783,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderItem_SalesOrderItemStatus",
                         "relationshipEntityName": "SalesOrderItemStatus",
-                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveName": "SalesOrder",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
@@ -6116,14 +6116,14 @@
                 "menuLabel": "SalesOrderItemStatus",
                 "name": "SalesOrderItemStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
-                "perspectiveOrder": "100",
+                "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
+                "perspectiveLabel": "Sales Order",
+                "perspectiveName": "SalesOrder",
+                "perspectiveOrder": "510",
                 "perspectiveRole": "",
                 "title": "SalesOrderItemStatus",
                 "tooltip": "SalesOrderItemStatus",
-                "type": "PRIMARY"
+                "type": "SETTING"
             }
         ],
         "perspectives": [

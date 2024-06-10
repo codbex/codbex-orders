@@ -272,7 +272,6 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
-                        "nullable": true,
                         "name": "SALESORDERITEM_SALESORDERITEMSTATUS"
                     }
                 ]

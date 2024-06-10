@@ -1,0 +1,4 @@
+{
+    "name": "codbex-orders-SalesOrder-SalesOrderItemStatus",
+    "description": "Extension Point for the codbex-orders-SalesOrder-SalesOrderItemStatus entity"
+}
