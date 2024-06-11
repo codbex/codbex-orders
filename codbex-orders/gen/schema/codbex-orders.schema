@@ -272,6 +272,7 @@
                         "length": 0,
                         "precision": "NaN",
                         "scale": "NaN",
+                        "defaultValue": "1",
                         "name": "SALESORDERITEM_SALESORDERITEMSTATUS"
                     }
                 ]
@@ -887,6 +888,8 @@
                         "length": 0,
                         "primaryKey": true,
                         "identity": true,
+                        "precision": "NaN",
+                        "scale": "NaN",
                         "nullable": true,
                         "name": "SALESORDERITEMSTATUS_ID"
                     },
