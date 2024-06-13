@@ -30,6 +30,7 @@ export interface PurchaseOrderEntity {
     Name: string;
     UUID: string;
     Reference?: string;
+    Store?: number;
 }
 
 export interface PurchaseOrderCreateEntity {
@@ -52,6 +53,7 @@ export interface PurchaseOrderCreateEntity {
     readonly Document?: string;
     readonly Company?: number;
     readonly Reference?: string;
+    readonly Store?: number;
 }
 
 export interface PurchaseOrderUpdateEntity extends PurchaseOrderCreateEntity {
@@ -84,6 +86,7 @@ export interface PurchaseOrderEntityOptions {
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
+            Store?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -109,6 +112,7 @@ export interface PurchaseOrderEntityOptions {
             Name?: string | string[];
             UUID?: string | string[];
             Reference?: string | string[];
+            Store?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -134,6 +138,7 @@ export interface PurchaseOrderEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Store?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -159,6 +164,7 @@ export interface PurchaseOrderEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Store?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -184,6 +190,7 @@ export interface PurchaseOrderEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Store?: number;
         };
         lessThan?: {
             Id?: number;
@@ -209,6 +216,7 @@ export interface PurchaseOrderEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Store?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -234,6 +242,7 @@ export interface PurchaseOrderEntityOptions {
             Name?: string;
             UUID?: string;
             Reference?: string;
+            Store?: number;
         };
     },
     $select?: (keyof PurchaseOrderEntity)[],
@@ -391,6 +400,11 @@ export class PurchaseOrderRepository {
                 name: "Reference",
                 column: "PURCHASEORDER_REFERENCE",
                 type: "VARCHAR",
+            },
+            {
+                name: "Store",
+                column: "PURCHASEORDER_STORE",
+                type: "INTEGER",
             }
         ]
     };

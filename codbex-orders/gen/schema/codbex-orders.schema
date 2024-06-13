@@ -457,6 +457,12 @@
                         "scale": "NaN",
                         "nullable": true,
                         "name": "PURCHASEORDER_REFERENCE"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "length": 0,
+                        "nullable": true,
+                        "name": "PURCHASEORDER_STORE"
                     }
                 ]
             },
@@ -1071,6 +1077,15 @@
                 "columns": "PURCHASEORDER_COMPANY",
                 "referencedTable": "CODBEX_COMPANY",
                 "referencedColumns": "COMPANY_ID"
+            },
+            {
+                "name": "PurchaseOrder_Store",
+                "type": "foreignKey",
+                "table": "CODBEX_PURCHASEORDER",
+                "constraintName": "PurchaseOrder_Store",
+                "columns": "PURCHASEORDER_STORE",
+                "referencedTable": "CODBEX_STORE",
+                "referencedColumns": "STORE_ID"
             },
             {
                 "name": "PurchaseOrderItem_PurchaseOrder",

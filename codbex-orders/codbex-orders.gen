@@ -2659,6 +2659,34 @@
           "minLength": 0,
           "maxLength": 36,
           "inputRule": ""
+        },
+        {
+          "calculatedPropertyExpressionCreate": "",
+          "calculatedPropertyExpressionUpdate": "",
+          "dataAutoIncrement": false,
+          "dataLength": "0",
+          "dataName": "PURCHASEORDER_STORE",
+          "dataNullable": true,
+          "dataPrimaryKey": false,
+          "dataType": "INTEGER",
+          "dataUnique": false,
+          "isCalculatedProperty": false,
+          "isRequiredProperty": false,
+          "name": "Store",
+          "widgetIsMajor": true,
+          "widgetLength": "20",
+          "widgetSize": "",
+          "widgetType": "TEXTBOX",
+          "relationshipName": "PurchaseOrder_Store",
+          "relationshipEntityName": "Store",
+          "relationshipEntityPerspectiveName": "Stores",
+          "relationshipEntityPerspectiveLabel": "Stores",
+          "dataNotNull": false,
+          "widgetLabel": "Store",
+          "widgetDropdownUrl": "",
+          "dataTypeJava": "int",
+          "dataTypeTypescript": "number",
+          "inputRule": ""
         }
       ],
       "caption": "Manage entity PurchaseOrder",
@@ -2707,6 +2735,10 @@
         {
           "name": "Company",
           "project": "codbex-companies"
+        },
+        {
+          "name": "Store",
+          "project": "codbex-inventory"
         }
       ],
       "primaryKeys": [
@@ -3344,6 +3376,34 @@
             "dataTypeTypescript": "string",
             "minLength": 0,
             "maxLength": 36,
+            "inputRule": ""
+          },
+          {
+            "calculatedPropertyExpressionCreate": "",
+            "calculatedPropertyExpressionUpdate": "",
+            "dataAutoIncrement": false,
+            "dataLength": "0",
+            "dataName": "PURCHASEORDER_STORE",
+            "dataNullable": true,
+            "dataPrimaryKey": false,
+            "dataType": "INTEGER",
+            "dataUnique": false,
+            "isCalculatedProperty": false,
+            "isRequiredProperty": false,
+            "name": "Store",
+            "widgetIsMajor": true,
+            "widgetLength": "20",
+            "widgetSize": "",
+            "widgetType": "TEXTBOX",
+            "relationshipName": "PurchaseOrder_Store",
+            "relationshipEntityName": "Store",
+            "relationshipEntityPerspectiveName": "Stores",
+            "relationshipEntityPerspectiveLabel": "Stores",
+            "dataNotNull": false,
+            "widgetLabel": "Store",
+            "widgetDropdownUrl": "",
+            "dataTypeJava": "int",
+            "dataTypeTypescript": "number",
             "inputRule": ""
           }
         ]
