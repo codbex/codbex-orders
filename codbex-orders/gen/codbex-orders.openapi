@@ -8864,6 +8864,7 @@ components:
         - SentMethod
         - PurchaseOrderStatus
         - Operator
+        - Store
       properties:
         Id:
           type: integer

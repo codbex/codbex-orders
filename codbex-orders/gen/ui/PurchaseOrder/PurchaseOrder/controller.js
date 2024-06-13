@@ -129,6 +129,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsPurchaseOrderStatus: $scope.optionsPurchaseOrderStatus,
 				optionsOperator: $scope.optionsOperator,
 				optionsCompany: $scope.optionsCompany,
+				optionsStore: $scope.optionsStore,
 			});
 		};
 
@@ -145,6 +146,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsPurchaseOrderStatus: $scope.optionsPurchaseOrderStatus,
 				optionsOperator: $scope.optionsOperator,
 				optionsCompany: $scope.optionsCompany,
+				optionsStore: $scope.optionsStore,
 			});
 		};
 
@@ -159,6 +161,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsPurchaseOrderStatus: $scope.optionsPurchaseOrderStatus,
 				optionsOperator: $scope.optionsOperator,
 				optionsCompany: $scope.optionsCompany,
+				optionsStore: $scope.optionsStore,
 			});
 		};
 
@@ -202,6 +205,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsPurchaseOrderStatus: $scope.optionsPurchaseOrderStatus,
 				optionsOperator: $scope.optionsOperator,
 				optionsCompany: $scope.optionsCompany,
+				optionsStore: $scope.optionsStore,
 			});
 		};
 
@@ -213,6 +217,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsPurchaseOrderStatus = [];
 		$scope.optionsOperator = [];
 		$scope.optionsCompany = [];
+		$scope.optionsStore = [];
 
 
 		$http.get("/services/ts/codbex-partners/gen/api/Suppliers/SupplierService.ts").then(function (response) {
@@ -278,6 +283,15 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		});
 
+		$http.get("/services/ts/codbex-inventory/gen/api/Stores/StoreService.ts").then(function (response) {
+			$scope.optionsStore = response.data.map(e => {
+				return {
+					value: e.Id,
+					text: e.Name
+				}
+			});
+		});
+
 		$scope.optionsSupplierValue = function (optionKey) {
 			for (let i = 0; i < $scope.optionsSupplier.length; i++) {
 				if ($scope.optionsSupplier[i].value === optionKey) {
@@ -330,6 +344,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			for (let i = 0; i < $scope.optionsCompany.length; i++) {
 				if ($scope.optionsCompany[i].value === optionKey) {
 					return $scope.optionsCompany[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsStoreValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStore.length; i++) {
+				if ($scope.optionsStore[i].value === optionKey) {
+					return $scope.optionsStore[i].text;
 				}
 			}
 			return null;
