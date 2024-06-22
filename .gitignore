@@ -8,6 +8,7 @@ dirigible_local/
 bin/
 .history/
 .vscode/
+node_modules/
 
 .editorconfig
 .gitattributes

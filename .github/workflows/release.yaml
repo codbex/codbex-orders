@@ -1,4 +1,4 @@
-name: Release - Application
+name: Release - Module
 
 on:
   workflow_dispatch:
@@ -12,24 +12,24 @@ run-name: 'version set to ${{ inputs.release-version }} for release'
 
 jobs:
   main:
-    uses: codbex/codbex-infra/.github/workflows/application-release.yaml@main
+    uses: codbex/codbex-infra/.github/workflows/module-release.yaml@main
     with:
-      application-name: codbex-orders
+      packages: codbex-orders,codbex-orders-data
+      packages-build: codbex-orders
       release-version: ${{ inputs.release-version }}
       release-content: |
-        ## codbex-orders - ${{ inputs.release-version }}
+        ## codbex-countries - ${{ inputs.release-version }}
   
-        Orders Management Applications
+        Orders Management Module
   
-        ## Deployment
+        ## Installation
   
         ```
-        docker run --name codbex-orders \
-        --rm -p 8080:8080 -p 8081:8081 \
-        ghcr.io/codbex/codbex-orders:${{ inputs.release-version }}
+        npm install @codbex/codbex-orders@${{ inputs.release-version }}
+        npm install @codbex/codbex-orders-data@${{ inputs.release-version }}
         ```
   
         ## Access points:
   
-        - [/services/web/codbex-orders/gen/](http://localhost:8080/services/web/codbex-orders/gen/) - Admin Panel
+        - [/services/web/codbex-orders/gen/](http://localhost:80/services/web/codbex-orders/gen/) - Admin Panel
     secrets: inherit
