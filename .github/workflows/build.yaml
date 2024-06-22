@@ -1,4 +1,4 @@
-name: Build - Application
+name: Build - Module
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   main:
-    uses: codbex/codbex-infra/.github/workflows/application-build.yaml@main
+    uses: codbex/codbex-infra/.github/workflows/module-build.yaml@main
     with:
-      application-name: codbex-orders
+      packages-build: codbex-orders
     secrets: inherit
