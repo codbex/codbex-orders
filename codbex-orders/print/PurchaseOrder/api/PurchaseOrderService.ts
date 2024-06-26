@@ -1,5 +1,5 @@
-import { PurchaseOrderRepository as PurchaseOrderDao } from "../../../../codbex-orders/gen/dao/purchaseorder/PurchaseOrderRepository";
-import { PurchaseOrderItemRepository as PurchaseOrderItemDao } from "../../../../codbex-orders/gen/dao/purchaseorder/PurchaseOrderItemRepository";
+import { PurchaseOrderRepository as PurchaseOrderDao } from "../../../../codbex-orders/gen/codbex-orders/dao/purchaseorder/PurchaseOrderRepository";
+import { PurchaseOrderItemRepository as PurchaseOrderItemDao } from "../../../../codbex-orders/gen/codbex-orders/dao/purchaseorder/PurchaseOrderItemRepository";
 import { SupplierRepository as SupplierDao } from "../../../../codbex-partners/gen/dao/Suppliers/SupplierRepository";
 import { ProductRepository as ProductDao } from "../../../../codbex-products/gen/dao/Products/ProductRepository";
 import { CompanyRepository as CompanyDao } from "../../../../codbex-companies/gen/dao/Companies/CompanyRepository";

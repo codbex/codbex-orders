@@ -1,5 +1,5 @@
-import { SalesOrderRepository } from "../../gen/dao/SalesOrder/SalesOrderRepository";
-import { SalesOrderPaymentRepository } from "../../gen/dao/SalesOrder/SalesOrderPaymentRepository";
+import { SalesOrderRepository } from "../../gen/codbex-orders/dao/SalesOrder/SalesOrderRepository";
+import { SalesOrderPaymentRepository } from "../../gen/codbex-orders/dao/SalesOrder/SalesOrderPaymentRepository";
 
 export const trigger = (event) => {
     const SalesOrderDao = new SalesOrderRepository();

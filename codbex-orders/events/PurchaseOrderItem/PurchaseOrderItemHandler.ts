@@ -1,5 +1,5 @@
-import { PurchaseOrderRepository } from "../../gen/dao/PurchaseOrder/PurchaseOrderRepository";
-import { PurchaseOrderItemRepository } from "../../gen/dao/PurchaseOrder/PurchaseOrderItemRepository";
+import { PurchaseOrderRepository } from "../../gen/codbex-orders/dao/PurchaseOrder/PurchaseOrderRepository";
+import { PurchaseOrderItemRepository } from "../../gen/codbex-orders/dao/PurchaseOrder/PurchaseOrderItemRepository";
 
 export const trigger = (event) => {
     const PurchaseOrderDao = new PurchaseOrderRepository();
