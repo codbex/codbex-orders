@@ -1,12 +1,12 @@
 import { PurchaseOrderRepository as PurchaseOrderDao } from "../../../../codbex-orders/gen/codbex-orders/dao/purchaseorder/PurchaseOrderRepository";
 import { PurchaseOrderItemRepository as PurchaseOrderItemDao } from "../../../../codbex-orders/gen/codbex-orders/dao/purchaseorder/PurchaseOrderItemRepository";
-import { SupplierRepository as SupplierDao } from "../../../../codbex-partners/gen/dao/Suppliers/SupplierRepository";
-import { ProductRepository as ProductDao } from "../../../../codbex-products/gen/dao/Products/ProductRepository";
-import { CompanyRepository as CompanyDao } from "../../../../codbex-companies/gen/dao/Companies/CompanyRepository";
-import { CityRepository as CityDao } from "../../../../codbex-cities/gen/dao/Cities/CityRepository";
-import { CountryRepository as CountryDao } from "../../../../codbex-countries/gen/dao/Countries/CountryRepository";
-import { PaymentMethodRepository as PaymentMethodDao } from "../../../../codbex-methods/gen/dao/Methods/PaymentMethodRepository";
-import { SentMethodRepository as SentMethodDao } from "../../../../codbex-methods/gen/dao/Methods/SentMethodRepository";
+import { SupplierRepository as SupplierDao } from "../../../../codbex-partners/gen/codbex-partners/dao/Suppliers/SupplierRepository";
+import { ProductRepository as ProductDao } from "../../../../codbex-products/gen/codbex-products/dao/Products/ProductRepository";
+import { CompanyRepository as CompanyDao } from "../../../../codbex-companies/gen/codbex-companies/dao/Companies/CompanyRepository";
+import { CityRepository as CityDao } from "../../../../codbex-cities/gen/codbex-cities/dao/Cities/CityRepository";
+import { CountryRepository as CountryDao } from "../../../../codbex-countries/gen/codbex-countries/dao/Countries/CountryRepository";
+import { PaymentMethodRepository as PaymentMethodDao } from "../../../../codbex-methods/gen/codbex-methods/dao/Methods/PaymentMethodRepository";
+import { SentMethodRepository as SentMethodDao } from "../../../../codbex-methods/gen/codbex-methods/dao/Methods/SentMethodRepository";
 
 import { Controller, Get } from "sdk/http";
 

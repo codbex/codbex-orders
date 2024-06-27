@@ -6,11 +6,11 @@
   "description": "Managing order data",
   "dataSource": "DefaultDB",
   "fileName": "codbex-orders",
+  "genFolderName": "codbex-orders",
   "projectName": "codbex-orders",
   "workspaceName": "workspace",
   "filePath": "codbex-orders.model",
   "templateId": "template-application-angular/template/template.js",
-  "genFolderName": "codbex-orders",
   "perspectives": {
     "SalesOrder": {
       "views": [
