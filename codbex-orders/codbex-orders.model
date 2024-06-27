@@ -492,12 +492,11 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "1",
+                        "calculatedPropertyExpressionCreate": "",
                         "dataDefaultValue": "1",
                         "dataName": "SALESORDERITEM_SALESORDERITEMSTATUS",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
-                        "isCalculatedProperty": "true",
                         "name": "SalesOrderItemStatus",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",

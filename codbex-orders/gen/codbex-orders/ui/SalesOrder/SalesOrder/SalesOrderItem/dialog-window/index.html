@@ -141,7 +141,7 @@
 	                            state="{{ forms.details['SalesOrderItemStatus'].$valid ? '' : 'error' }}"
 	                            ng-required="false"
 	                            ng-model="entity.SalesOrderItemStatus"
-	                            dg-disabled="true"
+	                            dg-disabled="action === 'select'"
 	                            dropdown-items="optionsSalesOrderItemStatus"
 	                            dg-placeholder="Search SalesOrderItemStatus ...">
 	                        </fd-combobox-input>

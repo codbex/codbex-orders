@@ -1717,12 +1717,11 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "1",
+          "calculatedPropertyExpressionCreate": "",
           "dataDefaultValue": "1",
           "dataName": "SALESORDERITEM_SALESORDERITEMSTATUS",
           "dataNullable": false,
           "dataType": "INTEGER",
-          "isCalculatedProperty": true,
           "name": "SalesOrderItemStatus",
           "widgetDropDownKey": "Id",
           "widgetDropDownValue": "Name",
@@ -1739,6 +1738,7 @@
           "dataPrimaryKey": false,
           "dataUnique": false,
           "isRequiredProperty": false,
+          "isCalculatedProperty": false,
           "widgetLabel": "SalesOrderItemStatus",
           "widgetDropdownUrl": "/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderItemStatusService.ts",
           "dataTypeJava": "int",
