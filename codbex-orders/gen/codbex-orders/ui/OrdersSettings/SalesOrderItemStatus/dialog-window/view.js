@@ -4,16 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "SalesOrderItemStatus",
+    id: "SalesOrderItemStatus-details",
     label: "SalesOrderItemStatus",
-    factory: "frame",
-    region: "center",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrderItemStatus/index.html",
-    perspectiveName: "SalesOrder",
+    link: "/services/web/codbex-orders/gen/codbex-orders/ui/OrdersSettings/SalesOrderItemStatus/dialog-window/index.html",
+    perspectiveName: "OrdersSettings",
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
+    exports.getDialogWindow = function () {
         return viewData;
     }
 }

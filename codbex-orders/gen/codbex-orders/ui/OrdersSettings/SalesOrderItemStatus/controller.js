@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-orders.SalesOrder.SalesOrderItemStatus';
+		messageHubProvider.eventIdPrefix = 'codbex-orders.OrdersSettings.SalesOrderItemStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderItemStatusService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderItemStatusService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'entityApi', 'Extensions', function ($scope, messageHub, entityApi, Extensions) {
 
@@ -13,8 +13,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//-----------------Custom Actions-------------------//
 		Extensions.get('dialogWindow', 'codbex-orders-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "SalesOrder" && e.view === "SalesOrderItemStatus" && (e.type === "page" || e.type === undefined));
-			$scope.entityActions = response.filter(e => e.perspective === "SalesOrder" && e.view === "SalesOrderItemStatus" && e.type === "entity");
+			$scope.pageActions = response.filter(e => e.perspective === "OrdersSettings" && e.view === "SalesOrderItemStatus" && (e.type === "page" || e.type === undefined));
+			$scope.entityActions = response.filter(e => e.perspective === "OrdersSettings" && e.view === "SalesOrderItemStatus" && e.type === "entity");
 		});
 
 		$scope.triggerPageAction = function (action) {

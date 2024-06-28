@@ -4,10 +4,10 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "SalesOrderItemStatus-details",
-    label: "SalesOrderItemStatus",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrderItemStatus/dialog-window/index.html",
-    perspectiveName: "SalesOrder",
+    id: "SalesOrderItemStatus-filter",
+    label: "SalesOrderItemStatus Filter",
+    link: "/services/web/codbex-orders/gen/codbex-orders/ui/OrdersSettings/SalesOrderItemStatus/dialog-filter/index.html",
+    perspectiveName: "OrdersSettings",
 };
 
 if (typeof exports !== 'undefined') {

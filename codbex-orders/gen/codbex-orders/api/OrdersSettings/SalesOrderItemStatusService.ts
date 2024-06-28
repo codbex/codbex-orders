@@ -1,10 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { SalesOrderItemStatusRepository, SalesOrderItemStatusEntityOptions } from "../../dao/SalesOrder/SalesOrderItemStatusRepository";
+import { SalesOrderItemStatusRepository, SalesOrderItemStatusEntityOptions } from "../../dao/OrdersSettings/SalesOrderItemStatusRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-orders-SalesOrder-SalesOrderItemStatus", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-orders-OrdersSettings-SalesOrderItemStatus", ["validate"]);
 
 @Controller
 class SalesOrderItemStatusService {
@@ -30,7 +30,7 @@ class SalesOrderItemStatusService {
         try {
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderItemStatusService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderItemStatusService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {

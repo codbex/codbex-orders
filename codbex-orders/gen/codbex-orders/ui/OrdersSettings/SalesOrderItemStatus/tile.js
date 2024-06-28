@@ -12,8 +12,8 @@ exports.getTile = function () {
         type: "SETTING",
         report: "false",
         icon: "/services/web/resources/unicons/file.svg",
-        location: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/index.html",
+        location: "/services/web/codbex-orders/gen/codbex-orders/ui/OrdersSettings/index.html",
         order: "100",
-        groupOrder: "510",
+        groupOrder: "590",
     };
 };

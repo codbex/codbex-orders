@@ -1,9 +1,9 @@
 angular.module('page', ["ideUI", "ideView", "entityApi"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-orders.SalesOrder.SalesOrderItemStatus';
+		messageHubProvider.eventIdPrefix = 'codbex-orders.OrdersSettings.SalesOrderItemStatus';
 	}])
 	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderItemStatusService.ts";
+		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderItemStatusService.ts";
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
 

@@ -506,7 +506,7 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderItem_SalesOrderItemStatus",
                         "relationshipEntityName": "SalesOrderItemStatus",
-                        "relationshipEntityPerspectiveName": "SalesOrder",
+                        "relationshipEntityPerspectiveName": "OrdersSettings",
                         "relationshipEntityPerspectiveLabel": "Entities"
                     }
                 ],
@@ -4102,10 +4102,10 @@
                 "menuLabel": "SalesOrderItemStatus",
                 "name": "SalesOrderItemStatus",
                 "navigationPath": "/Home",
-                "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
-                "perspectiveLabel": "Sales Order",
-                "perspectiveName": "SalesOrder",
-                "perspectiveOrder": "510",
+                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
+                "perspectiveLabel": "Orders Settings",
+                "perspectiveName": "OrdersSettings",
+                "perspectiveOrder": "590",
                 "perspectiveRole": "",
                 "title": "SalesOrderItemStatus",
                 "tooltip": "SalesOrderItemStatus",

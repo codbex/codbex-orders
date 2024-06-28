@@ -1,6 +1,6 @@
 angular.module('page', ["ideUI", "ideView"])
 	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-orders.SalesOrder.SalesOrderItemStatus';
+		messageHubProvider.eventIdPrefix = 'codbex-orders.OrdersSettings.SalesOrderItemStatus';
 	}])
 	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
 
