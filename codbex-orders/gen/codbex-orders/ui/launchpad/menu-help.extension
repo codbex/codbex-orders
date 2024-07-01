@@ -1,0 +1,5 @@
+{
+    "module": "codbex-orders/gen/codbex-orders/ui/launchpad/menu-help.js",
+    "extensionPoint": "codbex-orders-menu",
+    "description": "codbex-orders - Application Menu"
+}

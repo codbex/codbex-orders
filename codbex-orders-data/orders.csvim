@@ -32,6 +32,17 @@
       "delimEnclosing": "\"",
       "distinguishEmptyFromNull": true,
       "version": "1.0"
-    }
+    },
+    {
+          "table": "CODBEX_SALESORDERITEMSTATUS",
+          "schema": "PUBLIC",
+          "file": "/codbex-orders-data/sales-order-item-statuses.csv",
+          "header": true,
+          "useHeaderNames": true,
+          "delimField": ",",
+          "delimEnclosing": "\"",
+          "distinguishEmptyFromNull": true,
+          "version": "1.0"
+        }
   ]
 }
