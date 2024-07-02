@@ -261,6 +261,7 @@
           "dataAutoIncrement": true,
           "dataName": "SALESORDER_ID",
           "dataNullable": true,
+          "dataOrderBy": "DESC",
           "dataPrimaryKey": true,
           "dataType": "INTEGER",
           "name": "Id",
@@ -306,6 +307,7 @@
         {
           "dataName": "SALESORDER_DATE",
           "dataNullable": false,
+          "dataOrderBy": "DESC",
           "dataType": "DATE",
           "isRequiredProperty": true,
           "name": "Date",
@@ -853,7 +855,7 @@
       "caption": "Manage entity SalesOrder",
       "dataCount": "SELECT COUNT(*) AS COUNT FROM \"CODBEX__SALESORDER\"",
       "dataName": "SALESORDER",
-      "dataQuery": "",
+      "dataQuery": "SELECT * FROM \"CODBEX__SALESORDER\" ORDER BY \"SALESORDER_DATE\" DESC",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
       "importsCode": "import { NumberGeneratorService } from \"/codbex-number-generator/service/generator\";",
@@ -943,6 +945,7 @@
           {
             "dataName": "SALESORDER_DATE",
             "dataNullable": false,
+            "dataOrderBy": "DESC",
             "dataType": "DATE",
             "isRequiredProperty": true,
             "name": "Date",

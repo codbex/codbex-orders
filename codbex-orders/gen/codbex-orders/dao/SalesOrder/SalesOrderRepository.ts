@@ -414,6 +414,24 @@ export class SalesOrderRepository {
     }
 
     public findAll(options?: SalesOrderEntityOptions): SalesOrderEntity[] {
+        // @ts-ignore
+        if (options.$sort === undefined) {
+            // @ts-ignore
+            options.$sort = "";
+        }
+        // @ts-ignore
+        options.$sort += "Id,";
+        // @ts-ignore
+        options.$order = "DESC";
+        // @ts-ignore
+        if (options.$sort === undefined) {
+            // @ts-ignore
+            options.$sort = "";
+        }
+        // @ts-ignore
+        options.$sort += "Date,";
+        // @ts-ignore
+        options.$order = "DESC";
         return this.dao.list(options).map((e: SalesOrderEntity) => {
             EntityUtils.setDate(e, "Date");
             EntityUtils.setDate(e, "Due");
@@ -531,7 +549,7 @@ export class SalesOrderRepository {
                 triggerExtension.trigger(data);
             } catch (error) {
                 console.error(error);
-            }            
+            }
         });
         producer.topic("codbex-orders-SalesOrder-SalesOrder").send(JSON.stringify(data));
     }
