@@ -693,6 +693,8 @@ paths:
                   $filter:
                     notEquals:
                       Id: 33
+                    contains:
+                      Availability: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -709,6 +711,12 @@ paths:
                   $filter:
                     notEquals:
                       Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Availability: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
                 value:
@@ -771,6 +779,8 @@ paths:
                   $filter:
                     notEquals:
                       Id: 33
+                    contains:
+                      Availability: "abcd"
                     greaterThan:
                       Id: 0
                     lessThanOrEqual:
@@ -787,6 +797,12 @@ paths:
                   $filter:
                     notEquals:
                       Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Availability: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
                 value:
@@ -8484,6 +8500,7 @@ components:
         - Quantity
         - UoM
         - Price
+        - Availability
       properties:
         Id:
           type: integer
@@ -8518,6 +8535,10 @@ components:
         SalesOrderItemStatus:
           type: integer
           format: int32
+        Availability:
+          type: string
+          minLength: 0
+          maxLength: 10
     SalesOrderItemFilterOptions:
       type: object
       properties:
@@ -8607,6 +8628,17 @@ components:
                       items:
                         type: integer
                         format: int32
+                Availability:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 10
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 10
             notEquals:
               type: object
               properties:
@@ -8690,6 +8722,17 @@ components:
                       items:
                         type: integer
                         format: int32
+                Availability:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 10
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 10
             contains:
               type: object
               properties:
@@ -8703,6 +8746,10 @@ components:
                 VAT:
                 Gross:
                 SalesOrderItemStatus:
+                Availability:
+                  type: string
+                  minLength: 0
+                  maxLength: 10
             greaterThan:
               type: object
               properties:
@@ -8736,6 +8783,10 @@ components:
                 SalesOrderItemStatus:
                   type: integer
                   format: int32
+                Availability:
+                  type: string
+                  minLength: 0
+                  maxLength: 10
             greaterThanOrEqual:
               type: object
               properties:
@@ -8769,6 +8820,10 @@ components:
                 SalesOrderItemStatus:
                   type: integer
                   format: int32
+                Availability:
+                  type: string
+                  minLength: 0
+                  maxLength: 10
             lessThan:
               type: object
               properties:
@@ -8802,6 +8857,10 @@ components:
                 SalesOrderItemStatus:
                   type: integer
                   format: int32
+                Availability:
+                  type: string
+                  minLength: 0
+                  maxLength: 10
             lessThanOrEqual:
               type: object
               properties:
@@ -8835,14 +8894,18 @@ components:
                 SalesOrderItemStatus:
                   type: integer
                   format: int32
+                Availability:
+                  type: string
+                  minLength: 0
+                  maxLength: 10
         $select:
           type: array
-          example: ["Id", "SalesOrder", "Product", "Quantity", "UoM", "Price", "Net", "VAT", "Gross", "SalesOrderItemStatus"]
+          example: ["Id", "SalesOrder", "Product", "Quantity", "UoM", "Price", "Net", "VAT", "Gross", "SalesOrderItemStatus", "Availability"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,SalesOrder,Product,Quantity,UoM,Price,Net,VAT,Gross,SalesOrderItemStatus"
+            example: "Id,SalesOrder,Product,Quantity,UoM,Price,Net,VAT,Gross,SalesOrderItemStatus,Availability"
         $order:
           type: string
           enum: ["asc", "desc"]

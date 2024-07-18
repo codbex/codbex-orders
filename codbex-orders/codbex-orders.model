@@ -508,6 +508,18 @@
                         "relationshipEntityName": "SalesOrderItemStatus",
                         "relationshipEntityPerspectiveName": "OrdersSettings",
                         "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
+                        "dataLength": "10",
+                        "dataName": "SALESORDERITEM_AVAILABILITY",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "isRequiredProperty": "true",
+                        "name": "Availability",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity SalesOrderItem",

@@ -200,6 +200,12 @@
                         "type": "INTEGER",
                         "defaultValue": "1",
                         "name": "SALESORDERITEM_SALESORDERITEMSTATUS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 10,
+                        "nullable": true,
+                        "name": "SALESORDERITEM_AVAILABILITY"
                     }
                 ]
             },
