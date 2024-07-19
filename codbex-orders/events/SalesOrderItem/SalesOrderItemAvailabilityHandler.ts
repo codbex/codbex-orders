@@ -12,13 +12,15 @@ export const trigger = (event) => {
 
     if (operation === "create") {
 
-        const items = SalesOrderItemDao.findAll({
-            $filter: {
-                equals: {
-                    SalesOrder: item.SalesOrder
-                }
-            }
-        });
+        const salesOrderItem = SalesOrderItemDao.findById(item.Id);
+
+        // const items = SalesOrderItemDao.findAll({
+        //     $filter: {
+        //         equals: {
+        //             SalesOrder: item.SalesOrder
+        //         }
+        //     }
+        // });
 
         const salesOrder = SalesOrderDao.findAll({
             $filter: {
@@ -30,51 +32,30 @@ export const trigger = (event) => {
 
         const store = salesOrder[0].Store;
 
-        items.forEach(function (salesOrderItem) {
+        // items.forEach(function (salesOrderItem) {
 
-            const salesOrderItemProduct = salesOrderItem.Product;
-            const salesOrderItemQuantity = salesOrderItem.Quantity;
+        const salesOrderItemProduct = salesOrderItem.Product;
+        const salesOrderItemQuantity = salesOrderItem.Quantity;
 
-            const catalogue = CtalogueDao.findAll({
-                $filter: {
-                    equals: {
-                        Store: store,
-                        Product: salesOrderItemProduct
-                    }
+        const catalogue = CtalogueDao.findAll({
+            $filter: {
+                equals: {
+                    Store: store,
+                    Product: salesOrderItemProduct
                 }
-            });
-
-            if (catalogue[0].Quantity >= salesOrderItemQuantity) {
-                salesOrderItem.Availability = "Yes";
-            } else {
-                salesOrderItem.Availability = "No";
             }
-
-            SalesOrderItemDao.update(salesOrderItem);
         });
 
+        // if (catalogue[0].Quantity >= salesOrderItemQuantity) {
+        //     salesOrderItem.Availability = "Yes";
+        // } else {
+        //     salesOrderItem.Availability = "No";
+        // }
 
+        salesOrderItem.Availability = catalogue[0].Quantity.toFixed(2);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        SalesOrderItemDao.update(salesOrderItem);
+        //});
 
     }
 

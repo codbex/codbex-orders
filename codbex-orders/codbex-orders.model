@@ -510,11 +510,13 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
-                        "dataLength": "10",
+                        "calculatedPropertyExpressionCreate": "0",
+                        "dataDefaultValue": "0",
                         "dataName": "SALESORDERITEM_AVAILABILITY",
                         "dataNullable": "true",
-                        "dataType": "VARCHAR",
-                        "isRequiredProperty": "true",
+                        "dataPrecision": "NaN",
+                        "dataScale": "NaN",
+                        "dataType": "DECIMAL",
                         "name": "Availability",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",

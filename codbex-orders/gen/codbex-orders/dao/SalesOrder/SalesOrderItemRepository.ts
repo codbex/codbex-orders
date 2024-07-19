@@ -14,7 +14,7 @@ export interface SalesOrderItemEntity {
     VAT?: number;
     Gross?: number;
     SalesOrderItemStatus: number;
-    Availability?: string;
+    Availability?: number;
 }
 
 export interface SalesOrderItemCreateEntity {
@@ -24,7 +24,6 @@ export interface SalesOrderItemCreateEntity {
     readonly UoM: number;
     readonly Price: number;
     readonly SalesOrderItemStatus: number;
-    readonly Availability?: string;
 }
 
 export interface SalesOrderItemUpdateEntity extends SalesOrderItemCreateEntity {
@@ -44,7 +43,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number | number[];
             Gross?: number | number[];
             SalesOrderItemStatus?: number | number[];
-            Availability?: string | string[];
+            Availability?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -57,7 +56,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number | number[];
             Gross?: number | number[];
             SalesOrderItemStatus?: number | number[];
-            Availability?: string | string[];
+            Availability?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -70,7 +69,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
-            Availability?: string;
+            Availability?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -83,7 +82,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
-            Availability?: string;
+            Availability?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -96,7 +95,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
-            Availability?: string;
+            Availability?: number;
         };
         lessThan?: {
             Id?: number;
@@ -109,7 +108,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
-            Availability?: string;
+            Availability?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -122,7 +121,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
-            Availability?: string;
+            Availability?: number;
         };
     },
     $select?: (keyof SalesOrderItemEntity)[],
@@ -213,7 +212,7 @@ export class SalesOrderItemRepository {
             {
                 name: "Availability",
                 column: "SALESORDERITEM_AVAILABILITY",
-                type: "VARCHAR",
+                type: "DECIMAL",
             }
         ]
     };
@@ -240,6 +239,8 @@ export class SalesOrderItemRepository {
         (entity as SalesOrderItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
         (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
+        // @ts-ignore
+        (entity as SalesOrderItemEntity).Availability = 0;
         if (entity.SalesOrderItemStatus === undefined || entity.SalesOrderItemStatus === null) {
             (entity as SalesOrderItemEntity).SalesOrderItemStatus = 1;
         }

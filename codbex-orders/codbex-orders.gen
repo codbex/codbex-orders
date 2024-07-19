@@ -1746,11 +1746,11 @@
           "inputRule": ""
         },
         {
-          "dataLength": "10",
+          "calculatedPropertyExpressionCreate": "0",
           "dataName": "SALESORDERITEM_AVAILABILITY",
           "dataNullable": true,
-          "dataType": "VARCHAR",
-          "isRequiredProperty": true,
+          "dataType": "DECIMAL",
+          "isCalculatedProperty": true,
           "name": "Availability",
           "widgetIsMajor": true,
           "widgetLength": "20",
@@ -1760,13 +1760,11 @@
           "dataAutoIncrement": false,
           "dataPrimaryKey": false,
           "dataUnique": false,
-          "isCalculatedProperty": false,
+          "isRequiredProperty": false,
           "widgetLabel": "Availability",
           "widgetDropdownUrl": "",
-          "dataTypeJava": "string",
-          "dataTypeTypescript": "string",
-          "minLength": 0,
-          "maxLength": 10,
+          "dataTypeJava": "double",
+          "dataTypeTypescript": "number",
           "inputRule": ""
         }
       ],

@@ -145,12 +145,6 @@ class SalesOrderItemService {
         if (entity.Price === null || entity.Price === undefined) {
             throw new ValidationError(`The 'Price' property is required, provide a valid value`);
         }
-        if (entity.Availability === null || entity.Availability === undefined) {
-            throw new ValidationError(`The 'Availability' property is required, provide a valid value`);
-        }
-        if (entity.Availability?.length > 10) {
-            throw new ValidationError(`The 'Availability' exceeds the maximum length of [10] characters`);
-        }
         for (const next of validationModules) {
             next.validate(entity);
         }

@@ -202,8 +202,7 @@
                         "name": "SALESORDERITEM_SALESORDERITEMSTATUS"
                     },
                     {
-                        "type": "VARCHAR",
-                        "length": 10,
+                        "type": "DECIMAL",
                         "nullable": true,
                         "name": "SALESORDERITEM_AVAILABILITY"
                     }

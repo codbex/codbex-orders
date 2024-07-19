@@ -149,18 +149,18 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idAvailability" dg-required="true" dg-colon="true">Availability</fd-form-label>
+                        	<fd-form-label for="idAvailability" dg-required="false" dg-colon="true">Availability</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Availability'].$valid }}">
 	                            <fd-input id="idAvailability"
 	                                name="Availability"
 	                                state="{{ forms.details['Availability'].$valid ? '' : 'error' }}"
-									ng-required="true"
+									ng-required="false"
 	                                ng-model="entity.Availability"
-	                                ng-readonly="action === 'select'"
-	                                ng-minlength="0.0 || 0"
-	                                ng-maxlength="10.0 || -1"
+	                                ng-readonly="true"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
 	                                dg-input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="Enter Availability">
