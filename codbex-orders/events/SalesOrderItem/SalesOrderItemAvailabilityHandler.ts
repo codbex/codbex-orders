@@ -10,17 +10,9 @@ export const trigger = (event) => {
     const item = event.entity;
     const operation = event.operation;
 
-    if (operation === "create") {
+    if (operation === "create" || operation === "update") {
 
         const salesOrderItem = SalesOrderItemDao.findById(item.Id);
-
-        // const items = SalesOrderItemDao.findAll({
-        //     $filter: {
-        //         equals: {
-        //             SalesOrder: item.SalesOrder
-        //         }
-        //     }
-        // });
 
         const salesOrder = SalesOrderDao.findAll({
             $filter: {
@@ -31,11 +23,7 @@ export const trigger = (event) => {
         });
 
         const store = salesOrder[0].Store;
-
-        // items.forEach(function (salesOrderItem) {
-
         const salesOrderItemProduct = salesOrderItem.Product;
-        const salesOrderItemQuantity = salesOrderItem.Quantity;
 
         const catalogue = CtalogueDao.findAll({
             $filter: {
@@ -46,17 +34,9 @@ export const trigger = (event) => {
             }
         });
 
-        // if (catalogue[0].Quantity >= salesOrderItemQuantity) {
-        //     salesOrderItem.Availability = "Yes";
-        // } else {
-        //     salesOrderItem.Availability = "No";
-        // }
-
         salesOrderItem.Availability = catalogue[0].Quantity.toFixed(2);
 
         SalesOrderItemDao.update(salesOrderItem);
-        //});
-
     }
 
 }
