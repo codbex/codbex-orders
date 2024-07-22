@@ -8521,7 +8521,6 @@ components:
         Availability:
           type: number
           format: double
-          readOnly: true
     SalesOrderItemFilterOptions:
       type: object
       properties:
