@@ -70,6 +70,9 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.SalesOrderItemStatus !== undefined) {
 				filter.$filter.equals.SalesOrderItemStatus = entity.SalesOrderItemStatus;
 			}
+			if (entity.Availability !== undefined) {
+				filter.$filter.equals.Availability = entity.Availability;
+			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,
 				filter: filter

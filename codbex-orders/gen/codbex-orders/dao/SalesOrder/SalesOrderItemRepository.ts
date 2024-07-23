@@ -14,6 +14,7 @@ export interface SalesOrderItemEntity {
     VAT?: number;
     Gross?: number;
     SalesOrderItemStatus: number;
+    Availability?: number;
 }
 
 export interface SalesOrderItemCreateEntity {
@@ -23,6 +24,7 @@ export interface SalesOrderItemCreateEntity {
     readonly UoM: number;
     readonly Price: number;
     readonly SalesOrderItemStatus: number;
+    readonly Availability?: number;
 }
 
 export interface SalesOrderItemUpdateEntity extends SalesOrderItemCreateEntity {
@@ -42,6 +44,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number | number[];
             Gross?: number | number[];
             SalesOrderItemStatus?: number | number[];
+            Availability?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
@@ -54,6 +57,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number | number[];
             Gross?: number | number[];
             SalesOrderItemStatus?: number | number[];
+            Availability?: number | number[];
         };
         contains?: {
             Id?: number;
@@ -66,6 +70,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
+            Availability?: number;
         };
         greaterThan?: {
             Id?: number;
@@ -78,6 +83,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
+            Availability?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
@@ -90,6 +96,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
+            Availability?: number;
         };
         lessThan?: {
             Id?: number;
@@ -102,6 +109,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
+            Availability?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
@@ -114,6 +122,7 @@ export interface SalesOrderItemEntityOptions {
             VAT?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
+            Availability?: number;
         };
     },
     $select?: (keyof SalesOrderItemEntity)[],
@@ -200,6 +209,11 @@ export class SalesOrderItemRepository {
                 column: "SALESORDERITEM_SALESORDERITEMSTATUS",
                 type: "INTEGER",
                 required: true
+            },
+            {
+                name: "Availability",
+                column: "SALESORDERITEM_AVAILABILITY",
+                type: "DOUBLE",
             }
         ]
     };
@@ -228,6 +242,9 @@ export class SalesOrderItemRepository {
         (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
         if (entity.SalesOrderItemStatus === undefined || entity.SalesOrderItemStatus === null) {
             (entity as SalesOrderItemEntity).SalesOrderItemStatus = 1;
+        }
+        if (entity.Availability === undefined || entity.Availability === null) {
+            (entity as SalesOrderItemEntity).Availability = 0;
         }
         const id = this.dao.insert(entity);
         this.triggerEvent({
