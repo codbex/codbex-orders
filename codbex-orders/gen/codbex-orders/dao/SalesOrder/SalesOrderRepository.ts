@@ -21,7 +21,6 @@ export interface SalesOrderEntity {
     Total?: number;
     Paid?: number;
     Conditions?: string;
-    PaymentMethod: number;
     SentMethod: number;
     SalesOrderStatus: number;
     Operator: number;
@@ -46,7 +45,6 @@ export interface SalesOrderCreateEntity {
     readonly Total?: number;
     readonly Paid?: number;
     readonly Conditions?: string;
-    readonly PaymentMethod: number;
     readonly SentMethod: number;
     readonly SalesOrderStatus: number;
     readonly Operator: number;
@@ -77,7 +75,6 @@ export interface SalesOrderEntityOptions {
             Total?: number | number[];
             Paid?: number | number[];
             Conditions?: string | string[];
-            PaymentMethod?: number | number[];
             SentMethod?: number | number[];
             SalesOrderStatus?: number | number[];
             Operator?: number | number[];
@@ -103,7 +100,6 @@ export interface SalesOrderEntityOptions {
             Total?: number | number[];
             Paid?: number | number[];
             Conditions?: string | string[];
-            PaymentMethod?: number | number[];
             SentMethod?: number | number[];
             SalesOrderStatus?: number | number[];
             Operator?: number | number[];
@@ -129,7 +125,6 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Paid?: number;
             Conditions?: string;
-            PaymentMethod?: number;
             SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
@@ -155,7 +150,6 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Paid?: number;
             Conditions?: string;
-            PaymentMethod?: number;
             SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
@@ -181,7 +175,6 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Paid?: number;
             Conditions?: string;
-            PaymentMethod?: number;
             SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
@@ -207,7 +200,6 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Paid?: number;
             Conditions?: string;
-            PaymentMethod?: number;
             SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
@@ -233,7 +225,6 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Paid?: number;
             Conditions?: string;
-            PaymentMethod?: number;
             SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
@@ -348,12 +339,6 @@ export class SalesOrderRepository {
                 name: "Conditions",
                 column: "SALESORDER_CONDITIONS",
                 type: "VARCHAR",
-            },
-            {
-                name: "PaymentMethod",
-                column: "SALESORDER_PAYMENTMETHOD",
-                type: "INTEGER",
-                required: true
             },
             {
                 name: "SentMethod",

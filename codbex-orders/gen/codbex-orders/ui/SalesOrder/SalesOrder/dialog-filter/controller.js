@@ -28,7 +28,6 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsCustomer = params.optionsCustomer;
 			$scope.optionsCurrency = params.optionsCurrency;
-			$scope.optionsPaymentMethod = params.optionsPaymentMethod;
 			$scope.optionsSentMethod = params.optionsSentMethod;
 			$scope.optionsSalesOrderStatus = params.optionsSalesOrderStatus;
 			$scope.optionsOperator = params.optionsOperator;
@@ -103,9 +102,6 @@ angular.module('page', ["ideUI", "ideView"])
 			}
 			if (entity.Conditions) {
 				filter.$filter.contains.Conditions = entity.Conditions;
-			}
-			if (entity.PaymentMethod !== undefined) {
-				filter.$filter.equals.PaymentMethod = entity.PaymentMethod;
 			}
 			if (entity.SentMethod !== undefined) {
 				filter.$filter.equals.SentMethod = entity.SentMethod;
