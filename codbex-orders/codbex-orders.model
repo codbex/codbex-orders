@@ -183,23 +183,6 @@
                         "widgetType": "TEXTAREA"
                     },
                     {
-                        "dataName": "SALESORDER_PAYMENTMETHOD",
-                        "dataNullable": "false",
-                        "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
-                        "name": "PaymentMethod",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "SalesOrder_PaymentMethod",
-                        "relationshipEntityName": "PaymentMethod",
-                        "relationshipEntityPerspectiveName": "Methods",
-                        "relationshipEntityPerspectiveLabel": "Entities"
-                    },
-                    {
                         "dataName": "SALESORDER_SENTMETHOD",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
