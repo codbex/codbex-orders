@@ -1,5 +1,0 @@
-{
-    "extensionPoint": "codbex-orders-SalesOrder-SalesOrderItem",
-    "module": "codbex-orders/events/SalesOrderItem/SalesOrderItemAvailabilityHandler.ts",
-    "description": "SalesOrderItem availability extension"
-}
