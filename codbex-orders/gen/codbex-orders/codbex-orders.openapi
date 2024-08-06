@@ -7614,7 +7614,6 @@ components:
         - Due
         - Customer
         - Currency
-        - PaymentMethod
         - SentMethod
         - SalesOrderStatus
         - Operator
@@ -7661,9 +7660,6 @@ components:
           type: string
           minLength: 0
           maxLength: 200
-        PaymentMethod:
-          type: integer
-          format: int32
         SentMethod:
           type: integer
           format: int32
@@ -7812,14 +7808,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 200
-                PaymentMethod:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 SentMethod:
                   oneOf:
                     - type: integer
@@ -8013,14 +8001,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 200
-                PaymentMethod:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 SentMethod:
                   oneOf:
                     - type: integer
@@ -8128,7 +8108,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                PaymentMethod:
                 SentMethod:
                 SalesOrderStatus:
                 Operator:
@@ -8193,9 +8172,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                PaymentMethod:
-                  type: integer
-                  format: int32
                 SentMethod:
                   type: integer
                   format: int32
@@ -8270,9 +8246,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                PaymentMethod:
-                  type: integer
-                  format: int32
                 SentMethod:
                   type: integer
                   format: int32
@@ -8347,9 +8320,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                PaymentMethod:
-                  type: integer
-                  format: int32
                 SentMethod:
                   type: integer
                   format: int32
@@ -8424,9 +8394,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                PaymentMethod:
-                  type: integer
-                  format: int32
                 SentMethod:
                   type: integer
                   format: int32
@@ -8460,12 +8427,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "SalesOrderStatus", "Operator", "Document", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "Due", "Customer", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "SalesOrderStatus", "Operator", "Document", "Company", "Name", "UUID", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,SalesOrderStatus,Operator,Document,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Date,Due,Customer,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,SentMethod,SalesOrderStatus,Operator,Document,Company,Name,UUID,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]
