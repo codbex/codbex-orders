@@ -93,10 +93,6 @@
                     },
                     {
                         "type": "INTEGER",
-                        "name": "SALESORDER_PAYMENTMETHOD"
-                    },
-                    {
-                        "type": "INTEGER",
                         "name": "SALESORDER_SENTMETHOD"
                     },
                     {
@@ -200,12 +196,6 @@
                         "type": "INTEGER",
                         "defaultValue": "1",
                         "name": "SALESORDERITEM_SALESORDERITEMSTATUS"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "defaultValue": "0",
-                        "nullable": true,
-                        "name": "SALESORDERITEM_AVAILABILITY"
                     }
                 ]
             },
@@ -708,15 +698,6 @@
                 "columns": "SALESORDER_CURRENCY",
                 "referencedTable": "CODBEX_CURRENCY",
                 "referencedColumns": "CURRENCY_ID"
-            },
-            {
-                "name": "SalesOrder_PaymentMethod",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_PaymentMethod",
-                "columns": "SALESORDER_PAYMENTMETHOD",
-                "referencedTable": "CODBEX_PAYMENTMETHOD",
-                "referencedColumns": "PAYMENTMETHOD_ID"
             },
             {
                 "name": "SalesOrder_SentMethod",

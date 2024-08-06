@@ -20,6 +20,7 @@
                         "dataLength": "20",
                         "dataName": "SALESORDER_NUMBER",
                         "dataNullable": "false",
+                        "dataOrderBy": "DESC",
                         "dataType": "VARCHAR",
                         "isCalculatedProperty": "true",
                         "name": "Number",
@@ -181,23 +182,6 @@
                         "widgetLength": "200",
                         "widgetSize": "fd-col-md--8 fd-col--12",
                         "widgetType": "TEXTAREA"
-                    },
-                    {
-                        "dataName": "SALESORDER_PAYMENTMETHOD",
-                        "dataNullable": "false",
-                        "dataType": "INTEGER",
-                        "isRequiredProperty": "true",
-                        "name": "PaymentMethod",
-                        "widgetDropDownKey": "Id",
-                        "widgetDropDownValue": "Name",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "DROPDOWN",
-                        "relationshipName": "SalesOrder_PaymentMethod",
-                        "relationshipEntityName": "PaymentMethod",
-                        "relationshipEntityPerspectiveName": "Methods",
-                        "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
                         "dataName": "SALESORDER_SENTMETHOD",
@@ -508,18 +492,6 @@
                         "relationshipEntityName": "SalesOrderItemStatus",
                         "relationshipEntityPerspectiveName": "OrdersSettings",
                         "relationshipEntityPerspectiveLabel": "Entities"
-                    },
-                    {
-                        "calculatedPropertyExpressionCreate": "0",
-                        "dataDefaultValue": "0",
-                        "dataName": "SALESORDERITEM_AVAILABILITY",
-                        "dataNullable": "true",
-                        "dataType": "DOUBLE",
-                        "name": "Availability",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity SalesOrderItem",
@@ -563,6 +535,7 @@
                         "dataLength": "20",
                         "dataName": "PURCHASEORDER_NUMBER",
                         "dataNullable": "false",
+                        "dataOrderBy": "DESC",
                         "dataType": "VARCHAR",
                         "isCalculatedProperty": "true",
                         "name": "Number",
@@ -3454,6 +3427,7 @@
                         "dataLength": "20",
                         "dataName": "WORKORDER_NUMBER",
                         "dataNullable": "true",
+                        "dataOrderBy": "DESC",
                         "dataType": "VARCHAR",
                         "isCalculatedProperty": "true",
                         "name": "Number",

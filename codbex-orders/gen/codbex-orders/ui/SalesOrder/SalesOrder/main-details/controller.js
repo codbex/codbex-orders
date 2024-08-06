@@ -42,7 +42,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = {};
 				$scope.optionsCustomer = [];
 				$scope.optionsCurrency = [];
-				$scope.optionsPaymentMethod = [];
 				$scope.optionsSentMethod = [];
 				$scope.optionsSalesOrderStatus = [];
 				$scope.optionsOperator = [];
@@ -63,7 +62,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = msg.data.entity;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
-				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
 				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsSalesOrderStatus = msg.data.optionsSalesOrderStatus;
 				$scope.optionsOperator = msg.data.optionsOperator;
@@ -78,7 +76,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = {};
 				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
-				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
 				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsSalesOrderStatus = msg.data.optionsSalesOrderStatus;
 				$scope.optionsOperator = msg.data.optionsOperator;
@@ -99,7 +96,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.entity = msg.data.entity;
 				$scope.optionsCustomer = msg.data.optionsCustomer;
 				$scope.optionsCurrency = msg.data.optionsCurrency;
-				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
 				$scope.optionsSentMethod = msg.data.optionsSentMethod;
 				$scope.optionsSalesOrderStatus = msg.data.optionsSalesOrderStatus;
 				$scope.optionsOperator = msg.data.optionsOperator;
