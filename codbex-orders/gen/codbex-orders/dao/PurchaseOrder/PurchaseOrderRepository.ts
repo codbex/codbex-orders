@@ -416,6 +416,15 @@ export class PurchaseOrderRepository {
     }
 
     public findAll(options?: PurchaseOrderEntityOptions): PurchaseOrderEntity[] {
+        // @ts-ignore
+        if (options.$sort === undefined) {
+            // @ts-ignore
+            options.$sort = "";
+        }
+        // @ts-ignore
+        options.$sort += "Number,";
+        // @ts-ignore
+        options.$order = "DESC";
         return this.dao.list(options).map((e: PurchaseOrderEntity) => {
             EntityUtils.setDate(e, "Date");
             EntityUtils.setDate(e, "Due");
