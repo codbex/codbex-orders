@@ -20,6 +20,7 @@
                         "dataLength": "20",
                         "dataName": "SALESORDER_NUMBER",
                         "dataNullable": "false",
+                        "dataOrderBy": "DESC",
                         "dataType": "VARCHAR",
                         "isCalculatedProperty": "true",
                         "name": "Number",
@@ -491,18 +492,6 @@
                         "relationshipEntityName": "SalesOrderItemStatus",
                         "relationshipEntityPerspectiveName": "OrdersSettings",
                         "relationshipEntityPerspectiveLabel": "Entities"
-                    },
-                    {
-                        "calculatedPropertyExpressionCreate": "0",
-                        "dataDefaultValue": "0",
-                        "dataName": "SALESORDERITEM_AVAILABILITY",
-                        "dataNullable": "true",
-                        "dataType": "DOUBLE",
-                        "name": "Availability",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "TEXTBOX"
                     }
                 ],
                 "caption": "Manage entity SalesOrderItem",
@@ -546,6 +535,7 @@
                         "dataLength": "20",
                         "dataName": "PURCHASEORDER_NUMBER",
                         "dataNullable": "false",
+                        "dataOrderBy": "DESC",
                         "dataType": "VARCHAR",
                         "isCalculatedProperty": "true",
                         "name": "Number",
@@ -3437,6 +3427,7 @@
                         "dataLength": "20",
                         "dataName": "WORKORDER_NUMBER",
                         "dataNullable": "true",
+                        "dataOrderBy": "DESC",
                         "dataType": "VARCHAR",
                         "isCalculatedProperty": "true",
                         "name": "Number",

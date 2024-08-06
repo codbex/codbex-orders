@@ -196,12 +196,6 @@
                         "type": "INTEGER",
                         "defaultValue": "1",
                         "name": "SALESORDERITEM_SALESORDERITEMSTATUS"
-                    },
-                    {
-                        "type": "DOUBLE",
-                        "defaultValue": "0",
-                        "nullable": true,
-                        "name": "SALESORDERITEM_AVAILABILITY"
                     }
                 ]
             },
