@@ -20,4 +20,10 @@
 
 ![model](images/orders-purchase-order.png)
 
-![model](images/orders-order-status.png)
+![model](images/orders-purchase-order-status.png)
+
+![model](images/orders-sales-order-status.png)
+
+![model](images/orders-sales-order-item-status.png)
+
+![model](images/orders-work-order-status.png)
