@@ -5,18 +5,9 @@
 
 version: 2
 
-registries:
-  npm-github:
-    type: npm-registry
-    url: https://npm.pkg.github.com
-    token: ${{ secrets.DEPENDABOT_TOKEN }}
-    replaces-base: true
-
 updates:
   - package-ecosystem: npm
     directory: "/codbex-orders"
-    registries:
-      - npm-github
     schedule:
       interval: daily
     open-pull-requests-limit: 10
@@ -25,8 +16,6 @@ updates:
 
   - package-ecosystem: npm
     directory: "/codbex-orders-data"
-    registries:
-      - npm-github
     schedule:
       interval: daily
     open-pull-requests-limit: 10
