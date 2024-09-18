@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="top-customer" ng-controller="TopCustomerController">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+        <title dg-view-title></title>
+        <script type="text/javascript" src="../services/top-customer.js"></script>
+        <theme></theme>
+        <script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
+        </script>
+        <link type="text/css" rel="stylesheet"
+            href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+        <script type="text/javascript" src="/webjars/chart.js/dist/chart.umd.js"></script>
+        <script type="text/javascript" src="../js/top-customer-controller.js"></script>
+
+        <style>
+            .tile-auto-layout {
+                min-height: auto;
+                height: auto;
+                width: auto;
+                max-width: 100%;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="fd-col fd-col--12 fd-col-md--6 fd-col-lg--6 fd-col-xl--6">
+            <fd-card card-type="table">
+                <fd-card-header ng-click="openPerspective('sales-orders')">
+                    <fd-card-title>Top Customers</fd-card-title>
+                </fd-card-header>
+                <fd-card-content>
+                    <table class="fd-table fd-table--no-horizontal-borders fd-table--no-vertical-borders">
+                        <thead class="fd-table__header">
+                            <tr class="fd-table__row">
+                                <th class="fd-table__cell" scope="col">Customer</th>
+                                <th class="fd-table__cell" scope="col">Orders</th>
+                                <th class="fd-table__cell" scope="col" style="text-align:right">Revenue
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="fd-table__body" id="top_customers">
+                            <tr ng-repeat="next in topCustomers">
+                                <td class="fd-table__cell"><a class="fd-link"><span
+                                            class="fd-link__content">{{next.Name}}</span></a>
+                                </td>
+                                <td class="fd-table__cell">{{next.Orders}}</td>
+                                <td class="fd-table__cell" style="text-align:right">
+                                    {{next.Revenue}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fd-card-content>
+            </fd-card>
+        </div>
+    </body>
+
+</html>
