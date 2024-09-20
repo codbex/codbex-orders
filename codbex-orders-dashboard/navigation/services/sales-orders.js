@@ -2,7 +2,8 @@ const navigationData = {
     id: 'sales-order-navigation',
     label: "Sales Orders",
     view: "sales-orders",
-    group: "purchasing"
+    group: "sales",
+    orderNumber: 1000
 };
 
 function getNavigation() {
