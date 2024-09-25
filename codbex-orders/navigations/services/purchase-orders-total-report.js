@@ -1,7 +1,7 @@
 const navigationData = {
     id: 'purchase-order-total-report-navigation',
-    label: "Purchase Orders",
-    view: "purchase-orders",
+    label: "Purchase Orders Total Report",
+    view: "purchase-orders-total-report",
     group: "finance",
     orderNumber: 1000,
     lazyLoad: true,
