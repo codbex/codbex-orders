@@ -1,10 +1,10 @@
 const navigationData = {
-    id: 'sales-order-navigation',
+    id: 'sales-order-total-report-navigation',
     label: "Sales Orders",
     view: "sales-orders",
-    group: "sales",
+    group: "finance",
     orderNumber: 1000,
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/index.html?embedded",
+    link: "/services/web/codbex-orders/gen/codbex-orders/ui/Reports/SalesOrdersTotalReport/index.html?embedded",
     lazyLoad: true
 };
 

@@ -1,5 +1,5 @@
 angular.module('average-sales-order-price', ['ideUI', 'ideView'])
-    .controller('AverageSalesOrderPriceController', ['$scope', '$document', '$http', 'messageHub', function ($scope, $document, $http, messageHub) {
+    .controller('AverageSalesOrderPriceController', ['$scope', '$http', function ($scope, $http) {
         $scope.state = {
             isBusy: true,
             error: false,
