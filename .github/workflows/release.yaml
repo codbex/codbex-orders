@@ -14,7 +14,7 @@ jobs:
   main:
     uses: codbex/codbex-infra/.github/workflows/module-release.yaml@main
     with:
-      packages: codbex-orders,codbex-orders-data
+      packages: codbex-orders
       packages-build: codbex-orders
       release-version: ${{ inputs.release-version }}
       release-content: |
@@ -26,7 +26,6 @@ jobs:
   
         ```
         npm install @codbex/codbex-orders@${{ inputs.release-version }}
-        npm install @codbex/codbex-orders-data@${{ inputs.release-version }}
         ```
   
         ## Access points:

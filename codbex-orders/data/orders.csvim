@@ -3,7 +3,7 @@
     {
       "table": "CODBEX_SALESORDERSTATUS",
       "schema": "PUBLIC",
-      "file": "/codbex-orders-data/sales-order-statuses.csv",
+      "file": "/codbex-orders/data/sales-order-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -14,7 +14,7 @@
     {
       "table": "CODBEX_PURCHASEORDERSTATUS",
       "schema": "PUBLIC",
-      "file": "/codbex-orders-data/purchase-order-statuses.csv",
+      "file": "/codbex-orders/data/purchase-order-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -25,7 +25,7 @@
     {
       "table": "CODBEX_WORKORDERSTATUS",
       "schema": "PUBLIC",
-      "file": "/codbex-orders-data/work-order-statuses.csv",
+      "file": "/codbex-orders/data/work-order-statuses.csv",
       "header": true,
       "useHeaderNames": true,
       "delimField": ",",
@@ -36,7 +36,7 @@
     {
           "table": "CODBEX_SALESORDERITEMSTATUS",
           "schema": "PUBLIC",
-          "file": "/codbex-orders-data/sales-order-item-statuses.csv",
+          "file": "/codbex-orders/data/sales-order-item-statuses.csv",
           "header": true,
           "useHeaderNames": true,
           "delimField": ",",

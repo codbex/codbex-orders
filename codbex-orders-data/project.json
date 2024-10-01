@@ -1,8 +1,0 @@
-{
-    "guid": "codbex-orders-data",
-    "repository": {
-        "type": "git",
-        "branch": "main",
-        "url": "https://github.com/codbex/codbex-orders.git"
-    }
-}
