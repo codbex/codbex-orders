@@ -15,7 +15,7 @@
         "@codbex/codbex-currencies": "0.2.0",
         "@codbex/codbex-methods": "0.2.0",
         "@codbex/codbex-cities": "0.2.0",
-        "@codbex/codbex-payments": "0.3.0",
+        "@codbex/codbex-payments": "0.4.0",
         "@codbex/codbex-number-generator": "0.3.0"
     }
 }
