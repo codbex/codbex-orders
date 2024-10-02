@@ -11,7 +11,7 @@
     "dependencies": {
         "@codbex/codbex-products": "0.3.0",
         "@codbex/codbex-partners": "0.3.0",
-        "@codbex/codbex-employees": "0.3.0",
+        "@codbex/codbex-employees": "0.4.0",
         "@codbex/codbex-currencies": "0.2.0",
         "@codbex/codbex-methods": "0.2.0",
         "@codbex/codbex-cities": "0.2.0",
