@@ -433,6 +433,15 @@ export class WorkOrderRepository {
     }
 
     public findAll(options?: WorkOrderEntityOptions): WorkOrderEntity[] {
+        // @ts-ignore
+        if (options.$sort === undefined) {
+            // @ts-ignore
+            options.$sort = "";
+        }
+        // @ts-ignore
+        options.$sort += "Number,";
+        // @ts-ignore
+        options.$order = "DESC";
         return this.dao.list(options).map((e: WorkOrderEntity) => {
             EntityUtils.setDate(e, "Date");
             EntityUtils.setDate(e, "Due");

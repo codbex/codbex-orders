@@ -24,7 +24,6 @@ export interface SalesOrderEntity {
     SentMethod: number;
     SalesOrderStatus: number;
     Operator: number;
-    Document?: string;
     Company?: number;
     Name?: string;
     UUID: string;
@@ -48,7 +47,6 @@ export interface SalesOrderCreateEntity {
     readonly SentMethod: number;
     readonly SalesOrderStatus: number;
     readonly Operator: number;
-    readonly Document?: string;
     readonly Company?: number;
     readonly Reference?: string;
     readonly Store?: number;
@@ -78,7 +76,6 @@ export interface SalesOrderEntityOptions {
             SentMethod?: number | number[];
             SalesOrderStatus?: number | number[];
             Operator?: number | number[];
-            Document?: string | string[];
             Company?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
@@ -103,7 +100,6 @@ export interface SalesOrderEntityOptions {
             SentMethod?: number | number[];
             SalesOrderStatus?: number | number[];
             Operator?: number | number[];
-            Document?: string | string[];
             Company?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
@@ -128,7 +124,6 @@ export interface SalesOrderEntityOptions {
             SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
-            Document?: string;
             Company?: number;
             Name?: string;
             UUID?: string;
@@ -153,7 +148,6 @@ export interface SalesOrderEntityOptions {
             SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
-            Document?: string;
             Company?: number;
             Name?: string;
             UUID?: string;
@@ -178,7 +172,6 @@ export interface SalesOrderEntityOptions {
             SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
-            Document?: string;
             Company?: number;
             Name?: string;
             UUID?: string;
@@ -203,7 +196,6 @@ export interface SalesOrderEntityOptions {
             SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
-            Document?: string;
             Company?: number;
             Name?: string;
             UUID?: string;
@@ -228,7 +220,6 @@ export interface SalesOrderEntityOptions {
             SentMethod?: number;
             SalesOrderStatus?: number;
             Operator?: number;
-            Document?: string;
             Company?: number;
             Name?: string;
             UUID?: string;
@@ -359,11 +350,6 @@ export class SalesOrderRepository {
                 required: true
             },
             {
-                name: "Document",
-                column: "SALESORDER_DOCUMENT",
-                type: "VARCHAR",
-            },
-            {
                 name: "Company",
                 column: "SALESORDER_COMPANY",
                 type: "INTEGER",
@@ -399,6 +385,15 @@ export class SalesOrderRepository {
     }
 
     public findAll(options?: SalesOrderEntityOptions): SalesOrderEntity[] {
+        // @ts-ignore
+        if (options.$sort === undefined) {
+            // @ts-ignore
+            options.$sort = "";
+        }
+        // @ts-ignore
+        options.$sort += "Number,";
+        // @ts-ignore
+        options.$order = "DESC";
         return this.dao.list(options).map((e: SalesOrderEntity) => {
             EntityUtils.setDate(e, "Date");
             EntityUtils.setDate(e, "Due");

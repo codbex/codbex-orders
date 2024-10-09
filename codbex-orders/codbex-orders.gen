@@ -283,6 +283,7 @@
           "dataLength": "20",
           "dataName": "SALESORDER_NUMBER",
           "dataNullable": false,
+          "dataOrderBy": "DESC",
           "dataType": "VARCHAR",
           "isCalculatedProperty": true,
           "name": "Number",
@@ -375,6 +376,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "SALESORDER_NET",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -425,6 +427,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "SALESORDER_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -449,6 +452,7 @@
         },
         {
           "dataDefaultValue": "0",
+          "dataLength": "20",
           "dataName": "SALESORDER_DISCOUNT",
           "dataNullable": true,
           "dataPrecision": "18",
@@ -473,6 +477,7 @@
         },
         {
           "dataDefaultValue": "0",
+          "dataLength": "18",
           "dataName": "SALESORDER_TAXES",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -496,6 +501,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "SALESORDER_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -519,6 +525,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "SALESORDER_TOTAL",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -543,6 +550,7 @@
         },
         {
           "dataDefaultValue": "0",
+          "dataLength": "18",
           "dataName": "SALESORDER_PAID",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -668,30 +676,6 @@
           "widgetDropdownUrl": "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
-          "inputRule": ""
-        },
-        {
-          "dataLength": "200",
-          "dataName": "SALESORDER_DOCUMENT",
-          "dataNullable": true,
-          "dataType": "VARCHAR",
-          "name": "Document",
-          "widgetIsMajor": true,
-          "widgetLength": "200",
-          "widgetSize": "fd-col-md--8 fd-col--12",
-          "widgetType": "TEXTAREA",
-          "dataNotNull": false,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "Document",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "string",
-          "dataTypeTypescript": "string",
-          "minLength": 0,
-          "maxLength": 200,
           "inputRule": ""
         },
         {
@@ -887,6 +871,7 @@
           "dataLength": "20",
           "dataName": "SALESORDER_NUMBER",
           "dataNullable": false,
+          "dataOrderBy": "DESC",
           "dataType": "VARCHAR",
           "isCalculatedProperty": true,
           "name": "Number",
@@ -980,6 +965,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "SALESORDER_NET",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1030,6 +1016,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "SALESORDER_GROSS",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1054,6 +1041,7 @@
           },
           {
             "dataDefaultValue": "0",
+            "dataLength": "20",
             "dataName": "SALESORDER_DISCOUNT",
             "dataNullable": true,
             "dataPrecision": "18",
@@ -1078,6 +1066,7 @@
           },
           {
             "dataDefaultValue": "0",
+            "dataLength": "18",
             "dataName": "SALESORDER_TAXES",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1101,6 +1090,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "SALESORDER_VAT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1124,6 +1114,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "SALESORDER_TOTAL",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1148,6 +1139,7 @@
           },
           {
             "dataDefaultValue": "0",
+            "dataLength": "18",
             "dataName": "SALESORDER_PAID",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1273,30 +1265,6 @@
             "widgetDropdownUrl": "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
-            "inputRule": ""
-          },
-          {
-            "dataLength": "200",
-            "dataName": "SALESORDER_DOCUMENT",
-            "dataNullable": true,
-            "dataType": "VARCHAR",
-            "name": "Document",
-            "widgetIsMajor": true,
-            "widgetLength": "200",
-            "widgetSize": "fd-col-md--8 fd-col--12",
-            "widgetType": "TEXTAREA",
-            "dataNotNull": false,
-            "dataAutoIncrement": false,
-            "dataPrimaryKey": false,
-            "dataUnique": false,
-            "isRequiredProperty": false,
-            "isCalculatedProperty": false,
-            "widgetLabel": "Document",
-            "widgetDropdownUrl": "",
-            "dataTypeJava": "string",
-            "dataTypeTypescript": "string",
-            "minLength": 0,
-            "maxLength": 200,
             "inputRule": ""
           },
           {
@@ -1560,6 +1528,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "SALESORDERITEM_PRICE",
           "dataNullable": false,
           "dataPrecision": "16",
@@ -1585,6 +1554,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
           "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
+          "dataLength": "18",
           "dataName": "SALESORDERITEM_NET",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1610,6 +1580,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Net\"] * 0.2",
           "calculatedPropertyExpressionUpdate": "entity[\"Net\"] * 0.2",
+          "dataLength": "18",
           "dataName": "SALESORDERITEM_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1635,6 +1606,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VAT\"]",
           "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
+          "dataLength": "18",
           "dataName": "SALESORDERITEM_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1756,6 +1728,7 @@
           "dataLength": "20",
           "dataName": "PURCHASEORDER_NUMBER",
           "dataNullable": false,
+          "dataOrderBy": "DESC",
           "dataType": "VARCHAR",
           "isCalculatedProperty": true,
           "name": "Number",
@@ -1848,6 +1821,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "PURCHASEORDER_NET",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1898,6 +1872,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "PURCHASEORDER_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1922,6 +1897,7 @@
         },
         {
           "dataDefaultValue": "0",
+          "dataLength": "18",
           "dataName": "PURCHASEORDER_DISCOUNT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1946,6 +1922,7 @@
         },
         {
           "dataDefaultValue": "0",
+          "dataLength": "18",
           "dataName": "PURCHASEORDER_TAXES",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1969,6 +1946,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "PURCHASEORDER_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1992,6 +1970,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "PURCHASEORDER_TOTAL",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -2016,6 +1995,7 @@
         },
         {
           "dataDefaultValue": "0",
+          "dataLength": "18",
           "dataName": "PURCHASEORDER_PAID",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -2168,30 +2148,6 @@
           "widgetDropdownUrl": "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts",
           "dataTypeJava": "int",
           "dataTypeTypescript": "number",
-          "inputRule": ""
-        },
-        {
-          "dataLength": "200",
-          "dataName": "PURCHASEORDER_DOCUMENT",
-          "dataNullable": true,
-          "dataType": "VARCHAR",
-          "name": "Document",
-          "widgetIsMajor": true,
-          "widgetLength": "200",
-          "widgetSize": "fd-col-md--8 fd-col--12",
-          "widgetType": "TEXTAREA",
-          "dataNotNull": false,
-          "dataAutoIncrement": false,
-          "dataPrimaryKey": false,
-          "dataUnique": false,
-          "isRequiredProperty": false,
-          "isCalculatedProperty": false,
-          "widgetLabel": "Document",
-          "widgetDropdownUrl": "",
-          "dataTypeJava": "string",
-          "dataTypeTypescript": "string",
-          "minLength": 0,
-          "maxLength": 200,
           "inputRule": ""
         },
         {
@@ -2392,6 +2348,7 @@
           "dataLength": "20",
           "dataName": "PURCHASEORDER_NUMBER",
           "dataNullable": false,
+          "dataOrderBy": "DESC",
           "dataType": "VARCHAR",
           "isCalculatedProperty": true,
           "name": "Number",
@@ -2485,6 +2442,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "PURCHASEORDER_NET",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2535,6 +2493,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "PURCHASEORDER_GROSS",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2559,6 +2518,7 @@
           },
           {
             "dataDefaultValue": "0",
+            "dataLength": "18",
             "dataName": "PURCHASEORDER_DISCOUNT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2583,6 +2543,7 @@
           },
           {
             "dataDefaultValue": "0",
+            "dataLength": "18",
             "dataName": "PURCHASEORDER_TAXES",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2606,6 +2567,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "PURCHASEORDER_VAT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2629,6 +2591,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "PURCHASEORDER_TOTAL",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2653,6 +2616,7 @@
           },
           {
             "dataDefaultValue": "0",
+            "dataLength": "18",
             "dataName": "PURCHASEORDER_PAID",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2805,30 +2769,6 @@
             "widgetDropdownUrl": "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts",
             "dataTypeJava": "int",
             "dataTypeTypescript": "number",
-            "inputRule": ""
-          },
-          {
-            "dataLength": "200",
-            "dataName": "PURCHASEORDER_DOCUMENT",
-            "dataNullable": true,
-            "dataType": "VARCHAR",
-            "name": "Document",
-            "widgetIsMajor": true,
-            "widgetLength": "200",
-            "widgetSize": "fd-col-md--8 fd-col--12",
-            "widgetType": "TEXTAREA",
-            "dataNotNull": false,
-            "dataAutoIncrement": false,
-            "dataPrimaryKey": false,
-            "dataUnique": false,
-            "isRequiredProperty": false,
-            "isCalculatedProperty": false,
-            "widgetLabel": "Document",
-            "widgetDropdownUrl": "",
-            "dataTypeJava": "string",
-            "dataTypeTypescript": "string",
-            "minLength": 0,
-            "maxLength": 200,
             "inputRule": ""
           },
           {
@@ -3092,6 +3032,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "PURCHASEORDERITEM_PRICE",
           "dataNullable": false,
           "dataPrecision": "16",
@@ -3117,6 +3058,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
           "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
+          "dataLength": "18",
           "dataName": "PURCHASEORDERITEM_NET",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -3142,6 +3084,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Net\"] * 0.2",
           "calculatedPropertyExpressionUpdate": "entity[\"Net\"] * 0.2",
+          "dataLength": "18",
           "dataName": "PURCHASEORDERITEM_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -3167,6 +3110,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VAT\"]",
           "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
+          "dataLength": "18",
           "dataName": "PURCHASEORDERITEM_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -4457,6 +4401,7 @@
         {
           "calculatedPropertyExpressionCreate": "",
           "calculatedPropertyExpressionUpdate": "",
+          "dataLength": "18",
           "dataName": "PRODUCT_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -5491,6 +5436,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "SALESORDERPAYMENT_AMOUNT",
           "dataNullable": false,
           "dataPrecision": "16",
@@ -5652,6 +5598,7 @@
         {
           "calculatedPropertyExpressionCreate": "",
           "calculatedPropertyExpressionUpdate": "",
+          "dataLength": "18",
           "dataName": "CUSTOMERPAYMENT_AMOUNT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -5970,6 +5917,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "PURCHASEORDERPAYMENT_AMOUNT",
           "dataNullable": false,
           "dataPrecision": "16",
@@ -6183,6 +6131,7 @@
         {
           "calculatedPropertyExpressionCreate": "",
           "calculatedPropertyExpressionUpdate": "",
+          "dataLength": "18",
           "dataName": "SUPPLIERPAYMENT_AMOUNT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -6875,6 +6824,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "SALESORDERSTOTALREPORT_TOTAL",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -7873,6 +7823,7 @@
           "dataLength": "20",
           "dataName": "WORKORDER_NUMBER",
           "dataNullable": true,
+          "dataOrderBy": "DESC",
           "dataType": "VARCHAR",
           "isCalculatedProperty": true,
           "name": "Number",
@@ -7989,6 +7940,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "WORKORDER_NET",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8039,6 +7991,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "WORKORDER_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8062,6 +8015,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "WORKORDER_DISSCOUNT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8085,6 +8039,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "WORKORDER_TAXES",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8108,6 +8063,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "WORKORDER_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8131,6 +8087,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "WORKORDER_TOTAL",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8154,6 +8111,7 @@
           "inputRule": ""
         },
         {
+          "dataLength": "18",
           "dataName": "WORKORDER_PAID",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8559,6 +8517,7 @@
           "dataLength": "20",
           "dataName": "WORKORDER_NUMBER",
           "dataNullable": true,
+          "dataOrderBy": "DESC",
           "dataType": "VARCHAR",
           "isCalculatedProperty": true,
           "name": "Number",
@@ -8676,6 +8635,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "WORKORDER_NET",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -8726,6 +8686,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "WORKORDER_GROSS",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -8749,6 +8710,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "WORKORDER_DISSCOUNT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -8772,6 +8734,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "WORKORDER_TAXES",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -8795,6 +8758,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "WORKORDER_VAT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -8818,6 +8782,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "WORKORDER_TOTAL",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -8841,6 +8806,7 @@
             "inputRule": ""
           },
           {
+            "dataLength": "18",
             "dataName": "WORKORDER_PAID",
             "dataNullable": true,
             "dataPrecision": "16",

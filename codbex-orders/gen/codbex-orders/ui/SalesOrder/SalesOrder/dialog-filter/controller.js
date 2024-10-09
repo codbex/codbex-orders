@@ -112,9 +112,6 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Operator !== undefined) {
 				filter.$filter.equals.Operator = entity.Operator;
 			}
-			if (entity.Document) {
-				filter.$filter.contains.Document = entity.Document;
-			}
 			if (entity.Company !== undefined) {
 				filter.$filter.equals.Company = entity.Company;
 			}

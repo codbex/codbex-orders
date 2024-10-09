@@ -151,9 +151,6 @@ class PurchaseOrderService {
         if (entity.Operator === null || entity.Operator === undefined) {
             throw new ValidationError(`The 'Operator' property is required, provide a valid value`);
         }
-        if (entity.Document?.length > 200) {
-            throw new ValidationError(`The 'Document' exceeds the maximum length of [200] characters`);
-        }
         if (entity.Name?.length > 200) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
         }
