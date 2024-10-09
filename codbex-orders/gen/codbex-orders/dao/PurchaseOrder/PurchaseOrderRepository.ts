@@ -25,7 +25,6 @@ export interface PurchaseOrderEntity {
     SentMethod: number;
     PurchaseOrderStatus: number;
     Operator: number;
-    Document?: string;
     Company?: number;
     Name: string;
     UUID: string;
@@ -50,7 +49,6 @@ export interface PurchaseOrderCreateEntity {
     readonly SentMethod: number;
     readonly PurchaseOrderStatus: number;
     readonly Operator: number;
-    readonly Document?: string;
     readonly Company?: number;
     readonly Reference?: string;
     readonly Store?: number;
@@ -81,7 +79,6 @@ export interface PurchaseOrderEntityOptions {
             SentMethod?: number | number[];
             PurchaseOrderStatus?: number | number[];
             Operator?: number | number[];
-            Document?: string | string[];
             Company?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
@@ -107,7 +104,6 @@ export interface PurchaseOrderEntityOptions {
             SentMethod?: number | number[];
             PurchaseOrderStatus?: number | number[];
             Operator?: number | number[];
-            Document?: string | string[];
             Company?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
@@ -133,7 +129,6 @@ export interface PurchaseOrderEntityOptions {
             SentMethod?: number;
             PurchaseOrderStatus?: number;
             Operator?: number;
-            Document?: string;
             Company?: number;
             Name?: string;
             UUID?: string;
@@ -159,7 +154,6 @@ export interface PurchaseOrderEntityOptions {
             SentMethod?: number;
             PurchaseOrderStatus?: number;
             Operator?: number;
-            Document?: string;
             Company?: number;
             Name?: string;
             UUID?: string;
@@ -185,7 +179,6 @@ export interface PurchaseOrderEntityOptions {
             SentMethod?: number;
             PurchaseOrderStatus?: number;
             Operator?: number;
-            Document?: string;
             Company?: number;
             Name?: string;
             UUID?: string;
@@ -211,7 +204,6 @@ export interface PurchaseOrderEntityOptions {
             SentMethod?: number;
             PurchaseOrderStatus?: number;
             Operator?: number;
-            Document?: string;
             Company?: number;
             Name?: string;
             UUID?: string;
@@ -237,7 +229,6 @@ export interface PurchaseOrderEntityOptions {
             SentMethod?: number;
             PurchaseOrderStatus?: number;
             Operator?: number;
-            Document?: string;
             Company?: number;
             Name?: string;
             UUID?: string;
@@ -375,11 +366,6 @@ export class PurchaseOrderRepository {
                 required: true
             },
             {
-                name: "Document",
-                column: "PURCHASEORDER_DOCUMENT",
-                type: "VARCHAR",
-            },
-            {
                 name: "Company",
                 column: "PURCHASEORDER_COMPANY",
                 type: "INTEGER",
@@ -416,6 +402,15 @@ export class PurchaseOrderRepository {
     }
 
     public findAll(options?: PurchaseOrderEntityOptions): PurchaseOrderEntity[] {
+        // @ts-ignore
+        if (options.$sort === undefined) {
+            // @ts-ignore
+            options.$sort = "";
+        }
+        // @ts-ignore
+        options.$sort += "Number,";
+        // @ts-ignore
+        options.$order = "DESC";
         return this.dao.list(options).map((e: PurchaseOrderEntity) => {
             EntityUtils.setDate(e, "Date");
             EntityUtils.setDate(e, "Due");

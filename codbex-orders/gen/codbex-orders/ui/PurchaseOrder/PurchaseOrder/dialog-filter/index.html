@@ -304,22 +304,6 @@
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>
-					<fd-form-item class="fd-row">
-						<div class="fd-col fd-col-md--2">
-							<fd-form-label for="idDocument" dg-colon="true">Document</fd-form-label>
-						</div>
-						<div class="fd-col fd-col-md--8">
-							<fd-textarea id="idDocument"
-								name="Document"
-								state="{{ forms.details['Document'].$valid ? '' : 'error' }}"
-								ng-model="entity.Document"
-								ng-minlength="0.0 || 0"
-								ng-maxlength="200.0 || -1"
-								placeholder="Enter Document">
-							</fd-textarea>
-							<fd-form-message dg-type="error" ng-show="!forms.details['Document'].$valid">Incorrect Input</fd-form-message>
-						</div>
-					</fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idCompany" dg-colon="true">Company</fd-form-label>

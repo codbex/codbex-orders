@@ -276,7 +276,6 @@ paths:
                     contains:
                       Number: "abcd"
                       Conditions: "abcd"
-                      Document: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
                       Reference: "abcd"
@@ -303,7 +302,6 @@ paths:
                     contains:
                       Number: "abcd"
                       Conditions: "abcd"
-                      Document: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
                       Reference: "abcd"
@@ -372,7 +370,6 @@ paths:
                     contains:
                       Number: "abcd"
                       Conditions: "abcd"
-                      Document: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
                       Reference: "abcd"
@@ -399,7 +396,6 @@ paths:
                     contains:
                       Number: "abcd"
                       Conditions: "abcd"
-                      Document: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
                       Reference: "abcd"
@@ -1080,7 +1076,6 @@ paths:
                     contains:
                       Number: "abcd"
                       Conditions: "abcd"
-                      Document: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
                       Reference: "abcd"
@@ -1107,7 +1102,6 @@ paths:
                     contains:
                       Number: "abcd"
                       Conditions: "abcd"
-                      Document: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
                       Reference: "abcd"
@@ -1176,7 +1170,6 @@ paths:
                     contains:
                       Number: "abcd"
                       Conditions: "abcd"
-                      Document: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
                       Reference: "abcd"
@@ -1203,7 +1196,6 @@ paths:
                     contains:
                       Number: "abcd"
                       Conditions: "abcd"
-                      Document: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
                       Reference: "abcd"
@@ -7669,10 +7661,6 @@ components:
         Operator:
           type: integer
           format: int32
-        Document:
-          type: string
-          minLength: 0
-          maxLength: 200
         Company:
           type: integer
           format: int32
@@ -7832,17 +7820,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Document:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 200
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 200
                 Company:
                   oneOf:
                     - type: integer
@@ -8025,17 +8002,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Document:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 200
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 200
                 Company:
                   oneOf:
                     - type: integer
@@ -8111,10 +8077,6 @@ components:
                 SentMethod:
                 SalesOrderStatus:
                 Operator:
-                Document:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
                 Company:
                 Name:
                   type: string
@@ -8181,10 +8143,6 @@ components:
                 Operator:
                   type: integer
                   format: int32
-                Document:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
                 Company:
                   type: integer
                   format: int32
@@ -8255,10 +8213,6 @@ components:
                 Operator:
                   type: integer
                   format: int32
-                Document:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
                 Company:
                   type: integer
                   format: int32
@@ -8329,10 +8283,6 @@ components:
                 Operator:
                   type: integer
                   format: int32
-                Document:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
                 Company:
                   type: integer
                   format: int32
@@ -8403,10 +8353,6 @@ components:
                 Operator:
                   type: integer
                   format: int32
-                Document:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
                 Company:
                   type: integer
                   format: int32
@@ -8427,12 +8373,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "SalesOrderStatus", "Operator", "Document", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "Due", "Customer", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "SalesOrderStatus", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,SentMethod,SalesOrderStatus,Operator,Document,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Date,Due,Customer,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,SentMethod,SalesOrderStatus,Operator,Company,Name,UUID,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -8886,10 +8832,6 @@ components:
         Operator:
           type: integer
           format: int32
-        Document:
-          type: string
-          minLength: 0
-          maxLength: 200
         Company:
           type: integer
           format: int32
@@ -9057,17 +8999,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Document:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 200
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 200
                 Company:
                   oneOf:
                     - type: integer
@@ -9258,17 +9189,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Document:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 200
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 200
                 Company:
                   oneOf:
                     - type: integer
@@ -9345,10 +9265,6 @@ components:
                 SentMethod:
                 PurchaseOrderStatus:
                 Operator:
-                Document:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
                 Company:
                 Name:
                   type: string
@@ -9418,10 +9334,6 @@ components:
                 Operator:
                   type: integer
                   format: int32
-                Document:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
                 Company:
                   type: integer
                   format: int32
@@ -9495,10 +9407,6 @@ components:
                 Operator:
                   type: integer
                   format: int32
-                Document:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
                 Company:
                   type: integer
                   format: int32
@@ -9572,10 +9480,6 @@ components:
                 Operator:
                   type: integer
                   format: int32
-                Document:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
                 Company:
                   type: integer
                   format: int32
@@ -9649,10 +9553,6 @@ components:
                 Operator:
                   type: integer
                   format: int32
-                Document:
-                  type: string
-                  minLength: 0
-                  maxLength: 200
                 Company:
                   type: integer
                   format: int32
@@ -9673,12 +9573,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Supplier", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "PurchaseOrderStatus", "Operator", "Document", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "Due", "Supplier", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "PurchaseOrderStatus", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Supplier,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,PurchaseOrderStatus,Operator,Document,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Date,Due,Supplier,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,PurchaseOrderStatus,Operator,Company,Name,UUID,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]
