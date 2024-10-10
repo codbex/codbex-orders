@@ -8394,8 +8394,8 @@ components:
       required:
         - SalesOrder
         - Product
-        - Quantity
         - UoM
+        - Quantity
         - Price
       properties:
         Id:
@@ -8407,12 +8407,12 @@ components:
         Product:
           type: integer
           format: int32
-        Quantity:
-          type: number
-          format: double
         UoM:
           type: integer
           format: int32
+        Quantity:
+          type: number
+          format: double
         Price:
           type: number
           format: double
@@ -8464,14 +8464,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Quantity:
-                  oneOf:
-                    - type: number
-                      format: double
-                    - type: array
-                      items:
-                        type: number
-                        format: double
                 UoM:
                   oneOf:
                     - type: integer
@@ -8480,6 +8472,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Quantity:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Price:
                   oneOf:
                     - type: number
@@ -8547,14 +8547,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                Quantity:
-                  oneOf:
-                    - type: number
-                      format: double
-                    - type: array
-                      items:
-                        type: number
-                        format: double
                 UoM:
                   oneOf:
                     - type: integer
@@ -8563,6 +8555,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Quantity:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Price:
                   oneOf:
                     - type: number
@@ -8609,8 +8609,8 @@ components:
                 Id:
                 SalesOrder:
                 Product:
-                Quantity:
                 UoM:
+                Quantity:
                 Price:
                 Net:
                 VAT:
@@ -8628,12 +8628,12 @@ components:
                 Product:
                   type: integer
                   format: int32
-                Quantity:
-                  type: number
-                  format: double
                 UoM:
                   type: integer
                   format: int32
+                Quantity:
+                  type: number
+                  format: double
                 Price:
                   type: number
                   format: double
@@ -8661,12 +8661,12 @@ components:
                 Product:
                   type: integer
                   format: int32
-                Quantity:
-                  type: number
-                  format: double
                 UoM:
                   type: integer
                   format: int32
+                Quantity:
+                  type: number
+                  format: double
                 Price:
                   type: number
                   format: double
@@ -8694,12 +8694,12 @@ components:
                 Product:
                   type: integer
                   format: int32
-                Quantity:
-                  type: number
-                  format: double
                 UoM:
                   type: integer
                   format: int32
+                Quantity:
+                  type: number
+                  format: double
                 Price:
                   type: number
                   format: double
@@ -8727,12 +8727,12 @@ components:
                 Product:
                   type: integer
                   format: int32
-                Quantity:
-                  type: number
-                  format: double
                 UoM:
                   type: integer
                   format: int32
+                Quantity:
+                  type: number
+                  format: double
                 Price:
                   type: number
                   format: double
@@ -8750,12 +8750,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "SalesOrder", "Product", "Quantity", "UoM", "Price", "Net", "VAT", "Gross", "SalesOrderItemStatus"]
+          example: ["Id", "SalesOrder", "Product", "UoM", "Quantity", "Price", "Net", "VAT", "Gross", "SalesOrderItemStatus"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,SalesOrder,Product,Quantity,UoM,Price,Net,VAT,Gross,SalesOrderItemStatus"
+            example: "Id,SalesOrder,Product,UoM,Quantity,Price,Net,VAT,Gross,SalesOrderItemStatus"
         $order:
           type: string
           enum: ["asc", "desc"]

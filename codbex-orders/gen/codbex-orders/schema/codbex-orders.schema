@@ -159,12 +159,12 @@
                         "name": "SALESORDERITEM_PRODUCT"
                     },
                     {
-                        "type": "DOUBLE",
-                        "name": "SALESORDERITEM_QUANTITY"
-                    },
-                    {
                         "type": "INTEGER",
                         "name": "SALESORDERITEM_UOM"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "name": "SALESORDERITEM_QUANTITY"
                     },
                     {
                         "type": "DECIMAL",
