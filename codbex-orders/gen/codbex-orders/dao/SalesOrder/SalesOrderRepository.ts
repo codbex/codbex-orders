@@ -15,7 +15,7 @@ export interface SalesOrderEntity {
     Net?: number;
     Currency: number;
     Gross?: number;
-    Discount?: number;
+    VAT?: number;
     Taxes?: number;
     VAT?: number;
     Total?: number;
@@ -38,7 +38,7 @@ export interface SalesOrderCreateEntity {
     readonly Net?: number;
     readonly Currency: number;
     readonly Gross?: number;
-    readonly Discount?: number;
+    readonly VAT?: number;
     readonly Taxes?: number;
     readonly VAT?: number;
     readonly Total?: number;
@@ -67,7 +67,7 @@ export interface SalesOrderEntityOptions {
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
-            Discount?: number | number[];
+            VAT?: number | number[];
             Taxes?: number | number[];
             VAT?: number | number[];
             Total?: number | number[];
@@ -91,7 +91,7 @@ export interface SalesOrderEntityOptions {
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
-            Discount?: number | number[];
+            VAT?: number | number[];
             Taxes?: number | number[];
             VAT?: number | number[];
             Total?: number | number[];
@@ -115,7 +115,7 @@ export interface SalesOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            Discount?: number;
+            VAT?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -139,7 +139,7 @@ export interface SalesOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            Discount?: number;
+            VAT?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -163,7 +163,7 @@ export interface SalesOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            Discount?: number;
+            VAT?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -187,7 +187,7 @@ export interface SalesOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            Discount?: number;
+            VAT?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -211,7 +211,7 @@ export interface SalesOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            Discount?: number;
+            VAT?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -302,8 +302,8 @@ export class SalesOrderRepository {
                 type: "DECIMAL",
             },
             {
-                name: "Discount",
-                column: "SALESORDER_DISCOUNT",
+                name: "VAT",
+                column: "PRODUCT_VAT",
                 type: "DECIMAL",
             },
             {
@@ -417,9 +417,6 @@ export class SalesOrderRepository {
         (entity as SalesOrderEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Total"];
         // @ts-ignore
         (entity as SalesOrderEntity).UUID = require("sdk/utils/uuid").random();
-        if (entity.Discount === undefined || entity.Discount === null) {
-            (entity as SalesOrderEntity).Discount = 0;
-        }
         if (entity.Taxes === undefined || entity.Taxes === null) {
             (entity as SalesOrderEntity).Taxes = 0;
         }

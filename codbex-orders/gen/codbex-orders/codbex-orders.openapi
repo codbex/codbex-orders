@@ -7633,7 +7633,7 @@ components:
         Gross:
           type: number
           format: double
-        Discount:
+        VAT:
           type: number
           format: double
         Taxes:
@@ -7745,7 +7745,7 @@ components:
                       items:
                         type: number
                         format: double
-                Discount:
+                VAT:
                   oneOf:
                     - type: number
                       format: double
@@ -7927,7 +7927,7 @@ components:
                       items:
                         type: number
                         format: double
-                Discount:
+                VAT:
                   oneOf:
                     - type: number
                       format: double
@@ -8065,7 +8065,7 @@ components:
                 Net:
                 Currency:
                 Gross:
-                Discount:
+                VAT:
                 Taxes:
                 VAT:
                 Total:
@@ -8115,7 +8115,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                Discount:
+                VAT:
                   type: number
                   format: double
                 Taxes:
@@ -8185,7 +8185,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                Discount:
+                VAT:
                   type: number
                   format: double
                 Taxes:
@@ -8255,7 +8255,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                Discount:
+                VAT:
                   type: number
                   format: double
                 Taxes:
@@ -8325,7 +8325,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                Discount:
+                VAT:
                   type: number
                   format: double
                 Taxes:
@@ -8373,12 +8373,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "SalesOrderStatus", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "Due", "Customer", "Net", "Currency", "Gross", "VAT", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "SalesOrderStatus", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,SentMethod,SalesOrderStatus,Operator,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Date,Due,Customer,Net,Currency,Gross,VAT,Taxes,VAT,Total,Paid,Conditions,SentMethod,SalesOrderStatus,Operator,Company,Name,UUID,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -8394,7 +8394,6 @@ components:
       required:
         - SalesOrder
         - Product
-        - UoM
         - Quantity
         - Price
       properties:

@@ -51,12 +51,11 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
-                        "precision": "18",
+                        "length": 18,
+                        "precision": "16",
                         "scale": "2",
-                        "defaultValue": "0",
                         "nullable": true,
-                        "name": "SALESORDER_DISCOUNT"
+                        "name": "PRODUCT_VAT"
                     },
                     {
                         "type": "DECIMAL",

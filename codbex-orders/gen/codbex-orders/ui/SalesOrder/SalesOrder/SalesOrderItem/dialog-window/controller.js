@@ -59,28 +59,6 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
-		$scope.$watch('entity.Product', function (newValue, oldValue) {
-			if (newValue !== undefined && newValue !== null) {
-				entityApi.$http.post("/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts/search", {
-					$filter: {
-						equals: {
-							Product: newValue
-						}
-					}
-				}).then(function (response) {
-					$scope.optionsUoM = response.data.map(e => {
-						return {
-							value: e.Id,
-							text: e.Name
-						}
-					});
-					if ($scope.action !== 'select' && newValue !== oldValue) {
-						$scope.entity.UoM = undefined;
-					}
-				});
-			}
-		});
-
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
