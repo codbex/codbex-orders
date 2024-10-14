@@ -1,11 +1,9 @@
 import { SalesOrderRepository } from "../../gen/codbex-orders/dao/SalesOrder/SalesOrderRepository";
 import { SalesOrderItemRepository } from "../../gen/codbex-orders/dao/SalesOrder/SalesOrderItemRepository";
-import { ProductRepository } from "codbex-products/gen/codbex-products/dao/Products/ProductRepository";
 
 export const trigger = (event) => {
     const SalesOrderDao = new SalesOrderRepository();
     const SalesOrderItemDao = new SalesOrderItemRepository();
-    const ProductRepositoryDao = new ProductRepository();
     const item = event.entity;
 
     const items = SalesOrderItemDao.findAll({
@@ -15,9 +13,6 @@ export const trigger = (event) => {
             }
         }
     });
-
-    const product = ProductRepositoryDao.findById(item.Product);
-    item.UoM = product.BaseUnit;
 
     console.log(item.UoM);
 

@@ -437,8 +437,9 @@
                     },
                     {
                         "calculatedPropertyExpressionCreate": "",
+                        "dataDefaultValue": "1",
                         "dataName": "SALESORDERITEM_UOM",
-                        "dataNullable": "false",
+                        "dataNullable": "true",
                         "dataType": "INTEGER",
                         "description": "",
                         "name": "UoM",

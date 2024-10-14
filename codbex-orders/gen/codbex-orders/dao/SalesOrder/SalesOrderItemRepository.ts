@@ -7,7 +7,7 @@ export interface SalesOrderItemEntity {
     readonly Id: number;
     SalesOrder: number;
     Product: number;
-    UoM: number;
+    UoM?: number;
     Quantity: number;
     Price: number;
     Net?: number;
@@ -19,7 +19,7 @@ export interface SalesOrderItemEntity {
 export interface SalesOrderItemCreateEntity {
     readonly SalesOrder: number;
     readonly Product: number;
-    readonly UoM: number;
+    readonly UoM?: number;
     readonly Quantity: number;
     readonly Price: number;
     readonly SalesOrderItemStatus: number;
@@ -166,7 +166,6 @@ export class SalesOrderItemRepository {
                 name: "UoM",
                 column: "SALESORDERITEM_UOM",
                 type: "INTEGER",
-                required: true
             },
             {
                 name: "Quantity",
@@ -226,6 +225,9 @@ export class SalesOrderItemRepository {
         (entity as SalesOrderItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
         (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
+        if (entity.UoM === undefined || entity.UoM === null) {
+            (entity as SalesOrderItemEntity).UoM = 1;
+        }
         if (entity.SalesOrderItemStatus === undefined || entity.SalesOrderItemStatus === null) {
             (entity as SalesOrderItemEntity).SalesOrderItemStatus = 1;
         }

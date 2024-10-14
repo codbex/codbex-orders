@@ -159,6 +159,8 @@
                     },
                     {
                         "type": "INTEGER",
+                        "defaultValue": "1",
+                        "nullable": true,
                         "name": "SALESORDERITEM_UOM"
                     },
                     {
