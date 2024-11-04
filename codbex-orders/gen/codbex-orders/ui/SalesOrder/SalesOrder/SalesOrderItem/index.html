@@ -33,8 +33,8 @@
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
 						<th fd-table-header-cell>Product</th>
-						<th fd-table-header-cell>Quantity</th>
 						<th fd-table-header-cell>UoM</th>
+						<th fd-table-header-cell>Quantity</th>
 						<th fd-table-header-cell>Price</th>
 						<th fd-table-header-cell>Net</th>
 						<th fd-table-header-cell>VAT</th>
@@ -52,10 +52,10 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsProductValue(next.Product)}}
 						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsUoMValue(next.UoM)}}
 						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Price}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Net}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.VAT}}</td>

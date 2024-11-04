@@ -437,19 +437,6 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
-                        "dataName": "SALESORDERITEM_QUANTITY",
-                        "dataNullable": "false",
-                        "dataType": "DOUBLE",
-                        "description": "",
-                        "isRequiredProperty": "true",
-                        "name": "Quantity",
-                        "tooltip": "",
-                        "widgetIsMajor": "true",
-                        "widgetLength": "20",
-                        "widgetSize": "",
-                        "widgetType": "NUMBER"
-                    },
-                    {
                         "dataDefaultValue": "",
                         "dataName": "SALESORDERITEM_UOM",
                         "dataNullable": "false",
@@ -471,6 +458,19 @@
                         "relationshipEntityName": "UoM",
                         "relationshipEntityPerspectiveName": "UnitsOfMeasures",
                         "relationshipEntityPerspectiveLabel": "Units of Measures"
+                    },
+                    {
+                        "dataName": "SALESORDERITEM_QUANTITY",
+                        "dataNullable": "false",
+                        "dataType": "DOUBLE",
+                        "description": "",
+                        "isRequiredProperty": "true",
+                        "name": "Quantity",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "NUMBER"
                     },
                     {
                         "dataLength": "18",
