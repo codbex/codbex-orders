@@ -8395,7 +8395,6 @@ components:
         - SalesOrder
         - Product
         - Quantity
-        - UoM
         - Price
       properties:
         Id:

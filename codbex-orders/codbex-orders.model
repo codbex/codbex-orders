@@ -450,13 +450,17 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "dataDefaultValue": "1",
+                        "dataDefaultValue": "",
                         "dataName": "SALESORDERITEM_UOM",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
                         "description": "",
                         "name": "UoM",
                         "tooltip": "",
+                        "widgetDependsOnEntity": "Product",
+                        "widgetDependsOnFilterBy": "Id",
+                        "widgetDependsOnProperty": "Product",
+                        "widgetDependsOnValueFrom": "BaseUnit",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
                         "widgetIsMajor": "true",

@@ -59,6 +59,36 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
+		$scope.serviceSalesOrder = "/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderService.ts";
+		$scope.serviceProduct = "/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts";
+		$scope.serviceUoM = "/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts";
+		$scope.serviceSalesOrderItemStatus = "/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderItemStatusService.ts";
+
+		$scope.$watch('entity.Product', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.get($scope.serviceProduct + '/' + newValue).then(function (response) {
+					let valueFrom = response.data.BaseUnit;			
+					entityApi.$http.post("/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts/search", {
+						$filter: {
+							equals: {
+								Id: valueFrom
+							}
+						}
+					}).then(function (response) {
+						$scope.optionsUoM = response.data.map(e => {
+							return {
+								value: e.Id,
+								text: e.Name
+							}
+						});
+						if ($scope.action !== 'select' && newValue !== oldValue) {
+							$scope.entity.UoM = undefined;
+						}
+					});
+				});
+			}
+		});
+
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
