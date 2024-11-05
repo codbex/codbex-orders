@@ -190,6 +190,11 @@
                         "name": "SALESORDERITEM_VAT"
                     },
                     {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "SALESORDERITEM_VATAMOUNT"
+                    },
+                    {
                         "type": "DECIMAL",
                         "length": 18,
                         "precision": "16",
@@ -392,6 +397,11 @@
                         "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDERITEM_VAT"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "nullable": true,
+                        "name": "PURCHASEORDERITEM_VATAMOUNT"
                     },
                     {
                         "type": "DECIMAL",

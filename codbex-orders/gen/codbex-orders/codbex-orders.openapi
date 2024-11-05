@@ -8423,6 +8423,10 @@ components:
           type: number
           format: double
           readOnly: true
+        VATAmount:
+          type: number
+          format: double
+          readOnly: true
         Gross:
           type: number
           format: double
@@ -8496,6 +8500,14 @@ components:
                         type: number
                         format: double
                 VAT:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                VATAmount:
                   oneOf:
                     - type: number
                       format: double
@@ -8586,6 +8598,14 @@ components:
                       items:
                         type: number
                         format: double
+                VATAmount:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Gross:
                   oneOf:
                     - type: number
@@ -8613,6 +8633,7 @@ components:
                 Price:
                 Net:
                 VAT:
+                VATAmount:
                 Gross:
                 SalesOrderItemStatus:
             greaterThan:
@@ -8640,6 +8661,9 @@ components:
                   type: number
                   format: double
                 VAT:
+                  type: number
+                  format: double
+                VATAmount:
                   type: number
                   format: double
                 Gross:
@@ -8675,6 +8699,9 @@ components:
                 VAT:
                   type: number
                   format: double
+                VATAmount:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -8706,6 +8733,9 @@ components:
                   type: number
                   format: double
                 VAT:
+                  type: number
+                  format: double
+                VATAmount:
                   type: number
                   format: double
                 Gross:
@@ -8741,6 +8771,9 @@ components:
                 VAT:
                   type: number
                   format: double
+                VATAmount:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -8749,12 +8782,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "SalesOrder", "Product", "UoM", "Quantity", "Price", "Net", "VAT", "Gross", "SalesOrderItemStatus"]
+          example: ["Id", "SalesOrder", "Product", "UoM", "Quantity", "Price", "Net", "VAT", "VATAmount", "Gross", "SalesOrderItemStatus"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,SalesOrder,Product,UoM,Quantity,Price,Net,VAT,Gross,SalesOrderItemStatus"
+            example: "Id,SalesOrder,Product,UoM,Quantity,Price,Net,VAT,VATAmount,Gross,SalesOrderItemStatus"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -9623,6 +9656,10 @@ components:
           type: number
           format: double
           readOnly: true
+        VATAmount:
+          type: number
+          format: double
+          readOnly: true
         Gross:
           type: number
           format: double
@@ -9693,6 +9730,14 @@ components:
                         type: number
                         format: double
                 VAT:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
+                VATAmount:
                   oneOf:
                     - type: number
                       format: double
@@ -9775,6 +9820,14 @@ components:
                       items:
                         type: number
                         format: double
+                VATAmount:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Gross:
                   oneOf:
                     - type: number
@@ -9794,6 +9847,7 @@ components:
                 Price:
                 Net:
                 VAT:
+                VATAmount:
                 Gross:
             greaterThan:
               type: object
@@ -9820,6 +9874,9 @@ components:
                   type: number
                   format: double
                 VAT:
+                  type: number
+                  format: double
+                VATAmount:
                   type: number
                   format: double
                 Gross:
@@ -9852,6 +9909,9 @@ components:
                 VAT:
                   type: number
                   format: double
+                VATAmount:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -9880,6 +9940,9 @@ components:
                   type: number
                   format: double
                 VAT:
+                  type: number
+                  format: double
+                VATAmount:
                   type: number
                   format: double
                 Gross:
@@ -9912,17 +9975,20 @@ components:
                 VAT:
                   type: number
                   format: double
+                VATAmount:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
         $select:
           type: array
-          example: ["Id", "PurchaseOrder", "Product", "UoM", "Quantity", "Price", "Net", "VAT", "Gross"]
+          example: ["Id", "PurchaseOrder", "Product", "UoM", "Quantity", "Price", "Net", "VAT", "VATAmount", "Gross"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,PurchaseOrder,Product,UoM,Quantity,Price,Net,VAT,Gross"
+            example: "Id,PurchaseOrder,Product,UoM,Quantity,Price,Net,VAT,VATAmount,Gross"
         $order:
           type: string
           enum: ["asc", "desc"]

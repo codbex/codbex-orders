@@ -12,6 +12,7 @@ export interface PurchaseOrderItemEntity {
     Price: number;
     Net?: number;
     VAT?: number;
+    VATAmount?: number;
     Gross?: number;
 }
 
@@ -38,6 +39,7 @@ export interface PurchaseOrderItemEntityOptions {
             Price?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
+            VATAmount?: number | number[];
             Gross?: number | number[];
         };
         notEquals?: {
@@ -49,6 +51,7 @@ export interface PurchaseOrderItemEntityOptions {
             Price?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
+            VATAmount?: number | number[];
             Gross?: number | number[];
         };
         contains?: {
@@ -60,6 +63,7 @@ export interface PurchaseOrderItemEntityOptions {
             Price?: number;
             Net?: number;
             VAT?: number;
+            VATAmount?: number;
             Gross?: number;
         };
         greaterThan?: {
@@ -71,6 +75,7 @@ export interface PurchaseOrderItemEntityOptions {
             Price?: number;
             Net?: number;
             VAT?: number;
+            VATAmount?: number;
             Gross?: number;
         };
         greaterThanOrEqual?: {
@@ -82,6 +87,7 @@ export interface PurchaseOrderItemEntityOptions {
             Price?: number;
             Net?: number;
             VAT?: number;
+            VATAmount?: number;
             Gross?: number;
         };
         lessThan?: {
@@ -93,6 +99,7 @@ export interface PurchaseOrderItemEntityOptions {
             Price?: number;
             Net?: number;
             VAT?: number;
+            VATAmount?: number;
             Gross?: number;
         };
         lessThanOrEqual?: {
@@ -104,6 +111,7 @@ export interface PurchaseOrderItemEntityOptions {
             Price?: number;
             Net?: number;
             VAT?: number;
+            VATAmount?: number;
             Gross?: number;
         };
     },
@@ -183,6 +191,11 @@ export class PurchaseOrderItemRepository {
                 type: "DECIMAL",
             },
             {
+                name: "VATAmount",
+                column: "PURCHASEORDERITEM_VATAMOUNT",
+                type: "DECIMAL",
+            },
+            {
                 name: "Gross",
                 column: "PURCHASEORDERITEM_GROSS",
                 type: "DECIMAL",
@@ -211,7 +224,9 @@ export class PurchaseOrderItemRepository {
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
+        (entity as PurchaseOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"];
+        // @ts-ignore
+        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -232,7 +247,9 @@ export class PurchaseOrderItemRepository {
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).VAT = entity["Net"] * 0.2;
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
+        (entity as PurchaseOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"];
+        // @ts-ignore
+        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
