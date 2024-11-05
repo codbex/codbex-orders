@@ -363,12 +363,12 @@
                         "name": "PURCHASEORDERITEM_PRODUCT"
                     },
                     {
-                        "type": "DOUBLE",
-                        "name": "PURCHASEORDERITEM_QUANTITY"
-                    },
-                    {
                         "type": "INTEGER",
                         "name": "PURCHASEORDERITEM_UOM"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "name": "PURCHASEORDERITEM_QUANTITY"
                     },
                     {
                         "type": "DECIMAL",

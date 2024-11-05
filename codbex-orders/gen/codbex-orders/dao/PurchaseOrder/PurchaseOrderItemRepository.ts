@@ -7,8 +7,8 @@ export interface PurchaseOrderItemEntity {
     readonly Id: number;
     PurchaseOrder: number;
     Product: number;
-    Quantity: number;
     UoM: number;
+    Quantity: number;
     Price: number;
     Net?: number;
     VAT?: number;
@@ -18,8 +18,8 @@ export interface PurchaseOrderItemEntity {
 export interface PurchaseOrderItemCreateEntity {
     readonly PurchaseOrder: number;
     readonly Product: number;
-    readonly Quantity: number;
     readonly UoM: number;
+    readonly Quantity: number;
     readonly Price: number;
 }
 
@@ -33,8 +33,8 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number | number[];
             PurchaseOrder?: number | number[];
             Product?: number | number[];
-            Quantity?: number | number[];
             UoM?: number | number[];
+            Quantity?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
@@ -44,8 +44,8 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number | number[];
             PurchaseOrder?: number | number[];
             Product?: number | number[];
-            Quantity?: number | number[];
             UoM?: number | number[];
+            Quantity?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
@@ -55,8 +55,8 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number;
             PurchaseOrder?: number;
             Product?: number;
-            Quantity?: number;
             UoM?: number;
+            Quantity?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
@@ -66,8 +66,8 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number;
             PurchaseOrder?: number;
             Product?: number;
-            Quantity?: number;
             UoM?: number;
+            Quantity?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
@@ -77,8 +77,8 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number;
             PurchaseOrder?: number;
             Product?: number;
-            Quantity?: number;
             UoM?: number;
+            Quantity?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
@@ -88,8 +88,8 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number;
             PurchaseOrder?: number;
             Product?: number;
-            Quantity?: number;
             UoM?: number;
+            Quantity?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
@@ -99,8 +99,8 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number;
             PurchaseOrder?: number;
             Product?: number;
-            Quantity?: number;
             UoM?: number;
+            Quantity?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
@@ -155,15 +155,15 @@ export class PurchaseOrderItemRepository {
                 required: true
             },
             {
-                name: "Quantity",
-                column: "PURCHASEORDERITEM_QUANTITY",
-                type: "DOUBLE",
-                required: true
-            },
-            {
                 name: "UoM",
                 column: "PURCHASEORDERITEM_UOM",
                 type: "INTEGER",
+                required: true
+            },
+            {
+                name: "Quantity",
+                column: "PURCHASEORDERITEM_QUANTITY",
+                type: "DOUBLE",
                 required: true
             },
             {

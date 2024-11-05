@@ -67,7 +67,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.$watch('entity.Product', function (newValue, oldValue) {
 			if (newValue !== undefined && newValue !== null) {
 				entityApi.$http.get($scope.serviceProduct + '/' + newValue).then(function (response) {
-					let valueFrom = response.data.BaseUnit;			
+					let valueFrom = response.data.BaseUnit;
 					entityApi.$http.post("/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts/search", {
 						$filter: {
 							equals: {
@@ -82,9 +82,22 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 							}
 						});
 						if ($scope.action !== 'select' && newValue !== oldValue) {
-							$scope.entity.UoM = undefined;
+							if ($scope.optionsUoM.length == 1) {
+								$scope.entity.UoM = $scope.optionsUoM[0].value;
+							} else {
+								$scope.entity.UoM = undefined;
+							}
 						}
 					});
+				});
+			}
+		});
+
+		$scope.$watch('entity.Product', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.get($scope.serviceProduct + '/' + newValue).then(function (response) {
+					let valueFrom = response.data.Price;
+					$scope.entity.Price = valueFrom;
 				});
 			}
 		});
