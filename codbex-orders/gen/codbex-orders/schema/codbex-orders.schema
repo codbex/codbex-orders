@@ -51,12 +51,11 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
-                        "precision": "18",
+                        "length": 18,
+                        "precision": "16",
                         "scale": "2",
-                        "defaultValue": "0",
                         "nullable": true,
-                        "name": "SALESORDER_DISCOUNT"
+                        "name": "PRODUCT_VAT"
                     },
                     {
                         "type": "DECIMAL",
@@ -163,7 +162,10 @@
                         "name": "SALESORDERITEM_UOM"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
+                        "length": 18,
+                        "precision": "16",
+                        "scale": "2",
                         "name": "SALESORDERITEM_QUANTITY"
                     },
                     {
@@ -187,7 +189,7 @@
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
-                        "name": "SALESORDERITEM_VAT"
+                        "name": "PRODUCT_WEIGHT"
                     },
                     {
                         "type": "DOUBLE",
@@ -372,7 +374,10 @@
                         "name": "PURCHASEORDERITEM_UOM"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
+                        "length": 18,
+                        "precision": "16",
+                        "scale": "2",
                         "name": "PURCHASEORDERITEM_QUANTITY"
                     },
                     {
@@ -400,6 +405,9 @@
                     },
                     {
                         "type": "DECIMAL",
+                        "length": 18,
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDERITEM_VATAMOUNT"
                     },

@@ -23,6 +23,7 @@ export interface SalesOrderItemCreateEntity {
     readonly UoM: number;
     readonly Quantity: number;
     readonly Price: number;
+    readonly VAT?: number;
     readonly SalesOrderItemStatus: number;
 }
 
@@ -179,7 +180,7 @@ export class SalesOrderItemRepository {
             {
                 name: "Quantity",
                 column: "SALESORDERITEM_QUANTITY",
-                type: "DOUBLE",
+                type: "DECIMAL",
                 required: true
             },
             {
@@ -195,7 +196,7 @@ export class SalesOrderItemRepository {
             },
             {
                 name: "VAT",
-                column: "SALESORDERITEM_VAT",
+                column: "PRODUCT_WEIGHT",
                 type: "DECIMAL",
             },
             {
@@ -236,11 +237,9 @@ export class SalesOrderItemRepository {
         // @ts-ignore
         (entity as SalesOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as SalesOrderItemEntity).VAT = entity["Net"] * 0.2;
+        (entity as SalesOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"]/100;
         // @ts-ignore
-        (entity as SalesOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"];
-        // @ts-ignore
-        (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
+        (entity as SalesOrderItemEntity).Gross = entity["Net"]+entity["VATAmount"];
         if (entity.SalesOrderItemStatus === undefined || entity.SalesOrderItemStatus === null) {
             (entity as SalesOrderItemEntity).SalesOrderItemStatus = 1;
         }
@@ -262,11 +261,9 @@ export class SalesOrderItemRepository {
         // @ts-ignore
         (entity as SalesOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as SalesOrderItemEntity).VAT = entity["Net"] * 0.2;
+        (entity as SalesOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"]/100;
         // @ts-ignore
-        (entity as SalesOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"];
-        // @ts-ignore
-        (entity as SalesOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
+        (entity as SalesOrderItemEntity).Gross = entity["Net"]+entity["VATAmount"];
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

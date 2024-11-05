@@ -22,6 +22,7 @@ export interface PurchaseOrderItemCreateEntity {
     readonly UoM: number;
     readonly Quantity: number;
     readonly Price: number;
+    readonly VAT?: number;
 }
 
 export interface PurchaseOrderItemUpdateEntity extends PurchaseOrderItemCreateEntity {
@@ -171,7 +172,7 @@ export class PurchaseOrderItemRepository {
             {
                 name: "Quantity",
                 column: "PURCHASEORDERITEM_QUANTITY",
-                type: "DOUBLE",
+                type: "DECIMAL",
                 required: true
             },
             {
@@ -222,9 +223,7 @@ export class PurchaseOrderItemRepository {
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).VAT = entity["Net"] * 0.2;
-        // @ts-ignore
-        (entity as PurchaseOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"];
+        (entity as PurchaseOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"]/100;
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
         const id = this.dao.insert(entity);
@@ -245,9 +244,7 @@ export class PurchaseOrderItemRepository {
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).VAT = entity["Net"] * 0.2;
-        // @ts-ignore
-        (entity as PurchaseOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"];
+        (entity as PurchaseOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"]/100;
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
         const previousEntity = this.findById(entity.Id);

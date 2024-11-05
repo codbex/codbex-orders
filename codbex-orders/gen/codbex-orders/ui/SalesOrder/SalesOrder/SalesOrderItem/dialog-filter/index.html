@@ -134,14 +134,19 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idGross" dg-colon="true">Gross</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--4">
-	                        <fd-step-input dg-id="idGross"
-								name="Gross"
-								state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
-								ng-model="entity.Gross"
-								placeholder="Enter Gross"
-								>
-							</fd-step-input>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Gross'].$valid }}">
+	                            <fd-input id="idGross"
+	                                name="Gross"
+	                                state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.Gross"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                type="text"
+	                                placeholder="Enter Gross">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">

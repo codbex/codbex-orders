@@ -136,6 +136,9 @@ class SalesOrderService {
         if (entity.Currency === null || entity.Currency === undefined) {
             throw new ValidationError(`The 'Currency' property is required, provide a valid value`);
         }
+        if (entity.VAT === null || entity.VAT === undefined) {
+            throw new ValidationError(`The 'VAT' property is required, provide a valid value`);
+        }
         if (entity.Conditions?.length > 200) {
             throw new ValidationError(`The 'Conditions' exceeds the maximum length of [200] characters`);
         }

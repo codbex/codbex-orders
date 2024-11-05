@@ -114,7 +114,7 @@
 								state="{{ forms.details['VAT'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.VAT"
-								is-readonly="true"
+								is-readonly="action === 'select'"
 								placeholder="Enter VAT"
 								>
 							</fd-step-input>
