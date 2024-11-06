@@ -150,19 +150,25 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idVAT" dg-required="true" dg-colon="true">VAT</fd-form-label>
+                        	<fd-form-label for="idDiscount" dg-required="false" dg-colon="true">Discount</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
-							<fd-step-input dg-id="idVAT"
-								name="VAT"
-								state="{{ forms.details['VAT'].$valid ? '' : 'error' }}"
-								dg-required="true"
-								ng-model="entity.VAT"
-								is-readonly="action === 'select'"
-								placeholder="Enter VAT"
-								>
-							</fd-step-input>
-							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Discount'].$valid }}">
+	                            <fd-input id="idDiscount"
+	                                name="Discount"
+	                                state="{{ forms.details['Discount'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.Discount"
+	                                ng-readonly="action === 'select'"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                dg-input-rules="{ patterns: [''] }"
+	                                type="text"
+	                                placeholder="Enter Discount">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
+	                        </fd-form-input-message-group>
+	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -420,14 +426,14 @@
 					<fd-button dg-label="{{action === 'create' ? 'Create' : 'Update'}}" dg-type="emphasized" ng-click="action === 'create' ? create() : update()" state="{{ forms.details.$valid ? '' : 'disabled' }}"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
-					<fd-button dg-label="Cancel" dg-type="transparent" ng-click="cancel()"></fd-button>
+					<fd-button dg-label="Cancel" ng-click="cancel()"></fd-button>
 				</fd-bar-element>
 			</fd-bar-right>
 		</fd-bar>
 		<fd-bar bar-design="footer" ng-show="action === 'select' && entityActions.length && entity.Id">
 			<fd-bar-right>
 				<fd-bar-element ng-repeat="action in entityActions">
-					<fd-button dg-label="{{action.label}}" dg-type="emphasized" ng-click="triggerEntityAction(action)"></fd-button>
+					<fd-button dg-label="{{action.label}}" compact="true" ng-click="triggerEntityAction(action)"></fd-button>
 				</fd-bar-element>
 			</fd-bar-right>
 		</fd-bar>

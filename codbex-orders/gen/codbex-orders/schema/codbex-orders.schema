@@ -55,7 +55,7 @@
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
-                        "name": "PRODUCT_VAT"
+                        "name": "SALESORDER_DISCOUNT"
                     },
                     {
                         "type": "DECIMAL",

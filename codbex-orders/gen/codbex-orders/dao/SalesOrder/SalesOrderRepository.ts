@@ -15,7 +15,7 @@ export interface SalesOrderEntity {
     Net?: number;
     Currency: number;
     Gross?: number;
-    VAT?: number;
+    Discount?: number;
     Taxes?: number;
     VAT?: number;
     Total?: number;
@@ -38,7 +38,7 @@ export interface SalesOrderCreateEntity {
     readonly Net?: number;
     readonly Currency: number;
     readonly Gross?: number;
-    readonly VAT?: number;
+    readonly Discount?: number;
     readonly Taxes?: number;
     readonly VAT?: number;
     readonly Total?: number;
@@ -67,7 +67,7 @@ export interface SalesOrderEntityOptions {
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
-            VAT?: number | number[];
+            Discount?: number | number[];
             Taxes?: number | number[];
             VAT?: number | number[];
             Total?: number | number[];
@@ -91,7 +91,7 @@ export interface SalesOrderEntityOptions {
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
-            VAT?: number | number[];
+            Discount?: number | number[];
             Taxes?: number | number[];
             VAT?: number | number[];
             Total?: number | number[];
@@ -115,7 +115,7 @@ export interface SalesOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            VAT?: number;
+            Discount?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -139,7 +139,7 @@ export interface SalesOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            VAT?: number;
+            Discount?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -163,7 +163,7 @@ export interface SalesOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            VAT?: number;
+            Discount?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -187,7 +187,7 @@ export interface SalesOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            VAT?: number;
+            Discount?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -211,7 +211,7 @@ export interface SalesOrderEntityOptions {
             Net?: number;
             Currency?: number;
             Gross?: number;
-            VAT?: number;
+            Discount?: number;
             Taxes?: number;
             VAT?: number;
             Total?: number;
@@ -302,8 +302,8 @@ export class SalesOrderRepository {
                 type: "DECIMAL",
             },
             {
-                name: "VAT",
-                column: "PRODUCT_VAT",
+                name: "Discount",
+                column: "SALESORDER_DISCOUNT",
                 type: "DECIMAL",
             },
             {

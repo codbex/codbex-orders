@@ -6,7 +6,7 @@
 const perspectiveData = {
 	id: 'home',
 	name: 'Home',
-	link: '/services/web/codbex-orders/gen/codbex-orders/index.html',
+	link: '/services/web/portal/index.html',
 	icon: '/services/web/resources/unicons/estate.svg',
 	order: 1,
 };

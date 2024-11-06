@@ -7606,7 +7606,6 @@ components:
         - Due
         - Customer
         - Currency
-        - VAT
         - SentMethod
         - SalesOrderStatus
         - Operator
@@ -7634,7 +7633,7 @@ components:
         Gross:
           type: number
           format: double
-        VAT:
+        Discount:
           type: number
           format: double
         Taxes:
@@ -7746,7 +7745,7 @@ components:
                       items:
                         type: number
                         format: double
-                VAT:
+                Discount:
                   oneOf:
                     - type: number
                       format: double
@@ -7928,7 +7927,7 @@ components:
                       items:
                         type: number
                         format: double
-                VAT:
+                Discount:
                   oneOf:
                     - type: number
                       format: double
@@ -8066,7 +8065,7 @@ components:
                 Net:
                 Currency:
                 Gross:
-                VAT:
+                Discount:
                 Taxes:
                 VAT:
                 Total:
@@ -8116,7 +8115,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                VAT:
+                Discount:
                   type: number
                   format: double
                 Taxes:
@@ -8186,7 +8185,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                VAT:
+                Discount:
                   type: number
                   format: double
                 Taxes:
@@ -8256,7 +8255,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                VAT:
+                Discount:
                   type: number
                   format: double
                 Taxes:
@@ -8326,7 +8325,7 @@ components:
                 Gross:
                   type: number
                   format: double
-                VAT:
+                Discount:
                   type: number
                   format: double
                 Taxes:
@@ -8374,12 +8373,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "Net", "Currency", "Gross", "VAT", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "SalesOrderStatus", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "Due", "Customer", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "SalesOrderStatus", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,Net,Currency,Gross,VAT,Taxes,VAT,Total,Paid,Conditions,SentMethod,SalesOrderStatus,Operator,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Date,Due,Customer,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,SentMethod,SalesOrderStatus,Operator,Company,Name,UUID,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]

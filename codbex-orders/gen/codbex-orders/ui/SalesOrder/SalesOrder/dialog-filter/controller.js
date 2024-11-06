@@ -85,8 +85,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Gross !== undefined) {
 				filter.$filter.equals.Gross = entity.Gross;
 			}
-			if (entity.VAT !== undefined) {
-				filter.$filter.equals.VAT = entity.VAT;
+			if (entity.Discount !== undefined) {
+				filter.$filter.equals.Discount = entity.Discount;
 			}
 			if (entity.Taxes !== undefined) {
 				filter.$filter.equals.Taxes = entity.Taxes;
