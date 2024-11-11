@@ -21,11 +21,11 @@
 		</fd-message-page>
 
 		<fd-toolbar has-title="true" ng-hide="data == null">
-			<fd-toolbar-title>Items ({{dataCount}})</fd-toolbar-title>
+			<fd-toolbar-title>Items <span fd-object-status text="{{dataCount}}" inverted="true"></fd-toolbar-title>
 			<fd-button compact="true" dg-type="transparent" dg-label="Filter" ng-click="openFilter()"></fd-button>
 			<fd-button ng-repeat="action in pageActions" compact="true" dg-type="transparent" dg-label="{{action.label}}" ng-click="triggerPageAction(action)"></fd-button>
 			<fd-toolbar-spacer></fd-toolbar-spacer>
-			<fd-button compact="true" dg-type="transparent" dg-label="Create" ng-click="createEntity()"
+			<fd-button compact="true" dg-type="emphasized" dg-label="Create" ng-click="createEntity()"
 				state="{{selectedMainEntityId == null ? 'disabled' : ''}}"></fd-button>
 		</fd-toolbar>
 		<fd-scrollbar class="dg-full-height" ng-hide="data == null">
@@ -33,11 +33,12 @@
 				<thead fd-table-header sticky="true">
 					<tr fd-table-row>
 						<th fd-table-header-cell>Product</th>
-						<th fd-table-header-cell>Quantity</th>
 						<th fd-table-header-cell>UoM</th>
+						<th fd-table-header-cell>Quantity</th>
 						<th fd-table-header-cell>Price</th>
 						<th fd-table-header-cell>Net</th>
 						<th fd-table-header-cell>VAT</th>
+						<th fd-table-header-cell>VATAmount</th>
 						<th fd-table-header-cell>Gross</th>
 						<th fd-table-header-cell></th>
 					</tr>
@@ -51,13 +52,14 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsProductValue(next.Product)}}
 						</td>
-						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsUoMValue(next.UoM)}}
 						</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Price}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Net}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.VAT}}</td>
+						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.VATAmount}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Gross}}</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>

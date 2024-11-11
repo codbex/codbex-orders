@@ -33,6 +33,24 @@
 	                            dropdown-items="optionsProduct"
 	                            dg-placeholder="Search Product ...">
 	                        </fd-combobox-input>
+	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idUoM" dg-required="false" dg-colon="true">UoM</fd-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <fd-combobox-input id="idUoM"
+	                            name="UoM"
+	                            state="{{ forms.details['UoM'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.UoM"
+	                            dg-disabled="action === 'select'"
+	                            dropdown-items="optionsUoM"
+	                            dg-placeholder="Search UoM ...">
+	                        </fd-combobox-input>
+	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -49,22 +67,7 @@
 								placeholder="Enter Quantity"
 								>
 							</fd-step-input>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idUoM" dg-required="true" dg-colon="true">UoM</fd-form-label>
-                        </div>
-                        <div class="fd-col  fd-col-md--8 ">
-	                        <fd-combobox-input id="idUoM"
-	                            name="UoM"
-	                            state="{{ forms.details['UoM'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
-	                            ng-model="entity.UoM"
-	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsUoM"
-	                            dg-placeholder="Search UoM ...">
-	                        </fd-combobox-input>
+							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -81,6 +84,7 @@
 								placeholder="Enter Price"
 								>
 							</fd-step-input>
+							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -97,6 +101,7 @@
 								placeholder="Enter Net"
 								>
 							</fd-step-input>
+							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -109,26 +114,57 @@
 								state="{{ forms.details['VAT'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.VAT"
-								is-readonly="true"
+								is-readonly="action === 'select'"
 								placeholder="Enter VAT"
 								>
 							</fd-step-input>
+							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idVATAmount" dg-required="false" dg-colon="true">VATAmount</fd-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['VATAmount'].$valid }}">
+	                            <fd-input id="idVATAmount"
+	                                name="VATAmount"
+	                                state="{{ forms.details['VATAmount'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.VATAmount"
+	                                ng-readonly="true"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                dg-input-rules="{ patterns: [''] }"
+	                                type="text"
+	                                placeholder="Enter VATAmount">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
+	                        </fd-form-input-message-group>
+	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idGross" dg-required="false" dg-colon="true">Gross</fd-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
-	                        <fd-step-input dg-id="idGross"
-								name="Gross"
-								state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
-								dg-required="false"
-								ng-model="entity.Gross"
-								is-readonly="true"
-								placeholder="Enter Gross"
-								>
-							</fd-step-input>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Gross'].$valid }}">
+	                            <fd-input id="idGross"
+	                                name="Gross"
+	                                state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.Gross"
+	                                ng-readonly="true"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                dg-input-rules="{ patterns: [''] }"
+	                                type="text"
+	                                placeholder="Enter Gross">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">The value doesn't match the required pattern ''</fd-form-message>
+	                        </fd-form-input-message-group>
+	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -145,6 +181,7 @@
 	                            dropdown-items="optionsSalesOrderItemStatus"
 	                            dg-placeholder="Search SalesOrderItemStatus ...">
 	                        </fd-combobox-input>
+	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
                     </fd-form-item>
                 </fd-form-group>
@@ -157,7 +194,7 @@
 					<fd-button dg-label="{{action === 'create' ? 'Create' : 'Update'}}" dg-type="emphasized" ng-click="action === 'create' ? create() : update()" state="{{ forms.details.$valid ? '' : 'disabled' }}"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
-					<fd-button dg-label="Cancel" dg-type="transparent" ng-click="cancel()"></fd-button>
+					<fd-button dg-label="Cancel" ng-click="cancel()"></fd-button>
 				</fd-bar-element>
 			</fd-bar-right>
 		</fd-bar>

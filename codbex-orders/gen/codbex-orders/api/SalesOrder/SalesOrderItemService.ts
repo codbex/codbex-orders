@@ -139,9 +139,6 @@ class SalesOrderItemService {
         if (entity.Quantity === null || entity.Quantity === undefined) {
             throw new ValidationError(`The 'Quantity' property is required, provide a valid value`);
         }
-        if (entity.UoM === null || entity.UoM === undefined) {
-            throw new ValidationError(`The 'UoM' property is required, provide a valid value`);
-        }
         if (entity.Price === null || entity.Price === undefined) {
             throw new ValidationError(`The 'Price' property is required, provide a valid value`);
         }

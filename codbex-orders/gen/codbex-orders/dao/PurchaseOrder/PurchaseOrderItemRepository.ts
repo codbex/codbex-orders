@@ -7,20 +7,22 @@ export interface PurchaseOrderItemEntity {
     readonly Id: number;
     PurchaseOrder: number;
     Product: number;
-    Quantity: number;
     UoM: number;
+    Quantity: number;
     Price: number;
     Net?: number;
     VAT?: number;
+    VATAmount?: number;
     Gross?: number;
 }
 
 export interface PurchaseOrderItemCreateEntity {
     readonly PurchaseOrder: number;
     readonly Product: number;
-    readonly Quantity: number;
     readonly UoM: number;
+    readonly Quantity: number;
     readonly Price: number;
+    readonly VAT?: number;
 }
 
 export interface PurchaseOrderItemUpdateEntity extends PurchaseOrderItemCreateEntity {
@@ -33,77 +35,84 @@ export interface PurchaseOrderItemEntityOptions {
             Id?: number | number[];
             PurchaseOrder?: number | number[];
             Product?: number | number[];
-            Quantity?: number | number[];
             UoM?: number | number[];
+            Quantity?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
+            VATAmount?: number | number[];
             Gross?: number | number[];
         };
         notEquals?: {
             Id?: number | number[];
             PurchaseOrder?: number | number[];
             Product?: number | number[];
-            Quantity?: number | number[];
             UoM?: number | number[];
+            Quantity?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
             VAT?: number | number[];
+            VATAmount?: number | number[];
             Gross?: number | number[];
         };
         contains?: {
             Id?: number;
             PurchaseOrder?: number;
             Product?: number;
-            Quantity?: number;
             UoM?: number;
+            Quantity?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
+            VATAmount?: number;
             Gross?: number;
         };
         greaterThan?: {
             Id?: number;
             PurchaseOrder?: number;
             Product?: number;
-            Quantity?: number;
             UoM?: number;
+            Quantity?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
+            VATAmount?: number;
             Gross?: number;
         };
         greaterThanOrEqual?: {
             Id?: number;
             PurchaseOrder?: number;
             Product?: number;
-            Quantity?: number;
             UoM?: number;
+            Quantity?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
+            VATAmount?: number;
             Gross?: number;
         };
         lessThan?: {
             Id?: number;
             PurchaseOrder?: number;
             Product?: number;
-            Quantity?: number;
             UoM?: number;
+            Quantity?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
+            VATAmount?: number;
             Gross?: number;
         };
         lessThanOrEqual?: {
             Id?: number;
             PurchaseOrder?: number;
             Product?: number;
-            Quantity?: number;
             UoM?: number;
+            Quantity?: number;
             Price?: number;
             Net?: number;
             VAT?: number;
+            VATAmount?: number;
             Gross?: number;
         };
     },
@@ -155,15 +164,15 @@ export class PurchaseOrderItemRepository {
                 required: true
             },
             {
-                name: "Quantity",
-                column: "PURCHASEORDERITEM_QUANTITY",
-                type: "DOUBLE",
-                required: true
-            },
-            {
                 name: "UoM",
                 column: "PURCHASEORDERITEM_UOM",
                 type: "INTEGER",
+                required: true
+            },
+            {
+                name: "Quantity",
+                column: "PURCHASEORDERITEM_QUANTITY",
+                type: "DECIMAL",
                 required: true
             },
             {
@@ -180,6 +189,11 @@ export class PurchaseOrderItemRepository {
             {
                 name: "VAT",
                 column: "PURCHASEORDERITEM_VAT",
+                type: "DECIMAL",
+            },
+            {
+                name: "VATAmount",
+                column: "PURCHASEORDERITEM_VATAMOUNT",
                 type: "DECIMAL",
             },
             {
@@ -209,9 +223,9 @@ export class PurchaseOrderItemRepository {
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).VAT = entity["Net"] * 0.2;
+        (entity as PurchaseOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"]/100;
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
+        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -230,9 +244,9 @@ export class PurchaseOrderItemRepository {
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).VAT = entity["Net"] * 0.2;
+        (entity as PurchaseOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"]/100;
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
+        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

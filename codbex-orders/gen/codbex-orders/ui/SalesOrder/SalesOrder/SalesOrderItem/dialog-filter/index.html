@@ -43,20 +43,6 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idQuantity" dg-colon="true">Quantity</fd-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--4">
-	                        <fd-step-input dg-id="idQuantity"
-								name="Quantity"
-								state="{{ forms.details['Quantity'].$valid ? '' : 'error' }}"
-								ng-model="entity.Quantity"
-								placeholder="Enter Quantity"
-								>
-							</fd-step-input>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idUoM" dg-colon="true">UoM</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
@@ -67,6 +53,20 @@
 	                            dropdown-items="optionsUoM"
 	                            dg-placeholder="Search UoM ...">
 	                        </fd-combobox-input>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idQuantity" dg-colon="true">Quantity</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--4">
+	                        <fd-step-input dg-id="idQuantity"
+								name="Quantity"
+								state="{{ forms.details['Quantity'].$valid ? '' : 'error' }}"
+								ng-model="entity.Quantity"
+								placeholder="Enter Quantity"
+								>
+							</fd-step-input>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -113,16 +113,40 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idVATAmount" dg-colon="true">VATAmount</fd-form-label>
+                        </div>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['VATAmount'].$valid }}">
+	                            <fd-input id="idVATAmount"
+	                                name="VATAmount"
+	                                state="{{ forms.details['VATAmount'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.VATAmount"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                type="text"
+	                                placeholder="Enter VATAmount">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idGross" dg-colon="true">Gross</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--4">
-	                        <fd-step-input dg-id="idGross"
-								name="Gross"
-								state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
-								ng-model="entity.Gross"
-								placeholder="Enter Gross"
-								>
-							</fd-step-input>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Gross'].$valid }}">
+	                            <fd-input id="idGross"
+	                                name="Gross"
+	                                state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.Gross"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                type="text"
+	                                placeholder="Enter Gross">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -149,10 +173,10 @@
 					<fd-button dg-label="Filter" dg-type="emphasized" ng-click="filter()"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
-					<fd-button dg-label="Reset" dg-type="transparent" ng-click="resetFilter()"></fd-button>
+					<fd-button dg-label="Reset" ng-click="resetFilter()"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
-					<fd-button dg-label="Cancel" dg-type="transparent" ng-click="cancel()"></fd-button>
+					<fd-button dg-label="Cancel" ng-click="cancel()"></fd-button>
 				</fd-bar-element>
 			</fd-bar-right>
 		</fd-bar>

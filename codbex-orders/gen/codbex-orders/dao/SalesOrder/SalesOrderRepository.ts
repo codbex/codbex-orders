@@ -417,9 +417,6 @@ export class SalesOrderRepository {
         (entity as SalesOrderEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Total"];
         // @ts-ignore
         (entity as SalesOrderEntity).UUID = require("sdk/utils/uuid").random();
-        if (entity.Discount === undefined || entity.Discount === null) {
-            (entity as SalesOrderEntity).Discount = 0;
-        }
         if (entity.Taxes === undefined || entity.Taxes === null) {
             (entity as SalesOrderEntity).Taxes = 0;
         }

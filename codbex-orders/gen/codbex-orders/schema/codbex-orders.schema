@@ -51,10 +51,9 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 20,
-                        "precision": "18",
+                        "length": 18,
+                        "precision": "16",
                         "scale": "2",
-                        "defaultValue": "0",
                         "nullable": true,
                         "name": "SALESORDER_DISCOUNT"
                     },
@@ -159,12 +158,15 @@
                         "name": "SALESORDERITEM_PRODUCT"
                     },
                     {
-                        "type": "DOUBLE",
-                        "name": "SALESORDERITEM_QUANTITY"
-                    },
-                    {
                         "type": "INTEGER",
                         "name": "SALESORDERITEM_UOM"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 18,
+                        "precision": "16",
+                        "scale": "2",
+                        "name": "SALESORDERITEM_QUANTITY"
                     },
                     {
                         "type": "DECIMAL",
@@ -187,7 +189,12 @@
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
-                        "name": "SALESORDERITEM_VAT"
+                        "name": "PRODUCT_WEIGHT"
+                    },
+                    {
+                        "type": "DOUBLE",
+                        "nullable": true,
+                        "name": "SALESORDERITEM_VATAMOUNT"
                     },
                     {
                         "type": "DECIMAL",
@@ -363,12 +370,15 @@
                         "name": "PURCHASEORDERITEM_PRODUCT"
                     },
                     {
-                        "type": "DOUBLE",
-                        "name": "PURCHASEORDERITEM_QUANTITY"
-                    },
-                    {
                         "type": "INTEGER",
                         "name": "PURCHASEORDERITEM_UOM"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 18,
+                        "precision": "16",
+                        "scale": "2",
+                        "name": "PURCHASEORDERITEM_QUANTITY"
                     },
                     {
                         "type": "DECIMAL",
@@ -392,6 +402,14 @@
                         "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDERITEM_VAT"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 18,
+                        "precision": "16",
+                        "scale": "2",
+                        "nullable": true,
+                        "name": "PURCHASEORDERITEM_VATAMOUNT"
                     },
                     {
                         "type": "DECIMAL",

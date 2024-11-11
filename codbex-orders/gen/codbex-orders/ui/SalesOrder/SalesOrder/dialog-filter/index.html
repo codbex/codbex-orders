@@ -166,14 +166,19 @@
                     	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idDiscount" dg-colon="true">Discount</fd-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--4">
-	                        <fd-step-input dg-id="idDiscount"
-								name="Discount"
-								state="{{ forms.details['Discount'].$valid ? '' : 'error' }}"
-								ng-model="entity.Discount"
-								placeholder="Enter Discount"
-								>
-							</fd-step-input>
+                        <div class="fd-col fd-col-md--8">
+	                        <fd-form-input-message-group dg-inactive="{{ forms.details['Discount'].$valid }}">
+	                            <fd-input id="idDiscount"
+	                                name="Discount"
+	                                state="{{ forms.details['Discount'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.Discount"
+	                                ng-minlength="${property.minLength} || 0"
+	                                ng-maxlength="${property.maxLength} || -1"
+	                                type="text"
+	                                placeholder="Enter Discount">
+	                            </fd-input>
+	                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
+	                        </fd-form-input-message-group>
 	                    </div>
                     </fd-form-item>
                     <fd-form-item class="fd-row">
@@ -385,10 +390,10 @@
 					<fd-button dg-label="Filter" dg-type="emphasized" ng-click="filter()"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
-					<fd-button dg-label="Reset" dg-type="transparent" ng-click="resetFilter()"></fd-button>
+					<fd-button dg-label="Reset" ng-click="resetFilter()"></fd-button>
 				</fd-bar-element>
 				<fd-bar-element>
-					<fd-button dg-label="Cancel" dg-type="transparent" ng-click="cancel()"></fd-button>
+					<fd-button dg-label="Cancel" ng-click="cancel()"></fd-button>
 				</fd-bar-element>
 			</fd-bar-right>
 		</fd-bar>

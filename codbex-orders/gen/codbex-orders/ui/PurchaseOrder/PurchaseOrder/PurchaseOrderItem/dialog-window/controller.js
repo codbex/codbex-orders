@@ -58,6 +58,57 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			});
 		};
 
+		$scope.servicePurchaseOrder = "/services/ts/codbex-orders/gen/codbex-orders/api/PurchaseOrder/PurchaseOrderService.ts";
+		$scope.serviceProduct = "/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts";
+		$scope.serviceUoM = "/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts";
+
+		$scope.$watch('entity.Product', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.get($scope.serviceProduct + '/' + newValue).then(function (response) {
+					let valueFrom = response.data.BaseUnit;
+					entityApi.$http.post("/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts/search", {
+						$filter: {
+							equals: {
+								Id: valueFrom
+							}
+						}
+					}).then(function (response) {
+						$scope.optionsUoM = response.data.map(e => {
+							return {
+								value: e.Id,
+								text: e.Name
+							}
+						});
+						if ($scope.action !== 'select' && newValue !== oldValue) {
+							if ($scope.optionsUoM.length == 1) {
+								$scope.entity.UoM = $scope.optionsUoM[0].value;
+							} else {
+								$scope.entity.UoM = undefined;
+							}
+						}
+					});
+				});
+			}
+		});
+
+		$scope.$watch('entity.Product', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.get($scope.serviceProduct + '/' + newValue).then(function (response) {
+					let valueFrom = response.data.Price;
+					$scope.entity.Price = valueFrom;
+				});
+			}
+		});
+
+		$scope.$watch('entity.Product', function (newValue, oldValue) {
+			if (newValue !== undefined && newValue !== null) {
+				entityApi.$http.get($scope.serviceProduct + '/' + newValue).then(function (response) {
+					let valueFrom = response.data.VAT;
+					$scope.entity.VAT = valueFrom;
+				});
+			}
+		});
+
 		$scope.cancel = function () {
 			$scope.entity = {};
 			$scope.action = 'select';
