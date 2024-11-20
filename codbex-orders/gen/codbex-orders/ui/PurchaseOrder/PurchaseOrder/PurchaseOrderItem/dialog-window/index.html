@@ -106,6 +106,23 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
+                        	<fd-form-label for="idVATRate" dg-required="false" dg-colon="true">VATRate</fd-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--4 ">
+	                        <fd-step-input dg-id="idVATRate"
+								name="VATRate"
+								state="{{ forms.details['VATRate'].$valid ? '' : 'error' }}"
+								dg-required="false"
+								ng-model="entity.VATRate"
+								is-readonly="action === 'select'"
+								placeholder="Enter VATRate"
+								>
+							</fd-step-input>
+							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
+	                    </div>
+                    </fd-form-item>
+                    <fd-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
                         	<fd-form-label for="idVAT" dg-required="false" dg-colon="true">VAT</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
@@ -114,25 +131,8 @@
 								state="{{ forms.details['VAT'].$valid ? '' : 'error' }}"
 								dg-required="false"
 								ng-model="entity.VAT"
-								is-readonly="action === 'select'"
-								placeholder="Enter VAT"
-								>
-							</fd-step-input>
-							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
-	                    </div>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idVATAmount" dg-required="false" dg-colon="true">VATAmount</fd-form-label>
-                        </div>
-                        <div class="fd-col  fd-col-md--4 ">
-	                        <fd-step-input dg-id="idVATAmount"
-								name="VATAmount"
-								state="{{ forms.details['VATAmount'].$valid ? '' : 'error' }}"
-								dg-required="false"
-								ng-model="entity.VATAmount"
 								is-readonly="true"
-								placeholder="Enter VATAmount"
+								placeholder="Enter VAT"
 								>
 							</fd-step-input>
 							<i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>

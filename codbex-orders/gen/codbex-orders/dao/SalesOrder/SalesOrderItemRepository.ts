@@ -11,8 +11,8 @@ export interface SalesOrderItemEntity {
     Quantity: number;
     Price: number;
     Net?: number;
+    VATRate?: number;
     VAT?: number;
-    VATAmount?: number;
     Gross?: number;
     SalesOrderItemStatus: number;
 }
@@ -23,7 +23,7 @@ export interface SalesOrderItemCreateEntity {
     readonly UoM: number;
     readonly Quantity: number;
     readonly Price: number;
-    readonly VAT?: number;
+    readonly VATRate?: number;
     readonly SalesOrderItemStatus: number;
 }
 
@@ -41,8 +41,8 @@ export interface SalesOrderItemEntityOptions {
             Quantity?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
+            VATRate?: number | number[];
             VAT?: number | number[];
-            VATAmount?: number | number[];
             Gross?: number | number[];
             SalesOrderItemStatus?: number | number[];
         };
@@ -54,8 +54,8 @@ export interface SalesOrderItemEntityOptions {
             Quantity?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
+            VATRate?: number | number[];
             VAT?: number | number[];
-            VATAmount?: number | number[];
             Gross?: number | number[];
             SalesOrderItemStatus?: number | number[];
         };
@@ -67,8 +67,8 @@ export interface SalesOrderItemEntityOptions {
             Quantity?: number;
             Price?: number;
             Net?: number;
+            VATRate?: number;
             VAT?: number;
-            VATAmount?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
         };
@@ -80,8 +80,8 @@ export interface SalesOrderItemEntityOptions {
             Quantity?: number;
             Price?: number;
             Net?: number;
+            VATRate?: number;
             VAT?: number;
-            VATAmount?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
         };
@@ -93,8 +93,8 @@ export interface SalesOrderItemEntityOptions {
             Quantity?: number;
             Price?: number;
             Net?: number;
+            VATRate?: number;
             VAT?: number;
-            VATAmount?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
         };
@@ -106,8 +106,8 @@ export interface SalesOrderItemEntityOptions {
             Quantity?: number;
             Price?: number;
             Net?: number;
+            VATRate?: number;
             VAT?: number;
-            VATAmount?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
         };
@@ -119,8 +119,8 @@ export interface SalesOrderItemEntityOptions {
             Quantity?: number;
             Price?: number;
             Net?: number;
+            VATRate?: number;
             VAT?: number;
-            VATAmount?: number;
             Gross?: number;
             SalesOrderItemStatus?: number;
         };
@@ -195,12 +195,12 @@ export class SalesOrderItemRepository {
                 type: "DECIMAL",
             },
             {
-                name: "VAT",
+                name: "VATRate",
                 column: "PRODUCT_WEIGHT",
                 type: "DECIMAL",
             },
             {
-                name: "VATAmount",
+                name: "VAT",
                 column: "SALESORDERITEM_VATAMOUNT",
                 type: "DOUBLE",
             },
@@ -237,7 +237,7 @@ export class SalesOrderItemRepository {
         // @ts-ignore
         (entity as SalesOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as SalesOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"]/100;
+        (entity as SalesOrderItemEntity).VAT = entity["Price"]*entity["VAT"]/100;
         // @ts-ignore
         (entity as SalesOrderItemEntity).Gross = entity["Net"]+entity["VATAmount"];
         if (entity.SalesOrderItemStatus === undefined || entity.SalesOrderItemStatus === null) {
@@ -261,7 +261,7 @@ export class SalesOrderItemRepository {
         // @ts-ignore
         (entity as SalesOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as SalesOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"]/100;
+        (entity as SalesOrderItemEntity).VAT = entity["Price"]*entity["VAT"]/100;
         // @ts-ignore
         (entity as SalesOrderItemEntity).Gross = entity["Net"]+entity["VATAmount"];
         const previousEntity = this.findById(entity.Id);

@@ -11,8 +11,8 @@ export interface PurchaseOrderItemEntity {
     Quantity: number;
     Price: number;
     Net?: number;
+    VATRate?: number;
     VAT?: number;
-    VATAmount?: number;
     Gross?: number;
 }
 
@@ -22,7 +22,7 @@ export interface PurchaseOrderItemCreateEntity {
     readonly UoM: number;
     readonly Quantity: number;
     readonly Price: number;
-    readonly VAT?: number;
+    readonly VATRate?: number;
 }
 
 export interface PurchaseOrderItemUpdateEntity extends PurchaseOrderItemCreateEntity {
@@ -39,8 +39,8 @@ export interface PurchaseOrderItemEntityOptions {
             Quantity?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
+            VATRate?: number | number[];
             VAT?: number | number[];
-            VATAmount?: number | number[];
             Gross?: number | number[];
         };
         notEquals?: {
@@ -51,8 +51,8 @@ export interface PurchaseOrderItemEntityOptions {
             Quantity?: number | number[];
             Price?: number | number[];
             Net?: number | number[];
+            VATRate?: number | number[];
             VAT?: number | number[];
-            VATAmount?: number | number[];
             Gross?: number | number[];
         };
         contains?: {
@@ -63,8 +63,8 @@ export interface PurchaseOrderItemEntityOptions {
             Quantity?: number;
             Price?: number;
             Net?: number;
+            VATRate?: number;
             VAT?: number;
-            VATAmount?: number;
             Gross?: number;
         };
         greaterThan?: {
@@ -75,8 +75,8 @@ export interface PurchaseOrderItemEntityOptions {
             Quantity?: number;
             Price?: number;
             Net?: number;
+            VATRate?: number;
             VAT?: number;
-            VATAmount?: number;
             Gross?: number;
         };
         greaterThanOrEqual?: {
@@ -87,8 +87,8 @@ export interface PurchaseOrderItemEntityOptions {
             Quantity?: number;
             Price?: number;
             Net?: number;
+            VATRate?: number;
             VAT?: number;
-            VATAmount?: number;
             Gross?: number;
         };
         lessThan?: {
@@ -99,8 +99,8 @@ export interface PurchaseOrderItemEntityOptions {
             Quantity?: number;
             Price?: number;
             Net?: number;
+            VATRate?: number;
             VAT?: number;
-            VATAmount?: number;
             Gross?: number;
         };
         lessThanOrEqual?: {
@@ -111,8 +111,8 @@ export interface PurchaseOrderItemEntityOptions {
             Quantity?: number;
             Price?: number;
             Net?: number;
+            VATRate?: number;
             VAT?: number;
-            VATAmount?: number;
             Gross?: number;
         };
     },
@@ -187,12 +187,12 @@ export class PurchaseOrderItemRepository {
                 type: "DECIMAL",
             },
             {
-                name: "VAT",
+                name: "VATRate",
                 column: "PURCHASEORDERITEM_VAT",
                 type: "DECIMAL",
             },
             {
-                name: "VATAmount",
+                name: "VAT",
                 column: "PURCHASEORDERITEM_VATAMOUNT",
                 type: "DECIMAL",
             },
@@ -223,7 +223,7 @@ export class PurchaseOrderItemRepository {
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"]/100;
+        (entity as PurchaseOrderItemEntity).VAT = entity["Price"]*entity["VAT"]/100;
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
         const id = this.dao.insert(entity);
@@ -244,7 +244,7 @@ export class PurchaseOrderItemRepository {
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).VATAmount = entity["Price"]*entity["VAT"]/100;
+        (entity as PurchaseOrderItemEntity).VAT = entity["Price"]*entity["VAT"]/100;
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
         const previousEntity = this.findById(entity.Id);

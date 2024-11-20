@@ -105,8 +105,8 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.$watch('entity.Product', function (newValue, oldValue) {
 			if (newValue !== undefined && newValue !== null) {
 				entityApi.$http.get($scope.serviceProduct + '/' + newValue).then(function (response) {
-					let valueFrom = response.data.VAT;
-					$scope.entity.VAT = valueFrom;
+					let valueFrom = response.data.VATRate;
+					$scope.entity.VATRate = valueFrom;
 				});
 			}
 		});
