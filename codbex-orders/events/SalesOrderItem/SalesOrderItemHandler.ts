@@ -22,7 +22,7 @@ export const trigger = (event) => {
     for (let i = 0; i < items.length; i++) {
         if (items[i].Net) {
             net += items[i].Net;
-            vat += items[i].VATAmount;
+            vat += items[i].VAT;
             gross += items[i].Gross;
         }
     }
@@ -31,7 +31,7 @@ export const trigger = (event) => {
 
     header.Total ??= 0;
     header.Net = net;
-    header.VATAmount = vat;
+    header.VAT = vat;
     header.Gross = gross;
 
     total = header.Gross - (header.Gross * header.Discount / 100) + (header.Gross * header.Taxes / 100);

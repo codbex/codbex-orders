@@ -61,11 +61,11 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Net !== undefined) {
 				filter.$filter.equals.Net = entity.Net;
 			}
+			if (entity.VATRate !== undefined) {
+				filter.$filter.equals.VATRate = entity.VATRate;
+			}
 			if (entity.VAT !== undefined) {
 				filter.$filter.equals.VAT = entity.VAT;
-			}
-			if (entity.VATAmount !== undefined) {
-				filter.$filter.equals.VATAmount = entity.VATAmount;
 			}
 			if (entity.Gross !== undefined) {
 				filter.$filter.equals.Gross = entity.Gross;
