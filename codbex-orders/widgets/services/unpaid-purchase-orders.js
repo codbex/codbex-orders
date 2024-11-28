@@ -3,7 +3,7 @@ const widgetData = {
     label: 'Unpaid Purchase Orders',
     link: '/services/web/codbex-orders/widgets/subviews/unpaid-purchase-orders.html',
     lazyLoad: true,
-    size: "medium"
+    size: "small"
 };
 
 export function getWidget() {

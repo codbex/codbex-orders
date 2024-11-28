@@ -3,7 +3,7 @@ const widgetData = {
     label: 'Top Purchase Orders',
     link: '/services/web/codbex-orders/widgets/subviews/top-purchase-orders.html',
     lazyLoad: true,
-    size: "medium"
+    size: "large"
 };
 
 export function getWidget() {
