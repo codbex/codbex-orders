@@ -53,6 +53,12 @@
             "type": "git",
             "url": "https://github.com/codbex/codbex-number-generator.git",
             "branch": "main"
+        },
+        {
+            "guid": "codbex-navigation-groups",
+            "type": "git",
+            "url": "https://github.com/codbex/codbex-navigation-groups",
+            "branch": "main"
         }
     ],
     "actions": [

@@ -1,5 +1,0 @@
-{
-    "extensionPoint": "dashboard-widgets",
-    "module": "codbex-orders/widgets/services/top-purchase-orders.js",
-    "description": "Top Purchase Orders"
-}
