@@ -1,7 +1,7 @@
 const widgetData = {
     id: 'average-purchase-order-price-widget',
     label: 'Average Purchase Order Price',
-    link: '/services/web/codbex-orders/widgets/subviews/average-purchase-order-price.html',
+    link: '/services/web/codbex-orders/widgets/average-purchase-order-price/index.html',
     redirectViewId: "purchase-order-navigation",
     size: "small"
 };

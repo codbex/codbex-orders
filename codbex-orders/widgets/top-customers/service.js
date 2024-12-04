@@ -1,8 +1,8 @@
 const widgetData = {
     id: 'top-customer-widget',
     label: 'Top Customer',
-    link: '/services/web/codbex-orders/widgets/subviews/top-customer.html',
-    redirectViewId: 'custmores-navigation'',
+    link: '/services/web/codbex-orders/widgets/top-customer/index.html',
+    redirectViewId: 'custmores-navigation',
     size: "large"
 };
 
