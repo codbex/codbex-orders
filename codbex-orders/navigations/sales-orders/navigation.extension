@@ -1,0 +1,5 @@
+{
+    "extensionPoint": "dashboard-navigations",
+    "module": "codbex-orders/navigations/sales-orders/service.js",
+    "description": "Sales Order Navigation"
+}
