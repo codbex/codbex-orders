@@ -196,12 +196,12 @@ export class SalesOrderItemRepository {
             },
             {
                 name: "VATRate",
-                column: "PRODUCT_WEIGHT",
+                column: "PRODUCT_VATRATE",
                 type: "DECIMAL",
             },
             {
                 name: "VAT",
-                column: "SALESORDERITEM_VATAMOUNT",
+                column: "SALESORDERITEM_VAT",
                 type: "DOUBLE",
             },
             {

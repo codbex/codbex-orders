@@ -188,12 +188,12 @@ export class PurchaseOrderItemRepository {
             },
             {
                 name: "VATRate",
-                column: "PURCHASEORDERITEM_VAT",
+                column: "PURCHASEORDERITEM_VATRATE",
                 type: "DECIMAL",
             },
             {
                 name: "VAT",
-                column: "PURCHASEORDERITEM_VATAMOUNT",
+                column: "PURCHASEORDERITEM_VAT",
                 type: "DECIMAL",
             },
             {
