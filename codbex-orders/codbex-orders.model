@@ -532,8 +532,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "entity[\"Price\"]*entity[\"VAT\"]/100",
-                        "calculatedPropertyExpressionUpdate": "entity[\"Price\"]*entity[\"VAT\"]/100",
+                        "calculatedPropertyExpressionCreate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
+                        "calculatedPropertyExpressionUpdate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
                         "dataName": "SALESORDERITEM_VAT",
                         "dataNullable": "true",
                         "dataType": "DOUBLE",
@@ -547,8 +547,8 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "entity[\"Net\"]+entity[\"VATAmount\"]",
-                        "calculatedPropertyExpressionUpdate": "entity[\"Net\"]+entity[\"VATAmount\"]",
+                        "calculatedPropertyExpressionCreate": "entity[\"Net\"]+entity[\"VAT\"]",
+                        "calculatedPropertyExpressionUpdate": "entity[\"Net\"]+entity[\"VAT\"]",
                         "dataLength": "18",
                         "dataName": "SALESORDERITEM_GROSS",
                         "dataNullable": "true",
@@ -1166,8 +1166,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "entity[\"Price\"]*entity[\"VAT\"]/100",
-                        "calculatedPropertyExpressionUpdate": "entity[\"Price\"]*entity[\"VAT\"]/100",
+                        "calculatedPropertyExpressionCreate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
+                        "calculatedPropertyExpressionUpdate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
                         "dataLength": "18",
                         "dataName": "PURCHASEORDERITEM_VAT",
                         "dataNullable": "true",
@@ -1184,8 +1184,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VATAmount\"]",
-                        "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VATAmount\"]",
+                        "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VAT\"]",
+                        "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
                         "dataLength": "18",
                         "dataName": "PURCHASEORDERITEM_GROSS",
                         "dataNullable": "true",

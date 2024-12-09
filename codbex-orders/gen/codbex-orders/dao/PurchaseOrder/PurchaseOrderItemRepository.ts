@@ -223,9 +223,9 @@ export class PurchaseOrderItemRepository {
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).VAT = entity["Price"]*entity["VAT"]/100;
+        (entity as PurchaseOrderItemEntity).VAT = entity["Price"]*entity["VATRate"]/100;
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
+        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
@@ -244,9 +244,9 @@ export class PurchaseOrderItemRepository {
         // @ts-ignore
         (entity as PurchaseOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).VAT = entity["Price"]*entity["VAT"]/100;
+        (entity as PurchaseOrderItemEntity).VAT = entity["Price"]*entity["VATRate"]/100;
         // @ts-ignore
-        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VATAmount"];
+        (entity as PurchaseOrderItemEntity).Gross = entity["Net"] + entity["VAT"];
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
