@@ -8396,6 +8396,7 @@ components:
         - Product
         - Quantity
         - Price
+        - VATRate
       properties:
         Id:
           type: integer
@@ -9628,6 +9629,7 @@ components:
         - UoM
         - Quantity
         - Price
+        - VATRate
       properties:
         Id:
           type: integer

@@ -514,7 +514,7 @@
                     },
                     {
                         "dataLength": "18",
-                        "dataName": "PRODUCT_VATRATE",
+                        "dataName": "SALESORDERITEM_VATRATE",
                         "dataNullable": "true",
                         "dataPrecision": "16",
                         "dataScale": "2",
