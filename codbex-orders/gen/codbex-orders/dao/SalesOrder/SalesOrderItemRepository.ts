@@ -196,7 +196,7 @@ export class SalesOrderItemRepository {
             },
             {
                 name: "VATRate",
-                column: "PRODUCT_VATRATE",
+                column: "SALESORDERITEM_VATRATE",
                 type: "DECIMAL",
             },
             {

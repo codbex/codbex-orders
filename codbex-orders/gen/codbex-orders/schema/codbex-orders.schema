@@ -189,7 +189,7 @@
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
-                        "name": "PRODUCT_VATRATE"
+                        "name": "SALESORDERITEM_VATRATE"
                     },
                     {
                         "type": "DOUBLE",
