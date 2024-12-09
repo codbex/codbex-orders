@@ -106,13 +106,13 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idVATRate" dg-required="false" dg-colon="true">VATRate</fd-form-label>
+                        	<fd-form-label for="idVATRate" dg-required="true" dg-colon="true">VATRate</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <fd-step-input dg-id="idVATRate"
 								name="VATRate"
 								state="{{ forms.details['VATRate'].$valid ? '' : 'error' }}"
-								dg-required="false"
+								dg-required="true"
 								ng-model="entity.VATRate"
 								is-readonly="action === 'select'"
 								placeholder="Enter VATRate"

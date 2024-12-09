@@ -189,12 +189,15 @@
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
-                        "name": "PRODUCT_WEIGHT"
+                        "name": "SALESORDERITEM_VATRATE"
                     },
                     {
-                        "type": "DOUBLE",
+                        "type": "DECIMAL",
+                        "length": 18,
+                        "precision": "16",
+                        "scale": "2",
                         "nullable": true,
-                        "name": "SALESORDERITEM_VATAMOUNT"
+                        "name": "SALESORDERITEM_VAT"
                     },
                     {
                         "type": "DECIMAL",
@@ -401,7 +404,7 @@
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
-                        "name": "PURCHASEORDERITEM_VAT"
+                        "name": "PURCHASEORDERITEM_VATRATE"
                     },
                     {
                         "type": "DECIMAL",
@@ -409,7 +412,7 @@
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
-                        "name": "PURCHASEORDERITEM_VATAMOUNT"
+                        "name": "PURCHASEORDERITEM_VAT"
                     },
                     {
                         "type": "DECIMAL",
