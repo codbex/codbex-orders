@@ -534,9 +534,12 @@
                     {
                         "calculatedPropertyExpressionCreate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
                         "calculatedPropertyExpressionUpdate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
+                        "dataLength": "18",
                         "dataName": "SALESORDERITEM_VAT",
                         "dataNullable": "true",
-                        "dataType": "DOUBLE",
+                        "dataPrecision": "16",
+                        "dataScale": "2",
+                        "dataType": "DECIMAL",
                         "description": "",
                         "isCalculatedProperty": "true",
                         "name": "VAT",

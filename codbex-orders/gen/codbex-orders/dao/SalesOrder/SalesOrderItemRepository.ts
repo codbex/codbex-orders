@@ -202,7 +202,7 @@ export class SalesOrderItemRepository {
             {
                 name: "VAT",
                 column: "SALESORDERITEM_VAT",
-                type: "DOUBLE",
+                type: "DECIMAL",
             },
             {
                 name: "Gross",
