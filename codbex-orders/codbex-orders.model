@@ -237,12 +237,12 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
-                        "dataName": "SALESORDER_SALESORDERSTATUS",
+                        "dataName": "SALESORDER_STATUS",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
                         "description": "",
                         "isRequiredProperty": "true",
-                        "name": "SalesOrderStatus",
+                        "name": "Status",
                         "tooltip": "",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
@@ -570,11 +570,11 @@
                     {
                         "calculatedPropertyExpressionCreate": "",
                         "dataDefaultValue": "1",
-                        "dataName": "SALESORDERITEM_SALESORDERITEMSTATUS",
+                        "dataName": "SALESORDERITEM_STATUS",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
                         "description": "",
-                        "name": "SalesOrderItemStatus",
+                        "name": "Status",
                         "tooltip": "",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
@@ -867,12 +867,12 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
-                        "dataName": "PURCHASEORDER_PURCHASEORDERSTATUS",
+                        "dataName": "PURCHASEORDER_STATUS",
                         "dataNullable": "false",
                         "dataType": "INTEGER",
                         "description": "",
                         "isRequiredProperty": "true",
-                        "name": "PurchaseOrderStatus",
+                        "name": "Status",
                         "tooltip": "",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",
@@ -4169,12 +4169,12 @@
                         "relationshipEntityPerspectiveLabel": "Entities"
                     },
                     {
-                        "dataName": "WORKORDER_WORKORDERSTATUS",
+                        "dataName": "WORKORDER_STATUS",
                         "dataNullable": "true",
                         "dataType": "INTEGER",
                         "description": "",
                         "isRequiredProperty": "true",
-                        "name": "WorkOrderStatus",
+                        "name": "Status",
                         "tooltip": "",
                         "widgetDropDownKey": "Id",
                         "widgetDropDownValue": "Name",

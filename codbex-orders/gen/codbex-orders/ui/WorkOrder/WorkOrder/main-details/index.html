@@ -315,17 +315,17 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idWorkOrderStatus" dg-required="true" dg-colon="true">WorkOrderStatus</fd-form-label>
+                        	<fd-form-label for="idStatus" dg-required="true" dg-colon="true">Status</fd-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-	                        <fd-combobox-input id="idWorkOrderStatus"
-	                            name="WorkOrderStatus"
-	                            state="{{ forms.details['WorkOrderStatus'].$valid ? '' : 'error' }}"
+	                        <fd-combobox-input id="idStatus"
+	                            name="Status"
+	                            state="{{ forms.details['Status'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
-	                            ng-model="entity.WorkOrderStatus"
+	                            ng-model="entity.Status"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsWorkOrderStatus"
-	                            dg-placeholder="Search WorkOrderStatus ...">
+	                            dropdown-items="optionsStatus"
+	                            dg-placeholder="Search Status ...">
 	                        </fd-combobox-input>
 	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>

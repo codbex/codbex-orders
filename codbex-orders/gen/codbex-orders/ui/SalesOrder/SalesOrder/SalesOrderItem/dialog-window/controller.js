@@ -27,7 +27,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.optionsSalesOrder = params.optionsSalesOrder;
 			$scope.optionsProduct = params.optionsProduct;
 			$scope.optionsUoM = params.optionsUoM;
-			$scope.optionsSalesOrderItemStatus = params.optionsSalesOrderItemStatus;
+			$scope.optionsStatus = params.optionsStatus;
 		}
 
 		$scope.create = function () {
@@ -62,7 +62,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.serviceSalesOrder = "/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderService.ts";
 		$scope.serviceProduct = "/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts";
 		$scope.serviceUoM = "/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts";
-		$scope.serviceSalesOrderItemStatus = "/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderItemStatusService.ts";
+		$scope.serviceStatus = "/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderItemStatusService.ts";
 
 		$scope.$watch('entity.Product', function (newValue, oldValue) {
 			if (newValue !== undefined && newValue !== null) {

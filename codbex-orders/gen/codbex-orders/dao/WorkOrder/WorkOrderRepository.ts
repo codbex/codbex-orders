@@ -24,7 +24,7 @@ export interface WorkOrderEntity {
     Conditions?: string;
     PaymentMethod?: number;
     SentMethod?: number;
-    WorkOrderStatus?: number;
+    Status?: number;
     Operator?: number;
     Document?: string;
     Company?: number;
@@ -51,7 +51,7 @@ export interface WorkOrderCreateEntity {
     readonly Conditions?: string;
     readonly PaymentMethod?: number;
     readonly SentMethod?: number;
-    readonly WorkOrderStatus?: number;
+    readonly Status?: number;
     readonly Operator?: number;
     readonly Document?: string;
     readonly Company?: number;
@@ -84,7 +84,7 @@ export interface WorkOrderEntityOptions {
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
             SentMethod?: number | number[];
-            WorkOrderStatus?: number | number[];
+            Status?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
@@ -112,7 +112,7 @@ export interface WorkOrderEntityOptions {
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
             SentMethod?: number | number[];
-            WorkOrderStatus?: number | number[];
+            Status?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
             Company?: number | number[];
@@ -140,7 +140,7 @@ export interface WorkOrderEntityOptions {
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
-            WorkOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -168,7 +168,7 @@ export interface WorkOrderEntityOptions {
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
-            WorkOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -196,7 +196,7 @@ export interface WorkOrderEntityOptions {
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
-            WorkOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -224,7 +224,7 @@ export interface WorkOrderEntityOptions {
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
-            WorkOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -252,7 +252,7 @@ export interface WorkOrderEntityOptions {
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
-            WorkOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Document?: string;
             Company?: number;
@@ -378,8 +378,8 @@ export class WorkOrderRepository {
                 type: "INTEGER",
             },
             {
-                name: "WorkOrderStatus",
-                column: "WORKORDER_WORKORDERSTATUS",
+                name: "Status",
+                column: "WORKORDER_STATUS",
                 type: "INTEGER",
             },
             {

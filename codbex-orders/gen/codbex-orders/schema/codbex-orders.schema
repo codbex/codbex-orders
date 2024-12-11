@@ -103,7 +103,7 @@
                     },
                     {
                         "type": "INTEGER",
-                        "name": "SALESORDER_SALESORDERSTATUS"
+                        "name": "SALESORDER_STATUS"
                     },
                     {
                         "type": "INTEGER",
@@ -210,7 +210,7 @@
                     {
                         "type": "INTEGER",
                         "defaultValue": "1",
-                        "name": "SALESORDERITEM_SALESORDERITEMSTATUS"
+                        "name": "SALESORDERITEM_STATUS"
                     }
                 ]
             },
@@ -320,7 +320,7 @@
                     },
                     {
                         "type": "INTEGER",
-                        "name": "PURCHASEORDER_PURCHASEORDERSTATUS"
+                        "name": "PURCHASEORDER_STATUS"
                     },
                     {
                         "type": "INTEGER",
@@ -636,7 +636,7 @@
                     {
                         "type": "INTEGER",
                         "nullable": true,
-                        "name": "WORKORDER_WORKORDERSTATUS"
+                        "name": "WORKORDER_STATUS"
                     },
                     {
                         "type": "INTEGER",
@@ -753,7 +753,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
                 "constraintName": "SalesOrder_SalesOrderStatus",
-                "columns": "SALESORDER_SALESORDERSTATUS",
+                "columns": "SALESORDER_STATUS",
                 "referencedTable": "CODBEX_SALESORDERSTATUS",
                 "referencedColumns": "SALESORDERSTATUS_ID"
             },
@@ -816,7 +816,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDERITEM",
                 "constraintName": "SalesOrderItem_SalesOrderItemStatus",
-                "columns": "SALESORDERITEM_SALESORDERITEMSTATUS",
+                "columns": "SALESORDERITEM_STATUS",
                 "referencedTable": "CODBEX_SALESORDERITEMSTATUS",
                 "referencedColumns": "SALESORDERITEMSTATUS_ID"
             },
@@ -861,7 +861,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDER",
                 "constraintName": "PurchaseOrder_PurchaseOrderStatus",
-                "columns": "PURCHASEORDER_PURCHASEORDERSTATUS",
+                "columns": "PURCHASEORDER_STATUS",
                 "referencedTable": "CODBEX_PURCHASEORDERSTATUS",
                 "referencedColumns": "PURCHASEORDERSTATUS_ID"
             },
@@ -996,7 +996,7 @@
                 "type": "foreignKey",
                 "table": "CODBEX_WORKORDER",
                 "constraintName": "WorkOrder_WorkOrderStatus",
-                "columns": "WORKORDER_WORKORDERSTATUS",
+                "columns": "WORKORDER_STATUS",
                 "referencedTable": "CODBEX_WORKORDERSTATUS",
                 "referencedColumns": "WORKORDERSTATUS_ID"
             },

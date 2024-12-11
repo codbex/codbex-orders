@@ -40,7 +40,7 @@
 						<th fd-table-header-cell>VATRate</th>
 						<th fd-table-header-cell>VAT</th>
 						<th fd-table-header-cell>Gross</th>
-						<th fd-table-header-cell>SalesOrderItemStatus</th>
+						<th fd-table-header-cell>Status</th>
 						<th fd-table-header-cell></th>
 					</tr>
 				</thead>
@@ -63,7 +63,7 @@
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.VAT}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Gross}}</td>
 						<td fd-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
-							{{optionsSalesOrderItemStatusValue(next.SalesOrderItemStatus)}}
+							{{optionsStatusValue(next.Status)}}
 						</td>
 						<td fd-table-cell fit-content="true">
 							<fd-popover>

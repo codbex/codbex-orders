@@ -128,7 +128,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSalesOrder: $scope.optionsSalesOrder,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsSalesOrderItemStatus: $scope.optionsSalesOrderItemStatus,
+				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
@@ -138,7 +138,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSalesOrder: $scope.optionsSalesOrder,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsSalesOrderItemStatus: $scope.optionsSalesOrderItemStatus,
+				optionsStatus: $scope.optionsStatus,
 			});
 		};
 
@@ -152,7 +152,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSalesOrder: $scope.optionsSalesOrder,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsSalesOrderItemStatus: $scope.optionsSalesOrderItemStatus,
+				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
 
@@ -165,7 +165,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsSalesOrder: $scope.optionsSalesOrder,
 				optionsProduct: $scope.optionsProduct,
 				optionsUoM: $scope.optionsUoM,
-				optionsSalesOrderItemStatus: $scope.optionsSalesOrderItemStatus,
+				optionsStatus: $scope.optionsStatus,
 			}, null, false);
 		};
 
@@ -202,7 +202,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsSalesOrder = [];
 		$scope.optionsProduct = [];
 		$scope.optionsUoM = [];
-		$scope.optionsSalesOrderItemStatus = [];
+		$scope.optionsStatus = [];
 
 
 		$http.get("/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderService.ts").then(function (response) {
@@ -233,7 +233,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		$http.get("/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderItemStatusService.ts").then(function (response) {
-			$scope.optionsSalesOrderItemStatus = response.data.map(e => {
+			$scope.optionsStatus = response.data.map(e => {
 				return {
 					value: e.Id,
 					text: e.Name
@@ -265,10 +265,10 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsSalesOrderItemStatusValue = function (optionKey) {
-			for (let i = 0; i < $scope.optionsSalesOrderItemStatus.length; i++) {
-				if ($scope.optionsSalesOrderItemStatus[i].value === optionKey) {
-					return $scope.optionsSalesOrderItemStatus[i].text;
+		$scope.optionsStatusValue = function (optionKey) {
+			for (let i = 0; i < $scope.optionsStatus.length; i++) {
+				if ($scope.optionsStatus[i].value === optionKey) {
+					return $scope.optionsStatus[i].text;
 				}
 			}
 			return null;

@@ -281,17 +281,17 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idSalesOrderStatus" dg-required="true" dg-colon="true">SalesOrderStatus</fd-form-label>
+                        	<fd-form-label for="idStatus" dg-required="true" dg-colon="true">Status</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4 fd-col--6">
-	                        <fd-combobox-input id="idSalesOrderStatus"
-	                            name="SalesOrderStatus"
-	                            state="{{ forms.details['SalesOrderStatus'].$valid ? '' : 'error' }}"
+	                        <fd-combobox-input id="idStatus"
+	                            name="Status"
+	                            state="{{ forms.details['Status'].$valid ? '' : 'error' }}"
 	                            ng-required="true"
-	                            ng-model="entity.SalesOrderStatus"
+	                            ng-model="entity.Status"
 	                            dg-disabled="action === 'select'"
-	                            dropdown-items="optionsSalesOrderStatus"
-	                            dg-placeholder="Search SalesOrderStatus ...">
+	                            dropdown-items="optionsStatus"
+	                            dg-placeholder="Search Status ...">
 	                        </fd-combobox-input>
 	                        <i class="sap-icon--information" role="presentation" onclick="javascript:alert('')"></i>
 	                    </div>
