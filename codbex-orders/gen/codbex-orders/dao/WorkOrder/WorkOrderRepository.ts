@@ -460,7 +460,7 @@ export class WorkOrderRepository {
         EntityUtils.setLocalDate(entity, "Date");
         EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
-        (entity as WorkOrderEntity).Number = new NumberGeneratorService().generate(24);
+        (entity as WorkOrderEntity).Number = new NumberGeneratorService().generate(22);
         // @ts-ignore
         (entity as WorkOrderEntity).UUID = require("sdk/utils/uuid").random();
         // @ts-ignore
