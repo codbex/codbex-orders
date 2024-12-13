@@ -8452,7 +8452,7 @@
           "inputRule": ""
         },
         {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(24)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(22)",
           "dataLength": "20",
           "dataName": "WORKORDER_NUMBER",
           "dataNullable": true,
@@ -9197,7 +9197,7 @@
       "primaryKeysString": "Id",
       "masterProperties": {
         "title": {
-          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(24)",
+          "calculatedPropertyExpressionCreate": "new NumberGeneratorService().generate(22)",
           "dataLength": "20",
           "dataName": "WORKORDER_NUMBER",
           "dataNullable": true,
