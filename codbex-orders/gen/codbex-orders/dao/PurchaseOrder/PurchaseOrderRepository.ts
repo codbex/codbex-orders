@@ -23,7 +23,7 @@ export interface PurchaseOrderEntity {
     Conditions?: string;
     PaymentMethod: number;
     SentMethod: number;
-    PurchaseOrderStatus: number;
+    Status: number;
     Operator: number;
     Company?: number;
     Name: string;
@@ -47,7 +47,7 @@ export interface PurchaseOrderCreateEntity {
     readonly Conditions?: string;
     readonly PaymentMethod: number;
     readonly SentMethod: number;
-    readonly PurchaseOrderStatus: number;
+    readonly Status: number;
     readonly Operator: number;
     readonly Company?: number;
     readonly Reference?: string;
@@ -77,7 +77,7 @@ export interface PurchaseOrderEntityOptions {
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
             SentMethod?: number | number[];
-            PurchaseOrderStatus?: number | number[];
+            Status?: number | number[];
             Operator?: number | number[];
             Company?: number | number[];
             Name?: string | string[];
@@ -102,7 +102,7 @@ export interface PurchaseOrderEntityOptions {
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
             SentMethod?: number | number[];
-            PurchaseOrderStatus?: number | number[];
+            Status?: number | number[];
             Operator?: number | number[];
             Company?: number | number[];
             Name?: string | string[];
@@ -127,7 +127,7 @@ export interface PurchaseOrderEntityOptions {
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
-            PurchaseOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -152,7 +152,7 @@ export interface PurchaseOrderEntityOptions {
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
-            PurchaseOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -177,7 +177,7 @@ export interface PurchaseOrderEntityOptions {
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
-            PurchaseOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -202,7 +202,7 @@ export interface PurchaseOrderEntityOptions {
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
-            PurchaseOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -227,7 +227,7 @@ export interface PurchaseOrderEntityOptions {
             Conditions?: string;
             PaymentMethod?: number;
             SentMethod?: number;
-            PurchaseOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -354,8 +354,8 @@ export class PurchaseOrderRepository {
                 required: true
             },
             {
-                name: "PurchaseOrderStatus",
-                column: "PURCHASEORDER_PURCHASEORDERSTATUS",
+                name: "Status",
+                column: "PURCHASEORDER_STATUS",
                 type: "INTEGER",
                 required: true
             },

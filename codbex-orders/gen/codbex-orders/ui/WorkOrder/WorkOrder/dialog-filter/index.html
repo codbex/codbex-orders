@@ -300,15 +300,15 @@
                     </fd-form-item>
                     <fd-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idWorkOrderStatus" dg-colon="true">WorkOrderStatus</fd-form-label>
+                        	<fd-form-label for="idStatus" dg-colon="true">Status</fd-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-	                        <fd-combobox-input id="idWorkOrderStatus"
-	                            name="WorkOrderStatus"
-	                            state="{{ forms.details['WorkOrderStatus'].$valid ? '' : 'error' }}"
-	                            ng-model="entity.WorkOrderStatus"
-	                            dropdown-items="optionsWorkOrderStatus"
-	                            dg-placeholder="Search WorkOrderStatus ...">
+	                        <fd-combobox-input id="idStatus"
+	                            name="Status"
+	                            state="{{ forms.details['Status'].$valid ? '' : 'error' }}"
+	                            ng-model="entity.Status"
+	                            dropdown-items="optionsStatus"
+	                            dg-placeholder="Search Status ...">
 	                        </fd-combobox-input>
 	                    </div>
                     </fd-form-item>

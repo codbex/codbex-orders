@@ -142,8 +142,8 @@ class SalesOrderService {
         if (entity.SentMethod === null || entity.SentMethod === undefined) {
             throw new ValidationError(`The 'SentMethod' property is required, provide a valid value`);
         }
-        if (entity.SalesOrderStatus === null || entity.SalesOrderStatus === undefined) {
-            throw new ValidationError(`The 'SalesOrderStatus' property is required, provide a valid value`);
+        if (entity.Status === null || entity.Status === undefined) {
+            throw new ValidationError(`The 'Status' property is required, provide a valid value`);
         }
         if (entity.Operator === null || entity.Operator === undefined) {
             throw new ValidationError(`The 'Operator' property is required, provide a valid value`);

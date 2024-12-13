@@ -22,7 +22,7 @@ export interface SalesOrderEntity {
     Paid?: number;
     Conditions?: string;
     SentMethod: number;
-    SalesOrderStatus: number;
+    Status: number;
     Operator: number;
     Company?: number;
     Name?: string;
@@ -45,7 +45,7 @@ export interface SalesOrderCreateEntity {
     readonly Paid?: number;
     readonly Conditions?: string;
     readonly SentMethod: number;
-    readonly SalesOrderStatus: number;
+    readonly Status: number;
     readonly Operator: number;
     readonly Company?: number;
     readonly Reference?: string;
@@ -74,7 +74,7 @@ export interface SalesOrderEntityOptions {
             Paid?: number | number[];
             Conditions?: string | string[];
             SentMethod?: number | number[];
-            SalesOrderStatus?: number | number[];
+            Status?: number | number[];
             Operator?: number | number[];
             Company?: number | number[];
             Name?: string | string[];
@@ -98,7 +98,7 @@ export interface SalesOrderEntityOptions {
             Paid?: number | number[];
             Conditions?: string | string[];
             SentMethod?: number | number[];
-            SalesOrderStatus?: number | number[];
+            Status?: number | number[];
             Operator?: number | number[];
             Company?: number | number[];
             Name?: string | string[];
@@ -122,7 +122,7 @@ export interface SalesOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             SentMethod?: number;
-            SalesOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -146,7 +146,7 @@ export interface SalesOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             SentMethod?: number;
-            SalesOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -170,7 +170,7 @@ export interface SalesOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             SentMethod?: number;
-            SalesOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -194,7 +194,7 @@ export interface SalesOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             SentMethod?: number;
-            SalesOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -218,7 +218,7 @@ export interface SalesOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             SentMethod?: number;
-            SalesOrderStatus?: number;
+            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -338,8 +338,8 @@ export class SalesOrderRepository {
                 required: true
             },
             {
-                name: "SalesOrderStatus",
-                column: "SALESORDER_SALESORDERSTATUS",
+                name: "Status",
+                column: "SALESORDER_STATUS",
                 type: "INTEGER",
                 required: true
             },

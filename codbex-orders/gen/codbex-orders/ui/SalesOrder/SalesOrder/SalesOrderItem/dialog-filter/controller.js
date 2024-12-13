@@ -17,7 +17,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.optionsSalesOrder = params.optionsSalesOrder;
 			$scope.optionsProduct = params.optionsProduct;
 			$scope.optionsUoM = params.optionsUoM;
-			$scope.optionsSalesOrderItemStatus = params.optionsSalesOrderItemStatus;
+			$scope.optionsStatus = params.optionsStatus;
 		}
 
 		$scope.filter = function () {
@@ -70,8 +70,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.Gross !== undefined) {
 				filter.$filter.equals.Gross = entity.Gross;
 			}
-			if (entity.SalesOrderItemStatus !== undefined) {
-				filter.$filter.equals.SalesOrderItemStatus = entity.SalesOrderItemStatus;
+			if (entity.Status !== undefined) {
+				filter.$filter.equals.Status = entity.Status;
 			}
 			messageHub.postMessage("entitySearch", {
 				entity: entity,

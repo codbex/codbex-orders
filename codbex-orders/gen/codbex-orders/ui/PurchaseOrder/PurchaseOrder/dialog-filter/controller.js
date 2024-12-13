@@ -30,7 +30,7 @@ angular.module('page', ["ideUI", "ideView"])
 			$scope.optionsCurrency = params.optionsCurrency;
 			$scope.optionsPaymentMethod = params.optionsPaymentMethod;
 			$scope.optionsSentMethod = params.optionsSentMethod;
-			$scope.optionsPurchaseOrderStatus = params.optionsPurchaseOrderStatus;
+			$scope.optionsStatus = params.optionsStatus;
 			$scope.optionsOperator = params.optionsOperator;
 			$scope.optionsCompany = params.optionsCompany;
 			$scope.optionsStore = params.optionsStore;
@@ -110,8 +110,8 @@ angular.module('page', ["ideUI", "ideView"])
 			if (entity.SentMethod !== undefined) {
 				filter.$filter.equals.SentMethod = entity.SentMethod;
 			}
-			if (entity.PurchaseOrderStatus !== undefined) {
-				filter.$filter.equals.PurchaseOrderStatus = entity.PurchaseOrderStatus;
+			if (entity.Status !== undefined) {
+				filter.$filter.equals.Status = entity.Status;
 			}
 			if (entity.Operator !== undefined) {
 				filter.$filter.equals.Operator = entity.Operator;
