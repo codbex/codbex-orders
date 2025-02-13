@@ -40,8 +40,8 @@ class PurchaseOrderService {
         const purchaseOrderId = ctx.pathParameters.purchaseOrderId;
 
         let purchaseOrder = this.purchaseOrderDao.findById(purchaseOrderId);
-        let paymentMethod = this.paymentMethodDao.findById(purchaseOrder.PaymentMethod);
-        let sentMethod = this.sentMethodDao.findById(purchaseOrder.SentMethod);
+        const paymentMethod = this.paymentMethodDao.findById(purchaseOrder.PaymentMethod);
+        const sentMethod = this.sentMethodDao.findById(purchaseOrder.SentMethod);
 
         purchaseOrder.PaymentMethod = paymentMethod.Name;
         purchaseOrder.SentMethod = sentMethod.Name;
@@ -55,7 +55,7 @@ class PurchaseOrderService {
         });
 
         purchaseOrderItems.forEach((item: any) => {
-            let product = this.productDao.findById(item.Product);
+            const product = this.productDao.findById(item.Product);
             item.Product = product.Name;
         });
 
@@ -63,14 +63,14 @@ class PurchaseOrderService {
 
         if (purchaseOrder.Company) {
             company = this.companyDao.findById(purchaseOrder.Company);
-            let city = this.cityDao.findById(company.City);
-            let country = this.countryDao.findById(company.Country);
+            const city = this.cityDao.findById(company.City);
+            const country = this.countryDao.findById(company.Country);
 
-            company.CityName = city.Name;
+            company.City = city.Name;
             company.Country = country.Name;
         }
 
-        let supplier = this.supplierDao.findById(purchaseOrder.Supplier);
+        const supplier = this.supplierDao.findById(purchaseOrder.Supplier);
 
         return {
             purchaseOrder: purchaseOrder,

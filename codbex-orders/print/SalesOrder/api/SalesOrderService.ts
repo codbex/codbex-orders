@@ -40,7 +40,7 @@ class SalesOrderService {
         const salesOrderId = ctx.pathParameters.salesOrderId;
 
         let salesOrder = this.salesOrderDao.findById(salesOrderId);
-        let sentMethod = this.sentMethodDao.findById(salesOrder.SentMethod);
+        const sentMethod = this.sentMethodDao.findById(salesOrder.SentMethod);
 
         salesOrder.SentMethod = sentMethod.Name;
 
@@ -53,32 +53,32 @@ class SalesOrderService {
         });
 
         salesOrderItems.forEach((item: any) => {
-            let product = this.productDao.findById(item.Product);
+            const product = this.productDao.findById(item.Product);
             item.Product = product.Name;
 
             const itemStatus = this.salesOrderItemStatusDao.findAll({
                 $filter: {
                     equals: {
-                        Id: item.SalesOrderItemStatus
+                        Id: item.Status
                     }
                 }
             });
 
-            item.SalesOrderItemStatus = itemStatus[0].Name;
+            item.Status = itemStatus[0].Name;
         });
 
         let company;
 
         if (salesOrder.Company) {
             company = this.companyDao.findById(salesOrder.Company);
-            let city = this.cityDao.findById(company.City);
-            let country = this.countryDao.findById(company.Country);
+            const city = this.cityDao.findById(company.City);
+            const country = this.countryDao.findById(company.Country);
 
-            company.CityName = city.Name;
+            company.City = city.Name;
             company.Country = country.Name;
         }
 
-        let customer = this.customerDao.findById(salesOrder.Customer);
+        const customer = this.customerDao.findById(salesOrder.Customer);
 
         return {
             salesOrder: salesOrder,
