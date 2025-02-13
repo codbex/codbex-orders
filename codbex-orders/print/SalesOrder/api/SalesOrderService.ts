@@ -1,0 +1,90 @@
+import { SalesOrderRepository as SalesOrderDao } from "../../../../codbex-orders/gen/codbex-orders/dao/salesorder/SalesOrderRepository";
+import { SalesOrderItemRepository as SalesOrderItemDao } from "../../../../codbex-orders/gen/codbex-orders/dao/salesorder/SalesOrderItemRepository";
+import { CustomerRepository as CustomerDao } from "../../../../codbex-partners/gen/codbex-partners/dao/Customers/CustomerRepository";
+import { ProductRepository as ProductDao } from "../../../../codbex-products/gen/codbex-products/dao/Products/ProductRepository";
+import { CompanyRepository as CompanyDao } from "../../../../codbex-companies/gen/codbex-companies/dao/Companies/CompanyRepository";
+import { CityRepository as CityDao } from "../../../../codbex-cities/gen/codbex-cities/dao/Cities/CityRepository";
+import { CountryRepository as CountryDao } from "../../../../codbex-countries/gen/codbex-countries/dao/Countries/CountryRepository";
+import { SentMethodRepository as SentMethodDao } from "../../../../codbex-methods/gen/codbex-methods/dao/Methods/SentMethodRepository";
+import { SalesOrderItemStatusRepository as SalesOrderItemStatusDao } from "../../../../codbex-orders/gen/codbex-orders/dao/OrdersSettings/SalesOrderItemStatusRepository";
+
+import { Controller, Get } from "sdk/http";
+
+@Controller
+class SalesOrderService {
+
+    private readonly salesOrderDao;
+    private readonly salesOrderItemDao;
+    private readonly customerDao;
+    private readonly productDao;
+    private readonly companyDao;
+    private readonly cityDao;
+    private readonly countryDao;
+    private readonly sentMethodDao;
+    private readonly salesOrderItemStatusDao;
+
+    constructor() {
+        this.salesOrderDao = new SalesOrderDao();
+        this.salesOrderItemDao = new SalesOrderItemDao();
+        this.customerDao = new CustomerDao();
+        this.productDao = new ProductDao();
+        this.companyDao = new CompanyDao();
+        this.cityDao = new CityDao();
+        this.countryDao = new CountryDao();
+        this.sentMethodDao = new SentMethodDao();
+        this.salesOrderItemStatusDao = new SalesOrderItemStatusDao();
+    }
+
+    @Get("/:salesOrderId")
+    public salesOrderData(_: any, ctx: any) {
+        const salesOrderId = ctx.pathParameters.salesOrderId;
+
+        let salesOrder = this.salesOrderDao.findById(salesOrderId);
+        let sentMethod = this.sentMethodDao.findById(salesOrder.SentMethod);
+
+        salesOrder.SentMethod = sentMethod.Name;
+
+        let salesOrderItems = this.salesOrderItemDao.findAll({
+            $filter: {
+                equals: {
+                    SalesOrder: salesOrder.Id
+                }
+            }
+        });
+
+        salesOrderItems.forEach((item: any) => {
+            let product = this.productDao.findById(item.Product);
+            item.Product = product.Name;
+
+            const itemStatus = this.salesOrderItemStatusDao.findAll({
+                $filter: {
+                    equals: {
+                        Id: item.SalesOrderItemStatus
+                    }
+                }
+            });
+
+            item.SalesOrderItemStatus = itemStatus[0].Name;
+        });
+
+        let company;
+
+        if (salesOrder.Company) {
+            company = this.companyDao.findById(salesOrder.Company);
+            let city = this.cityDao.findById(company.City);
+            let country = this.countryDao.findById(company.Country);
+
+            company.CityName = city.Name;
+            company.Country = country.Name;
+        }
+
+        let customer = this.customerDao.findById(salesOrder.Customer);
+
+        return {
+            salesOrder: salesOrder,
+            salesOrderItems: salesOrderItems,
+            customer: customer,
+            company: company
+        }
+    }
+}
