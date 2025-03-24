@@ -1,1 +1,5 @@
-{"module":"codbex-orders/gen/codbex-orders/ui/PurchaseOrder/perspective.js","extensionPoint":"codbex-orders","description":"codbex-orders - Perspective - PurchaseOrder"}
+{
+    "module": "codbex-orders/gen/codbex-orders/ui/PurchaseOrder/perspective.js",
+    "extensionPoint": "codbex-orders",
+    "description": "codbex-orders - Perspective - PurchaseOrder"
+}

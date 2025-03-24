@@ -1,5 +1,6 @@
 {
     "extensionPoint": "codbex-orders-custom-action",
     "module": "codbex-orders/print/PurchaseOrder/view.js",
-    "description": "Print Purchase Order Custom Action"
+    "description": "Print Purchase Order Custom Action",
+    "role": "codbex-orders.PurchaseOrder.PurchaseOrderReadOnly,codbex-orders.PurchaseOrder.PurchaseOrderFullAccess"
 }

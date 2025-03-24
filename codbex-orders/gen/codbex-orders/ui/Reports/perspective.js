@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'Reports',
 	name: 'Reports',
 	link: '/services/web/codbex-orders/gen/codbex-orders/ui/Reports/index.html',
-	order: 800,
-	icon: '/services/web/resources/unicons/file-graph.svg',
+	order: '800',
+	icon: '/services/web/resources/unicons/file-graph.svg'
 };
 
 if (typeof exports !== 'undefined') {

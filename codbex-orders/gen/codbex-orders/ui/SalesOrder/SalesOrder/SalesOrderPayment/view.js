@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "bottom",
     link: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/SalesOrderPayment/index.html",
-    perspectiveName: "SalesOrder",
+    perspectiveName: "SalesOrder"
 };
 
 if (typeof exports !== 'undefined') {

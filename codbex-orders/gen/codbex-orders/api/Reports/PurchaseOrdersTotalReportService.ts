@@ -1,5 +1,7 @@
 import { Controller, Get } from "sdk/http"
 import { PurchaseOrdersTotalReportRepository, PurchaseOrdersTotalReportFilter, PurchaseOrdersTotalReportPaginatedFilter } from "../../dao/Reports/PurchaseOrdersTotalReportRepository";
+import { user } from "sdk/security"
+import { ForbiddenError } from "../utils/ForbiddenError";
 import { HttpUtils } from "../utils/HttpUtils";
 
 @Controller
@@ -10,6 +12,7 @@ class PurchaseOrdersTotalReportService {
     @Get("/")
     public filter(_: any, ctx: any) {
         try {
+            this.checkPermissions("read");
             const filter: PurchaseOrdersTotalReportPaginatedFilter = {
                 StartDate: ctx.queryParameters.StartDate ? new Date(parseInt(ctx.queryParameters.StartDate)) : undefined,
                 EndDate: ctx.queryParameters.EndDate ? new Date(parseInt(ctx.queryParameters.EndDate)) : undefined,
@@ -26,6 +29,7 @@ class PurchaseOrdersTotalReportService {
     @Get("/count")
     public count(_: any, ctx: any) {
         try {
+            this.checkPermissions("read");
             const filter: PurchaseOrdersTotalReportFilter = {
                 StartDate: ctx.queryParameters.StartDate ? new Date(parseInt(ctx.queryParameters.StartDate)) : undefined,
                 EndDate: ctx.queryParameters.EndDate ? new Date(parseInt(ctx.queryParameters.EndDate)) : undefined,
@@ -45,6 +49,12 @@ class PurchaseOrdersTotalReportService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private checkPermissions(operationType: string) {
+        if (operationType === "read" && !(user.isInRole("codbex-orders.Reports.PurchaseOrdersTotalReportReadOnly"))) {
+            throw new ForbiddenError();
         }
     }
 

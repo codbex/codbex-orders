@@ -1,1 +1,6 @@
-{"module":"codbex-orders/gen/codbex-orders/ui/Reports/PurchaseOrdersTotalReport/tile.js","extensionPoint":"codbex-orders-tile","description":"codbex-orders - Application Tile"}
+{
+    "module": "codbex-orders/gen/codbex-orders/ui/Reports/PurchaseOrdersTotalReport/tile.js",
+    "extensionPoint": "codbex-orders-tile",
+    "description": "codbex-orders - Application Tile",
+    "role": "codbex-orders.Reports.PurchaseOrdersTotalReportReadOnly"
+}

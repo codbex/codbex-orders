@@ -1,5 +1,6 @@
 {
     "extensionPoint": "dashboard-widgets",
     "module": "codbex-orders/widgets/top-purchase-orders/service.js",
-    "description": "Top Purchase Orders"
+    "description": "Top Purchase Orders",
+    "role": "codbex-orders.PurchaseOrder.PurchaseOrderReadOnly,codbex-orders.PurchaseOrder.PurchaseOrderFullAccess"
 }

@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'WorkOrder',
 	name: 'Work Order',
 	link: '/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/index.html',
-	order: 530,
-	icon: '/services/web/resources/unicons/screw.svg',
+	order: '530',
+	icon: '/services/web/resources/unicons/screw.svg'
 };
 
 if (typeof exports !== 'undefined') {

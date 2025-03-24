@@ -1,0 +1,122 @@
+[
+    {
+        "name": "codbex-orders.SalesOrder.SalesOrderReadOnly",
+        "description": "A role that grants read only permission for SalesOrder."
+    },
+    {
+        "name": "codbex-orders.SalesOrder.SalesOrderFullAccess",
+        "description": "A role that grants full access for SalesOrder."
+    },
+    {
+        "name": "codbex-orders.SalesOrder.SalesOrderItemReadOnly",
+        "description": "A role that grants read only permission for SalesOrderItem."
+    },
+    {
+        "name": "codbex-orders.SalesOrder.SalesOrderItemFullAccess",
+        "description": "A role that grants full access for SalesOrderItem."
+    },
+    {
+        "name": "codbex-orders.PurchaseOrder.PurchaseOrderReadOnly",
+        "description": "A role that grants read only permission for PurchaseOrder."
+    },
+    {
+        "name": "codbex-orders.PurchaseOrder.PurchaseOrderFullAccess",
+        "description": "A role that grants full access for PurchaseOrder."
+    },
+    {
+        "name": "codbex-orders.PurchaseOrder.PurchaseOrderItemReadOnly",
+        "description": "A role that grants read only permission for PurchaseOrderItem."
+    },
+    {
+        "name": "codbex-orders.PurchaseOrder.PurchaseOrderItemFullAccess",
+        "description": "A role that grants full access for PurchaseOrderItem."
+    },
+    {
+        "name": "codbex-orders.OrdersSettings.SalesOrderStatusReadOnly",
+        "description": "A role that grants read only permission for SalesOrderStatus."
+    },
+    {
+        "name": "codbex-orders.OrdersSettings.SalesOrderStatusFullAccess",
+        "description": "A role that grants full access for SalesOrderStatus."
+    },
+    {
+        "name": "codbex-orders.OrdersSettings.PurchaseOrderStatusReadOnly",
+        "description": "A role that grants read only permission for PurchaseOrderStatus."
+    },
+    {
+        "name": "codbex-orders.OrdersSettings.PurchaseOrderStatusFullAccess",
+        "description": "A role that grants full access for PurchaseOrderStatus."
+    },
+    {
+        "name": "codbex-orders.SalesOrder.SalesOrderPaymentReadOnly",
+        "description": "A role that grants read only permission for SalesOrderPayment."
+    },
+    {
+        "name": "codbex-orders.SalesOrder.SalesOrderPaymentFullAccess",
+        "description": "A role that grants full access for SalesOrderPayment."
+    },
+    {
+        "name": "codbex-orders.PurchaseOrder.PurchaseOrderPaymentReadOnly",
+        "description": "A role that grants read only permission for PurchaseOrderPayment."
+    },
+    {
+        "name": "codbex-orders.PurchaseOrder.PurchaseOrderPaymentFullAccess",
+        "description": "A role that grants full access for PurchaseOrderPayment."
+    },
+    {
+        "name": "codbex-orders.Reports.SalesOrdersReportReadOnly",
+        "description": "A role that grants read only permission for SalesOrdersReport."
+    },
+    {
+        "name": "codbex-orders.entities.SalesOrdersReportFilterReadOnly",
+        "description": "A role that grants read only permission for SalesOrdersReportFilter."
+    },
+    {
+        "name": "codbex-orders.Reports.SalesOrdersTotalReportReadOnly",
+        "description": "A role that grants read only permission for SalesOrdersTotalReport."
+    },
+    {
+        "name": "codbex-orders.entities.SalesOrdersTotalReportFilterReadOnly",
+        "description": "A role that grants read only permission for SalesOrdersTotalReportFilter."
+    },
+    {
+        "name": "codbex-orders.Reports.PurchaseOrdersReportReadOnly",
+        "description": "A role that grants read only permission for PurchaseOrdersReport."
+    },
+    {
+        "name": "codbex-orders.entities.PurchaseOrdersReportFilterReadOnly",
+        "description": "A role that grants read only permission for PurchaseOrdersReportFilter."
+    },
+    {
+        "name": "codbex-orders.Reports.PurchaseOrdersTotalReportReadOnly",
+        "description": "A role that grants read only permission for PurchaseOrdersTotalReport."
+    },
+    {
+        "name": "codbex-orders.entities.PurchaseOrdersTotalReportFilterReadOnly",
+        "description": "A role that grants read only permission for PurchaseOrdersTotalReportFilter."
+    },
+    {
+        "name": "codbex-orders.WorkOrder.WorkOrderReadOnly",
+        "description": "A role that grants read only permission for WorkOrder."
+    },
+    {
+        "name": "codbex-orders.WorkOrder.WorkOrderFullAccess",
+        "description": "A role that grants full access for WorkOrder."
+    },
+    {
+        "name": "codbex-orders.OrdersSettings.WorkOrderStatusReadOnly",
+        "description": "A role that grants read only permission for WorkOrderStatus."
+    },
+    {
+        "name": "codbex-orders.OrdersSettings.WorkOrderStatusFullAccess",
+        "description": "A role that grants full access for WorkOrderStatus."
+    },
+    {
+        "name": "codbex-orders.OrdersSettings.SalesOrderItemStatusReadOnly",
+        "description": "A role that grants read only permission for SalesOrderItemStatus."
+    },
+    {
+        "name": "codbex-orders.OrdersSettings.SalesOrderItemStatusFullAccess",
+        "description": "A role that grants full access for SalesOrderItemStatus."
+    }
+]

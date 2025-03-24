@@ -1,6 +1,8 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { PurchaseOrdersReportFilterRepository, PurchaseOrdersReportFilterEntityOptions } from "../../dao/entities/PurchaseOrdersReportFilterRepository";
+import { user } from "sdk/security"
+import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
@@ -14,6 +16,7 @@ class PurchaseOrdersReportFilterService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
+            this.checkPermissions("read");
             const options: PurchaseOrdersReportFilterEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
@@ -28,6 +31,7 @@ class PurchaseOrdersReportFilterService {
     @Post("/")
     public create(entity: any) {
         try {
+            this.checkPermissions("write");
             this.validateEntity(entity);
             entity.PurchaseOrdersReport = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/codbex-orders/api/entities/PurchaseOrdersReportFilterService.ts/" + entity.PurchaseOrdersReport);
@@ -41,6 +45,7 @@ class PurchaseOrdersReportFilterService {
     @Get("/count")
     public count() {
         try {
+            this.checkPermissions("read");
             return this.repository.count();
         } catch (error: any) {
             this.handleError(error);
@@ -50,6 +55,7 @@ class PurchaseOrdersReportFilterService {
     @Post("/count")
     public countWithFilter(filter: any) {
         try {
+            this.checkPermissions("read");
             return this.repository.count(filter);
         } catch (error: any) {
             this.handleError(error);
@@ -59,6 +65,7 @@ class PurchaseOrdersReportFilterService {
     @Post("/search")
     public search(filter: any) {
         try {
+            this.checkPermissions("read");
             return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
@@ -68,6 +75,7 @@ class PurchaseOrdersReportFilterService {
     @Get("/:id")
     public getById(_: any, ctx: any) {
         try {
+            this.checkPermissions("read");
             const id = ctx.pathParameters.id;
             const entity = this.repository.findById(id);
             if (entity) {
@@ -83,6 +91,7 @@ class PurchaseOrdersReportFilterService {
     @Put("/:id")
     public update(entity: any, ctx: any) {
         try {
+            this.checkPermissions("write");
             entity.PurchaseOrdersReport = ctx.pathParameters.id;
             this.validateEntity(entity);
             this.repository.update(entity);
@@ -95,6 +104,7 @@ class PurchaseOrdersReportFilterService {
     @Delete("/:id")
     public deleteById(_: any, ctx: any) {
         try {
+            this.checkPermissions("write");
             const id = ctx.pathParameters.id;
             const entity = this.repository.findById(id);
             if (entity) {
@@ -115,6 +125,15 @@ class PurchaseOrdersReportFilterService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private checkPermissions(operationType: string) {
+        if (operationType === "read" && !(user.isInRole("codbex-orders.entities.PurchaseOrdersReportFilterReadOnly") || user.isInRole("codbex-orders.entities.PurchaseOrdersReportFilterFullAccess"))) {
+            throw new ForbiddenError();
+        }
+        if (operationType === "write" && !user.isInRole("codbex-orders.entities.PurchaseOrdersReportFilterFullAccess")) {
+            throw new ForbiddenError();
         }
     }
 

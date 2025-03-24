@@ -7,7 +7,7 @@ const viewData = {
     id: "SalesOrdersReport-details",
     label: "SalesOrdersReport",
     link: "/services/web/codbex-orders/gen/codbex-orders/ui/Reports/SalesOrdersReport/dialog-window/index.html",
-    perspectiveName: "Reports",
+    perspectiveName: "Reports"
 };
 
 if (typeof exports !== 'undefined') {

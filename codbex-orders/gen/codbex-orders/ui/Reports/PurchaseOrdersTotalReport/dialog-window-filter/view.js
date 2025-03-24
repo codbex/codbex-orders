@@ -7,7 +7,7 @@ const viewData = {
     id: "PurchaseOrdersTotalReport-details-filter",
     label: "PurchaseOrdersTotalReport",
     link: "/services/web/codbex-orders/gen/codbex-orders/ui/Reports/PurchaseOrdersTotalReport/dialog-window-filter/index.html",
-    perspectiveName: "Reports",
+    perspectiveName: "Reports"
 };
 
 if (typeof exports !== 'undefined') {
