@@ -4,7 +4,7 @@
 
 ### Model
 
-![model](images/orders-model.png)
+<img width="1058" alt="image" src="https://github.com/user-attachments/assets/ae1e03ae-30b6-444a-a261-b327516afd81" />
 
 ### Application
 
