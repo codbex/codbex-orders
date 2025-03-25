@@ -7,8 +7,8 @@ const perspectiveData = {
 	id: 'SalesOrder',
 	name: 'Sales Order',
 	link: '/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/index.html',
-	order: 510,
-	icon: '/services/web/resources/unicons/receipt.svg',
+	order: '510',
+	icon: '/services/web/resources/unicons/receipt.svg'
 };
 
 if (typeof exports !== 'undefined') {

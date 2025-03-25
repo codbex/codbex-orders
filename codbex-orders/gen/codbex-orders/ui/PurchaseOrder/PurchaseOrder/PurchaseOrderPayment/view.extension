@@ -1,5 +1,6 @@
 {
     "module": "codbex-orders/gen/codbex-orders/ui/PurchaseOrder/PurchaseOrder/PurchaseOrderPayment/view.js",
     "extensionPoint": "codbex-orders-view",
-    "description": "codbex-orders - Application View - Details"
+    "description": "codbex-orders - Application View - Details",
+    "role": "codbex-orders.PurchaseOrder.PurchaseOrderPaymentReadOnly,codbex-orders.PurchaseOrder.PurchaseOrderPaymentFullAccess"
 }

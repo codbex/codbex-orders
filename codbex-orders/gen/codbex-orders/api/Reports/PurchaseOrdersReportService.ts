@@ -1,5 +1,7 @@
 import { Controller, Get } from "sdk/http"
 import { PurchaseOrdersReportRepository, PurchaseOrdersReportFilter, PurchaseOrdersReportPaginatedFilter } from "../../dao/Reports/PurchaseOrdersReportRepository";
+import { user } from "sdk/security"
+import { ForbiddenError } from "../utils/ForbiddenError";
 import { HttpUtils } from "../utils/HttpUtils";
 
 @Controller
@@ -10,6 +12,7 @@ class PurchaseOrdersReportService {
     @Get("/")
     public filter(_: any, ctx: any) {
         try {
+            this.checkPermissions("read");
             const filter: PurchaseOrdersReportPaginatedFilter = {
                 Number: ctx.queryParameters.Number ? ctx.queryParameters.Number : undefined,
                 Name: ctx.queryParameters.Name ? ctx.queryParameters.Name : undefined,
@@ -28,6 +31,7 @@ class PurchaseOrdersReportService {
     @Get("/count")
     public count(_: any, ctx: any) {
         try {
+            this.checkPermissions("read");
             const filter: PurchaseOrdersReportFilter = {
                 Number: ctx.queryParameters.Number ? ctx.queryParameters.Number : undefined,
                 Name: ctx.queryParameters.Name ? ctx.queryParameters.Name : undefined,
@@ -49,6 +53,12 @@ class PurchaseOrdersReportService {
             HttpUtils.sendResponseBadRequest(error.message);
         } else {
             HttpUtils.sendInternalServerError(error.message);
+        }
+    }
+
+    private checkPermissions(operationType: string) {
+        if (operationType === "read" && !(user.isInRole("codbex-orders.Reports.PurchaseOrdersReportReadOnly"))) {
+            throw new ForbiddenError();
         }
     }
 

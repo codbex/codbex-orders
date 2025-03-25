@@ -1,5 +1,6 @@
 {
     "extensionPoint": "dashboard-widgets",
     "module": "codbex-orders/widgets/average-sales-order-price/service.js",
-    "description": "Average Sales Order Price"
+    "description": "Average Sales Order Price",
+    "role": "codbex-orders.SalesOrder.SalesOrderReadOnly,codbex-orders.SalesOrder.SalesOrderFullAccess"
 }

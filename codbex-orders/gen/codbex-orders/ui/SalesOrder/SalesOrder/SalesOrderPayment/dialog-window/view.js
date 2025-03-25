@@ -7,7 +7,7 @@ const viewData = {
     id: "SalesOrderPayment-details",
     label: "SalesOrderPayment",
     link: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/SalesOrderPayment/dialog-window/index.html",
-    perspectiveName: "SalesOrder",
+    perspectiveName: "SalesOrder"
 };
 
 if (typeof exports !== 'undefined') {

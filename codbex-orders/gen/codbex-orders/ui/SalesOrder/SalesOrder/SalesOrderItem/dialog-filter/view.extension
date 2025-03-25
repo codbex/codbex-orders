@@ -1,5 +1,6 @@
 {
     "module": "codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/SalesOrderItem/dialog-filter/view.js",
-    "extensionPoint": "codbex-orders-dialog-window",
-    "description": "codbex-orders - Application Dialog Window"
+    "extensionPoint": "dialog-window",
+    "description": "codbex-orders - Application Dialog Window",
+    "role": "codbex-orders.SalesOrder.SalesOrderItemReadOnly,codbex-orders.SalesOrder.SalesOrderItemFullAccess"
 }

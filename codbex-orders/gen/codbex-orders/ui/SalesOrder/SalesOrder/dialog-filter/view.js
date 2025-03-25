@@ -7,7 +7,7 @@ const viewData = {
     id: "SalesOrder-filter",
     label: "SalesOrder Filter",
     link: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/dialog-filter/index.html",
-    perspectiveName: "SalesOrder",
+    perspectiveName: "SalesOrder"
 };
 
 if (typeof exports !== 'undefined') {

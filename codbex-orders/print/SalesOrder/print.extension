@@ -1,5 +1,6 @@
 {
     "extensionPoint": "codbex-orders-custom-action",
     "module": "codbex-orders/print/SalesOrder/view.js",
-    "description": "Print Sales Order Custom Action"
+    "description": "Print Sales Order Custom Action",
+    "role": "codbex-orders.SalesOrder.SalesOrderReadOnly,codbex-orders.SalesOrder.SalesOrderFullAccess"
 }

@@ -9,7 +9,7 @@ const viewData = {
     factory: "frame",
     region: "center",
     link: "/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/main-details/index.html",
-    perspectiveName: "WorkOrder",
+    perspectiveName: "WorkOrder"
 };
 
 if (typeof exports !== 'undefined') {

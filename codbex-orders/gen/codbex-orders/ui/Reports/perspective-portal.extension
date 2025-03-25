@@ -1,1 +1,5 @@
-{"module":"codbex-orders/gen/codbex-orders/ui/Reports/perspective.js","extensionPoint":"portal","description":"codbex-orders - Perspective - Reports"}
+{
+    "module": "codbex-orders/gen/codbex-orders/ui/Reports/perspective.js",
+    "extensionPoint": "portal",
+    "description": "codbex-orders - Perspective - Reports"
+}

@@ -1,1 +1,6 @@
-{"module":"codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/tile.js","extensionPoint":"portal-tile","description":"codbex-orders - Application Tile"}
+{
+    "module": "codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/tile.js",
+    "extensionPoint": "portal-tile",
+    "description": "codbex-orders - Application Tile",
+    "role": "codbex-orders.WorkOrder.WorkOrderReadOnly,codbex-orders.WorkOrder.WorkOrderFullAccess"
+}
