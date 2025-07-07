@@ -1,0 +1,6 @@
+{
+    "extensionPoint": "dashboard-widgets",
+    "module": "codbex-orders/widgets/top-products/config.js",
+    "description": "Top products",
+    "role": "codbex-products.Products.ProductFullAccess,codbex-products.Products.ProductReadOnly"
+}

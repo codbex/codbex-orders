@@ -280,5 +280,4 @@ class OrderService {
         }));
         return topCustomers;
     }
-
 }
