@@ -1,70 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="average-purchase-order-price"
-    ng-controller="AveragePurchaseOrderPriceController">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="average-purchase-order-price" ng-controller="AveragePurchaseOrderPriceController">
 
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
-        <title dg-view-title></title>
-        <script type="text/javascript" src="service.js"></script>
-        <theme></theme>
-        <script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
-        </script>
-        <link type="text/css" rel="stylesheet"
-            href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+        <title config-title></title>
+        <script type="text/javascript" src="./config.js"></script>
+        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
         <script type="text/javascript" src="/webjars/chart.js/dist/chart.umd.js"></script>
-        <script type="text/javascript" src="controller.js"></script>
-
+        <script type="text/javascript" src="./controller.js"></script>
         <style>
-            .tile-auto-layout {
-                min-height: auto;
-                height: auto;
-                width: auto;
-                max-width: 99%;
-                margin: 1px;
-            }
-
-            .overflow-h {
-                overflow: hidden;
-            }
-
-            .fd-numeric-content__kpi {
-                font-size: 1.5rem;
-                word-wrap: break-word;
-                text-overflow: ellipsis;
-                font-weight: 500;
-                white-space: nowrap;
-                overflow: hidden;
+            body {
+                background: var(--sapTile_Background);
             }
 
         </style>
     </head>
 
-    <body class="overflow-h">
-        <div role="button" tabindex="0" class="fd-tile fd-tile--feed tile-auto-layout"
-            ng-click="openPerspective('sales-orders')">
-            <div class="fd-tile__header tile-auto-layout">
-                <div class="fd-tile__title">Average Purchase Order Price</div>
-            </div>
-            <fd-card-subtitle>last month
-            </fd-card-subtitle>
-            <div class="fd-tile__content tile-auto-layout">
-                <div class="fd-tile__section">
-                    <div class="fd-numeric-content">
-                        <div class="fd-numeric-content__kpi-container">
-                            <div class="fd-numeric-content__kpi">
-                                {{OrderData.AveragePurchaseOrderPrice | number:2 }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="fd-tile__footer tile-auto-layout">
-                <span class="fd-tile__footer-text">BGN</span>
-            </div>
-        </div>
+    <body class="bk-vbox bk-pointer bk-padding bk-box--space-between" ng-click="openPerspective()">
+        <h5 bk-title wrap="true" header-size="5" aria-label="widget title">Average Purchase Order Price</h5>
+        <p class="fd-text--large widget-content">{{OrderData.AveragePurchaseOrderPrice | number:2 }} BGN</p>
+        <p class="fd-text">Last month</p>
+        </script>
+        <theme></theme>
     </body>
 
 </html>

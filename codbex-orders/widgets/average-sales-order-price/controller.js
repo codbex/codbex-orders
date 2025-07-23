@@ -1,5 +1,6 @@
-angular.module('average-sales-order-price', ['ideUI', 'ideView'])
-    .controller('AverageSalesOrderPriceController', ['$scope', '$http', function ($scope, $http) {
+angular.module('average-sales-order-price', ['blimpKit', 'platformView'])
+    .controller('AverageSalesOrderPriceController', ($scope, $http) => {
+
         $scope.state = {
             isBusy: true,
             error: false,
@@ -11,4 +12,4 @@ angular.module('average-sales-order-price', ['ideUI', 'ideView'])
             .then(function (response) {
                 $scope.OrderData = response.data;
             });
-    }]);
+    });

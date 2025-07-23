@@ -1,6 +1,6 @@
 {
     "extensionPoint": "dashboard-widgets",
-    "module": "codbex-orders/widgets/average-purchase-order-price/service.js",
+    "module": "codbex-orders/widgets/average-purchase-order-price/config.js",
     "description": "Average Purchase Order Price",
     "role": "codbex-orders.PurchaseOrder.PurchaseOrderReadOnly,codbex-orders.PurchaseOrder.PurchaseOrderFullAccess"
 }

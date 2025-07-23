@@ -1,6 +1,6 @@
 {
     "extensionPoint": "dashboard-widgets",
-    "module": "codbex-orders/widgets/new-sales-orders/service.js",
+    "module": "codbex-orders/widgets/new-sales-orders/config.js",
     "description": "New Sales Orders",
     "role": "codbex-orders.SalesOrder.SalesOrderReadOnly,codbex-orders.SalesOrder.SalesOrderFullAccess"
 }
