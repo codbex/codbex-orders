@@ -1,5 +1,5 @@
 const viewData = {
-    id: 'top-customers-widget',
+    id: 'top-customers',
     label: 'Top Customer',
     link: '/services/web/codbex-orders/widgets/top-customers/index.html',
     redirectViewId: 'custmores-navigation',
