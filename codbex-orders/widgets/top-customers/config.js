@@ -1,7 +1,7 @@
 const viewData = {
     id: 'top-customers',
     label: 'Top Customer',
-    link: '/services/web/codbex-orders/widgets/top-customers/index.html',
+    path: '/services/web/codbex-orders/widgets/top-customers/index.html',
     redirectViewId: 'custmores-navigation',
     size: "large",
     lazyLoad: true,

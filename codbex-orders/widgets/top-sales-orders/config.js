@@ -1,7 +1,7 @@
 const viewData = {
     id: 'top-sales-orders-widget',
     label: 'Top Sales Orders',
-    link: '/services/web/codbex-orders/widgets/top-sales-orders/index.html',
+    path: '/services/web/codbex-orders/widgets/top-sales-orders/index.html',
     redirectViewId: 'sales-orders-navigation',
     size: "large",
     lazyLoad: true,
