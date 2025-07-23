@@ -1,7 +1,7 @@
 const viewData = {
     id: 'purchase-order-print',
     label: 'Print',
-    link: '/services/ts/codbex-templates/print/purchase-order-print-template.ts',
+    path: '/services/ts/codbex-templates/print/purchase-order-print-template.ts',
     perspective: 'PurchaseOrder',
     view: 'PurchaseOrder',
     type: 'entity',
@@ -9,7 +9,5 @@ const viewData = {
 };
 
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

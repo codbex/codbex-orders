@@ -1,6 +1,0 @@
-{
-    "extensionPoint": "dashboard-navigations",
-    "module": "codbex-orders/navigations/purchase-orders/service.js",
-    "description": "Purchase Order Navigation",
-    "role": "codbex-orders.PurchaseOrder.PurchaseOrderReadOnly,codbex-orders.PurchaseOrder.PurchaseOrderFullAccess"
-}
