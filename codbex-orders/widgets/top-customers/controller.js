@@ -1,5 +1,6 @@
-angular.module('top-customer', ['ideUI', 'ideView'])
-    .controller('TopCustomerController', ['$scope', '$document', '$http', 'messageHub', function ($scope, $document, $http, messageHub) {
+angular.module('top-customers-widget', ['blimpKit', 'platformView'])
+    .controller('TopCustomerController', ($scope, $http) => {
+
         $scope.state = {
             isBusy: true,
             error: false,
@@ -9,25 +10,19 @@ angular.module('top-customer', ['ideUI', 'ideView'])
         $scope.today = new Date();
 
         const orderServiceUrl = "/services/ts/codbex-orders/widgets/api/OrderService.ts/orderData";
+
         $http.get(orderServiceUrl)
-            .then(function (response) {
-                $scope.OrderData = response.data;
-            });
-
-        async function getOrderData() {
-            try {
-                const response = await $http.get("/services/ts/codbex-orders/widgets/api/OrderService.ts/orderData");
-                return response.data;
-            } catch (error) {
+            .then(response => {
+                const data = response.data;
+                $scope.OrderData = data;
+                $scope.TopCustomers = data.TopCustomers;
+            })
+            .catch(error => {
                 console.error('Error fetching order data:', error);
-            }
-        }
-
-
-        angular.element($document[0]).ready(async function () {
-            const orderData = await getOrderData();
-            $scope.$apply(function () {
-                $scope.topCustomers = orderData.TopCustomers;
+                $scope.state.error = true;
+            })
+            .finally(() => {
+                $scope.state.isBusy = false;
             });
-        });
-    }]);
+
+    });

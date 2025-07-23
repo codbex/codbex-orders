@@ -13,7 +13,7 @@ angular.module('new-sales-orders', ['blimpKit', 'platformView'])
         $http.get(orderServiceUrl)
             .then(function (response) {
                 $scope.OrderData = response.data;
-                calculateGrossProfit();
+                // calculateGrossProfit();
             });
 
     });
