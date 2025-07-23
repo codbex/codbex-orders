@@ -1,5 +1,6 @@
-angular.module('new-sales-orders', ['ideUI', 'ideView'])
-    .controller('NewSalesOrdersController', ['$scope', '$document', '$http', 'messageHub', function ($scope, $document, $http, messageHub) {
+angular.module('new-sales-orders', ['blimpKit', 'platformView'])
+    .controller('NewSalesOrdersController', ($scope, $http) => {
+
         $scope.state = {
             isBusy: true,
             error: false,
@@ -15,4 +16,4 @@ angular.module('new-sales-orders', ['ideUI', 'ideView'])
                 calculateGrossProfit();
             });
 
-    }]);
+    });

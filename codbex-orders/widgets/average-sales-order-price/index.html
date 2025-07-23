@@ -17,14 +17,22 @@
                 background: var(--sapTile_Background);
             }
 
+            .widget-content {
+                font-size: 1.5rem;
+                word-wrap: break-word;
+                text-overflow: ellipsis;
+                font-weight: 500;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
         </style>
     </head>
 
     <body class="bk-vbox bk-pointer bk-padding bk-box--space-between" ng-click="openPerspective()">
         <h5 bk-title wrap="true" header-size="5" aria-label="widget title">Average Sales Order Price</h5>
-        <p class="fd-text--large widget-content">{{OrderData.AverageSalesOrderPrice | number:2 }} BGN</p>
+        <p class="fd-text widget-content">{{OrderData.AverageSalesOrderPrice | number:2 }} BGN</p>
         <p class="fd-text">Last month</p>
-        </script>
         <theme></theme>
     </body>
 
