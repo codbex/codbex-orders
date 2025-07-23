@@ -1,0 +1,6 @@
+{
+    "module": "codbex-orders/gen/codbex-orders/ui/Settings/SalesOrderItemStatus/view.js",
+    "extensionPoint": "application-settings",
+    "description": "codbex-orders - Application View",
+    "role": "codbex-orders.OrdersSettings.SalesOrderItemStatusReadOnly,codbex-orders.OrdersSettings.SalesOrderItemStatusFullAccess"
+}

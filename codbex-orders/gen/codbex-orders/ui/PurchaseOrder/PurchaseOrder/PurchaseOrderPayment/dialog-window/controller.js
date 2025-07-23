@@ -1,22 +1,32 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-orders.PurchaseOrder.PurchaseOrderPayment';
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
+	.config(['EntityServiceProvider', (EntityServiceProvider) => {
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-orders/gen/codbex-orders/api/PurchaseOrder/PurchaseOrderPaymentService.ts';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/codbex-orders/api/PurchaseOrder/PurchaseOrderPaymentService.ts";
-	}])
-	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', 'entityApi', function ($scope, messageHub, ViewParameters, entityApi) {
-
+	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
+		const Dialogs = new DialogHub();
+		const Notifications = new NotificationHub();
+		let description = 'Description';
+		let propertySuccessfullyCreated = 'PurchaseOrderPayment successfully created';
+		let propertySuccessfullyUpdated = 'PurchaseOrderPayment successfully updated';
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "PurchaseOrderPayment Details",
-			create: "Create PurchaseOrderPayment",
-			update: "Update PurchaseOrderPayment"
+			select: 'PurchaseOrderPayment Details',
+			create: 'Create PurchaseOrderPayment',
+			update: 'Update PurchaseOrderPayment'
 		};
 		$scope.action = 'select';
+
+		LocaleService.onInit(() => {
+			description = LocaleService.t('codbex-orders:defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-orders:defaults.formHeadSelect', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-orders:defaults.formHeadCreate', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-orders:defaults.formHeadUpdate', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-orders:messages.propertySuccessfullyCreated', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-orders:messages.propertySuccessfullyUpdated', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)' });
+		});
 
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
@@ -28,42 +38,66 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			$scope.optionsSupplierPayment = params.optionsSupplierPayment;
 		}
 
-		$scope.create = function () {
+		$scope.create = () => {
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
-			entityApi.create(entity).then(function (response) {
-				if (response.status != 201) {
-					messageHub.showAlertError("PurchaseOrderPayment", `Unable to create PurchaseOrderPayment: '${response.message}'`);
-					return;
-				}
-				messageHub.postMessage("entityCreated", response.data);
+			EntityService.create(entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrderPayment.entityCreated', data: response.data });
+				Notifications.show({
+					title: LocaleService.t('codbex-orders:t.PURCHASEORDERPAYMENT'),
+					description: propertySuccessfullyCreated,
+					type: 'positive'
+				});
 				$scope.cancel();
-				messageHub.showAlertSuccess("PurchaseOrderPayment", "PurchaseOrderPayment successfully created");
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: LocaleService.t('codbex-orders:t.PURCHASEORDERPAYMENT'),
+					message: LocaleService.t('codbex-orders:messages.error.unableToCreate', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)', message: message }),
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.update = function () {
+		$scope.update = () => {
 			let id = $scope.entity.Id;
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
-			entityApi.update(id, entity).then(function (response) {
-				if (response.status != 200) {
-					messageHub.showAlertError("PurchaseOrderPayment", `Unable to update PurchaseOrderPayment: '${response.message}'`);
-					return;
-				}
-				messageHub.postMessage("entityUpdated", response.data);
+			EntityService.update(id, entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrderPayment.entityUpdated', data: response.data });
+				Notifications.show({
+					title: LocaleService.t('codbex-orders:t.PURCHASEORDERPAYMENT'),
+					description: propertySuccessfullyUpdated,
+					type: 'positive'
+				});
 				$scope.cancel();
-				messageHub.showAlertSuccess("PurchaseOrderPayment", "PurchaseOrderPayment successfully updated");
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: LocaleService.t('codbex-orders:t.PURCHASEORDERPAYMENT'),
+					message: LocaleService.t('codbex-orders:messages.error.unableToUpdate', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)', message: message }),
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.servicePurchaseOrder = "/services/ts/codbex-orders/gen/codbex-orders/api/PurchaseOrder/PurchaseOrderService.ts";
-		$scope.serviceSupplierPayment = "/services/ts/codbex-payments/gen/codbex-payments/api/SupplierPayment/SupplierPaymentService.ts";
+		$scope.servicePurchaseOrder = '/services/ts/codbex-orders/gen/codbex-orders/api/PurchaseOrder/PurchaseOrderService.ts';
+		$scope.serviceSupplierPayment = '/services/ts/codbex-payments/gen/codbex-payments/api/SupplierPayment/SupplierPaymentService.ts';
 
-		$scope.cancel = function () {
-			$scope.entity = {};
-			$scope.action = 'select';
-			messageHub.closeDialogWindow("PurchaseOrderPayment-details");
+		$scope.alert = (message) => {
+			if (message) Dialogs.showAlert({
+				title: description,
+				message: message,
+				type: AlertTypes.Information,
+				preformatted: true,
+			});
 		};
 
-	}]);
+		$scope.cancel = () => {
+			$scope.entity = {};
+			$scope.action = 'select';
+			Dialogs.closeWindow({ id: 'PurchaseOrderPayment-details' });
+		};
+	});

@@ -49,7 +49,7 @@ export interface WorkOrderStatusEntityOptions {
     },
     $select?: (keyof WorkOrderStatusEntity)[],
     $sort?: string | (keyof WorkOrderStatusEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -92,10 +92,10 @@ export class WorkOrderStatusRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(WorkOrderStatusRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(WorkOrderStatusRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: WorkOrderStatusEntityOptions): WorkOrderStatusEntity[] {
+    public findAll(options: WorkOrderStatusEntityOptions = {}): WorkOrderStatusEntity[] {
         return this.dao.list(options);
     }
 

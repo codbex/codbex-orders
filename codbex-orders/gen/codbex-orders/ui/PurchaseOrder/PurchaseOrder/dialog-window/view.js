@@ -6,15 +6,15 @@
 const viewData = {
     id: "PurchaseOrder-details",
     label: "PurchaseOrder",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/PurchaseOrder/PurchaseOrder/dialog-window/index.html",
+    translation: {
+        key: 'codbex-orders:t.PURCHASEORDER',
+    },
+    path: "/services/web/codbex-orders/gen/codbex-orders/ui/PurchaseOrder/PurchaseOrder/dialog-window/index.html",
     perspectiveName: "PurchaseOrder",
     roles: [
         "codbex-orders.PurchaseOrder.PurchaseOrderReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

@@ -4,14 +4,14 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "PurchaseOrdersReport-details",
-    label: "PurchaseOrdersReport",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/Reports/PurchaseOrdersReport/dialog-window/index.html",
-    perspectiveName: "Reports"
+    id: 'PurchaseOrdersReport-details',
+    label: 'PurchaseOrdersReport',
+    translation: {
+        key: 'codbex-orders:t.PURCHASEORDERSREPORT',
+    },
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/Reports/PurchaseOrdersReport/dialog-window/index.html',
+    perspectiveName: 'Reports'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

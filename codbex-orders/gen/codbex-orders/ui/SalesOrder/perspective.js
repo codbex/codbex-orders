@@ -5,14 +5,14 @@
  */
 const perspectiveData = {
 	id: 'SalesOrder',
-	name: 'Sales Order',
-	link: '/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/index.html',
-	order: '510',
+	label: 'Sales Order',
+	translation: {
+        key: 'codbex-orders:t.SALESORDER',
+    },
+	path: '/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/index.html',
+	order: 510,
 	icon: '/services/web/resources/unicons/receipt.svg'
 };
-
 if (typeof exports !== 'undefined') {
-	exports.getPerspective = function () {
-		return perspectiveData;
-	}
+	exports.getPerspective = () => perspectiveData;
 }

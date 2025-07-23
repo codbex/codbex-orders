@@ -1,31 +1,42 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-orders.PurchaseOrder.PurchaseOrder';
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
+	.config(['EntityServiceProvider', (EntityServiceProvider) => {
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-orders/gen/codbex-orders/api/PurchaseOrder/PurchaseOrderService.ts';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/codbex-orders/api/PurchaseOrder/PurchaseOrderService.ts";
-	}])
-	.controller('PageController', ['$scope', '$http', 'messageHub', 'entityApi', 'Extensions', function ($scope, $http, messageHub, entityApi, Extensions) {
+	.controller('PageController', ($scope, $http, EntityService, Extensions, LocaleService, ButtonStates) => {
+		const Dialogs = new DialogHub();
+		let translated = {
+			yes: 'Yes',
+			no: 'No',
+			deleteConfirm: 'Are you sure you want to delete PurchaseOrder? This action cannot be undone.',
+			deleteTitle: 'Delete PurchaseOrder?'
+		};
 
+		LocaleService.onInit(() => {
+			translated.yes = LocaleService.t('codbex-orders:defaults.yes');
+			translated.no = LocaleService.t('codbex-orders:defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-orders:defaults.deleteTitle', { name: '$t(codbex-orders:t.PURCHASEORDER)' });
+			translated.deleteConfirm = LocaleService.t('codbex-orders:messages.deleteConfirm', { name: '$t(codbex-orders:t.PURCHASEORDER)' });
+		});
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
 		$scope.dataOffset = 0;
 		$scope.dataLimit = 10;
-		$scope.action = "select";
+		$scope.action = 'select';
 
 		//-----------------Custom Actions-------------------//
-		Extensions.get('dialogWindow', 'codbex-orders-custom-action').then(function (response) {
-			$scope.pageActions = response.filter(e => e.perspective === "PurchaseOrder" && e.view === "PurchaseOrder" && (e.type === "page" || e.type === undefined));
+		Extensions.getWindows(['codbex-orders-custom-action']).then((response) => {
+			$scope.pageActions = response.data.filter(e => e.perspective === 'PurchaseOrder' && e.view === 'PurchaseOrder' && (e.type === 'page' || e.type === undefined));
 		});
 
-		$scope.triggerPageAction = function (action) {
-			messageHub.showDialogWindow(
-				action.id,
-				{},
-				null,
-				true,
-				action
-			);
+		$scope.triggerPageAction = (action) => {
+			Dialogs.showWindow({
+				hasHeader: true,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
+				path: action.path,
+				maxWidth: action.maxWidth,
+				maxHeight: action.maxHeight,
+				closeButton: true
+			});
 		};
 		//-----------------Custom Actions-------------------//
 
@@ -42,32 +53,29 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		}
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
-			$scope.$apply(function () {
+		Dialogs.addMessageListener({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrder.clearDetails', handler: () => {
+			$scope.$evalAsync(() => {
 				$scope.selectedEntity = null;
-				$scope.action = "select";
+				$scope.action = 'select';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("entityCreated", function (msg) {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrder.entityCreated', handler: () => {
 			refreshData();
 			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
-
-		messageHub.onDidReceiveMessage("entityUpdated", function (msg) {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrder.entityUpdated', handler: () => {
 			refreshData();
 			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
-
-		messageHub.onDidReceiveMessage("entitySearch", function (msg) {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrder.entitySearch', handler: (data) => {
 			resetPagination();
-			$scope.filter = msg.data.filter;
-			$scope.filterEntity = msg.data.entity;
+			$scope.filter = data.filter;
+			$scope.filterEntity = data.entity;
 			$scope.loadPage($scope.dataPage, $scope.filter);
-		});
+		}});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber, filter) {
+		$scope.loadPage = (pageNumber, filter) => {
 			if (!filter && $scope.filter) {
 				filter = $scope.filter;
 			}
@@ -75,13 +83,9 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				filter = {};
 			}
 			$scope.selectedEntity = null;
-			entityApi.count(filter).then(function (response) {
-				if (response.status != 200) {
-					messageHub.showAlertError("PurchaseOrder", `Unable to count PurchaseOrder: '${response.message}'`);
-					return;
-				}
-				if (response.data) {
-					$scope.dataCount = response.data;
+			EntityService.count(filter).then((resp) => {
+				if (resp.data) {
+					$scope.dataCount = resp.data.count;
 				}
 				$scope.dataPages = Math.ceil($scope.dataCount / $scope.dataLimit);
 				filter.$offset = ($scope.dataPage - 1) * $scope.dataLimit;
@@ -91,16 +95,11 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					filter.$limit = $scope.dataPage * $scope.dataLimit;
 				}
 
-				entityApi.search(filter).then(function (response) {
-					if (response.status != 200) {
-						messageHub.showAlertError("PurchaseOrder", `Unable to list/filter PurchaseOrder: '${response.message}'`);
-						return;
-					}
+				EntityService.search(filter).then((response) => {
 					if ($scope.data == null || $scope.dataReset) {
 						$scope.data = [];
 						$scope.dataReset = false;
 					}
-
 					response.data.forEach(e => {
 						if (e.Date) {
 							e.Date = new Date(e.Date);
@@ -112,14 +111,30 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 					$scope.data = $scope.data.concat(response.data);
 					$scope.dataPage++;
+				}, (error) => {
+					const message = error.data ? error.data.message : '';
+					Dialogs.showAlert({
+						title: LocaleService.t('codbex-orders:t.PURCHASEORDER'),
+						message: LocaleService.t('codbex-orders:messages.error.unableToLF', { name: '$t(codbex-orders:t.PURCHASEORDER)', message: message }),
+						type: AlertTypes.Error
+					});
+					console.error('EntityService:', error);
 				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: LocaleService.t('codbex-orders:t.PURCHASEORDER'),
+					message: LocaleService.t('codbex-orders:messages.error.unableToCount', { name: '$t(codbex-orders:t.PURCHASEORDER)', message: message }),
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 		$scope.loadPage($scope.dataPage, $scope.filter);
 
-		$scope.selectEntity = function (entity) {
+		$scope.selectEntity = (entity) => {
 			$scope.selectedEntity = entity;
-			messageHub.postMessage("entitySelected", {
+			Dialogs.postMessage({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrder.entitySelected', data: {
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsSupplier: $scope.optionsSupplier,
@@ -130,14 +145,14 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsOperator: $scope.optionsOperator,
 				optionsCompany: $scope.optionsCompany,
 				optionsStore: $scope.optionsStore,
-			});
+			}});
 		};
 
-		$scope.createEntity = function () {
+		$scope.createEntity = () => {
 			$scope.selectedEntity = null;
-			$scope.action = "create";
+			$scope.action = 'create';
 
-			messageHub.postMessage("createEntity", {
+			Dialogs.postMessage({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrder.createEntity', data: {
 				entity: {},
 				optionsSupplier: $scope.optionsSupplier,
 				optionsCurrency: $scope.optionsCurrency,
@@ -147,12 +162,12 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsOperator: $scope.optionsOperator,
 				optionsCompany: $scope.optionsCompany,
 				optionsStore: $scope.optionsStore,
-			});
+			}});
 		};
 
-		$scope.updateEntity = function () {
-			$scope.action = "update";
-			messageHub.postMessage("updateEntity", {
+		$scope.updateEntity = () => {
+			$scope.action = 'update';
+			Dialogs.postMessage({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrder.updateEntity', data: {
 				entity: $scope.selectedEntity,
 				optionsSupplier: $scope.optionsSupplier,
 				optionsCurrency: $scope.optionsCurrency,
@@ -162,50 +177,56 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				optionsOperator: $scope.optionsOperator,
 				optionsCompany: $scope.optionsCompany,
 				optionsStore: $scope.optionsStore,
-			});
+			}});
 		};
 
-		$scope.deleteEntity = function () {
+		$scope.deleteEntity = () => {
 			let id = $scope.selectedEntity.Id;
-			messageHub.showDialogAsync(
-				'Delete PurchaseOrder?',
-				`Are you sure you want to delete PurchaseOrder? This action cannot be undone.`,
-				[{
-					id: "delete-btn-yes",
-					type: "emphasized",
-					label: "Yes",
-				},
-				{
-					id: "delete-btn-no",
-					type: "normal",
-					label: "No",
+			Dialogs.showDialog({
+				title: translated.deleteTitle,
+				message: translated.deleteConfirm,
+				buttons: [{
+					id: 'delete-btn-yes',
+					state: ButtonStates.Emphasized,
+					label: translated.yes,
+				}, {
+					id: 'delete-btn-no',
+					label: translated.no,
 				}],
-			).then(function (msg) {
-				if (msg.data === "delete-btn-yes") {
-					entityApi.delete(id).then(function (response) {
-						if (response.status != 204) {
-							messageHub.showAlertError("PurchaseOrder", `Unable to delete PurchaseOrder: '${response.message}'`);
-							return;
-						}
+				closeButton: false
+			}).then((buttonId) => {
+				if (buttonId === 'delete-btn-yes') {
+					EntityService.delete(id).then(() => {
 						refreshData();
 						$scope.loadPage($scope.dataPage, $scope.filter);
-						messageHub.postMessage("clearDetails");
+						Dialogs.triggerEvent('codbex-orders.PurchaseOrder.PurchaseOrder.clearDetails');
+					}, (error) => {
+						const message = error.data ? error.data.message : '';
+						Dialogs.showAlert({
+							title: LocaleService.t('codbex-orders:t.PURCHASEORDER'),
+							message: LocaleService.t('codbex-orders:messages.error.unableToDelete', { name: '$t(codbex-orders:t.PURCHASEORDER)', message: message }),
+							type: AlertTypes.Error
+						});
+						console.error('EntityService:', error);
 					});
 				}
 			});
 		};
 
-		$scope.openFilter = function (entity) {
-			messageHub.showDialogWindow("PurchaseOrder-filter", {
-				entity: $scope.filterEntity,
-				optionsSupplier: $scope.optionsSupplier,
-				optionsCurrency: $scope.optionsCurrency,
-				optionsPaymentMethod: $scope.optionsPaymentMethod,
-				optionsSentMethod: $scope.optionsSentMethod,
-				optionsStatus: $scope.optionsStatus,
-				optionsOperator: $scope.optionsOperator,
-				optionsCompany: $scope.optionsCompany,
-				optionsStore: $scope.optionsStore,
+		$scope.openFilter = () => {
+			Dialogs.showWindow({
+				id: 'PurchaseOrder-filter',
+				params: {
+					entity: $scope.filterEntity,
+					optionsSupplier: $scope.optionsSupplier,
+					optionsCurrency: $scope.optionsCurrency,
+					optionsPaymentMethod: $scope.optionsPaymentMethod,
+					optionsSentMethod: $scope.optionsSentMethod,
+					optionsStatus: $scope.optionsStatus,
+					optionsOperator: $scope.optionsOperator,
+					optionsCompany: $scope.optionsCompany,
+					optionsStore: $scope.optionsStore,
+				},
 			});
 		};
 
@@ -220,79 +241,127 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		$scope.optionsStore = [];
 
 
-		$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierService.ts").then(function (response) {
-			$scope.optionsSupplier = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Suppliers/SupplierService.ts').then((response) => {
+			$scope.optionsSupplier = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Supplier',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
 			});
 		});
 
-		$http.get("/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts").then(function (response) {
-			$scope.optionsCurrency = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Code
-				}
+		$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts').then((response) => {
+			$scope.optionsCurrency = response.data.map(e => ({
+				value: e.Id,
+				text: e.Code
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Currency',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
 			});
 		});
 
-		$http.get("/services/ts/codbex-methods/gen/codbex-methods/api/Methods/PaymentMethodService.ts").then(function (response) {
-			$scope.optionsPaymentMethod = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-methods/gen/codbex-methods/api/Methods/PaymentMethodService.ts').then((response) => {
+			$scope.optionsPaymentMethod = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'PaymentMethod',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
 			});
 		});
 
-		$http.get("/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts").then(function (response) {
-			$scope.optionsSentMethod = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts').then((response) => {
+			$scope.optionsSentMethod = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'SentMethod',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
 			});
 		});
 
-		$http.get("/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/PurchaseOrderStatusService.ts").then(function (response) {
-			$scope.optionsStatus = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/PurchaseOrderStatusService.ts').then((response) => {
+			$scope.optionsStatus = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Status',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
 			});
 		});
 
-		$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
-			$scope.optionsOperator = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.FirstName
-				}
+		$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts').then((response) => {
+			$scope.optionsOperator = response.data.map(e => ({
+				value: e.Id,
+				text: e.FirstName
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Operator',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
 			});
 		});
 
-		$http.get("/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts").then(function (response) {
-			$scope.optionsCompany = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts').then((response) => {
+			$scope.optionsCompany = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Company',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
 			});
 		});
 
-		$http.get("/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts").then(function (response) {
-			$scope.optionsStore = response.data.map(e => {
-				return {
-					value: e.Id,
-					text: e.Name
-				}
+		$http.get('/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts').then((response) => {
+			$scope.optionsStore = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Store',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
 			});
 		});
 
-		$scope.optionsSupplierValue = function (optionKey) {
+		$scope.optionsSupplierValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsSupplier.length; i++) {
 				if ($scope.optionsSupplier[i].value === optionKey) {
 					return $scope.optionsSupplier[i].text;
@@ -300,7 +369,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsCurrencyValue = function (optionKey) {
+		$scope.optionsCurrencyValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
 				if ($scope.optionsCurrency[i].value === optionKey) {
 					return $scope.optionsCurrency[i].text;
@@ -308,7 +377,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsPaymentMethodValue = function (optionKey) {
+		$scope.optionsPaymentMethodValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsPaymentMethod.length; i++) {
 				if ($scope.optionsPaymentMethod[i].value === optionKey) {
 					return $scope.optionsPaymentMethod[i].text;
@@ -316,7 +385,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsSentMethodValue = function (optionKey) {
+		$scope.optionsSentMethodValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsSentMethod.length; i++) {
 				if ($scope.optionsSentMethod[i].value === optionKey) {
 					return $scope.optionsSentMethod[i].text;
@@ -324,7 +393,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsStatusValue = function (optionKey) {
+		$scope.optionsStatusValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsStatus.length; i++) {
 				if ($scope.optionsStatus[i].value === optionKey) {
 					return $scope.optionsStatus[i].text;
@@ -332,7 +401,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsOperatorValue = function (optionKey) {
+		$scope.optionsOperatorValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsOperator.length; i++) {
 				if ($scope.optionsOperator[i].value === optionKey) {
 					return $scope.optionsOperator[i].text;
@@ -340,7 +409,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsCompanyValue = function (optionKey) {
+		$scope.optionsCompanyValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsCompany.length; i++) {
 				if ($scope.optionsCompany[i].value === optionKey) {
 					return $scope.optionsCompany[i].text;
@@ -348,7 +417,7 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			}
 			return null;
 		};
-		$scope.optionsStoreValue = function (optionKey) {
+		$scope.optionsStoreValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsStore.length; i++) {
 				if ($scope.optionsStore[i].value === optionKey) {
 					return $scope.optionsStore[i].text;
@@ -357,5 +426,4 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 			return null;
 		};
 		//----------------Dropdowns-----------------//
-
-	}]);
+	});

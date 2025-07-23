@@ -1,6 +1,0 @@
-{
-    "module": "codbex-orders/gen/codbex-orders/ui/PurchaseOrder/PurchaseOrder/tile.js",
-    "extensionPoint": "codbex-orders-tile",
-    "description": "codbex-orders - Application Tile",
-    "role": "codbex-orders.PurchaseOrder.PurchaseOrderReadOnly,codbex-orders.PurchaseOrder.PurchaseOrderFullAccess"
-}

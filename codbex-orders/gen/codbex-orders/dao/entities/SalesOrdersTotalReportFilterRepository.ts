@@ -59,7 +59,7 @@ export interface SalesOrdersTotalReportFilterEntityOptions {
     },
     $select?: (keyof SalesOrdersTotalReportFilterEntity)[],
     $sort?: string | (keyof SalesOrdersTotalReportFilterEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -107,10 +107,10 @@ export class SalesOrdersTotalReportFilterRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(SalesOrdersTotalReportFilterRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(SalesOrdersTotalReportFilterRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: SalesOrdersTotalReportFilterEntityOptions): SalesOrdersTotalReportFilterEntity[] {
+    public findAll(options: SalesOrdersTotalReportFilterEntityOptions = {}): SalesOrdersTotalReportFilterEntity[] {
         return this.dao.list(options).map((e: SalesOrdersTotalReportFilterEntity) => {
             EntityUtils.setDate(e, "StartDate");
             EntityUtils.setDate(e, "EndDate");

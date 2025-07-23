@@ -1,6 +1,6 @@
 {
     "module": "codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/dialog-filter/view.js",
-    "extensionPoint": "dialog-window",
+    "extensionPoint": "application-windows",
     "description": "codbex-orders - Application Dialog Window",
     "role": "codbex-orders.WorkOrder.WorkOrderReadOnly,codbex-orders.WorkOrder.WorkOrderFullAccess"
 }

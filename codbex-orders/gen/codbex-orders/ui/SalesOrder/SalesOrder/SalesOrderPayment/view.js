@@ -4,16 +4,17 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "SalesOrderPayment",
-    label: "SalesOrderPayment",
-    factory: "frame",
-    region: "bottom",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/SalesOrderPayment/index.html",
-    perspectiveName: "SalesOrder"
+    id: 'SalesOrderPayment',
+    label: 'SalesOrderPayment',
+    translation: {
+        key: 'codbex-orders:t.SALESORDERPAYMENT',
+    },
+    region: 'bottom',
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/SalesOrderPayment/index.html',
+    perspectiveName: 'SalesOrder'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

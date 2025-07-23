@@ -6,15 +6,15 @@
 const viewData = {
     id: "WorkOrder-details",
     label: "WorkOrder",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/dialog-window/index.html",
+    translation: {
+        key: 'codbex-orders:t.WORKORDER',
+    },
+    path: "/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/dialog-window/index.html",
     perspectiveName: "WorkOrder",
     roles: [
         "codbex-orders.WorkOrder.WorkOrderReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

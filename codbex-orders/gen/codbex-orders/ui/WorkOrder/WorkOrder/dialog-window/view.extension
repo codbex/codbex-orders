@@ -1,6 +1,6 @@
 {
-    "module": "{{projectName}}/gen/{{genFolderName}}/ui/{{perspectiveName}}/{{name}}/dialog-window/view.js",
-    "extensionPoint": "dialog-window",
-    "description": "{{projectName}} - Application Dialog Window",
+    "module": "codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/dialog-window/view.js",
+    "extensionPoint": "application-windows",
+    "description": "codbex-orders - Application Dialog Window",
     "role": "codbex-orders.WorkOrder.WorkOrderReadOnly,codbex-orders.WorkOrder.WorkOrderFullAccess"
 }

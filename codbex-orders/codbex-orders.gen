@@ -7,265 +7,6 @@
   "dataSource": "DefaultDB",
   "fileName": "codbex-orders",
   "genFolderName": "codbex-orders",
-  "projectName": "codbex-orders",
-  "workspaceName": "workspace",
-  "filePath": "codbex-orders.model",
-  "templateId": "template-application-angular/template/template.js",
-  "perspectives": {
-    "SalesOrder": {
-      "views": [
-        "SalesOrder",
-        "SalesOrderItem",
-        "SalesOrderPayment",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details",
-        "SalesOrder-details"
-      ],
-      "name": "SalesOrder",
-      "label": "SalesOrder",
-      "order": "510",
-      "icon": "/services/web/resources/unicons/receipt.svg",
-      "role": ""
-    },
-    "PurchaseOrder": {
-      "views": [
-        "PurchaseOrder",
-        "PurchaseOrderItem",
-        "PurchaseOrderPayment",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details",
-        "PurchaseOrder-details"
-      ],
-      "name": "PurchaseOrder",
-      "label": "PurchaseOrder",
-      "order": "520",
-      "icon": "/services/web/resources/unicons/receipt-alt.svg",
-      "role": ""
-    },
-    "OrdersSettings": {
-      "views": [
-        "SalesOrderStatus",
-        "PurchaseOrderStatus",
-        "WorkOrderStatus",
-        "SalesOrderItemStatus"
-      ],
-      "name": "OrdersSettings",
-      "label": "OrdersSettings",
-      "order": "590",
-      "icon": "/services/web/resources/unicons/wrench.svg",
-      "role": ""
-    },
-    "Customers": {
-      "views": [
-        "Customer"
-      ],
-      "name": "Customers",
-      "label": "Customers",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/user-plus.svg",
-      "role": ""
-    },
-    "Suppliers": {
-      "views": [
-        "Supplier"
-      ],
-      "name": "Suppliers",
-      "label": "Suppliers",
-      "order": "200",
-      "icon": "/services/web/resources/unicons/user-minus.svg",
-      "role": ""
-    },
-    "Products": {
-      "views": [
-        "Product"
-      ],
-      "name": "Products",
-      "label": "Products",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/cube.svg",
-      "role": ""
-    },
-    "Companies": {
-      "views": [
-        "Company"
-      ],
-      "name": "Companies",
-      "label": "Companies",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/university.svg",
-      "role": ""
-    },
-    "Methods": {
-      "views": [
-        "PaymentMethod",
-        "SentMethod"
-      ],
-      "name": "Methods",
-      "label": "Methods",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/archive.svg",
-      "role": ""
-    },
-    "Employees": {
-      "views": [
-        "Employee"
-      ],
-      "name": "Employees",
-      "label": "Employees",
-      "order": "101",
-      "icon": "/services/web/resources/unicons/users-alt.svg",
-      "role": ""
-    },
-    "Currencies": {
-      "views": [
-        "Currency"
-      ],
-      "name": "Currencies",
-      "label": "Currencies",
-      "order": "990",
-      "icon": "/services/web/resources/unicons/dollar-alt.svg",
-      "role": ""
-    },
-    "CustomerPayment": {
-      "views": [
-        "CustomerPayment"
-      ],
-      "name": "CustomerPayment",
-      "label": "CustomerPayment",
-      "order": "10",
-      "icon": "/services/web/resources/unicons/usd-square.svg",
-      "role": ""
-    },
-    "SupplierPayment": {
-      "views": [
-        "SupplierPayment"
-      ],
-      "name": "SupplierPayment",
-      "label": "SupplierPayment",
-      "order": "20",
-      "icon": "/services/web/resources/unicons/box.svg",
-      "role": ""
-    },
-    "Reports": {
-      "views": [
-        "SalesOrdersReport",
-        "SalesOrdersTotalReport",
-        "PurchaseOrdersReport",
-        "PurchaseOrdersTotalReport"
-      ],
-      "name": "Reports",
-      "label": "Reports",
-      "order": "800",
-      "icon": "/services/web/resources/unicons/file-graph.svg",
-      "role": ""
-    },
-    "entities": {
-      "views": [
-        "SalesOrdersReportFilter",
-        "SalesOrdersTotalReportFilter",
-        "PurchaseOrdersReportFilter",
-        "PurchaseOrdersTotalReportFilter"
-      ],
-      "name": "entities",
-      "label": "entities",
-      "order": "100",
-      "icon": "/services/web/resources/unicons/copy.svg",
-      "role": ""
-    },
-    "WorkOrder": {
-      "views": [
-        "WorkOrder",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details",
-        "WorkOrder-details"
-      ],
-      "name": "WorkOrder",
-      "label": "WorkOrder",
-      "order": "530",
-      "icon": "/services/web/resources/unicons/screw.svg",
-      "role": ""
-    },
-    "Stores": {
-      "views": [
-        "Store"
-      ],
-      "name": "Stores",
-      "label": "Stores",
-      "order": "900",
-      "icon": "/services/web/resources/unicons/store.svg",
-      "role": ""
-    },
-    "UnitsOfMeasures": {
-      "views": [
-        "UoM"
-      ],
-      "name": "UnitsOfMeasures",
-      "label": "UnitsOfMeasures",
-      "order": "980",
-      "icon": "/services/web/resources/unicons/arrows-resize-v.svg",
-      "role": ""
-    }
-  },
   "roles": [
     {
       "entityName": "SalesOrder",
@@ -355,6 +96,287 @@
       "roleWrite": "codbex-orders.OrdersSettings.SalesOrderItemStatusFullAccess"
     }
   ],
+  "projectName": "codbex-orders",
+  "workspaceName": "workspace",
+  "filePath": "codbex-orders.model",
+  "templateId": "template-application-angular/template/template.js",
+  "perspectives": {
+    "SalesOrder": {
+      "views": [
+        "SalesOrder",
+        "SalesOrderItem",
+        "SalesOrderPayment",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details",
+        "SalesOrder-details"
+      ],
+      "name": "SalesOrder",
+      "label": "SalesOrder",
+      "header": "",
+      "order": "510",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/receipt.svg",
+      "role": ""
+    },
+    "PurchaseOrder": {
+      "views": [
+        "PurchaseOrder",
+        "PurchaseOrderItem",
+        "PurchaseOrderPayment",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details",
+        "PurchaseOrder-details"
+      ],
+      "name": "PurchaseOrder",
+      "label": "PurchaseOrder",
+      "header": "",
+      "order": "520",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/receipt-alt.svg",
+      "role": ""
+    },
+    "OrdersSettings": {
+      "views": [
+        "SalesOrderStatus",
+        "PurchaseOrderStatus",
+        "WorkOrderStatus",
+        "SalesOrderItemStatus"
+      ],
+      "name": "OrdersSettings",
+      "label": "OrdersSettings",
+      "header": "",
+      "order": "590",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/wrench.svg",
+      "role": ""
+    },
+    "Customers": {
+      "views": [
+        "Customer"
+      ],
+      "name": "Customers",
+      "label": "Customers",
+      "header": "",
+      "order": "100",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/user-plus.svg",
+      "role": ""
+    },
+    "Suppliers": {
+      "views": [
+        "Supplier"
+      ],
+      "name": "Suppliers",
+      "label": "Suppliers",
+      "header": "",
+      "order": "200",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/user-minus.svg",
+      "role": ""
+    },
+    "Products": {
+      "views": [
+        "Product"
+      ],
+      "name": "Products",
+      "label": "Products",
+      "header": "",
+      "order": "100",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/cube.svg",
+      "role": ""
+    },
+    "Companies": {
+      "views": [
+        "Company"
+      ],
+      "name": "Companies",
+      "label": "Companies",
+      "header": "",
+      "order": "100",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/university.svg",
+      "role": ""
+    },
+    "Methods": {
+      "views": [
+        "PaymentMethod",
+        "SentMethod"
+      ],
+      "name": "Methods",
+      "label": "Methods",
+      "header": "",
+      "order": "100",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/archive.svg",
+      "role": ""
+    },
+    "Employees": {
+      "views": [
+        "Employee"
+      ],
+      "name": "Employees",
+      "label": "Employees",
+      "header": "",
+      "order": "101",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/users-alt.svg",
+      "role": ""
+    },
+    "Currencies": {
+      "views": [
+        "Currency"
+      ],
+      "name": "Currencies",
+      "label": "Currencies",
+      "header": "",
+      "order": "990",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/dollar-alt.svg",
+      "role": ""
+    },
+    "CustomerPayment": {
+      "views": [
+        "CustomerPayment"
+      ],
+      "name": "CustomerPayment",
+      "label": "CustomerPayment",
+      "header": "",
+      "order": "10",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/usd-square.svg",
+      "role": ""
+    },
+    "SupplierPayment": {
+      "views": [
+        "SupplierPayment"
+      ],
+      "name": "SupplierPayment",
+      "label": "SupplierPayment",
+      "header": "",
+      "order": "20",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/box.svg",
+      "role": ""
+    },
+    "Reports": {
+      "views": [
+        "SalesOrdersReport",
+        "SalesOrdersTotalReport",
+        "PurchaseOrdersReport",
+        "PurchaseOrdersTotalReport"
+      ],
+      "name": "Reports",
+      "label": "Reports",
+      "header": "",
+      "order": "800",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/file-graph.svg",
+      "role": ""
+    },
+    "entities": {
+      "views": [
+        "SalesOrdersReportFilter",
+        "SalesOrdersTotalReportFilter",
+        "PurchaseOrdersReportFilter",
+        "PurchaseOrdersTotalReportFilter"
+      ],
+      "name": "entities",
+      "label": "entities",
+      "header": "",
+      "order": "100",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/copy.svg",
+      "role": ""
+    },
+    "WorkOrder": {
+      "views": [
+        "WorkOrder",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details",
+        "WorkOrder-details"
+      ],
+      "name": "WorkOrder",
+      "label": "WorkOrder",
+      "header": "",
+      "order": "530",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/screw.svg",
+      "role": ""
+    },
+    "Stores": {
+      "views": [
+        "Store"
+      ],
+      "name": "Stores",
+      "label": "Stores",
+      "header": "",
+      "order": "900",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/store.svg",
+      "role": ""
+    },
+    "UnitsOfMeasures": {
+      "views": [
+        "UoM"
+      ],
+      "name": "UnitsOfMeasures",
+      "label": "UnitsOfMeasures",
+      "header": "",
+      "order": "980",
+      "navId": "",
+      "icon": "/services/web/resources/unicons/arrows-resize-v.svg",
+      "role": ""
+    }
+  },
   "models": [
     {
       "properties": [
@@ -487,7 +509,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDER_NET",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -542,7 +564,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDER_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -568,7 +590,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDER_DISCOUNT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -595,7 +617,7 @@
         },
         {
           "dataDefaultValue": "0",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDER_TAXES",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -621,7 +643,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDER_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -647,7 +669,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDER_TOTAL",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -674,7 +696,7 @@
         },
         {
           "dataDefaultValue": "0",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDER_PAID",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -967,10 +989,11 @@
       "menuKey": "salesorder",
       "menuLabel": "SalesOrder",
       "name": "SalesOrder",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
       "perspectiveLabel": "Sales Order",
       "perspectiveName": "SalesOrder",
+      "perspectiveNavId": "",
       "perspectiveOrder": "510",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.SalesOrder.SalesOrderReadOnly",
@@ -1011,6 +1034,8 @@
           "genFolderName": "codbex-inventory"
         }
       ],
+      "dataOrderBy": "DESC",
+      "dataOrderBySort": "Number",
       "primaryKeys": [
         "Id"
       ],
@@ -1123,7 +1148,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "SALESORDER_NET",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1178,7 +1203,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "SALESORDER_GROSS",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1204,7 +1229,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "SALESORDER_DISCOUNT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1231,7 +1256,7 @@
           },
           {
             "dataDefaultValue": "0",
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "SALESORDER_TAXES",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1257,7 +1282,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "SALESORDER_VAT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1283,7 +1308,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "SALESORDER_TOTAL",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1310,7 +1335,7 @@
           },
           {
             "dataDefaultValue": "0",
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "SALESORDER_PAID",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -1711,7 +1736,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDERITEM_QUANTITY",
           "dataNullable": false,
           "dataPrecision": "16",
@@ -1737,7 +1762,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDERITEM_PRICE",
           "dataNullable": false,
           "dataPrecision": "16",
@@ -1769,7 +1794,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
           "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDERITEM_NET",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1795,7 +1820,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDERITEM_VATRATE",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1826,7 +1851,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
           "calculatedPropertyExpressionUpdate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDERITEM_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1854,7 +1879,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Net\"]+entity[\"VAT\"]",
           "calculatedPropertyExpressionUpdate": "entity[\"Net\"]+entity[\"VAT\"]",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDERITEM_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -1926,10 +1951,11 @@
       "menuKey": "salesorderitem",
       "menuLabel": "SalesOrderItem",
       "name": "SalesOrderItem",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
       "perspectiveLabel": "Sales Order",
       "perspectiveName": "SalesOrder",
+      "perspectiveNavId": "",
       "perspectiveOrder": "510",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.SalesOrder.SalesOrderItemReadOnly",
@@ -2089,7 +2115,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDER_NET",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -2144,7 +2170,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDER_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -2171,7 +2197,7 @@
         },
         {
           "dataDefaultValue": "0",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDER_DISCOUNT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -2198,7 +2224,7 @@
         },
         {
           "dataDefaultValue": "0",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDER_TAXES",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -2224,7 +2250,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDER_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -2250,7 +2276,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDER_TOTAL",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -2277,7 +2303,7 @@
         },
         {
           "dataDefaultValue": "0",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDER_PAID",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -2599,10 +2625,11 @@
       "menuKey": "purchaseorder",
       "menuLabel": "PurchaseOrder",
       "name": "PurchaseOrder",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
       "perspectiveLabel": "Purchase Order",
       "perspectiveName": "PurchaseOrder",
+      "perspectiveNavId": "",
       "perspectiveOrder": "520",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.PurchaseOrder.PurchaseOrderReadOnly",
@@ -2648,6 +2675,8 @@
           "genFolderName": "codbex-inventory"
         }
       ],
+      "dataOrderBy": "DESC",
+      "dataOrderBySort": "Number",
       "primaryKeys": [
         "Id"
       ],
@@ -2760,7 +2789,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "PURCHASEORDER_NET",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2815,7 +2844,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "PURCHASEORDER_GROSS",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2842,7 +2871,7 @@
           },
           {
             "dataDefaultValue": "0",
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "PURCHASEORDER_DISCOUNT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2869,7 +2898,7 @@
           },
           {
             "dataDefaultValue": "0",
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "PURCHASEORDER_TAXES",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2895,7 +2924,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "PURCHASEORDER_VAT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2921,7 +2950,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "PURCHASEORDER_TOTAL",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -2948,7 +2977,7 @@
           },
           {
             "dataDefaultValue": "0",
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "PURCHASEORDER_PAID",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -3381,7 +3410,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDERITEM_QUANTITY",
           "dataNullable": false,
           "dataPrecision": "16",
@@ -3407,7 +3436,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDERITEM_PRICE",
           "dataNullable": false,
           "dataPrecision": "16",
@@ -3439,7 +3468,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Quantity\"] * entity[\"Price\"]",
           "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"] * entity[\"Price\"]",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDERITEM_NET",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -3467,7 +3496,7 @@
         {
           "calculatedPropertyExpressionCreate": "",
           "calculatedPropertyExpressionUpdate": "entity[\"Net\"] * 0.2",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDERITEM_VATRATE",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -3498,7 +3527,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
           "calculatedPropertyExpressionUpdate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDERITEM_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -3526,7 +3555,7 @@
         {
           "calculatedPropertyExpressionCreate": "entity[\"Net\"] + entity[\"VAT\"]",
           "calculatedPropertyExpressionUpdate": "entity[\"Net\"] + entity[\"VAT\"]",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDERITEM_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -3567,10 +3596,11 @@
       "menuKey": "purchaseorderitem",
       "menuLabel": "PurchaseOrderItem",
       "name": "PurchaseOrderItem",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
       "perspectiveLabel": "Purchase Order",
       "perspectiveName": "PurchaseOrder",
+      "perspectiveNavId": "",
       "perspectiveOrder": "520",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.PurchaseOrder.PurchaseOrderItemReadOnly",
@@ -3661,15 +3691,14 @@
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
       "menuIndex": "100",
       "menuKey": "salesorderstatus",
       "menuLabel": "SalesOrderStatus",
       "name": "SalesOrderStatus",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveLabel": "Orders Settings",
-      "perspectiveName": "OrdersSettings",
+      "perspectiveName": "Settings",
+      "perspectiveNavId": "",
       "perspectiveOrder": "590",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.OrdersSettings.SalesOrderStatusReadOnly",
@@ -3746,15 +3775,14 @@
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
       "menuIndex": "100",
       "menuKey": "purchaseorderstatus",
       "menuLabel": "PurchaseOrderStatus",
       "name": "PurchaseOrderStatus",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveLabel": "Orders Settings",
-      "perspectiveName": "OrdersSettings",
+      "perspectiveName": "Settings",
+      "perspectiveNavId": "",
       "perspectiveOrder": "590",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.OrdersSettings.PurchaseOrderStatusReadOnly",
@@ -4092,10 +4120,11 @@
       "menuKey": "customer",
       "menuLabel": "Customer",
       "name": "Customer",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/user-plus.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Customers",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Customer",
@@ -4434,10 +4463,11 @@
       "menuKey": "supplier",
       "menuLabel": "Supplier",
       "name": "Supplier",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/user-minus.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Suppliers",
+      "perspectiveNavId": "",
       "perspectiveOrder": "200",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Supplier",
@@ -4927,7 +4957,7 @@
         {
           "calculatedPropertyExpressionCreate": "",
           "calculatedPropertyExpressionUpdate": "",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PRODUCT_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -4966,10 +4996,11 @@
       "menuKey": "product",
       "menuLabel": "Product",
       "name": "Product",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/cube.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Products",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Product",
@@ -5308,10 +5339,11 @@
       "menuKey": "company",
       "menuLabel": "Company",
       "name": "Company",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/university.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Companies",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Company",
@@ -5396,10 +5428,11 @@
       "menuKey": "paymentmethod",
       "menuLabel": "PaymentMethod",
       "name": "PaymentMethod",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/archive.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Methods",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "PaymentMethod",
@@ -5483,10 +5516,11 @@
       "menuKey": "sentmethod",
       "menuLabel": "SentMethod",
       "name": "SentMethod",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/archive.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Methods",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "projectionReferencedEntity": "SentMethod",
@@ -5717,10 +5751,11 @@
       "menuKey": "employee",
       "menuLabel": "Employee",
       "name": "Employee",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/users-alt.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Employees",
+      "perspectiveNavId": "",
       "perspectiveOrder": "101",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Employee",
@@ -5936,10 +5971,11 @@
       "menuKey": "currency",
       "menuLabel": "Currency",
       "name": "Currency",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/dollar-alt.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "Currencies",
+      "perspectiveNavId": "",
       "perspectiveOrder": "990",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Currency",
@@ -6040,7 +6076,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDERPAYMENT_AMOUNT",
           "dataNullable": false,
           "dataPrecision": "16",
@@ -6081,10 +6117,11 @@
       "menuKey": "salesorderpayment",
       "menuLabel": "SalesOrderPayment",
       "name": "SalesOrderPayment",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/receipt.svg",
       "perspectiveLabel": "Sales Order",
       "perspectiveName": "SalesOrder",
+      "perspectiveNavId": "",
       "perspectiveOrder": "510",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.SalesOrder.SalesOrderPaymentReadOnly",
@@ -6218,7 +6255,7 @@
         {
           "calculatedPropertyExpressionCreate": "",
           "calculatedPropertyExpressionUpdate": "",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "CUSTOMERPAYMENT_AMOUNT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -6455,10 +6492,11 @@
       "menuKey": "customerpayment",
       "menuLabel": "CustomerPayment",
       "name": "CustomerPayment",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/usd-square.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "CustomerPayment",
+      "perspectiveNavId": "",
       "perspectiveOrder": "10",
       "perspectiveRole": "",
       "projectionReferencedEntity": "CustomerPayment",
@@ -6561,7 +6599,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "PURCHASEORDERPAYMENT_AMOUNT",
           "dataNullable": false,
           "dataPrecision": "16",
@@ -6602,10 +6640,11 @@
       "menuKey": "purchaseorderpayment",
       "menuLabel": "PurchaseOrderPayment",
       "name": "PurchaseOrderPayment",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/receipt-alt.svg",
       "perspectiveLabel": "Purchase Order",
       "perspectiveName": "PurchaseOrder",
+      "perspectiveNavId": "",
       "perspectiveOrder": "520",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.PurchaseOrder.PurchaseOrderPaymentReadOnly",
@@ -6795,7 +6834,7 @@
         {
           "calculatedPropertyExpressionCreate": "",
           "calculatedPropertyExpressionUpdate": "",
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SUPPLIERPAYMENT_AMOUNT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -7032,10 +7071,11 @@
       "menuKey": "supplierpayment",
       "menuLabel": "SupplierPayment",
       "name": "SupplierPayment",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/box.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "SupplierPayment",
+      "perspectiveNavId": "",
       "perspectiveOrder": "20",
       "perspectiveRole": "",
       "projectionReferencedEntity": "SupplierPayment",
@@ -7165,15 +7205,14 @@
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "REPORT_TABLE",
       "menuIndex": "100",
       "menuKey": "ordersreport",
       "menuLabel": "OrdersReport",
       "name": "SalesOrdersReport",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/file-graph.svg",
-      "perspectiveLabel": "Reports",
       "perspectiveName": "Reports",
+      "perspectiveNavId": "",
       "perspectiveOrder": "800",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.Reports.SalesOrdersReportReadOnly",
@@ -7338,10 +7377,11 @@
         "menuKey": "ordersreportfilter",
         "menuLabel": "OrdersReportFilter",
         "name": "SalesOrdersReportFilter",
-        "navigationPath": "/Home",
+        "perspectiveHeader": "",
         "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
         "perspectiveLabel": "Entities",
         "perspectiveName": "entities",
+        "perspectiveNavId": "",
         "perspectiveOrder": "100",
         "perspectiveRole": "",
         "roleRead": "codbex-orders.entities.SalesOrdersReportFilterReadOnly",
@@ -7508,10 +7548,11 @@
       "menuKey": "ordersreportfilter",
       "menuLabel": "OrdersReportFilter",
       "name": "SalesOrdersReportFilter",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "entities",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.entities.SalesOrdersReportFilterReadOnly",
@@ -7554,7 +7595,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "SALESORDERSTOTALREPORT_TOTAL",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -7590,15 +7631,14 @@
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "REPORT_BAR",
       "menuIndex": "100",
       "menuKey": "salesorderstotalreport",
       "menuLabel": "SalesOrdersTotalReport",
       "name": "SalesOrdersTotalReport",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/file-graph.svg",
-      "perspectiveLabel": "Reports",
       "perspectiveName": "Reports",
+      "perspectiveNavId": "",
       "perspectiveOrder": "800",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.Reports.SalesOrdersTotalReportReadOnly",
@@ -7711,10 +7751,11 @@
         "menuKey": "salesorderstotalreportfilter",
         "menuLabel": "SalesOrdersTotalReportFilter",
         "name": "SalesOrdersTotalReportFilter",
-        "navigationPath": "/Home",
+        "perspectiveHeader": "",
         "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
         "perspectiveLabel": "Entities",
         "perspectiveName": "entities",
+        "perspectiveNavId": "",
         "perspectiveOrder": "100",
         "perspectiveRole": "",
         "roleRead": "codbex-orders.entities.SalesOrdersTotalReportFilterReadOnly",
@@ -7829,10 +7870,11 @@
       "menuKey": "salesorderstotalreportfilter",
       "menuLabel": "SalesOrdersTotalReportFilter",
       "name": "SalesOrdersTotalReportFilter",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "entities",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.entities.SalesOrdersTotalReportFilterReadOnly",
@@ -7961,15 +8003,14 @@
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "REPORT_TABLE",
       "menuIndex": "100",
       "menuKey": "purchaseordersreport",
       "menuLabel": "PurchaseOrdersReport",
       "name": "PurchaseOrdersReport",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/file-graph.svg",
-      "perspectiveLabel": "Reports",
       "perspectiveName": "Reports",
+      "perspectiveNavId": "",
       "perspectiveOrder": "800",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.Reports.PurchaseOrdersReportReadOnly",
@@ -8134,10 +8175,11 @@
         "menuKey": "purchaseordersreportfilter",
         "menuLabel": "PurchaseOrdersReportFilter",
         "name": "PurchaseOrdersReportFilter",
-        "navigationPath": "/Home",
+        "perspectiveHeader": "",
         "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
         "perspectiveLabel": "Entities",
         "perspectiveName": "entities",
+        "perspectiveNavId": "",
         "perspectiveOrder": "100",
         "perspectiveRole": "",
         "roleRead": "codbex-orders.entities.PurchaseOrdersReportFilterReadOnly",
@@ -8304,10 +8346,11 @@
       "menuKey": "purchaseordersreportfilter",
       "menuLabel": "PurchaseOrdersReportFilter",
       "name": "PurchaseOrdersReportFilter",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "entities",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.entities.PurchaseOrdersReportFilterReadOnly",
@@ -8383,15 +8426,14 @@
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "REPORT_BAR",
       "menuIndex": "100",
       "menuKey": "purchaseorderstotalreport",
       "menuLabel": "PurchaseOrdersTotalReport",
       "name": "PurchaseOrdersTotalReport",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/file-graph.svg",
-      "perspectiveLabel": "Reports",
       "perspectiveName": "Reports",
+      "perspectiveNavId": "",
       "perspectiveOrder": "800",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.Reports.PurchaseOrdersTotalReportReadOnly",
@@ -8502,10 +8544,11 @@
         "menuKey": "purchaseorderstotalreportfilter",
         "menuLabel": "PurchaseOrdersTotalReportFilter",
         "name": "PurchaseOrdersTotalReportFilter",
-        "navigationPath": "/Home",
+        "perspectiveHeader": "",
         "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
         "perspectiveLabel": "Entities",
         "perspectiveName": "entities",
+        "perspectiveNavId": "",
         "perspectiveOrder": "100",
         "perspectiveRole": "",
         "roleRead": "codbex-orders.entities.PurchaseOrdersTotalReportFilterReadOnly",
@@ -8618,10 +8661,11 @@
       "menuKey": "purchaseorderstotalreportfilter",
       "menuLabel": "PurchaseOrdersTotalReportFilter",
       "name": "PurchaseOrdersTotalReportFilter",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
       "perspectiveLabel": "Entities",
       "perspectiveName": "entities",
+      "perspectiveNavId": "",
       "perspectiveOrder": "100",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.entities.PurchaseOrdersTotalReportFilterReadOnly",
@@ -8794,7 +8838,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "WORKORDER_NET",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8849,7 +8893,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "WORKORDER_GROSS",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8875,7 +8919,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "WORKORDER_DISSCOUNT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8901,7 +8945,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "WORKORDER_TAXES",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8927,7 +8971,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "WORKORDER_VAT",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8953,7 +8997,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "WORKORDER_TOTAL",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -8979,7 +9023,7 @@
           "inputRule": ""
         },
         {
-          "dataLength": "18",
+          "dataLength": "16",
           "dataName": "WORKORDER_PAID",
           "dataNullable": true,
           "dataPrecision": "16",
@@ -9356,10 +9400,11 @@
       "menuKey": "workorder",
       "menuLabel": "WorkOrder",
       "name": "WorkOrder",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/screw.svg",
       "perspectiveLabel": "Work Order",
       "perspectiveName": "WorkOrder",
+      "perspectiveNavId": "",
       "perspectiveOrder": "530",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.WorkOrder.WorkOrderReadOnly",
@@ -9405,6 +9450,8 @@
           "genFolderName": "codbex-employees"
         }
       ],
+      "dataOrderBy": "DESC",
+      "dataOrderBySort": "Number",
       "primaryKeys": [
         "Id"
       ],
@@ -9543,7 +9590,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "WORKORDER_NET",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -9598,7 +9645,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "WORKORDER_GROSS",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -9624,7 +9671,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "WORKORDER_DISSCOUNT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -9650,7 +9697,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "WORKORDER_TAXES",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -9676,7 +9723,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "WORKORDER_VAT",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -9702,7 +9749,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "WORKORDER_TOTAL",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -9728,7 +9775,7 @@
             "inputRule": ""
           },
           {
-            "dataLength": "18",
+            "dataLength": "16",
             "dataName": "WORKORDER_PAID",
             "dataNullable": true,
             "dataPrecision": "16",
@@ -10160,10 +10207,11 @@
       "menuKey": "workorderstatus",
       "menuLabel": "WorkOrderStatus",
       "name": "WorkOrderStatus",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
       "perspectiveLabel": "Orders Settings",
       "perspectiveName": "OrdersSettings",
+      "perspectiveNavId": "",
       "perspectiveOrder": "590",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.OrdersSettings.WorkOrderStatusReadOnly",
@@ -10563,10 +10611,11 @@
       "menuKey": "store",
       "menuLabel": "Store",
       "name": "Store",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/store.svg",
       "perspectiveLabel": "Stores",
       "perspectiveName": "Stores",
+      "perspectiveNavId": "",
       "perspectiveOrder": "900",
       "perspectiveRole": "",
       "projectionReferencedEntity": "Store",
@@ -10646,15 +10695,14 @@
       "generateDefaultRoles": "true",
       "generateReport": "false",
       "icon": "/services/web/resources/unicons/file.svg",
-      "layoutType": "MANAGE",
       "menuIndex": "100",
       "menuKey": "salesorderitemstatus",
       "menuLabel": "SalesOrderItemStatus",
       "name": "SalesOrderItemStatus",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-      "perspectiveLabel": "Orders Settings",
-      "perspectiveName": "OrdersSettings",
+      "perspectiveName": "Settings",
+      "perspectiveNavId": "",
       "perspectiveOrder": "590",
       "perspectiveRole": "",
       "roleRead": "codbex-orders.OrdersSettings.SalesOrderItemStatusReadOnly",
@@ -10925,10 +10973,11 @@
       "menuKey": "uom",
       "menuLabel": "UoM",
       "name": "UoM",
-      "navigationPath": "/Home",
+      "perspectiveHeader": "",
       "perspectiveIcon": "/services/web/resources/unicons/arrows-resize-v.svg",
       "perspectiveLabel": "Units of Measures",
       "perspectiveName": "UnitsOfMeasures",
+      "perspectiveNavId": "",
       "perspectiveOrder": "980",
       "perspectiveRole": "",
       "projectionReferencedEntity": "UoM",

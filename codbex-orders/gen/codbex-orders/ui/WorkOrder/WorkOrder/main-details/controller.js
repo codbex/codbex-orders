@@ -1,44 +1,54 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-orders.WorkOrder.WorkOrder';
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
+	.config(["EntityServiceProvider", (EntityServiceProvider) => {
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-orders/gen/codbex-orders/api/WorkOrder/WorkOrderService.ts';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/codbex-orders/api/WorkOrder/WorkOrderService.ts";
-	}])
-	.controller('PageController', ['$scope',  '$http', 'Extensions', 'messageHub', 'entityApi', function ($scope,  $http, Extensions, messageHub, entityApi) {
-
+	.controller('PageController', ($scope, $http, Extensions, LocaleService, EntityService) => {
+		const Dialogs = new DialogHub();
+		const Notifications = new NotificationHub();
+		let description = 'Description';
+		let propertySuccessfullyCreated = 'WorkOrder successfully created';
+		let propertySuccessfullyUpdated = 'WorkOrder successfully updated';
 		$scope.entity = {};
 		$scope.forms = {
 			details: {},
 		};
 		$scope.formHeaders = {
-			select: "WorkOrder Details",
-			create: "Create WorkOrder",
-			update: "Update WorkOrder"
+			select: 'WorkOrder Details',
+			create: 'Create WorkOrder',
+			update: 'Update WorkOrder'
 		};
 		$scope.action = 'select';
 
-		//-----------------Custom Actions-------------------//
-		Extensions.get('dialogWindow', 'codbex-orders-custom-action').then(function (response) {
-			$scope.entityActions = response.filter(e => e.perspective === "WorkOrder" && e.view === "WorkOrder" && e.type === "entity");
+		LocaleService.onInit(() => {
+			description = LocaleService.t('codbex-orders:defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-orders:defaults.formHeadSelect', { name: '$t(codbex-orders:t.WORKORDER)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-orders:defaults.formHeadCreate', { name: '$t(codbex-orders:t.WORKORDER)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-orders:defaults.formHeadUpdate', { name: '$t(codbex-orders:t.WORKORDER)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-orders:messages.propertySuccessfullyCreated', { name: '$t(codbex-orders:t.WORKORDER)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-orders:messages.propertySuccessfullyUpdated', { name: '$t(codbex-orders:t.WORKORDER)' });
 		});
 
-		$scope.triggerEntityAction = function (action) {
-			messageHub.showDialogWindow(
-				action.id,
-				{
+		//-----------------Custom Actions-------------------//
+		Extensions.getWindows(['codbex-orders-custom-action']).then((response) => {
+			$scope.entityActions = response.data.filter(e => e.perspective === 'WorkOrder' && e.view === 'WorkOrder' && e.type === 'entity');
+		});
+
+		$scope.triggerEntityAction = (action) => {
+			Dialogs.showWindow({
+				hasHeader: true,
+        		title: LocaleService.t(action.translation.key, action.translation.options, action.label),
+				path: action.path,
+				params: {
 					id: $scope.entity.Id
 				},
-				null,
-				true,
-				action
-			);
+				closeButton: true
+			});
 		};
 		//-----------------Custom Actions-------------------//
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("clearDetails", function (msg) {
-			$scope.$apply(function () {
+		Dialogs.addMessageListener({ topic: 'codbex-orders.WorkOrder.WorkOrder.clearDetails', handler: () => {
+			$scope.$evalAsync(() => {
 				$scope.entity = {};
 				$scope.optionsCustomer = [];
 				$scope.optionsCurrency = [];
@@ -51,163 +61,220 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 				$scope.optionsSalesOrder = [];
 				$scope.action = 'select';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("entitySelected", function (msg) {
-			$scope.$apply(function () {
-				if (msg.data.entity.Date) {
-					msg.data.entity.Date = new Date(msg.data.entity.Date);
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-orders.WorkOrder.WorkOrder.entitySelected', handler: (data) => {
+			$scope.$evalAsync(() => {
+				if (data.entity.Date) {
+					data.entity.Date = new Date(data.entity.Date);
 				}
-				if (msg.data.entity.Due) {
-					msg.data.entity.Due = new Date(msg.data.entity.Due);
+				if (data.entity.Due) {
+					data.entity.Due = new Date(data.entity.Due);
 				}
-				$scope.entity = msg.data.entity;
-				$scope.optionsCustomer = msg.data.optionsCustomer;
-				$scope.optionsCurrency = msg.data.optionsCurrency;
-				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
-				$scope.optionsSentMethod = msg.data.optionsSentMethod;
-				$scope.optionsStatus = msg.data.optionsStatus;
-				$scope.optionsOperator = msg.data.optionsOperator;
-				$scope.optionsCompany = msg.data.optionsCompany;
-				$scope.optionsWorker = msg.data.optionsWorker;
-				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
+				$scope.entity = data.entity;
+				$scope.optionsCustomer = data.optionsCustomer;
+				$scope.optionsCurrency = data.optionsCurrency;
+				$scope.optionsPaymentMethod = data.optionsPaymentMethod;
+				$scope.optionsSentMethod = data.optionsSentMethod;
+				$scope.optionsStatus = data.optionsStatus;
+				$scope.optionsOperator = data.optionsOperator;
+				$scope.optionsCompany = data.optionsCompany;
+				$scope.optionsWorker = data.optionsWorker;
+				$scope.optionsSalesOrder = data.optionsSalesOrder;
 				$scope.action = 'select';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("createEntity", function (msg) {
-			$scope.$apply(function () {
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-orders.WorkOrder.WorkOrder.createEntity', handler: (data) => {
+			$scope.$evalAsync(() => {
 				$scope.entity = {};
-				$scope.optionsCustomer = msg.data.optionsCustomer;
-				$scope.optionsCurrency = msg.data.optionsCurrency;
-				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
-				$scope.optionsSentMethod = msg.data.optionsSentMethod;
-				$scope.optionsStatus = msg.data.optionsStatus;
-				$scope.optionsOperator = msg.data.optionsOperator;
-				$scope.optionsCompany = msg.data.optionsCompany;
-				$scope.optionsWorker = msg.data.optionsWorker;
-				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
+				$scope.optionsCustomer = data.optionsCustomer;
+				$scope.optionsCurrency = data.optionsCurrency;
+				$scope.optionsPaymentMethod = data.optionsPaymentMethod;
+				$scope.optionsSentMethod = data.optionsSentMethod;
+				$scope.optionsStatus = data.optionsStatus;
+				$scope.optionsOperator = data.optionsOperator;
+				$scope.optionsCompany = data.optionsCompany;
+				$scope.optionsWorker = data.optionsWorker;
+				$scope.optionsSalesOrder = data.optionsSalesOrder;
 				$scope.action = 'create';
 			});
-		});
-
-		messageHub.onDidReceiveMessage("updateEntity", function (msg) {
-			$scope.$apply(function () {
-				if (msg.data.entity.Date) {
-					msg.data.entity.Date = new Date(msg.data.entity.Date);
+		}});
+		Dialogs.addMessageListener({ topic: 'codbex-orders.WorkOrder.WorkOrder.updateEntity', handler: (data) => {
+			$scope.$evalAsync(() => {
+				if (data.entity.Date) {
+					data.entity.Date = new Date(data.entity.Date);
 				}
-				if (msg.data.entity.Due) {
-					msg.data.entity.Due = new Date(msg.data.entity.Due);
+				if (data.entity.Due) {
+					data.entity.Due = new Date(data.entity.Due);
 				}
-				$scope.entity = msg.data.entity;
-				$scope.optionsCustomer = msg.data.optionsCustomer;
-				$scope.optionsCurrency = msg.data.optionsCurrency;
-				$scope.optionsPaymentMethod = msg.data.optionsPaymentMethod;
-				$scope.optionsSentMethod = msg.data.optionsSentMethod;
-				$scope.optionsStatus = msg.data.optionsStatus;
-				$scope.optionsOperator = msg.data.optionsOperator;
-				$scope.optionsCompany = msg.data.optionsCompany;
-				$scope.optionsWorker = msg.data.optionsWorker;
-				$scope.optionsSalesOrder = msg.data.optionsSalesOrder;
+				$scope.entity = data.entity;
+				$scope.optionsCustomer = data.optionsCustomer;
+				$scope.optionsCurrency = data.optionsCurrency;
+				$scope.optionsPaymentMethod = data.optionsPaymentMethod;
+				$scope.optionsSentMethod = data.optionsSentMethod;
+				$scope.optionsStatus = data.optionsStatus;
+				$scope.optionsOperator = data.optionsOperator;
+				$scope.optionsCompany = data.optionsCompany;
+				$scope.optionsWorker = data.optionsWorker;
+				$scope.optionsSalesOrder = data.optionsSalesOrder;
 				$scope.action = 'update';
 			});
-		});
+		}});
 
-		$scope.serviceCustomer = "/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts";
-		$scope.serviceCurrency = "/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts";
-		$scope.servicePaymentMethod = "/services/ts/codbex-methods/gen/codbex-methods/api/Methods/PaymentMethodService.ts";
-		$scope.serviceSentMethod = "/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts";
-		$scope.serviceStatus = "/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/WorkOrderStatusService.ts";
-		$scope.serviceOperator = "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts";
-		$scope.serviceCompany = "/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts";
-		$scope.serviceWorker = "/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts";
-		$scope.serviceSalesOrder = "/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderService.ts";
+		$scope.serviceCustomer = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts';
+		$scope.serviceCurrency = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts';
+		$scope.servicePaymentMethod = '/services/ts/codbex-methods/gen/codbex-methods/api/Methods/PaymentMethodService.ts';
+		$scope.serviceSentMethod = '/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts';
+		$scope.serviceStatus = '/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/WorkOrderStatusService.ts';
+		$scope.serviceOperator = '/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts';
+		$scope.serviceCompany = '/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts';
+		$scope.serviceWorker = '/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts';
+		$scope.serviceSalesOrder = '/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderService.ts';
 
 		//-----------------Events-------------------//
 
-		$scope.create = function () {
-			entityApi.create($scope.entity).then(function (response) {
-				if (response.status != 201) {
-					messageHub.showAlertError("WorkOrder", `Unable to create WorkOrder: '${response.message}'`);
-					return;
-				}
-				messageHub.postMessage("entityCreated", response.data);
-				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("WorkOrder", "WorkOrder successfully created");
+		$scope.create = () => {
+			EntityService.create($scope.entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-orders.WorkOrder.WorkOrder.entityCreated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-orders.WorkOrder.WorkOrder.clearDetails' , data: response.data });
+				Notifications.show({
+					title: LocaleService.t('codbex-orders:t.WORKORDER'),
+					description: propertySuccessfullyCreated,
+					type: 'positive'
+				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: LocaleService.t('codbex-orders:t.WORKORDER'),
+					message: LocaleService.t('codbex-orders:messages.error.unableToCreate', { name: '$t(codbex-orders:t.WORKORDER)', message: message }),
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.update = function () {
-			entityApi.update($scope.entity.Id, $scope.entity).then(function (response) {
-				if (response.status != 200) {
-					messageHub.showAlertError("WorkOrder", `Unable to update WorkOrder: '${response.message}'`);
-					return;
-				}
-				messageHub.postMessage("entityUpdated", response.data);
-				messageHub.postMessage("clearDetails", response.data);
-				messageHub.showAlertSuccess("WorkOrder", "WorkOrder successfully updated");
+		$scope.update = () => {
+			EntityService.update($scope.entity.Id, $scope.entity).then((response) => {
+				Dialogs.postMessage({ topic: 'codbex-orders.WorkOrder.WorkOrder.entityUpdated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-orders.WorkOrder.WorkOrder.clearDetails', data: response.data });
+				Notifications.show({
+					title: LocaleService.t('codbex-orders:t.WORKORDER'),
+					description: propertySuccessfullyUpdated,
+					type: 'positive'
+				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: LocaleService.t('codbex-orders:t.WORKORDER'),
+					message: LocaleService.t('codbex-orders:messages.error.unableToCreate', { name: '$t(codbex-orders:t.WORKORDER)', message: message }),
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 
-		$scope.cancel = function () {
-			messageHub.postMessage("clearDetails");
+		$scope.cancel = () => {
+			Dialogs.triggerEvent('codbex-orders.WorkOrder.WorkOrder.clearDetails');
 		};
 		
 		//-----------------Dialogs-------------------//
+		$scope.alert = (message) => {
+			if (message) Dialogs.showAlert({
+				title: description,
+				message: message,
+				type: AlertTypes.Information,
+				preformatted: true,
+			});
+		};
 		
-		$scope.createCustomer = function () {
-			messageHub.showDialogWindow("Customer-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createCustomer = () => {
+			Dialogs.showWindow({
+				id: 'Customer-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
-		$scope.createCurrency = function () {
-			messageHub.showDialogWindow("Currency-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createCurrency = () => {
+			Dialogs.showWindow({
+				id: 'Currency-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
-		$scope.createPaymentMethod = function () {
-			messageHub.showDialogWindow("PaymentMethod-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createPaymentMethod = () => {
+			Dialogs.showWindow({
+				id: 'PaymentMethod-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
-		$scope.createSentMethod = function () {
-			messageHub.showDialogWindow("SentMethod-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createSentMethod = () => {
+			Dialogs.showWindow({
+				id: 'SentMethod-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
-		$scope.createStatus = function () {
-			messageHub.showDialogWindow("WorkOrderStatus-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createStatus = () => {
+			Dialogs.showWindow({
+				id: 'WorkOrderStatus-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
-		$scope.createOperator = function () {
-			messageHub.showDialogWindow("Employee-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createOperator = () => {
+			Dialogs.showWindow({
+				id: 'Employee-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
-		$scope.createCompany = function () {
-			messageHub.showDialogWindow("Company-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createCompany = () => {
+			Dialogs.showWindow({
+				id: 'Company-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
-		$scope.createWorker = function () {
-			messageHub.showDialogWindow("Employee-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createWorker = () => {
+			Dialogs.showWindow({
+				id: 'Employee-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
-		$scope.createSalesOrder = function () {
-			messageHub.showDialogWindow("SalesOrder-details", {
-				action: "create",
-				entity: {},
-			}, null, false);
+		$scope.createSalesOrder = () => {
+			Dialogs.showWindow({
+				id: 'SalesOrder-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
 		};
 
 		//-----------------Dialogs-------------------//
@@ -216,107 +283,159 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 
 		//----------------Dropdowns-----------------//
 
-		$scope.refreshCustomer = function () {
+		$scope.refreshCustomer = () => {
 			$scope.optionsCustomer = [];
-			$http.get("/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts").then(function (response) {
-				$scope.optionsCustomer = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts').then((response) => {
+				$scope.optionsCustomer = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Customer',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshCurrency = function () {
+		$scope.refreshCurrency = () => {
 			$scope.optionsCurrency = [];
-			$http.get("/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts").then(function (response) {
-				$scope.optionsCurrency = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts').then((response) => {
+				$scope.optionsCurrency = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Currency',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshPaymentMethod = function () {
+		$scope.refreshPaymentMethod = () => {
 			$scope.optionsPaymentMethod = [];
-			$http.get("/services/ts/codbex-methods/gen/codbex-methods/api/Methods/PaymentMethodService.ts").then(function (response) {
-				$scope.optionsPaymentMethod = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-methods/gen/codbex-methods/api/Methods/PaymentMethodService.ts').then((response) => {
+				$scope.optionsPaymentMethod = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'PaymentMethod',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshSentMethod = function () {
+		$scope.refreshSentMethod = () => {
 			$scope.optionsSentMethod = [];
-			$http.get("/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts").then(function (response) {
-				$scope.optionsSentMethod = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts').then((response) => {
+				$scope.optionsSentMethod = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'SentMethod',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshStatus = function () {
+		$scope.refreshStatus = () => {
 			$scope.optionsStatus = [];
-			$http.get("/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/WorkOrderStatusService.ts").then(function (response) {
-				$scope.optionsStatus = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/WorkOrderStatusService.ts').then((response) => {
+				$scope.optionsStatus = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Status',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshOperator = function () {
+		$scope.refreshOperator = () => {
 			$scope.optionsOperator = [];
-			$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
-				$scope.optionsOperator = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.FirstName
-					}
+			$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts').then((response) => {
+				$scope.optionsOperator = response.data.map(e => ({
+					value: e.Id,
+					text: e.FirstName
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Operator',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshCompany = function () {
+		$scope.refreshCompany = () => {
 			$scope.optionsCompany = [];
-			$http.get("/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts").then(function (response) {
-				$scope.optionsCompany = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts').then((response) => {
+				$scope.optionsCompany = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Company',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshWorker = function () {
+		$scope.refreshWorker = () => {
 			$scope.optionsWorker = [];
-			$http.get("/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts").then(function (response) {
-				$scope.optionsWorker = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.FirstName
-					}
+			$http.get('/services/ts/codbex-employees/gen/codbex-employees/api/Employees/EmployeeService.ts').then((response) => {
+				$scope.optionsWorker = response.data.map(e => ({
+					value: e.Id,
+					text: e.FirstName
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'Worker',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
 				});
 			});
 		};
-		$scope.refreshSalesOrder = function () {
+		$scope.refreshSalesOrder = () => {
 			$scope.optionsSalesOrder = [];
-			$http.get("/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderService.ts").then(function (response) {
-				$scope.optionsSalesOrder = response.data.map(e => {
-					return {
-						value: e.Id,
-						text: e.Name
-					}
+			$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderService.ts').then((response) => {
+				$scope.optionsSalesOrder = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'SalesOrder',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
 				});
 			});
 		};
 
 		//----------------Dropdowns-----------------//	
-		
-
-	}]);
+	});

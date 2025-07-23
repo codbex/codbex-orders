@@ -5,14 +5,14 @@
  */
 const perspectiveData = {
 	id: 'OrdersSettings',
-	name: 'Orders Settings',
-	link: '/services/web/codbex-orders/gen/codbex-orders/ui/OrdersSettings/index.html',
-	order: '590',
+	label: 'Orders Settings',
+	translation: {
+        key: 'codbex-orders:t.WORKORDERSTATUS',
+    },
+	path: '/services/web/codbex-orders/gen/codbex-orders/ui/OrdersSettings/index.html',
+	order: 590,
 	icon: '/services/web/resources/unicons/wrench.svg'
 };
-
 if (typeof exports !== 'undefined') {
-	exports.getPerspective = function () {
-		return perspectiveData;
-	}
+	exports.getPerspective = () => perspectiveData;
 }
