@@ -27,10 +27,8 @@
         </style>
     </head>
 
-    <body class="bk-vbox" ng-click="openPerspective()">
-        <div class="bk-border--bottom fd-padding bk-pointer" ng-click="openPerspective()">
-            <h5 bk-title wrap="true" header-size="5" aria-label="widget title">Unpaid Purchase Orders</h5>
-        </div>
+    <body class="bk-vbox bk-pointer bk-padding bk-box--space-between" ng-click="openPerspective()">
+        <h5 bk-title wrap="true" header-size="5" aria-label="widget title">Unpaid Purchase Orders</h5>
         <p class="fd-text widget-content">{{OrderData.UnpaidPurchaseOrders}}</p>
         <p class="fd-text">Today: {{ today | date:'dd-MM-yyyy' }}</p>
         <theme></theme>

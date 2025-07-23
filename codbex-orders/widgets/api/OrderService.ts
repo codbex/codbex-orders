@@ -253,23 +253,6 @@ class OrderService {
     }
 
     private topCustomers(customersLimit: number) {
-        // const sql = `
-        //     SELECT
-        //         c."CUSTOMER_NAME" AS "CUSTOMER",
-        //         COUNT(so."SALESORDER_ID") AS "ORDER_COUNT",
-        //         SUM(so."SALESORDER_GROSS") AS "REVENUE_SUM"
-        //     FROM
-        //         "CODBEX_CUSTOMER" c
-        //     LEFT JOIN
-        //         "CODBEX_SALESORDER" so ON c."CUSTOMER_ID" = so."SALESORDER_CUSTOMER"
-        //     GROUP BY
-        //         c."CUSTOMER_ID",
-        //         c."CUSTOMER_NAME"
-        //     ORDER BY
-        //         "ORDER_COUNT"
-        //     DESC
-        //     LIMIT ?
-        //     `;
 
         const topCustomersQuery = sql.getDialect()
             .select()
@@ -286,13 +269,11 @@ class OrderService {
 
         const categoryResult = query.execute(topCustomersQuery);
 
-        // let resultset = query.execute(sql, [limit]);
-
         const topCustomers = categoryResult.map(row => ({
-            Name: row.CUSTOMER,
+            Name: row.CUSTOMER_NAME,
             Orders: row.ORDER_COUNT,
             Revenue: row.REVENUE_SUM
-        }));
+        })).reverse();
 
         return topCustomers;
     }
