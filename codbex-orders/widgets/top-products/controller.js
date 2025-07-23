@@ -8,7 +8,6 @@ angular.module('top-products', ['blimpKit', 'platformView']).controller('TopProd
     };
 
     $http.get('/services/ts/codbex-orders/widgets/api/ProductService.ts/productData').then((response) => {
-        console.log(response)
         topProductsByUnits = response.data.TopProductsByUnits;
         topProductsByRevenue = response.data.TopProductsByRevenue;
         $scope.$evalAsync(() => {

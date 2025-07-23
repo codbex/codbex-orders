@@ -1,36 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="unpaid-purchase-orders"
-    ng-controller="UnpaidPurchaseOrdersController">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="unpaid-purchase-orders" ng-controller="UnpaidPurchaseOrdersController">
 
     <head>
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
-        <title dg-view-title></title>
-        <script type="text/javascript" src="service.js"></script>
-        <theme></theme>
-        <script type="text/javascript" src="/services/js/resources-core/services/loader.js?id=application-view-js">
-        </script>
-        <link type="text/css" rel="stylesheet"
-            href="/services/js/resources-core/services/loader.js?id=application-view-css" />
-        <script type="text/javascript" src="/webjars/chart.js/dist/chart.umd.js"></script>
-        <script type="text/javascript" src="controller.js"></script>
-
+        <title config-title></title>
+        <script type="text/javascript" src="./config.js"></script>
+        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
+        <script src="./controller.js" type="text/javascript"></script>
         <style>
-            .tile-auto-layout {
-                min-height: auto;
-                height: auto;
-                width: auto;
-                max-width: 99%;
-                margin: 1px;
+            body {
+                background: var(--sapTile_Background);
             }
 
-            .overflow-h {
-                overflow: hidden;
-            }
-
-            .fd-numeric-content__kpi {
+            .widget-content {
                 font-size: 1.5rem;
                 word-wrap: break-word;
                 text-overflow: ellipsis;
@@ -42,29 +27,13 @@
         </style>
     </head>
 
-    <body class="overflow-h">
-        <div role="button" tabindex="0" class="fd-tile fd-tile--feed tile-auto-layout"
-            ng-click="openPerspective('sales-orders')">
-            <div class="fd-tile__header tile-auto-layout">
-                <div class="fd-tile__title">Unpaid Purchase Orders</div>
-            </div>
-            <fd-card-subtitle><br>
-            </fd-card-subtitle>
-            <div class="fd-tile__content tile-auto-layout">
-                <div class="fd-tile__section">
-                    <div class="fd-numeric-content">
-                        <div class="fd-numeric-content__kpi-container">
-                            <div class="fd-numeric-content__kpi">
-                                {{OrderData.UnpaidPurchaseOrders }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="fd-tile__footer tile-auto-layout">
-                <span class="fd-tile__footer-text">Today: {{ today | date:'dd-MM-yyyy' }}</span>
-            </div>
+    <body class="bk-vbox" ng-click="openPerspective()">
+        <div class="bk-border--bottom fd-padding bk-pointer" ng-click="openPerspective()">
+            <h5 bk-title wrap="true" header-size="5" aria-label="widget title">Unpaid Purchase Orders</h5>
         </div>
+        <p class="fd-text widget-content">{{OrderData.UnpaidPurchaseOrders}}</p>
+        <p class="fd-text">Today: {{ today | date:'dd-MM-yyyy' }}</p>
+        <theme></theme>
     </body>
 
 </html>

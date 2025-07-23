@@ -1,5 +1,6 @@
-angular.module('unpaid-purchase-orders', ['ideUI', 'ideView'])
-    .controller('UnpaidPurchaseOrdersController', ['$scope', '$document', '$http', 'messageHub', function ($scope, $document, $http, messageHub) {
+angular.module('unpaid-purchase-orders', ['blimpKit', 'platformView'])
+    .controller('UnpaidPurchaseOrdersController', ($scope, $http) => {
+
         $scope.state = {
             isBusy: true,
             error: false,
@@ -14,4 +15,4 @@ angular.module('unpaid-purchase-orders', ['ideUI', 'ideView'])
                 $scope.OrderData = response.data;
             });
 
-    }]);
+    });

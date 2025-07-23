@@ -29,61 +29,31 @@
         </style>
     </head>
 
-    <body class="bk-vbox bk-pointer bk-padding bk-box--space-between" ng-click="openPerspective()">
-        <!-- <fd-card card-type="table">
-            <fd-card-header ng-click="openPerspective('sales-orders')">
-                <fd-card-title>Top Customers</fd-card-title>
-            </fd-card-header>
-            <fd-card-content>
-                <table class="fd-table fd-table--no-horizontal-borders fd-table--no-vertical-borders">
-                    <thead class="fd-table__header">
-                        <tr class="fd-table__row">
-                            <th class="fd-table__cell" scope="col">Customer</th>
-                            <th class="fd-table__cell" scope="col">Orders</th>
-                            <th class="fd-table__cell" scope="col" style="text-align:right">Revenue
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="fd-table__body" id="top_customers">
-                        <tr ng-repeat="next in topCustomers">
-                            <td class="fd-table__cell"><a class="fd-link"><span class="fd-link__content">{{next.Name}}</span></a>
-                            </td>
-                            <td class="fd-table__cell">{{next.Orders}}</td>
-                            <td class="fd-table__cell" style="text-align:right">
-                                {{next.Revenue}}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </fd-card-content>
-        </fd-card> -->
-        <bk-card>
-            <bk-card-header ng-click="openPerspective('sales-orders')">
-                <bk-card-title>Top Customers</bk-card-title>
-            </bk-card-header>
-            <bk-card-content>
-                <table bk-table class="fd-table fd-table--no-horizontal-borders fd-table--no-vertical-borders">
-                    <thead>
-                        <tr>
-                            <th scope="col">Customer</th>
-                            <th scope="col">Orders</th>
-                            <th scope="col" style="text-align:right">Revenue</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="next in TopCustomers">
-                            <td>
-                                <a bk-link>
-                                    <span bk-link-content>{{next.Name}}</span>
-                                </a>
-                            </td>
-                            <td>{{next.Orders}}</td>
-                            <td style="text-align:right">{{next.Revenue}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </bk-card-content>
-        </bk-card>
+    <body class="bk-vbox">
+        <div class="bk-border--bottom fd-padding bk-pointer" ng-click="openPerspective()">
+            <h5 bk-title wrap="true" header-size="5" aria-label="widget title">Top Customers</h5>
+        </div>
+        <bk-scrollbar style="flex:1">
+            <table bk-table display-mode="compact" outer-borders="none">
+                <thead bk-table-header sticky="true">
+                    <tr bk-table-row>
+                        <th bk-table-header-cell interactive="false">Customer</th>
+                        <th bk-table-header-cell hoverable="true">Orders<span class="sap-icon sap-icon--sort bk-float-right" role="presentation"></span></th>
+                        <th bk-table-header-cell hoverable="true">Revenue<span class="sap-icon sap-icon--sort bk-float-right" role="presentation"></span></th>
+                    </tr>
+                </thead>
+                <tbody bk-table-body>
+                    <tr bk-table-row ng-if="displayedProducts.length === 0">
+                        <td bk-table-cell no-data="true">No data</td>
+                    </tr>
+                    <tr bk-table-row hoverable="false" ng-repeat="customer in TopCustomers">
+                        <td bk-table-cell>{{customer.Name}}</td>
+                        <td bk-table-cell>{{customer.Orders}}</td>
+                        <td bk-table-cell>{{customer.Revenue}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </bk-scrollbar>
         <theme></theme>
     </body>
 

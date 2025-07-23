@@ -1,5 +1,6 @@
-angular.module('top-purchase-orders', ['ideUI', 'ideView'])
-    .controller('TopPurchaseOrdersController', ['$scope', '$document', '$http', 'messageHub', function ($scope, $document, $http, messageHub) {
+angular.module('top-purchase-orders', ['blimpKit', 'platformView'])
+    .controller('TopPurchaseOrdersController', ($scope, $http, $document) => {
+
         $scope.state = {
             isBusy: true,
             error: false,
@@ -21,11 +22,10 @@ angular.module('top-purchase-orders', ['ideUI', 'ideView'])
             }
         }
 
-
         angular.element($document[0]).ready(async function () {
             const orderData = await getOrderData();
             $scope.$apply(function () {
                 $scope.topPurchaseOrders = orderData.TopPurchaseOrders;
             });
         });
-    }]);
+    });

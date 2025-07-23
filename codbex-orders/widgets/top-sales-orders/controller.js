@@ -1,5 +1,6 @@
-angular.module('top-sales-orders', ['ideUI', 'ideView'])
-    .controller('TopSalesOrdersController', ['$scope', '$document', '$http', 'messageHub', function ($scope, $document, $http, messageHub) {
+angular.module('top-sales-orders', ['blimpKit', 'platformView'])
+    .controller('TopSalesOrdersController', ($scope, $http, $document) => {
+
         $scope.state = {
             isBusy: true,
             error: false,
@@ -28,4 +29,4 @@ angular.module('top-sales-orders', ['ideUI', 'ideView'])
             });
         });
 
-    }]);
+    });
