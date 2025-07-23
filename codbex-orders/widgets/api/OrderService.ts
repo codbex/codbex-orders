@@ -5,7 +5,6 @@ import { SupplierRepository as SupplierDao } from "codbex-partners/gen/codbex-pa
 
 import { Controller, Get } from "sdk/http";
 import { query } from "sdk/db";
-import { response } from "sdk/http";
 
 @Controller
 class OrderService {
