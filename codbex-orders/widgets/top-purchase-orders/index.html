@@ -22,13 +22,13 @@
         <div class="bk-border--bottom fd-padding bk-pointer" ng-click="openPerspective()">
             <h5 bk-title wrap="true" header-size="5" aria-label="widget title">Top Purchase Orders</h5>
         </div>
-        <bk-scrollbar style="flex:1">
-            <table bk-table display-mode="compact" outer-borders="none">
-                <thead bk-table-header sticky="true">
+        <bk-scrollbar class="bk-fill-parent">
+            <table bk-table display-mode="compact" outer-borders="bottom">
+                <thead bk-table-header interactive="false" sticky="true">
                     <tr bk-table-row>
-                        <th bk-table-header-cell interactive="false">Order</th>
-                        <th bk-table-header-cell hoverable="true">Supplier</th>
-                        <th bk-table-header-cell hoverable="true">Revenue</th>
+                        <th bk-table-header-cell>Order</th>
+                        <th bk-table-header-cell>Supplier</th>
+                        <th bk-table-header-cell>Revenue</th>
                     </tr>
                 </thead>
                 <tbody bk-table-body>

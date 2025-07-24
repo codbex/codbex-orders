@@ -3,7 +3,7 @@ const viewData = {
     label: 'Top Sales Orders',
     path: '/services/web/codbex-orders/widgets/top-sales-orders/index.html',
     redirectViewId: 'sales-orders-navigation',
-    size: "large",
+    size: 'large',
     lazyLoad: true,
     autoFocusTab: false
 };

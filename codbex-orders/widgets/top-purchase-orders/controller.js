@@ -1,12 +1,6 @@
 angular.module('top-purchase-orders', ['blimpKit', 'platformView'])
     .controller('TopPurchaseOrdersController', ($scope, $http, $document) => {
 
-        $scope.state = {
-            isBusy: true,
-            error: false,
-            busyText: "Loading...",
-        };
-
         const orderServiceUrl = "/services/ts/codbex-orders/widgets/api/OrderService.ts/orderData";
         $http.get(orderServiceUrl)
             .then(function (response) {
@@ -24,7 +18,7 @@ angular.module('top-purchase-orders', ['blimpKit', 'platformView'])
 
         angular.element($document[0]).ready(async function () {
             const orderData = await getOrderData();
-            $scope.$apply(function () {
+            $scope.$evalAsync(() => {
                 $scope.topPurchaseOrders = orderData.TopPurchaseOrders;
             });
         });

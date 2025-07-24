@@ -3,7 +3,7 @@ const viewData = {
     label: 'Average Sales Order Price',
     path: '/services/web/codbex-orders/widgets/average-sales-order-price/index.html',
     redirectViewId: "sales-order-navigation",
-    size: "small",
+    size: 'small',
     lazyLoad: true,
     autoFocusTab: false
 };

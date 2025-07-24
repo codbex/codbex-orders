@@ -3,7 +3,7 @@ const viewData = {
     label: 'Unpaid Purchase Orders',
     path: '/services/web/codbex-orders/widgets/unpaid-purchase-orders/index.html',
     redirectViewId: 'purchase-order-navigation',
-    size: "small",
+    size: 'small',
     lazyLoad: true,
     autoFocusTab: false
 };
