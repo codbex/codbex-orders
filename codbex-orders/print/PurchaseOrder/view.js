@@ -3,6 +3,9 @@ const viewData = {
     label: 'Print',
     path: '/services/ts/codbex-templates/print/purchase-order-print-template.ts',
     perspective: 'PurchaseOrder',
+    translation: {
+        key: 'codbex-orders:t.PURCHASEORDER',
+    },
     view: 'PurchaseOrder',
     type: 'entity',
     order: 30
