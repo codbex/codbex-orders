@@ -1,6 +1,6 @@
 {
     "extensionPoint": "dashboard-widgets",
-    "module": "codbex-orders/widgets/unpaid-purchase-orders/service.js",
+    "module": "codbex-orders/widgets/unpaid-purchase-orders/config.js",
     "description": "Avarage Purchase Order Price",
     "role": "codbex-orders.PurchaseOrder.PurchaseOrderReadOnly,codbex-orders.PurchaseOrder.PurchaseOrderFullAccess"
 }

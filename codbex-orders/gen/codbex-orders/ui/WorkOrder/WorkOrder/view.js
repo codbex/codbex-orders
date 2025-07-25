@@ -4,16 +4,17 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "WorkOrder",
-    label: "WorkOrder",
-    factory: "frame",
-    region: "left",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/index.html",
-    perspectiveName: "WorkOrder"
+    id: 'WorkOrder',
+    label: 'WorkOrder',
+    translation: {
+        key: 'codbex-orders:t.WORKORDER',
+    },
+    region: 'left',
+    lazyLoad: false,
+	autoFocusTab: false,
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/index.html',
+    perspectiveName: 'WorkOrder'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }

@@ -1,5 +1,6 @@
 {
     "module": "codbex-orders/gen/codbex-orders/ui/SalesOrder/perspective.js",
-    "extensionPoint": "codbex-orders",
-    "description": "codbex-orders - Perspective - SalesOrder"
+    "extensionPoint": "application-perspectives",
+    "description": "codbex-orders - Perspective - SalesOrder",
+    "role": "codbex-orders.SalesOrder.SalesOrderReadOnly,codbex-orders.SalesOrder.SalesOrderFullAccess"
 }

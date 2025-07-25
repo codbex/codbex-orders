@@ -265,7 +265,7 @@ export interface WorkOrderEntityOptions {
     },
     $select?: (keyof WorkOrderEntity)[],
     $sort?: string | (keyof WorkOrderEntity)[],
-    $order?: 'asc' | 'desc',
+    $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
 }
@@ -429,19 +429,14 @@ export class WorkOrderRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(WorkOrderRepository.DEFINITION, null, dataSource);
+        this.dao = daoApi.create(WorkOrderRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options?: WorkOrderEntityOptions): WorkOrderEntity[] {
-        // @ts-ignore
-        if (options.$sort === undefined) {
-            // @ts-ignore
-            options.$sort = "";
+    public findAll(options: WorkOrderEntityOptions = {}): WorkOrderEntity[] {
+        if (options.$sort === undefined && options.$order === undefined) {
+            options.$sort = "Number";
+            options.$order = "DESC";
         }
-        // @ts-ignore
-        options.$sort += "Number,";
-        // @ts-ignore
-        options.$order = "DESC";
         return this.dao.list(options).map((e: WorkOrderEntity) => {
             EntityUtils.setDate(e, "Date");
             EntityUtils.setDate(e, "Due");

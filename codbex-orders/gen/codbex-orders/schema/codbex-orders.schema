@@ -31,7 +31,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -43,7 +43,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -51,7 +51,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -59,7 +59,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -68,7 +68,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -76,7 +76,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -84,7 +84,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -123,6 +123,7 @@
                     {
                         "type": "VARCHAR",
                         "length": 36,
+                        "unique": true,
                         "name": "SALESORDER_UUID"
                     },
                     {
@@ -163,21 +164,21 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "name": "SALESORDERITEM_QUANTITY"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "name": "SALESORDERITEM_PRICE"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -185,7 +186,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -193,7 +194,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -201,7 +202,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -222,6 +223,7 @@
                         "type": "INTEGER",
                         "primaryKey": true,
                         "identity": true,
+                        "unique": true,
                         "name": "PURCHASEORDER_ID"
                     },
                     {
@@ -243,7 +245,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -255,7 +257,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -263,7 +265,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -272,7 +274,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -281,7 +283,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -289,7 +291,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -297,7 +299,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "defaultValue": "0",
@@ -339,6 +341,7 @@
                     {
                         "type": "VARCHAR",
                         "length": 36,
+                        "unique": true,
                         "name": "PURCHASEORDER_UUID"
                     },
                     {
@@ -362,6 +365,7 @@
                         "type": "INTEGER",
                         "primaryKey": true,
                         "identity": true,
+                        "unique": true,
                         "name": "PURCHASEORDERITEM_ID"
                     },
                     {
@@ -378,21 +382,21 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "name": "PURCHASEORDERITEM_QUANTITY"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "name": "PURCHASEORDERITEM_PRICE"
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -400,7 +404,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -408,7 +412,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -416,7 +420,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -483,7 +487,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "name": "SALESORDERPAYMENT_AMOUNT"
@@ -511,7 +515,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "name": "PURCHASEORDERPAYMENT_AMOUNT"
@@ -558,7 +562,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -571,7 +575,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -579,7 +583,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -587,7 +591,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -595,7 +599,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -603,7 +607,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -611,7 +615,7 @@
                     },
                     {
                         "type": "DECIMAL",
-                        "length": 18,
+                        "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
@@ -657,6 +661,7 @@
                     {
                         "type": "VARCHAR",
                         "length": 36,
+                        "unique": true,
                         "name": "WORKORDER_UUID"
                     },
                     {

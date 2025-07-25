@@ -1,6 +1,6 @@
 {
     "module": "codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/view.js",
-    "extensionPoint": "codbex-orders-view",
+    "extensionPoint": "application-views",
     "description": "codbex-orders - Application View",
     "role": "codbex-orders.SalesOrder.SalesOrderReadOnly,codbex-orders.SalesOrder.SalesOrderFullAccess"
 }

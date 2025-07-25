@@ -4,14 +4,17 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "WorkOrderStatus-filter",
-    label: "WorkOrderStatus Filter",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/OrdersSettings/WorkOrderStatus/dialog-filter/index.html",
-    perspectiveName: "OrdersSettings"
+    id: 'WorkOrderStatus-filter',
+    label: 'WorkOrderStatus Filter',
+    translation: {
+        key: 'codbex-orders:extName',
+        options: {
+            content: '$t(codbex-orders:t.WORKORDERSTATUS) $t(codbex-orders:defaults.filter)',
+        }
+    },
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/OrdersSettings/WorkOrderStatus/dialog-filter/index.html',
+    perspectiveName: 'OrdersSettings'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

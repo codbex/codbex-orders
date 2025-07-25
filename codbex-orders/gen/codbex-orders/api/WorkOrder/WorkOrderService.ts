@@ -48,7 +48,7 @@ class WorkOrderService {
     public count() {
         try {
             this.checkPermissions("read");
-            return this.repository.count();
+            return { count: this.repository.count() };
         } catch (error: any) {
             this.handleError(error);
         }
@@ -58,7 +58,7 @@ class WorkOrderService {
     public countWithFilter(filter: any) {
         try {
             this.checkPermissions("read");
-            return this.repository.count(filter);
+            return { count: this.repository.count(filter) };
         } catch (error: any) {
             this.handleError(error);
         }

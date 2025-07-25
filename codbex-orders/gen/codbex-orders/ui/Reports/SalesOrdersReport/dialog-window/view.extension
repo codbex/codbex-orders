@@ -1,6 +1,6 @@
 {
     "module": "codbex-orders/gen/codbex-orders/ui/Reports/SalesOrdersReport/dialog-window/view.js",
-    "extensionPoint": "dialog-window",
+    "extensionPoint": "application-windows",
     "description": "codbex-orders - Application Dialog Window",
     "role": "codbex-orders.Reports.SalesOrdersReportReadOnly"
 }

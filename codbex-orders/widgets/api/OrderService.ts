@@ -4,8 +4,7 @@ import { CustomerRepository as CustomerDao } from "codbex-partners/gen/codbex-pa
 import { SupplierRepository as SupplierDao } from "codbex-partners/gen/codbex-partners/dao/Suppliers/SupplierRepository";
 
 import { Controller, Get } from "sdk/http";
-import { query } from "sdk/db";
-import { response } from "sdk/http";
+import { query, sql } from "sdk/db";
 
 @Controller
 class OrderService {
@@ -253,32 +252,29 @@ class OrderService {
         return purchaseOrdersWithNames;
     }
 
-    private topCustomers(limit: number) {
-        const sql = `
-            SELECT
-                c."CUSTOMER_NAME" AS "CUSTOMER",
-                COUNT(so."SALESORDER_ID") AS "ORDER_COUNT",
-                SUM(so."SALESORDER_GROSS") AS "REVENUE_SUM"
-            FROM
-                "CODBEX_CUSTOMER" c
-            LEFT JOIN
-                "CODBEX_SALESORDER" so ON c."CUSTOMER_ID" = so."SALESORDER_CUSTOMER"
-            GROUP BY
-                c."CUSTOMER_ID",
-                c."CUSTOMER_NAME"
-            ORDER BY
-                "ORDER_COUNT"
-            DESC
-            LIMIT ?
-            `;
-        let resultset = query.execute(sql, [limit]);
+    private topCustomers(customersLimit: number) {
 
-        const topCustomers = resultset.map(row => ({
-            Name: row.CUSTOMER,
+        const topCustomersQuery = sql.getDialect()
+            .select()
+            .column('CUSTOMER_NAME')
+            .column('SUM(SALESORDER_GROSS) REVENUE_SUM')
+            .column('COUNT(SALESORDER_ID) ORDER_COUNT')
+            .from('CODBEX_CUSTOMER')
+            .leftJoin('CODBEX_SALESORDER', 'CUSTOMER_ID = SALESORDER_CUSTOMER')
+            .group('CUSTOMER_ID')
+            .group('CUSTOMER_NAME')
+            .order('ORDER_COUNT')
+            .limit(customersLimit)
+            .build();
+
+        const categoryResult = query.execute(topCustomersQuery);
+
+        const topCustomers = categoryResult.map(row => ({
+            Name: row.CUSTOMER_NAME,
             Orders: row.ORDER_COUNT,
             Revenue: row.REVENUE_SUM
-        }));
+        })).reverse();
+
         return topCustomers;
     }
-
 }

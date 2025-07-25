@@ -1,17 +1,13 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-orders.Reports.PurchaseOrdersTotalReport';
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
+	.config(['EntityServiceProvider', (EntityServiceProvider) => {
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-orders/gen/codbex-orders/api/Reports/PurchaseOrdersTotalReportService.ts';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/codbex-orders/api/Reports/PurchaseOrdersTotalReportService.ts";
-	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
-
+	.controller('PageController', ($scope, EntityService, LocaleService) => {
+		const Dialogs = new DialogHub();
 		$scope.filter = {};
 
 		const ctx = document.getElementById('myChart');
 		const myChart = new Chart(ctx, {
-			type: 'bar',
 			data: {
 				labels: [],
 				datasets: []
@@ -19,25 +15,16 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		});
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("filter", function (msg) {
-			$scope.filter = msg.data;
+		Dialogs.addMessageListener({ topic: 'codbex-orders.Reports.PurchaseOrdersTotalReport.filter', handler: (data) => {
+			$scope.filter = data;
 			$scope.loadPage();
-		});
+		}});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function () {
-			entityApi.count($scope.filter).then(function (response) {
-				if (response.status != 200) {
-					messageHub.showAlertError("PurchaseOrdersTotalReport", `Unable to count PurchaseOrdersTotalReport: '${response.message}'`);
-					return;
-				}
-				$scope.dataCount = response.data;
-				entityApi.list($scope.filter).then(function (response) {
-					if (response.status != 200) {
-						messageHub.showAlertError("PurchaseOrdersTotalReport", `Unable to list PurchaseOrdersTotalReport: '${response.message}'`);
-						return;
-					}
-
+		$scope.loadPage = () => {
+			EntityService.count($scope.filter).then((resp) => {
+				$scope.dataCount = resp.data.count;
+				EntityService.list($scope.filter).then((response) => {
 					response.data.forEach(e => {
 						if (e.Date) {
 							e.Date = new Date(e.Date);
@@ -48,24 +35,42 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					myChart.data.labels = $scope.data.map(e => e.Date);
 					myChart.data.datasets = [
 						{
-							label: 'Total',
+							label: LocaleService.t('codbex-orders:t.PURCHASEORDERSTOTALREPORT_TOTAL', 'Total'),
 							data: $scope.data.map(e => e.Total),
 							borderWidth: 1
 						},
 					];
 					myChart.canvas.parentNode.style.height = '90%';
 					myChart.update();
+				}, (error) => {
+					const message = error.data ? error.data.message : '';
+					Dialogs.showAlert({
+						title: LocaleService.t('codbex-orders:t.PURCHASEORDERSTOTALREPORT'),
+						message: LocaleService.t('codbex-orders:messages.error.unableToLF', { name: '$t(codbex-orders:t.PURCHASEORDERSTOTALREPORT)', message: message }),
+						type: AlertTypes.Error
+					});
+					console.error('EntityService:', error);
 				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: LocaleService.t('codbex-orders:t.PURCHASEORDERSTOTALREPORT'),
+					message: LocaleService.t('codbex-orders:messages.error.unableToCount', { name: '$t(codbex-orders:t.PURCHASEORDERSTOTALREPORT)', message: message }),
+					type: AlertTypes.Error
+				});
+				console.error('EntityService:', error);
 			});
 		};
 		$scope.loadPage();
 
-		$scope.openFilter = function () {
-			messageHub.showDialogWindow("PurchaseOrdersTotalReport-details-filter", {
-				action: "filter",
-				filter: $scope.filter,
+		$scope.openFilter = () => {
+			Dialogs.showWindow({
+				id: 'PurchaseOrdersTotalReport-details-filter',
+				params: {
+					action: 'filter',
+					filter: $scope.filter,
+				},
 			});
 		};
 
-
-	}]);
+	});

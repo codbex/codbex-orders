@@ -4,14 +4,17 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "PurchaseOrderItem-filter",
-    label: "PurchaseOrderItem Filter",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/PurchaseOrder/PurchaseOrder/PurchaseOrderItem/dialog-filter/index.html",
-    perspectiveName: "PurchaseOrder"
+    id: 'PurchaseOrderItem-filter',
+    label: 'PurchaseOrderItem Filter',
+    translation: {
+        key: 'codbex-orders:extName',
+        options: {
+            content: '$t(codbex-orders:t.PURCHASEORDERITEM) $t(codbex-orders:defaults.filter)',
+        }
+    },
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/PurchaseOrder/PurchaseOrder/PurchaseOrderItem/dialog-filter/index.html',
+    perspectiveName: 'PurchaseOrder'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

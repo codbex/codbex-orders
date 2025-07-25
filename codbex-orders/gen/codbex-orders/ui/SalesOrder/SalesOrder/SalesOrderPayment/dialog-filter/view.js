@@ -4,14 +4,17 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "SalesOrderPayment-filter",
-    label: "SalesOrderPayment Filter",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/SalesOrderPayment/dialog-filter/index.html",
-    perspectiveName: "SalesOrder"
+    id: 'SalesOrderPayment-filter',
+    label: 'SalesOrderPayment Filter',
+    translation: {
+        key: 'codbex-orders:extName',
+        options: {
+            content: '$t(codbex-orders:t.SALESORDERPAYMENT) $t(codbex-orders:defaults.filter)',
+        }
+    },
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/SalesOrderPayment/dialog-filter/index.html',
+    perspectiveName: 'SalesOrder'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

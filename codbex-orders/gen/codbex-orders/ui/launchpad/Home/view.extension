@@ -1,5 +1,0 @@
-{
-    "module": "codbex-orders/gen/codbex-orders/ui/launchpad/Home/view.js",
-    "extensionPoint": "codbex-orders-view",
-    "description": "codbex-orders - Application View"
-}

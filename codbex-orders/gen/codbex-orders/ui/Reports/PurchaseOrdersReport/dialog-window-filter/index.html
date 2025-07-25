@@ -2,123 +2,105 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="page" ng-controller="PageController">
 
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="data:;base64,iVBORw0KGgo=" dg-brand-icon />
-        <title dg-brand-title></title>
-        <theme></theme>
-        <script type="text/javascript"
-            src="/services/js/resources-core/services/loader.js?id=application-view-js"></script>
-        <link type="text/css" rel="stylesheet"
-            href="/services/js/resources-core/services/loader.js?id=application-view-css" />
+        <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
+        <title config-title></title>
+        <script type="text/javascript" src="view.js"></script>
+        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
         <script type="text/javascript" src="controller.js"></script>
     </head>
 
-    <body class="dg-vbox">
-        <fd-scrollbar class="dg-full-height">
-            <div class="fd-margin--md fd-message-strip fd-message-strip--error fd-message-strip--dismissible"
-                role="alert" ng-show="errorMessage">
-                <p class="fd-message-strip__text">{{ errorMessage }}</p>
-            </div>
-
-            <fd-fieldset ng-form="forms.details">
-                <fd-form-group dg-header="Report Filter" name="entityForm" class="fd-container fd-form-layout-grid-container">
-                    <fd-form-item class="fd-row">
+    <body class="bk-vbox">
+        <bk-scrollbar class="bk-full-height">
+            <bk-fieldset class="fd-padding-begin-end--sm" ng-form="forms.details">
+                <bk-form-group label="{{'codbex-orders:defaults.reportFilter' | t}}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idNumber" dg-required="false" dg-colon="true">Number</fd-form-label>
+                        	<bk-form-label for="idNumber" ng-required="false" colon="true">{{ 'codbex-orders:t.PURCHASEORDERSREPORTFILTER_NUMBER' | t }}</bk-form-label>
                         </div>
-                        <fd-form-input-message-group dg-inactive="{{ forms.details['Number'].$valid }}">
-                            <fd-input id="idNumber"
+                        <bk-form-input-message state="{{ forms.details['Number'].$valid ? '' : 'error' }}" text="{{ 'codbex-orders:messages.error.pattern' | t:{'rule':''} }}">
+                            <bk-input id="idNumber"
                                 name="Number"
                                 state="{{ forms.details['Number'].$valid ? '' : 'error' }}"
 								ng-required="false"
                                 ng-model="entity.Number"
-                                ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
-                                dg-input-rules="{ patterns: [''] }"
+								ng-maxlength="20.0"
+                                input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter Number">
-                            </fd-input>
-                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-                        </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERSREPORTFILTER_NUMBER)'} }}">
+                            </bk-input>
+                        </bk-form-input-message>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idName" dg-required="false" dg-colon="true">Name</fd-form-label>
+                        	<bk-form-label for="idName" ng-required="false" colon="true">{{ 'codbex-orders:t.PURCHASEORDERSREPORTFILTER_NAME' | t }}</bk-form-label>
                         </div>
-                        <fd-form-input-message-group dg-inactive="{{ forms.details['Name'].$valid }}">
-                            <fd-input id="idName"
+                        <bk-form-input-message state="{{ forms.details['Name'].$valid ? '' : 'error' }}" text="{{ 'codbex-orders:messages.error.pattern' | t:{'rule':''} }}">
+                            <bk-input id="idName"
                                 name="Name"
                                 state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 								ng-required="false"
                                 ng-model="entity.Name"
-                                ng-minlength="0.0 || 0"
-                                ng-maxlength="20.0 || -1"
-                                dg-input-rules="{ patterns: [''] }"
+								ng-maxlength="20.0"
+                                input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter Name">
-                            </fd-input>
-                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-                        </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERSREPORTFILTER_NAME)'} }}">
+                            </bk-input>
+                        </bk-form-input-message>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDate" dg-required="false" dg-colon="true">Date</fd-form-label>
+                        	<bk-form-label for="idDate" ng-required="false" colon="true">{{ 'codbex-orders:t.PURCHASEORDERSREPORTFILTER_DATE' | t }}</bk-form-label>
                         </div>
-                        <fd-form-input-message-group dg-inactive="{{ forms.details['Date'].$valid }}">
-                            <fd-input id="idDate"
+                        <bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{ 'codbex-orders:messages.error.pattern' | t:{'rule':''} }}">
+                            <bk-input id="idDate"
                                 name="Date"
                                 state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 								ng-required="false"
                                 ng-model="entity.Date"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
+                                input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter Date">
-                            </fd-input>
-                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-                        </fd-form-input-message-group>
-                    </fd-form-item>
-                    <fd-form-item class="fd-row">
+                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERSREPORTFILTER_DATE)'} }}">
+                            </bk-input>
+                        </bk-form-input-message>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<fd-form-label for="idDue" dg-required="false" dg-colon="true">Due</fd-form-label>
+                        	<bk-form-label for="idDue" ng-required="false" colon="true">{{ 'codbex-orders:t.PURCHASEORDERSREPORTFILTER_DUE' | t }}</bk-form-label>
                         </div>
-                        <fd-form-input-message-group dg-inactive="{{ forms.details['Due'].$valid }}">
-                            <fd-input id="idDue"
+                        <bk-form-input-message state="{{ forms.details['Due'].$valid ? '' : 'error' }}" text="{{ 'codbex-orders:messages.error.pattern' | t:{'rule':''} }}">
+                            <bk-input id="idDue"
                                 name="Due"
                                 state="{{ forms.details['Due'].$valid ? '' : 'error' }}"
 								ng-required="false"
                                 ng-model="entity.Due"
-                                ng-minlength="${property.minLength} || 0"
-                                ng-maxlength="${property.maxLength} || -1"
-                                dg-input-rules="{ patterns: [''] }"
+                                input-rules="{ patterns: [''] }"
                                 type="text"
-                                placeholder="Enter Due">
-                            </fd-input>
-                            <fd-form-message dg-type="error">Incorrect Input</fd-form-message>
-                        </fd-form-input-message-group>
-                    </fd-form-item>
-				</fd-form-group>
-            </fd-fieldset>
-        </fd-scrollbar>
+                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERSREPORTFILTER_DUE)'} }}">
+                            </bk-input>
+                        </bk-form-input-message>
+                    </bk-form-item>
+				</bk-form-group>
+            </bk-fieldset>
+        </bk-scrollbar>
 
 
-        <fd-bar bar-design="footer" compact="true">
-			<fd-bar-right>
-				<fd-bar-element>
-					<fd-button dg-label="Filter" dg-type="emphasized" ng-click="filter()" state="{{ forms.details.$valid ? '' : 'disabled' }}"></fd-button>
-				</fd-bar-element>
-				<fd-bar-element>
-					<fd-button dg-label="Reset" ng-click="resetFilter()"></fd-button>
-				</fd-bar-element>
-				<fd-bar-element>
-					<fd-button dg-label="Cancel" ng-click="cancel()"></fd-button>
-				</fd-bar-element>
-			</fd-bar-right>
-		</fd-bar>
-
+        <bk-bar bar-design="footer" compact="true">
+			<bk-bar-right>
+				<bk-bar-element>
+					<bk-button label="{{ 'codbex-orders:defaults.filter' | t }}" state="emphasized" ng-click="filter()" ng-disabled="!forms.details.$valid"></bk-button>
+				</bk-bar-element>
+				<bk-bar-element>
+					<bk-button label="{{ 'codbex-orders:defaults.reset' | t }}" ng-click="resetFilter()"></bk-button>
+				</bk-bar-element>
+				<bk-bar-element>
+					<bk-button label="{{ 'codbex-orders:defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
+				</bk-bar-element>
+			</bk-bar-right>
+		</bk-bar>
+        <theme></theme>
     </body>
 
 </html>

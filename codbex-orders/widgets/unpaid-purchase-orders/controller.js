@@ -1,10 +1,5 @@
-angular.module('unpaid-purchase-orders', ['ideUI', 'ideView'])
-    .controller('UnpaidPurchaseOrdersController', ['$scope', '$document', '$http', 'messageHub', function ($scope, $document, $http, messageHub) {
-        $scope.state = {
-            isBusy: true,
-            error: false,
-            busyText: "Loading...",
-        };
+angular.module('unpaid-purchase-orders', ['blimpKit', 'platformView'])
+    .controller('UnpaidPurchaseOrdersController', ($scope, $http) => {
 
         $scope.today = new Date();
 
@@ -12,6 +7,7 @@ angular.module('unpaid-purchase-orders', ['ideUI', 'ideView'])
         $http.get(orderServiceUrl)
             .then(function (response) {
                 $scope.OrderData = response.data;
+            }, (error) => {
+                console.error(error);
             });
-
-    }]);
+    });

@@ -1,11 +1,9 @@
-angular.module('page', ["ideUI", "ideView", "entityApi"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-orders.Reports.SalesOrdersReport';
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
+	.config(['EntityServiceProvider', (EntityServiceProvider) => {
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-orders/gen/codbex-orders/api/Reports/SalesOrdersReportService.ts';
 	}])
-	.config(["entityApiProvider", function (entityApiProvider) {
-		entityApiProvider.baseUrl = "/services/ts/codbex-orders/gen/codbex-orders/api/Reports/SalesOrdersReportService.ts";
-	}])
-	.controller('PageController', ['$scope', 'messageHub', 'entityApi', function ($scope, messageHub, entityApi) {
+	.controller('PageController', ($scope,, EntityService, LocaleService) => {
+		const Dialogs = new DialogHub();
 
 		$scope.filter = {};
 
@@ -17,31 +15,22 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 		resetPagination();
 
 		//-----------------Events-------------------//
-		messageHub.onDidReceiveMessage("filter", function (msg) {
-			$scope.filter = msg.data;
+		Dialogs.addMessageListener({ topic: 'codbex-orders.Reports.SalesOrdersReport.filter', handler: (data) => {
+			$scope.filter = data;
 			$scope.loadPage(1);
-		});
+		}});
 		//-----------------Events-------------------//
 
-		$scope.loadPage = function (pageNumber) {
+		$scope.loadPage = (pageNumber) => {
 			const listFilter = {
 				$offset: (pageNumber - 1) * $scope.dataLimit,
 				$limit: $scope.dataLimit,
 				...$scope.filter
 			};
 			$scope.dataPage = pageNumber;
-			entityApi.count($scope.filter).then(function (response) {
-				if (response.status != 200) {
-					messageHub.showAlertError("SalesOrdersReport", `Unable to count SalesOrdersReport: '${response.message}'`);
-					return;
-				}
-				$scope.dataCount = response.data;
-				entityApi.list(listFilter).then(function (response) {
-					if (response.status != 200) {
-						messageHub.showAlertError("SalesOrdersReport", `Unable to list SalesOrdersReport: '${response.message}'`);
-						return;
-					}
-
+			EntityService.count($scope.filter).then((resp) => {
+				$scope.dataCount = resp.data.count;
+				EntityService.list(listFilter).then((response) => {
 					response.data.forEach(e => {
 						if (e.Date) {
 							e.Date = new Date(e.Date);
@@ -52,29 +41,42 @@ angular.module('page', ["ideUI", "ideView", "entityApi"])
 					});
 
 					$scope.data = response.data;
+				}, (error) => {
+					const message = error.data ? error.data.message : '';
+					Dialogs.showAlert({ title: LocaleService.t('codbex-orders:t.ORDERSREPORT'), message: LocaleService.t('codbex-orders:messages.error.unableToLF', { name: '$t(codbex-orders:t.ORDERSREPORT)', message: message }), type: AlertTypes.Error });
+					console.error('EntityService:', error);
 				});
+			}, (error) => {
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlertError({ title: LocaleService.t('codbex-orders:t.ORDERSREPORT'), message: LocaleService.t('codbex-orders:messages.error.unableToCount', { name: '$t(codbex-orders:t.ORDERSREPORT)', message: message }), type: AlertTypes.Error });
+				console.error('EntityService:', error);
 			});
 		};
 		$scope.loadPage($scope.dataPage);
 
-		$scope.selectEntity = function (entity) {
+		$scope.selectEntity = (entity) => {
 			$scope.selectedEntity = entity;
 		};
 
-		$scope.openDetails = function (entity) {
+		$scope.openDetails = (entity) => {
 			$scope.selectedEntity = entity;
-			messageHub.showDialogWindow("SalesOrdersReport-details", {
-				action: "select",
-				entity: entity,
+			Dialogs.showWindow({
+				id: 'SalesOrdersReport-details',
+				params: {
+					action: 'select',
+					entity: entity,
+				},
 			});
 		};
 
-		$scope.openFilter = function () {
-			messageHub.showDialogWindow("SalesOrdersReport-details-filter", {
-				action: "filter",
-				filter: $scope.filter,
+		$scope.openFilter = () => {
+			Dialogs.showWindow({
+				id: 'SalesOrdersReport-details-filter',
+				params: {
+					action: 'filter',
+					filter: $scope.filter,
+				}
 			});
 		};
 
-
-	}]);
+	});

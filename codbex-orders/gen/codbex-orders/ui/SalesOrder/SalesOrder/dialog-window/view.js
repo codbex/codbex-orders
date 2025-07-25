@@ -6,15 +6,15 @@
 const viewData = {
     id: "SalesOrder-details",
     label: "SalesOrder",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/dialog-window/index.html",
+    translation: {
+        key: 'codbex-orders:t.SALESORDER',
+    },
+    path: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/dialog-window/index.html",
     perspectiveName: "SalesOrder",
     roles: [
         "codbex-orders.SalesOrder.SalesOrderReadOnly",
     ]
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getDialogWindow = function () {
-        return viewData;
-    }
+    exports.getView = () => viewData;
 }

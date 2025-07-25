@@ -1,6 +1,6 @@
 {
     "module": "codbex-orders/gen/codbex-orders/ui/Reports/PurchaseOrdersTotalReport/view.js",
-    "extensionPoint": "codbex-orders-view",
+    "extensionPoint": "application-reports",
     "description": "codbex-orders - Application View",
     "role": "codbex-orders.Reports.PurchaseOrdersTotalReportReadOnly"
 }

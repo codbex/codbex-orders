@@ -1,42 +1,37 @@
-angular.module('page', ["ideUI", "ideView"])
-	.config(["messageHubProvider", function (messageHubProvider) {
-		messageHubProvider.eventIdPrefix = 'codbex-orders.Reports.SalesOrdersReport';
-	}])
-	.controller('PageController', ['$scope', 'messageHub', 'ViewParameters', function ($scope, messageHub, ViewParameters) {
+angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controller('PageController', ($scope, ViewParameters) => {
+	const Dialogs = new DialogHub();
+	$scope.entity = {};
+	$scope.forms = {
+		details: {},
+	};
 
-		$scope.entity = {};
-		$scope.forms = {
-			details: {},
-		};
-
-		let params = ViewParameters.get();
-		if (Object.keys(params).length) {
-			if (params?.filter?.Date) {
-				params.filter.Date = new Date(params.filter.Date);
-			}
-			if (params?.filter?.Due) {
-				params.filter.Due = new Date(params.filter.Due);
-			}
-			$scope.entity = params.filter ?? {};
+	let params = ViewParameters.get();
+	if (Object.keys(params).length) {
+		if (params?.filter?.Date) {
+			params.filter.Date = new Date(params.filter.Date);
 		}
+		if (params?.filter?.Due) {
+			params.filter.Due = new Date(params.filter.Due);
+		}
+		$scope.entity = params.filter ?? {};
+	}
 
-		$scope.filter = function () {
-			const filter = {
-				...$scope.entity
-			};
-			filter.Date = filter.Date?.getTime();
-			filter.Due = filter.Due?.getTime();
-			messageHub.postMessage("filter", filter);
-			$scope.cancel();
+	$scope.filter = () => {
+		const filter = {
+			...$scope.entity
 		};
+		filter.Date = filter.Date?.getTime();
+		filter.Due = filter.Due?.getTime();
+		Dialogs.postMessage({ topic: 'codbex-orders.Reports.SalesOrdersReport.filter', data: filter });
+		$scope.cancel();
+	};
 
-		$scope.resetFilter = function () {
-			$scope.entity = {};
-			$scope.filter();
-		};
+	$scope.resetFilter = () => {
+		$scope.entity = {};
+		$scope.filter();
+	};
 
-		$scope.cancel = function () {
-			messageHub.closeDialogWindow("SalesOrdersReport-details-filter");
-		};
-
-	}]);
+	$scope.cancel = () => {
+		Dialogs.closeWindow({ id: 'SalesOrdersReport-details-filter' });
+	};
+});

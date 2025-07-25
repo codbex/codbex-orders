@@ -35,8 +35,7 @@ class SalesOrdersTotalReportService {
                 EndDate: ctx.queryParameters.EndDate ? new Date(parseInt(ctx.queryParameters.EndDate)) : undefined,
             };
 
-            const count = this.repository.count(filter);
-            return JSON.stringify(count);
+            return { count: this.repository.count(filter) };
         } catch (error: any) {
             this.handleError(error);
         }

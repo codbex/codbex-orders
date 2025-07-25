@@ -1,6 +1,6 @@
 {
     "extensionPoint": "dashboard-widgets",
-    "module": "codbex-orders/widgets/top-customers/service.js",
+    "module": "codbex-orders/widgets/top-customers/config.js",
     "description": "Top Customer",
     "role": "codbex-orders.SalesOrder.SalesOrderReadOnly,codbex-orders.SalesOrder.SalesOrderFullAccess"
 }

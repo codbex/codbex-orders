@@ -5,14 +5,14 @@
  */
 const perspectiveData = {
 	id: 'WorkOrder',
-	name: 'Work Order',
-	link: '/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/index.html',
-	order: '530',
+	label: 'Work Order',
+	translation: {
+        key: 'codbex-orders:t.WORKORDER',
+    },
+	path: '/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/index.html',
+	order: 530,
 	icon: '/services/web/resources/unicons/screw.svg'
 };
-
 if (typeof exports !== 'undefined') {
-	exports.getPerspective = function () {
-		return perspectiveData;
-	}
+	exports.getPerspective = () => perspectiveData;
 }

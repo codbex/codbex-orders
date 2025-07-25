@@ -1,14 +1,11 @@
-angular.module('average-purchase-order-price', ['ideUI', 'ideView'])
-    .controller('AveragePurchaseOrderPriceController', ['$scope', '$http', function ($scope, $http) {
-        $scope.state = {
-            isBusy: true,
-            error: false,
-            busyText: "Loading...",
-        };
+angular.module('average-purchase-order-price', ['blimpKit', 'platformView'])
+    .controller('AveragePurchaseOrderPriceController', ($scope, $http) => {
 
         const orderServiceUrl = "/services/ts/codbex-orders/widgets/api/OrderService.ts/orderData";
         $http.get(orderServiceUrl)
-            .then(function (response) {
+            .then((response) => {
                 $scope.OrderData = response.data;
+            }, (error) => {
+                console.error(error);
             });
-    }]);
+    });

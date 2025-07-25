@@ -4,16 +4,17 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: "PurchaseOrderPayment",
-    label: "PurchaseOrderPayment",
-    factory: "frame",
-    region: "bottom",
-    link: "/services/web/codbex-orders/gen/codbex-orders/ui/PurchaseOrder/PurchaseOrder/PurchaseOrderPayment/index.html",
-    perspectiveName: "PurchaseOrder"
+    id: 'PurchaseOrderPayment',
+    label: 'PurchaseOrderPayment',
+    translation: {
+        key: 'codbex-orders:t.PURCHASEORDERPAYMENT',
+    },
+    region: 'bottom',
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/PurchaseOrder/PurchaseOrder/PurchaseOrderPayment/index.html',
+    perspectiveName: 'PurchaseOrder'
 };
-
 if (typeof exports !== 'undefined') {
-    exports.getView = function () {
-        return viewData;
-    }
+	exports.getView = () => viewData;
 }
