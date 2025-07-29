@@ -117,7 +117,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts').then((response) => {
 			$scope.optionsBillingAddress = response.data.map(e => ({
 				value: e.Id,
-				text: e.AdressLine1
+				text: e.AddressLine1
 			}));
 		}, (error) => {
 			console.error(error);
@@ -135,7 +135,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts').then((response) => {
 			$scope.optionsShippingAddress = response.data.map(e => ({
 				value: e.Id,
-				text: e.Name
+				text: e.AddressLine1
 			}));
 		}, (error) => {
 			console.error(error);
@@ -258,17 +258,17 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.$watch('entity.Customer', (newValue, oldValue) => {
 			if (newValue !== undefined && newValue !== null) {
 				$http.get($scope.serviceCustomer + '/' + newValue).then((response) => {
-					let valueFrom = response.data.Customer;
+					let valueFrom = response.data.Id;
 					$http.post('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts/search', {
 						$filter: {
 							equals: {
-								Id: valueFrom
+								Customer: valueFrom
 							}
 						}
 					}).then((response) => {
 						$scope.optionsBillingAddress = response.data.map(e => ({
 							value: e.Id,
-							text: e.AdressLine1
+							text: e.AddressLine1
 						}));
 						if ($scope.action !== 'select' && newValue !== oldValue) {
 							if ($scope.optionsBillingAddress.length == 1) {
@@ -289,17 +289,17 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.$watch('entity.Customer', (newValue, oldValue) => {
 			if (newValue !== undefined && newValue !== null) {
 				$http.get($scope.serviceCustomer + '/' + newValue).then((response) => {
-					let valueFrom = response.data.Customer;
+					let valueFrom = response.data.Id;
 					$http.post('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts/search', {
 						$filter: {
 							equals: {
-								Id: valueFrom
+								Customer: valueFrom
 							}
 						}
 					}).then((response) => {
 						$scope.optionsShippingAddress = response.data.map(e => ({
 							value: e.Id,
-							text: e.Name
+							text: e.AddressLine1
 						}));
 						if ($scope.action !== 'select' && newValue !== oldValue) {
 							if ($scope.optionsShippingAddress.length == 1) {
