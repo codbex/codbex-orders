@@ -41,9 +41,12 @@
 						<bk-list-content
 							item-title="{{next.Number}}">
 							<bk-list-byline align="left">
-								{{next.Date | date: "dd/MMM/yyyy"}} |
+								{{next.Customer | date: "dd/MMM/yyyy"}} |
 								{{next.Due | date: "dd/MMM/yyyy"}} |
 								{{optionsCustomerValue(next.Customer)}} |
+								{{optionsBillingAddressValue(next.BillingAddress)}} |
+								{{optionsShippingAddressValue(next.ShippingAddress)}} |
+								{{next.TrackingNumber}} |
 								{{next.Net}} |
 								{{optionsCurrencyValue(next.Currency)}} |
 								{{next.Gross}} |

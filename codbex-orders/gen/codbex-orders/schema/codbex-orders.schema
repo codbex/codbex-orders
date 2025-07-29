@@ -19,7 +19,7 @@
                     },
                     {
                         "type": "DATE",
-                        "name": "SALESORDER_DATE"
+                        "name": "CUSTOMER"
                     },
                     {
                         "type": "DATE",
@@ -28,6 +28,22 @@
                     {
                         "type": "INTEGER",
                         "name": "SALESORDER_CUSTOMER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "SALESORDER_BILLINGADDRESS"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "SALESORDER_SHIPPINGADDRESS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 50,
+                        "nullable": true,
+                        "name": "SALESORDER_TRACKINGNUMBER"
                     },
                     {
                         "type": "DECIMAL",
@@ -731,9 +747,36 @@
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
                 "constraintName": "SalesOrder_Customer",
+                "columns": "CUSTOMER",
+                "referencedTable": "CODBEX_CUSTOMER",
+                "referencedColumns": "CUSTOMER_ID"
+            },
+            {
+                "name": "SalesOrder_Customer",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDER",
+                "constraintName": "SalesOrder_Customer",
                 "columns": "SALESORDER_CUSTOMER",
                 "referencedTable": "CODBEX_CUSTOMER",
                 "referencedColumns": "CUSTOMER_ID"
+            },
+            {
+                "name": "SalesOrder_CustomerAddress",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDER",
+                "constraintName": "SalesOrder_CustomerAddress",
+                "columns": "SALESORDER_BILLINGADDRESS",
+                "referencedTable": "CODBEX_CUSTOMERADDRESS",
+                "referencedColumns": "CUSTOMERADDRESS_ID"
+            },
+            {
+                "name": "SalesOrder_CustomerAddress",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDER",
+                "constraintName": "SalesOrder_CustomerAddress",
+                "columns": "SALESORDER_SHIPPINGADDRESS",
+                "referencedTable": "CODBEX_CUSTOMERADDRESS",
+                "referencedColumns": "CUSTOMERADDRESS_ID"
             },
             {
                 "name": "SalesOrder_Currency",

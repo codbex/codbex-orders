@@ -275,6 +275,7 @@ paths:
                       Id: 33
                     contains:
                       Number: "abcd"
+                      TrackingNumber: "abcd"
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
@@ -301,6 +302,7 @@ paths:
                   $filter:
                     contains:
                       Number: "abcd"
+                      TrackingNumber: "abcd"
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
@@ -369,6 +371,7 @@ paths:
                       Id: 33
                     contains:
                       Number: "abcd"
+                      TrackingNumber: "abcd"
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
@@ -395,6 +398,7 @@ paths:
                   $filter:
                     contains:
                       Number: "abcd"
+                      TrackingNumber: "abcd"
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
@@ -7602,9 +7606,11 @@ components:
     SalesOrder:
       type: object
       required:
-        - Date
+        - Customer
         - Due
         - Customer
+        - BillingAddress
+        - ShippingAddress
         - Currency
         - SentMethod
         - Status
@@ -7619,11 +7625,21 @@ components:
           minLength: 0
           maxLength: 20
           readOnly: true
-        Date:
+        Customer:
         Due:
         Customer:
           type: integer
           format: int32
+        BillingAddress:
+          type: integer
+          format: int32
+        ShippingAddress:
+          type: integer
+          format: int32
+        TrackingNumber:
+          type: string
+          minLength: 0
+          maxLength: 50
         Net:
           type: number
           format: double
@@ -7709,7 +7725,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Date:
+                Customer:
                   oneOf:
                 Due:
                   oneOf:
@@ -7721,6 +7737,33 @@ components:
                       items:
                         type: integer
                         format: int32
+                BillingAddress:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                ShippingAddress:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                TrackingNumber:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
                 Net:
                   oneOf:
                     - type: number
@@ -7891,7 +7934,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Date:
+                Customer:
                   oneOf:
                 Due:
                   oneOf:
@@ -7903,6 +7946,33 @@ components:
                       items:
                         type: integer
                         format: int32
+                BillingAddress:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                ShippingAddress:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                TrackingNumber:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 50
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 50
                 Net:
                   oneOf:
                     - type: number
@@ -8059,9 +8129,15 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Date:
+                Customer:
                 Due:
                 Customer:
+                BillingAddress:
+                ShippingAddress:
+                TrackingNumber:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
                 Net:
                 Currency:
                 Gross:
@@ -8101,11 +8177,21 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Date:
+                Customer:
                 Due:
                 Customer:
                   type: integer
                   format: int32
+                BillingAddress:
+                  type: integer
+                  format: int32
+                ShippingAddress:
+                  type: integer
+                  format: int32
+                TrackingNumber:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
                 Net:
                   type: number
                   format: double
@@ -8171,11 +8257,21 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Date:
+                Customer:
                 Due:
                 Customer:
                   type: integer
                   format: int32
+                BillingAddress:
+                  type: integer
+                  format: int32
+                ShippingAddress:
+                  type: integer
+                  format: int32
+                TrackingNumber:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
                 Net:
                   type: number
                   format: double
@@ -8241,11 +8337,21 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Date:
+                Customer:
                 Due:
                 Customer:
                   type: integer
                   format: int32
+                BillingAddress:
+                  type: integer
+                  format: int32
+                ShippingAddress:
+                  type: integer
+                  format: int32
+                TrackingNumber:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
                 Net:
                   type: number
                   format: double
@@ -8311,11 +8417,21 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Date:
+                Customer:
                 Due:
                 Customer:
                   type: integer
                   format: int32
+                BillingAddress:
+                  type: integer
+                  format: int32
+                ShippingAddress:
+                  type: integer
+                  format: int32
+                TrackingNumber:
+                  type: string
+                  minLength: 0
+                  maxLength: 50
                 Net:
                   type: number
                   format: double
@@ -8373,12 +8489,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "Status", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Customer", "Due", "Customer", "BillingAddress", "ShippingAddress", "TrackingNumber", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "Status", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,SentMethod,Status,Operator,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Customer,Due,Customer,BillingAddress,ShippingAddress,TrackingNumber,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,SentMethod,Status,Operator,Company,Name,UUID,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]

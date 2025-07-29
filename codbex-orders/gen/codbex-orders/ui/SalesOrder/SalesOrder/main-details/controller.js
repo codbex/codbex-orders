@@ -51,6 +51,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.$evalAsync(() => {
 				$scope.entity = {};
 				$scope.optionsCustomer = [];
+				$scope.optionsBillingAddress = [];
+				$scope.optionsShippingAddress = [];
 				$scope.optionsCurrency = [];
 				$scope.optionsSentMethod = [];
 				$scope.optionsStatus = [];
@@ -62,14 +64,16 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		}});
 		Dialogs.addMessageListener({ topic: 'codbex-orders.SalesOrder.SalesOrder.entitySelected', handler: (data) => {
 			$scope.$evalAsync(() => {
-				if (data.entity.Date) {
-					data.entity.Date = new Date(data.entity.Date);
+				if (data.entity.Customer) {
+					data.entity.Customer = new Date(data.entity.Customer);
 				}
 				if (data.entity.Due) {
 					data.entity.Due = new Date(data.entity.Due);
 				}
 				$scope.entity = data.entity;
 				$scope.optionsCustomer = data.optionsCustomer;
+				$scope.optionsBillingAddress = data.optionsBillingAddress;
+				$scope.optionsShippingAddress = data.optionsShippingAddress;
 				$scope.optionsCurrency = data.optionsCurrency;
 				$scope.optionsSentMethod = data.optionsSentMethod;
 				$scope.optionsStatus = data.optionsStatus;
@@ -83,6 +87,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.$evalAsync(() => {
 				$scope.entity = {};
 				$scope.optionsCustomer = data.optionsCustomer;
+				$scope.optionsBillingAddress = data.optionsBillingAddress;
+				$scope.optionsShippingAddress = data.optionsShippingAddress;
 				$scope.optionsCurrency = data.optionsCurrency;
 				$scope.optionsSentMethod = data.optionsSentMethod;
 				$scope.optionsStatus = data.optionsStatus;
@@ -94,14 +100,16 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		}});
 		Dialogs.addMessageListener({ topic: 'codbex-orders.SalesOrder.SalesOrder.updateEntity', handler: (data) => {
 			$scope.$evalAsync(() => {
-				if (data.entity.Date) {
-					data.entity.Date = new Date(data.entity.Date);
+				if (data.entity.Customer) {
+					data.entity.Customer = new Date(data.entity.Customer);
 				}
 				if (data.entity.Due) {
 					data.entity.Due = new Date(data.entity.Due);
 				}
 				$scope.entity = data.entity;
 				$scope.optionsCustomer = data.optionsCustomer;
+				$scope.optionsBillingAddress = data.optionsBillingAddress;
+				$scope.optionsShippingAddress = data.optionsShippingAddress;
 				$scope.optionsCurrency = data.optionsCurrency;
 				$scope.optionsSentMethod = data.optionsSentMethod;
 				$scope.optionsStatus = data.optionsStatus;
@@ -113,6 +121,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		}});
 
 		$scope.serviceCustomer = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts';
+		$scope.serviceBillingAddress = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts';
+		$scope.serviceShippingAddress = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts';
 		$scope.serviceCurrency = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts';
 		$scope.serviceSentMethod = '/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts';
 		$scope.serviceStatus = '/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderStatusService.ts';
@@ -120,6 +130,68 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.serviceCompany = '/services/ts/codbex-companies/gen/codbex-companies/api/Companies/CompanyService.ts';
 		$scope.serviceStore = '/services/ts/codbex-inventory/gen/codbex-inventory/api/Stores/StoreService.ts';
 
+
+		$scope.$watch('entity.Customer', (newValue, oldValue) => {
+			if (newValue !== undefined && newValue !== null) {
+				$http.get($scope.serviceCustomer + '/' + newValue).then((response) => {
+					let valueFrom = response.data.Customer;
+					$http.post('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts/search', {
+						$filter: {
+							equals: {
+								Id: valueFrom
+							}
+						}
+					}).then((response) => {
+						$scope.optionsBillingAddress = response.data.map(e => ({
+							value: e.Id,
+							text: e.AdressLine1
+						}));
+						if ($scope.action !== 'select' && newValue !== oldValue) {
+							if ($scope.optionsBillingAddress.length == 1) {
+								$scope.entity.BillingAddress = $scope.optionsBillingAddress[0].value;
+							} else {
+								$scope.entity.BillingAddress = undefined;
+							}
+						}
+					}, (error) => {
+						console.error(error);
+					});
+				}, (error) => {
+					console.error(error);
+				});
+			}
+		});
+
+		$scope.$watch('entity.Customer', (newValue, oldValue) => {
+			if (newValue !== undefined && newValue !== null) {
+				$http.get($scope.serviceCustomer + '/' + newValue).then((response) => {
+					let valueFrom = response.data.Customer;
+					$http.post('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts/search', {
+						$filter: {
+							equals: {
+								Id: valueFrom
+							}
+						}
+					}).then((response) => {
+						$scope.optionsShippingAddress = response.data.map(e => ({
+							value: e.Id,
+							text: e.Name
+						}));
+						if ($scope.action !== 'select' && newValue !== oldValue) {
+							if ($scope.optionsShippingAddress.length == 1) {
+								$scope.entity.ShippingAddress = $scope.optionsShippingAddress[0].value;
+							} else {
+								$scope.entity.ShippingAddress = undefined;
+							}
+						}
+					}, (error) => {
+						console.error(error);
+					});
+				}, (error) => {
+					console.error(error);
+				});
+			}
+		});
 		//-----------------Events-------------------//
 
 		$scope.create = () => {
@@ -179,6 +251,26 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.createCustomer = () => {
 			Dialogs.showWindow({
 				id: 'Customer-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
+		};
+		$scope.createBillingAddress = () => {
+			Dialogs.showWindow({
+				id: 'CustomerAddress-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
+		};
+		$scope.createShippingAddress = () => {
+			Dialogs.showWindow({
+				id: 'CustomerAddress-details',
 				params: {
 					action: 'create',
 					entity: {},
@@ -265,6 +357,40 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'Customer',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
+				});
+			});
+		};
+		$scope.refreshBillingAddress = () => {
+			$scope.optionsBillingAddress = [];
+			$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts').then((response) => {
+				$scope.optionsBillingAddress = response.data.map(e => ({
+					value: e.Id,
+					text: e.AdressLine1
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'BillingAddress',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
+				});
+			});
+		};
+		$scope.refreshShippingAddress = () => {
+			$scope.optionsShippingAddress = [];
+			$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts').then((response) => {
+				$scope.optionsShippingAddress = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'ShippingAddress',
 					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});

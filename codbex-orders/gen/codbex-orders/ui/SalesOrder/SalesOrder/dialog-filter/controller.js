@@ -7,11 +7,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 
 	let params = ViewParameters.get();
 	if (Object.keys(params).length) {
-		if (params?.entity?.DateFrom) {
-			params.entity.DateFrom = new Date(params.entity.DateFrom);
+		if (params?.entity?.CustomerFrom) {
+			params.entity.CustomerFrom = new Date(params.entity.CustomerFrom);
 		}
-		if (params?.entity?.DateTo) {
-			params.entity.DateTo = new Date(params.entity.DateTo);
+		if (params?.entity?.CustomerTo) {
+			params.entity.CustomerTo = new Date(params.entity.CustomerTo);
 		}
 		if (params?.entity?.DueFrom) {
 			params.entity.DueFrom = new Date(params.entity.DueFrom);
@@ -23,6 +23,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
 		$scope.optionsCustomer = params.optionsCustomer;
+		$scope.optionsBillingAddress = params.optionsBillingAddress;
+		$scope.optionsShippingAddress = params.optionsShippingAddress;
 		$scope.optionsCurrency = params.optionsCurrency;
 		$scope.optionsSentMethod = params.optionsSentMethod;
 		$scope.optionsStatus = params.optionsStatus;
@@ -57,11 +59,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.Number) {
 			filter.$filter.contains.Number = entity.Number;
 		}
-		if (entity.DateFrom) {
-			filter.$filter.greaterThanOrEqual.Date = entity.DateFrom;
+		if (entity.CustomerFrom) {
+			filter.$filter.greaterThanOrEqual.Customer = entity.CustomerFrom;
 		}
-		if (entity.DateTo) {
-			filter.$filter.lessThanOrEqual.Date = entity.DateTo;
+		if (entity.CustomerTo) {
+			filter.$filter.lessThanOrEqual.Customer = entity.CustomerTo;
 		}
 		if (entity.DueFrom) {
 			filter.$filter.greaterThanOrEqual.Due = entity.DueFrom;
@@ -71,6 +73,15 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		}
 		if (entity.Customer !== undefined) {
 			filter.$filter.equals.Customer = entity.Customer;
+		}
+		if (entity.BillingAddress !== undefined) {
+			filter.$filter.equals.BillingAddress = entity.BillingAddress;
+		}
+		if (entity.ShippingAddress !== undefined) {
+			filter.$filter.equals.ShippingAddress = entity.ShippingAddress;
+		}
+		if (entity.TrackingNumber) {
+			filter.$filter.contains.TrackingNumber = entity.TrackingNumber;
 		}
 		if (entity.Net !== undefined) {
 			filter.$filter.equals.Net = entity.Net;

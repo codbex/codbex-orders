@@ -31,8 +31,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
 			$scope.action = params.action;
-			if (params.entity.Date) {
-				params.entity.Date = new Date(params.entity.Date);
+			if (params.entity.Customer) {
+				params.entity.Customer = new Date(params.entity.Customer);
 			}
 			if (params.entity.Due) {
 				params.entity.Due = new Date(params.entity.Due);
@@ -41,6 +41,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 			$scope.selectedMainEntityId = params.selectedMainEntityId;
 			$scope.optionsCustomer = params.optionsCustomer;
+			$scope.optionsBillingAddress = params.optionsBillingAddress;
+			$scope.optionsShippingAddress = params.optionsShippingAddress;
 			$scope.optionsCurrency = params.optionsCurrency;
 			$scope.optionsSentMethod = params.optionsSentMethod;
 			$scope.optionsStatus = params.optionsStatus;
@@ -104,6 +106,42 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Customer',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+		$scope.serviceBillingAddress = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts';
+		
+		$scope.optionsBillingAddress = [];
+		
+		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts').then((response) => {
+			$scope.optionsBillingAddress = response.data.map(e => ({
+				value: e.Id,
+				text: e.AdressLine1
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'BillingAddress',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+		$scope.serviceShippingAddress = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts';
+		
+		$scope.optionsShippingAddress = [];
+		
+		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts').then((response) => {
+			$scope.optionsShippingAddress = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'ShippingAddress',
 				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
@@ -215,6 +253,68 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
+		});
+
+		$scope.$watch('entity.Customer', (newValue, oldValue) => {
+			if (newValue !== undefined && newValue !== null) {
+				$http.get($scope.serviceCustomer + '/' + newValue).then((response) => {
+					let valueFrom = response.data.Customer;
+					$http.post('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts/search', {
+						$filter: {
+							equals: {
+								Id: valueFrom
+							}
+						}
+					}).then((response) => {
+						$scope.optionsBillingAddress = response.data.map(e => ({
+							value: e.Id,
+							text: e.AdressLine1
+						}));
+						if ($scope.action !== 'select' && newValue !== oldValue) {
+							if ($scope.optionsBillingAddress.length == 1) {
+								$scope.entity.BillingAddress = $scope.optionsBillingAddress[0].value;
+							} else {
+								$scope.entity.BillingAddress = undefined;
+							}
+						}
+					}, (error) => {
+						console.error(error);
+					});
+				}, (error) => {
+					console.error(error);
+				});
+			}
+		});
+
+		$scope.$watch('entity.Customer', (newValue, oldValue) => {
+			if (newValue !== undefined && newValue !== null) {
+				$http.get($scope.serviceCustomer + '/' + newValue).then((response) => {
+					let valueFrom = response.data.Customer;
+					$http.post('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts/search', {
+						$filter: {
+							equals: {
+								Id: valueFrom
+							}
+						}
+					}).then((response) => {
+						$scope.optionsShippingAddress = response.data.map(e => ({
+							value: e.Id,
+							text: e.Name
+						}));
+						if ($scope.action !== 'select' && newValue !== oldValue) {
+							if ($scope.optionsShippingAddress.length == 1) {
+								$scope.entity.ShippingAddress = $scope.optionsShippingAddress[0].value;
+							} else {
+								$scope.entity.ShippingAddress = undefined;
+							}
+						}
+					}, (error) => {
+						console.error(error);
+					});
+				}, (error) => {
+					console.error(error);
+				});
+			}
 		});
 
 		$scope.alert = (message) => {

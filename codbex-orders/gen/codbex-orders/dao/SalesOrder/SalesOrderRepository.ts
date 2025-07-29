@@ -9,9 +9,12 @@ import { NumberGeneratorService } from "/codbex-number-generator/service/generat
 export interface SalesOrderEntity {
     readonly Id: number;
     Number: string;
-    Date: Date;
+    Customer: Date;
     Due: Date;
     Customer: number;
+    BillingAddress?: number;
+    ShippingAddress?: number;
+    TrackingNumber?: string;
     Net?: number;
     Currency: number;
     Gross?: number;
@@ -32,9 +35,12 @@ export interface SalesOrderEntity {
 }
 
 export interface SalesOrderCreateEntity {
-    readonly Date: Date;
+    readonly Customer: Date;
     readonly Due: Date;
     readonly Customer: number;
+    readonly BillingAddress?: number;
+    readonly ShippingAddress?: number;
+    readonly TrackingNumber?: string;
     readonly Net?: number;
     readonly Currency: number;
     readonly Gross?: number;
@@ -61,9 +67,12 @@ export interface SalesOrderEntityOptions {
         equals?: {
             Id?: number | number[];
             Number?: string | string[];
-            Date?: Date | Date[];
+            Customer?: Date | Date[];
             Due?: Date | Date[];
             Customer?: number | number[];
+            BillingAddress?: number | number[];
+            ShippingAddress?: number | number[];
+            TrackingNumber?: string | string[];
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
@@ -85,9 +94,12 @@ export interface SalesOrderEntityOptions {
         notEquals?: {
             Id?: number | number[];
             Number?: string | string[];
-            Date?: Date | Date[];
+            Customer?: Date | Date[];
             Due?: Date | Date[];
             Customer?: number | number[];
+            BillingAddress?: number | number[];
+            ShippingAddress?: number | number[];
+            TrackingNumber?: string | string[];
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
@@ -109,9 +121,12 @@ export interface SalesOrderEntityOptions {
         contains?: {
             Id?: number;
             Number?: string;
-            Date?: Date;
+            Customer?: Date;
             Due?: Date;
             Customer?: number;
+            BillingAddress?: number;
+            ShippingAddress?: number;
+            TrackingNumber?: string;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -133,9 +148,12 @@ export interface SalesOrderEntityOptions {
         greaterThan?: {
             Id?: number;
             Number?: string;
-            Date?: Date;
+            Customer?: Date;
             Due?: Date;
             Customer?: number;
+            BillingAddress?: number;
+            ShippingAddress?: number;
+            TrackingNumber?: string;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -157,9 +175,12 @@ export interface SalesOrderEntityOptions {
         greaterThanOrEqual?: {
             Id?: number;
             Number?: string;
-            Date?: Date;
+            Customer?: Date;
             Due?: Date;
             Customer?: number;
+            BillingAddress?: number;
+            ShippingAddress?: number;
+            TrackingNumber?: string;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -181,9 +202,12 @@ export interface SalesOrderEntityOptions {
         lessThan?: {
             Id?: number;
             Number?: string;
-            Date?: Date;
+            Customer?: Date;
             Due?: Date;
             Customer?: number;
+            BillingAddress?: number;
+            ShippingAddress?: number;
+            TrackingNumber?: string;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -205,9 +229,12 @@ export interface SalesOrderEntityOptions {
         lessThanOrEqual?: {
             Id?: number;
             Number?: string;
-            Date?: Date;
+            Customer?: Date;
             Due?: Date;
             Customer?: number;
+            BillingAddress?: number;
+            ShippingAddress?: number;
+            TrackingNumber?: string;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -268,8 +295,8 @@ export class SalesOrderRepository {
                 required: true
             },
             {
-                name: "Date",
-                column: "SALESORDER_DATE",
+                name: "Customer",
+                column: "CUSTOMER",
                 type: "DATE",
                 required: true
             },
@@ -284,6 +311,21 @@ export class SalesOrderRepository {
                 column: "SALESORDER_CUSTOMER",
                 type: "INTEGER",
                 required: true
+            },
+            {
+                name: "BillingAddress",
+                column: "SALESORDER_BILLINGADDRESS",
+                type: "INTEGER",
+            },
+            {
+                name: "ShippingAddress",
+                column: "SALESORDER_SHIPPINGADDRESS",
+                type: "INTEGER",
+            },
+            {
+                name: "TrackingNumber",
+                column: "SALESORDER_TRACKINGNUMBER",
+                type: "VARCHAR",
             },
             {
                 name: "Net",
@@ -390,7 +432,7 @@ export class SalesOrderRepository {
             options.$order = "DESC";
         }
         return this.dao.list(options).map((e: SalesOrderEntity) => {
-            EntityUtils.setDate(e, "Date");
+            EntityUtils.setDate(e, "Customer");
             EntityUtils.setDate(e, "Due");
             return e;
         });
@@ -398,13 +440,13 @@ export class SalesOrderRepository {
 
     public findById(id: number): SalesOrderEntity | undefined {
         const entity = this.dao.find(id);
-        EntityUtils.setDate(entity, "Date");
+        EntityUtils.setDate(entity, "Customer");
         EntityUtils.setDate(entity, "Due");
         return entity ?? undefined;
     }
 
     public create(entity: SalesOrderCreateEntity): number {
-        EntityUtils.setLocalDate(entity, "Date");
+        EntityUtils.setLocalDate(entity, "Customer");
         EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
         (entity as SalesOrderEntity).Number = new NumberGeneratorService().generate(4);
@@ -433,7 +475,7 @@ export class SalesOrderRepository {
     }
 
     public update(entity: SalesOrderUpdateEntity): void {
-        // EntityUtils.setLocalDate(entity, "Date");
+        // EntityUtils.setLocalDate(entity, "Customer");
         // EntityUtils.setLocalDate(entity, "Due");
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
