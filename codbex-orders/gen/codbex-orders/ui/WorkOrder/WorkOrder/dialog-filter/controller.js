@@ -71,11 +71,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.DueTo) {
 			filter.$filter.lessThanOrEqual.Due = entity.DueTo;
 		}
-		if (entity.Customer !== undefined) {
-			filter.$filter.equals.Customer = entity.Customer;
-		}
 		if (entity.Task) {
 			filter.$filter.contains.Task = entity.Task;
+		}
+		if (entity.Customer !== undefined) {
+			filter.$filter.equals.Customer = entity.Customer;
 		}
 		if (entity.Net !== undefined) {
 			filter.$filter.equals.Net = entity.Net;

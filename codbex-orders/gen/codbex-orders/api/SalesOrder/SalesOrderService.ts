@@ -149,8 +149,14 @@ class SalesOrderService {
         if (entity.Due === null || entity.Due === undefined) {
             throw new ValidationError(`The 'Due' property is required, provide a valid value`);
         }
-        if (entity.Customer === null || entity.Customer === undefined) {
-            throw new ValidationError(`The 'Customer' property is required, provide a valid value`);
+        if (entity.BillingAddress === null || entity.BillingAddress === undefined) {
+            throw new ValidationError(`The 'BillingAddress' property is required, provide a valid value`);
+        }
+        if (entity.ShippingAddress === null || entity.ShippingAddress === undefined) {
+            throw new ValidationError(`The 'ShippingAddress' property is required, provide a valid value`);
+        }
+        if (entity.TrackingNumber?.length > 50) {
+            throw new ValidationError(`The 'TrackingNumber' exceeds the maximum length of [50] characters`);
         }
         if (entity.Currency === null || entity.Currency === undefined) {
             throw new ValidationError(`The 'Currency' property is required, provide a valid value`);

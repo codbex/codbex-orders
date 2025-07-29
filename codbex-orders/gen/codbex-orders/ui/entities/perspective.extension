@@ -1,0 +1,5 @@
+{
+    "module": "codbex-orders/gen/codbex-orders/ui/entities/perspective.js",
+    "extensionPoint": "application-perspectives",
+    "description": "codbex-orders - Perspective - entities"
+}

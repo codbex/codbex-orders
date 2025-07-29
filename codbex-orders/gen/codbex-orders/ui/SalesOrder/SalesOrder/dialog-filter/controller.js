@@ -23,6 +23,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
 		$scope.optionsCustomer = params.optionsCustomer;
+		$scope.optionsBillingAddress = params.optionsBillingAddress;
+		$scope.optionsShippingAddress = params.optionsShippingAddress;
+		$scope.optionsShippingProvider = params.optionsShippingProvider;
 		$scope.optionsCurrency = params.optionsCurrency;
 		$scope.optionsSentMethod = params.optionsSentMethod;
 		$scope.optionsStatus = params.optionsStatus;
@@ -71,6 +74,18 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		}
 		if (entity.Customer !== undefined) {
 			filter.$filter.equals.Customer = entity.Customer;
+		}
+		if (entity.BillingAddress !== undefined) {
+			filter.$filter.equals.BillingAddress = entity.BillingAddress;
+		}
+		if (entity.ShippingAddress !== undefined) {
+			filter.$filter.equals.ShippingAddress = entity.ShippingAddress;
+		}
+		if (entity.ShippingProvider !== undefined) {
+			filter.$filter.equals.ShippingProvider = entity.ShippingProvider;
+		}
+		if (entity.TrackingNumber) {
+			filter.$filter.contains.TrackingNumber = entity.TrackingNumber;
 		}
 		if (entity.Net !== undefined) {
 			filter.$filter.equals.Net = entity.Net;

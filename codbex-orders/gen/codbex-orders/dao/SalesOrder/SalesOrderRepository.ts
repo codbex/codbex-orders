@@ -9,9 +9,13 @@ import { NumberGeneratorService } from "/codbex-number-generator/service/generat
 export interface SalesOrderEntity {
     readonly Id: number;
     Number: string;
-    Date: Date;
+    Date?: Date;
     Due: Date;
-    Customer: number;
+    Customer?: number;
+    BillingAddress?: number;
+    ShippingAddress?: number;
+    ShippingProvider?: number;
+    TrackingNumber?: string;
     Net?: number;
     Currency: number;
     Gross?: number;
@@ -32,9 +36,13 @@ export interface SalesOrderEntity {
 }
 
 export interface SalesOrderCreateEntity {
-    readonly Date: Date;
+    readonly Date?: Date;
     readonly Due: Date;
-    readonly Customer: number;
+    readonly Customer?: number;
+    readonly BillingAddress?: number;
+    readonly ShippingAddress?: number;
+    readonly ShippingProvider?: number;
+    readonly TrackingNumber?: string;
     readonly Net?: number;
     readonly Currency: number;
     readonly Gross?: number;
@@ -64,6 +72,10 @@ export interface SalesOrderEntityOptions {
             Date?: Date | Date[];
             Due?: Date | Date[];
             Customer?: number | number[];
+            BillingAddress?: number | number[];
+            ShippingAddress?: number | number[];
+            ShippingProvider?: number | number[];
+            TrackingNumber?: string | string[];
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
@@ -88,6 +100,10 @@ export interface SalesOrderEntityOptions {
             Date?: Date | Date[];
             Due?: Date | Date[];
             Customer?: number | number[];
+            BillingAddress?: number | number[];
+            ShippingAddress?: number | number[];
+            ShippingProvider?: number | number[];
+            TrackingNumber?: string | string[];
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
@@ -112,6 +128,10 @@ export interface SalesOrderEntityOptions {
             Date?: Date;
             Due?: Date;
             Customer?: number;
+            BillingAddress?: number;
+            ShippingAddress?: number;
+            ShippingProvider?: number;
+            TrackingNumber?: string;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -136,6 +156,10 @@ export interface SalesOrderEntityOptions {
             Date?: Date;
             Due?: Date;
             Customer?: number;
+            BillingAddress?: number;
+            ShippingAddress?: number;
+            ShippingProvider?: number;
+            TrackingNumber?: string;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -160,6 +184,10 @@ export interface SalesOrderEntityOptions {
             Date?: Date;
             Due?: Date;
             Customer?: number;
+            BillingAddress?: number;
+            ShippingAddress?: number;
+            ShippingProvider?: number;
+            TrackingNumber?: string;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -184,6 +212,10 @@ export interface SalesOrderEntityOptions {
             Date?: Date;
             Due?: Date;
             Customer?: number;
+            BillingAddress?: number;
+            ShippingAddress?: number;
+            ShippingProvider?: number;
+            TrackingNumber?: string;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -208,6 +240,10 @@ export interface SalesOrderEntityOptions {
             Date?: Date;
             Due?: Date;
             Customer?: number;
+            BillingAddress?: number;
+            ShippingAddress?: number;
+            ShippingProvider?: number;
+            TrackingNumber?: string;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -271,7 +307,6 @@ export class SalesOrderRepository {
                 name: "Date",
                 column: "SALESORDER_DATE",
                 type: "DATE",
-                required: true
             },
             {
                 name: "Due",
@@ -283,7 +318,26 @@ export class SalesOrderRepository {
                 name: "Customer",
                 column: "SALESORDER_CUSTOMER",
                 type: "INTEGER",
-                required: true
+            },
+            {
+                name: "BillingAddress",
+                column: "SALESORDER_BILLINGADDRESS",
+                type: "INTEGER",
+            },
+            {
+                name: "ShippingAddress",
+                column: "SALESORDER_SHIPPINGADDRESS",
+                type: "INTEGER",
+            },
+            {
+                name: "ShippingProvider",
+                column: "SALESORDER_SHIPPINGPROVIDER",
+                type: "INTEGER",
+            },
+            {
+                name: "TrackingNumber",
+                column: "SALESORDER_TRACKINGNUMBER",
+                type: "VARCHAR",
             },
             {
                 name: "Net",

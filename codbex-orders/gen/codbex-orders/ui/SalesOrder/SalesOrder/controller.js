@@ -138,6 +138,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				entity: entity,
 				selectedMainEntityId: entity.Id,
 				optionsCustomer: $scope.optionsCustomer,
+				optionsBillingAddress: $scope.optionsBillingAddress,
+				optionsShippingAddress: $scope.optionsShippingAddress,
+				optionsShippingProvider: $scope.optionsShippingProvider,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsStatus: $scope.optionsStatus,
@@ -154,6 +157,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			Dialogs.postMessage({ topic: 'codbex-orders.SalesOrder.SalesOrder.createEntity', data: {
 				entity: {},
 				optionsCustomer: $scope.optionsCustomer,
+				optionsBillingAddress: $scope.optionsBillingAddress,
+				optionsShippingAddress: $scope.optionsShippingAddress,
+				optionsShippingProvider: $scope.optionsShippingProvider,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsStatus: $scope.optionsStatus,
@@ -168,6 +174,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			Dialogs.postMessage({ topic: 'codbex-orders.SalesOrder.SalesOrder.updateEntity', data: {
 				entity: $scope.selectedEntity,
 				optionsCustomer: $scope.optionsCustomer,
+				optionsBillingAddress: $scope.optionsBillingAddress,
+				optionsShippingAddress: $scope.optionsShippingAddress,
+				optionsShippingProvider: $scope.optionsShippingProvider,
 				optionsCurrency: $scope.optionsCurrency,
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsStatus: $scope.optionsStatus,
@@ -216,6 +225,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				params: {
 					entity: $scope.filterEntity,
 					optionsCustomer: $scope.optionsCustomer,
+					optionsBillingAddress: $scope.optionsBillingAddress,
+					optionsShippingAddress: $scope.optionsShippingAddress,
+					optionsShippingProvider: $scope.optionsShippingProvider,
 					optionsCurrency: $scope.optionsCurrency,
 					optionsSentMethod: $scope.optionsSentMethod,
 					optionsStatus: $scope.optionsStatus,
@@ -228,6 +240,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 
 		//----------------Dropdowns-----------------//
 		$scope.optionsCustomer = [];
+		$scope.optionsBillingAddress = [];
+		$scope.optionsShippingAddress = [];
+		$scope.optionsShippingProvider = [];
 		$scope.optionsCurrency = [];
 		$scope.optionsSentMethod = [];
 		$scope.optionsStatus = [];
@@ -246,6 +261,51 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Customer',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+
+		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts').then((response) => {
+			$scope.optionsBillingAddress = response.data.map(e => ({
+				value: e.Id,
+				text: e.AddressLine1
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'BillingAddress',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+
+		$http.get('/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts').then((response) => {
+			$scope.optionsShippingAddress = response.data.map(e => ({
+				value: e.Id,
+				text: e.AddressLine1
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'ShippingAddress',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+
+		$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/entities/ShippingProviderService.ts').then((response) => {
+			$scope.optionsShippingProvider = response.data.map(e => ({
+				value: e.Id,
+				text: e.Name
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'ShippingProvider',
 				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
@@ -345,6 +405,30 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			for (let i = 0; i < $scope.optionsCustomer.length; i++) {
 				if ($scope.optionsCustomer[i].value === optionKey) {
 					return $scope.optionsCustomer[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsBillingAddressValue = (optionKey) => {
+			for (let i = 0; i < $scope.optionsBillingAddress.length; i++) {
+				if ($scope.optionsBillingAddress[i].value === optionKey) {
+					return $scope.optionsBillingAddress[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsShippingAddressValue = (optionKey) => {
+			for (let i = 0; i < $scope.optionsShippingAddress.length; i++) {
+				if ($scope.optionsShippingAddress[i].value === optionKey) {
+					return $scope.optionsShippingAddress[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsShippingProviderValue = (optionKey) => {
+			for (let i = 0; i < $scope.optionsShippingProvider.length; i++) {
+				if ($scope.optionsShippingProvider[i].value === optionKey) {
+					return $scope.optionsShippingProvider[i].text;
 				}
 			}
 			return null;

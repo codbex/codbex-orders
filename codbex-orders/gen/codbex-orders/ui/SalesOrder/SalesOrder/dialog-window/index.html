@@ -37,7 +37,7 @@
                     	<div class="fd-col fd-col-md--2">
                         	<bk-form-label for="idDate" ng-required="true" colon="true">{{ 'codbex-orders:t.SALESORDER_DATE' | t }}</bk-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--2 fd-col--3">
+                        <div class="fd-col  fd-col-md--2 ">
 							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
 								<bk-input id="idDate"
 	                                name="Date"
@@ -69,19 +69,90 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCustomer" ng-required="true" colon="true">{{ 'codbex-orders:t.SALESORDER_CUSTOMER' | t }}</bk-form-label>
+                        	<bk-form-label for="idCustomer" ng-required="false" colon="true">{{ 'codbex-orders:t.SALESORDER_CUSTOMER' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <bk-combobox-input input-id="idCustomer"
 	                            name="Customer"
 	                            state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
+	                            ng-required="false"
 	                            ng-model="entity.Customer"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsCustomer"
 	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.SALESORDER_CUSTOMER)'} }}"
 								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Customer'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Customer'} }}">
 	                        </bk-combobox-input>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idBillingAddress" ng-required="true" colon="true">{{ 'codbex-orders:t.SALESORDER_BILLINGADDRESS' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <bk-combobox-input input-id="idBillingAddress"
+	                            name="BillingAddress"
+	                            state="{{ forms.details['BillingAddress'].$valid ? '' : 'error' }}"
+	                            ng-required="true"
+	                            ng-model="entity.BillingAddress"
+	                            is-readonly="action === 'select'"
+	                            dropdown-items="optionsBillingAddress"
+	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.SALESORDER_BILLINGADDRESS)'} }}"
+								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'BillingAddress'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'BillingAddress'} }}">
+	                        </bk-combobox-input>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idShippingAddress" ng-required="true" colon="true">{{ 'codbex-orders:t.SALESORDER_SHIPPINGADDRESS' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <bk-combobox-input input-id="idShippingAddress"
+	                            name="ShippingAddress"
+	                            state="{{ forms.details['ShippingAddress'].$valid ? '' : 'error' }}"
+	                            ng-required="true"
+	                            ng-model="entity.ShippingAddress"
+	                            is-readonly="action === 'select'"
+	                            dropdown-items="optionsShippingAddress"
+	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.SALESORDER_SHIPPINGADDRESS)'} }}"
+								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'ShippingAddress'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'ShippingAddress'} }}">
+	                        </bk-combobox-input>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idShippingProvider" ng-required="false" colon="true">{{ 'codbex-orders:t.SALESORDER_SHIPPINGPROVIDER' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <bk-combobox-input input-id="idShippingProvider"
+	                            name="ShippingProvider"
+	                            state="{{ forms.details['ShippingProvider'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.ShippingProvider"
+	                            is-readonly="action === 'select'"
+	                            dropdown-items="optionsShippingProvider"
+	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.SALESORDER_SHIPPINGPROVIDER)'} }}"
+								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'ShippingProvider'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'ShippingProvider'} }}">
+	                        </bk-combobox-input>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idTrackingNumber" ng-required="false" colon="true">{{ 'codbex-orders:t.SALESORDER_TRACKINGNUMBER' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--8 ">
+							<bk-form-input-message state="{{ forms.details['TrackingNumber'].$valid ? '' : 'error' }}" text="{{ 'codbex-orders:messages.error.pattern' | t:{'rule':''} }}">
+								<bk-input id="idTrackingNumber"
+	                                name="TrackingNumber"
+	                                state="{{ forms.details['TrackingNumber'].$valid ? '' : 'error' }}"
+									ng-required="false"
+	                                ng-model="entity.TrackingNumber"
+	                                ng-readonly="action === 'select'"
+									ng-maxlength="50.0"
+	                                input-rules="{ patterns: [''] }"
+	                                type="text"
+	                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.SALESORDER_TRACKINGNUMBER)'} }}">
+	                            </bk-input>
+							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
