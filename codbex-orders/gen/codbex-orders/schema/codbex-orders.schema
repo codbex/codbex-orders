@@ -42,6 +42,11 @@
                         "name": "SALESORDER_SHIPPINGADDRESS"
                     },
                     {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "SALESORDER_SHIPPINGPROVIDER"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 50,
                         "nullable": true,
@@ -745,6 +750,25 @@
                 ]
             },
             {
+                "name": "CODBEX_SHIPPINGPROVIDER",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SHIPPINGPROVIDER_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 100,
+                        "nullable": true,
+                        "name": "SHIPPINGPROVIDER_NAME"
+                    }
+                ]
+            },
+            {
                 "name": "SalesOrder_Customer",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
@@ -770,6 +794,15 @@
                 "columns": "SALESORDER_SHIPPINGADDRESS",
                 "referencedTable": "CODBEX_CUSTOMERADDRESS",
                 "referencedColumns": "CUSTOMERADDRESS_ID"
+            },
+            {
+                "name": "SalesOrder_ShippingProvider",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDER",
+                "constraintName": "SalesOrder_ShippingProvider",
+                "columns": "SALESORDER_SHIPPINGPROVIDER",
+                "referencedTable": "CODBEX_SHIPPINGPROVIDER",
+                "referencedColumns": "SHIPPINGPROVIDER_ID"
             },
             {
                 "name": "SalesOrder_Currency",

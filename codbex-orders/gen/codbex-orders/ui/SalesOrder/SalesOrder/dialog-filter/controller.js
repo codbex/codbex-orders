@@ -25,6 +25,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		$scope.optionsCustomer = params.optionsCustomer;
 		$scope.optionsBillingAddress = params.optionsBillingAddress;
 		$scope.optionsShippingAddress = params.optionsShippingAddress;
+		$scope.optionsShippingProvider = params.optionsShippingProvider;
 		$scope.optionsCurrency = params.optionsCurrency;
 		$scope.optionsSentMethod = params.optionsSentMethod;
 		$scope.optionsStatus = params.optionsStatus;
@@ -79,6 +80,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		}
 		if (entity.ShippingAddress !== undefined) {
 			filter.$filter.equals.ShippingAddress = entity.ShippingAddress;
+		}
+		if (entity.ShippingProvider !== undefined) {
+			filter.$filter.equals.ShippingProvider = entity.ShippingProvider;
 		}
 		if (entity.TrackingNumber) {
 			filter.$filter.contains.TrackingNumber = entity.TrackingNumber;

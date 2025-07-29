@@ -124,6 +124,24 @@
                         "relationshipEntityPerspectiveLabel": "Customers"
                     },
                     {
+                        "dataName": "SALESORDER_SHIPPINGPROVIDER",
+                        "dataNullable": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "name": "ShippingProvider",
+                        "tooltip": "",
+                        "widgetDropDownKey": "Id",
+                        "widgetDropDownValue": "Name",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "DROPDOWN",
+                        "relationshipName": "SalesOrder_ShippingProvider",
+                        "relationshipEntityName": "ShippingProvider",
+                        "relationshipEntityPerspectiveName": "entities",
+                        "relationshipEntityPerspectiveLabel": "Entities"
+                    },
+                    {
                         "dataLength": "50",
                         "dataName": "SALESORDER_TRACKINGNUMBER",
                         "dataNullable": "true",
@@ -5145,6 +5163,61 @@
                 "title": "Customer",
                 "tooltip": "Customer",
                 "type": "PROJECTION"
+            },
+            {
+                "properties": [
+                    {
+                        "dataAutoIncrement": "true",
+                        "dataName": "SHIPPINGPROVIDER_ID",
+                        "dataNullable": "true",
+                        "dataPrimaryKey": "true",
+                        "dataType": "INTEGER",
+                        "description": "",
+                        "name": "Id",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "20",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "100",
+                        "dataName": "SHIPPINGPROVIDER_NAME",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "isRequiredProperty": "true",
+                        "name": "Name",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "100",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    }
+                ],
+                "caption": "Manage entity ShippingProvider",
+                "dataCount": "SELECT COUNT(*) AS COUNT FROM \"${tablePrefix}SHIPPINGPROVIDER\"",
+                "dataName": "SHIPPINGPROVIDER",
+                "dataQuery": "",
+                "description": "Manage entity ShippingProvider",
+                "generateDefaultRoles": "false",
+                "generateReport": "false",
+                "icon": "/services/web/resources/unicons/file.svg",
+                "layoutType": "MANAGE",
+                "menuIndex": "100",
+                "menuKey": "shippingprovider",
+                "menuLabel": "ShippingProvider",
+                "name": "ShippingProvider",
+                "perspectiveHeader": "",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveLabel": "Entities",
+                "perspectiveName": "entities",
+                "perspectiveNavId": "",
+                "perspectiveOrder": "100",
+                "perspectiveRole": "",
+                "title": "ShippingProvider",
+                "tooltip": "ShippingProvider",
+                "type": "PRIMARY"
             }
         ],
         "perspectives": [

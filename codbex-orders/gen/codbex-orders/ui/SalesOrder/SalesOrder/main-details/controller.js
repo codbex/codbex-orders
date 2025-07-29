@@ -53,6 +53,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				$scope.optionsCustomer = [];
 				$scope.optionsBillingAddress = [];
 				$scope.optionsShippingAddress = [];
+				$scope.optionsShippingProvider = [];
 				$scope.optionsCurrency = [];
 				$scope.optionsSentMethod = [];
 				$scope.optionsStatus = [];
@@ -74,6 +75,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				$scope.optionsCustomer = data.optionsCustomer;
 				$scope.optionsBillingAddress = data.optionsBillingAddress;
 				$scope.optionsShippingAddress = data.optionsShippingAddress;
+				$scope.optionsShippingProvider = data.optionsShippingProvider;
 				$scope.optionsCurrency = data.optionsCurrency;
 				$scope.optionsSentMethod = data.optionsSentMethod;
 				$scope.optionsStatus = data.optionsStatus;
@@ -89,6 +91,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				$scope.optionsCustomer = data.optionsCustomer;
 				$scope.optionsBillingAddress = data.optionsBillingAddress;
 				$scope.optionsShippingAddress = data.optionsShippingAddress;
+				$scope.optionsShippingProvider = data.optionsShippingProvider;
 				$scope.optionsCurrency = data.optionsCurrency;
 				$scope.optionsSentMethod = data.optionsSentMethod;
 				$scope.optionsStatus = data.optionsStatus;
@@ -110,6 +113,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				$scope.optionsCustomer = data.optionsCustomer;
 				$scope.optionsBillingAddress = data.optionsBillingAddress;
 				$scope.optionsShippingAddress = data.optionsShippingAddress;
+				$scope.optionsShippingProvider = data.optionsShippingProvider;
 				$scope.optionsCurrency = data.optionsCurrency;
 				$scope.optionsSentMethod = data.optionsSentMethod;
 				$scope.optionsStatus = data.optionsStatus;
@@ -123,6 +127,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.serviceCustomer = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerService.ts';
 		$scope.serviceBillingAddress = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts';
 		$scope.serviceShippingAddress = '/services/ts/codbex-partners/gen/codbex-partners/api/Customers/CustomerAddressService.ts';
+		$scope.serviceShippingProvider = '/services/ts/codbex-orders/gen/codbex-orders/api/entities/ShippingProviderService.ts';
 		$scope.serviceCurrency = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts';
 		$scope.serviceSentMethod = '/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts';
 		$scope.serviceStatus = '/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderStatusService.ts';
@@ -278,6 +283,16 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				closeButton: false
 			});
 		};
+		$scope.createShippingProvider = () => {
+			Dialogs.showWindow({
+				id: 'ShippingProvider-details',
+				params: {
+					action: 'create',
+					entity: {},
+				},
+				closeButton: false
+			});
+		};
 		$scope.createCurrency = () => {
 			Dialogs.showWindow({
 				id: 'Currency-details',
@@ -391,6 +406,23 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
 					title: 'ShippingAddress',
+					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+					type: AlertTypes.Error
+				});
+			});
+		};
+		$scope.refreshShippingProvider = () => {
+			$scope.optionsShippingProvider = [];
+			$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/entities/ShippingProviderService.ts').then((response) => {
+				$scope.optionsShippingProvider = response.data.map(e => ({
+					value: e.Id,
+					text: e.Name
+				}));
+			}, (error) => {
+				console.error(error);
+				const message = error.data ? error.data.message : '';
+				Dialogs.showAlert({
+					title: 'ShippingProvider',
 					message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
 					type: AlertTypes.Error
 				});

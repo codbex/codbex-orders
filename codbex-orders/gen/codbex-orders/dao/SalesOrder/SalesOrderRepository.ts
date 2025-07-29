@@ -14,6 +14,7 @@ export interface SalesOrderEntity {
     Customer?: number;
     BillingAddress?: number;
     ShippingAddress?: number;
+    ShippingProvider?: number;
     TrackingNumber?: string;
     Net?: number;
     Currency: number;
@@ -40,6 +41,7 @@ export interface SalesOrderCreateEntity {
     readonly Customer?: number;
     readonly BillingAddress?: number;
     readonly ShippingAddress?: number;
+    readonly ShippingProvider?: number;
     readonly TrackingNumber?: string;
     readonly Net?: number;
     readonly Currency: number;
@@ -72,6 +74,7 @@ export interface SalesOrderEntityOptions {
             Customer?: number | number[];
             BillingAddress?: number | number[];
             ShippingAddress?: number | number[];
+            ShippingProvider?: number | number[];
             TrackingNumber?: string | string[];
             Net?: number | number[];
             Currency?: number | number[];
@@ -99,6 +102,7 @@ export interface SalesOrderEntityOptions {
             Customer?: number | number[];
             BillingAddress?: number | number[];
             ShippingAddress?: number | number[];
+            ShippingProvider?: number | number[];
             TrackingNumber?: string | string[];
             Net?: number | number[];
             Currency?: number | number[];
@@ -126,6 +130,7 @@ export interface SalesOrderEntityOptions {
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
+            ShippingProvider?: number;
             TrackingNumber?: string;
             Net?: number;
             Currency?: number;
@@ -153,6 +158,7 @@ export interface SalesOrderEntityOptions {
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
+            ShippingProvider?: number;
             TrackingNumber?: string;
             Net?: number;
             Currency?: number;
@@ -180,6 +186,7 @@ export interface SalesOrderEntityOptions {
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
+            ShippingProvider?: number;
             TrackingNumber?: string;
             Net?: number;
             Currency?: number;
@@ -207,6 +214,7 @@ export interface SalesOrderEntityOptions {
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
+            ShippingProvider?: number;
             TrackingNumber?: string;
             Net?: number;
             Currency?: number;
@@ -234,6 +242,7 @@ export interface SalesOrderEntityOptions {
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
+            ShippingProvider?: number;
             TrackingNumber?: string;
             Net?: number;
             Currency?: number;
@@ -318,6 +327,11 @@ export class SalesOrderRepository {
             {
                 name: "ShippingAddress",
                 column: "SALESORDER_SHIPPINGADDRESS",
+                type: "INTEGER",
+            },
+            {
+                name: "ShippingProvider",
+                column: "SALESORDER_SHIPPINGPROVIDER",
                 type: "INTEGER",
             },
             {
