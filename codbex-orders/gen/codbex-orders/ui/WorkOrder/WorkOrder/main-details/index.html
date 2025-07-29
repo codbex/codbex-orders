@@ -67,27 +67,6 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCustomer" ng-required="false" colon="true">{{ 'codbex-orders:t.WORKORDER_CUSTOMER' | t }}</bk-form-label>
-                        </div>
-                        <div class="fd-col fd-col-md--4 fd-col--6">
-	                        <bk-combobox-input input-id="idCustomer"
-	                            name="Customer"
-	                            state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
-	                            ng-required="false"
-	                            ng-model="entity.Customer"
-	                            is-readonly="action === 'select'"
-	                            dropdown-items="optionsCustomer"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_CUSTOMER)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Customer'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Customer'} }}">
-	                        </bk-combobox-input>
-	                    </div>
-	                    <div class="fd-col fd-col--full">
-							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-orders:defaults.add' | t }}" ng-click="createCustomer()" ng-hide="action === 'select'"></bk-button>
-							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-orders:defaults.refresh' | t }}" ng-click="refreshCustomer()" ng-hide="action === 'select'"></bk-button>
-						</div>
-                    </bk-form-item>
-                    <bk-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
                         	<bk-form-label for="idTask" ng-required="false" colon="true">{{ 'codbex-orders:t.WORKORDER_TASK' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8 fd-col--12">
@@ -105,6 +84,27 @@
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idCustomer" ng-required="false" colon="true">{{ 'codbex-orders:t.WORKORDER_CUSTOMER' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--7 ">
+	                        <bk-combobox-input input-id="idCustomer"
+	                            name="Customer"
+	                            state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.Customer"
+	                            is-readonly="action === 'select'"
+	                            dropdown-items="optionsCustomer"
+	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_CUSTOMER)'} }}"
+								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Customer'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Customer'} }}">
+	                        </bk-combobox-input>
+	                    </div>
+	                    <div class="fd-col fd-col--full">
+							<bk-button glyph="sap-icon--add" aria-label="{{ 'codbex-orders:defaults.add' | t }}" ng-click="createCustomer()" ng-hide="action === 'select'"></bk-button>
+							<bk-button glyph="sap-icon--refresh" aria-label="{{ 'codbex-orders:defaults.refresh' | t }}" ng-click="refreshCustomer()" ng-hide="action === 'select'"></bk-button>
+						</div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">

@@ -37,27 +37,27 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCustomerFrom" colon="true">{{ 'codbex-orders:defaults.from' | t:{'text':'$t(codbex-orders:t.CUSTOMER)'} }}</bk-form-label>
+                        	<bk-form-label for="idDateFrom" colon="true">{{ 'codbex-orders:defaults.from' | t:{'text':'$t(codbex-orders:t.SALESORDER_DATE)'} }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
-							<bk-form-input-message state="{{ forms.details['Customer'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
-								<bk-input id="idCustomerFrom"
-	                                name="Customer"
-	                                state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.CustomerFrom"
+							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+								<bk-input id="idDateFrom"
+	                                name="Date"
+	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.DateFrom"
 	                                type="date">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCustomerTo" colon="true">{{ 'codbex-orders:defaults.to' | t:{'text':'$t(codbex-orders:t.CUSTOMER)'} }}</bk-form-label>
+                        	<bk-form-label for="idDateTo" colon="true">{{ 'codbex-orders:defaults.to' | t:{'text':'$t(codbex-orders:t.SALESORDER_DATE)'} }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
-							<bk-form-input-message state="{{ forms.details['Customer'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
-								<bk-input id="idCustomerTo"
-	                                name="Customer"
-	                                state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
-	                                ng-model="entity.CustomerTo"
+							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+								<bk-input id="idDateTo"
+	                                name="Date"
+	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
+	                                ng-model="entity.DateTo"
 	                                type="date">
 	                            </bk-input>
 							</bk-form-input-message>

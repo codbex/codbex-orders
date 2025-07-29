@@ -101,8 +101,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 						$scope.dataReset = false;
 					}
 					response.data.forEach(e => {
-						if (e.Customer) {
-							e.Customer = new Date(e.Customer);
+						if (e.Date) {
+							e.Date = new Date(e.Date);
 						}
 						if (e.Due) {
 							e.Due = new Date(e.Due);

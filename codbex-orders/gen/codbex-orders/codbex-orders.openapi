@@ -7606,9 +7606,8 @@ components:
     SalesOrder:
       type: object
       required:
-        - Customer
+        - Date
         - Due
-        - Customer
         - BillingAddress
         - ShippingAddress
         - Currency
@@ -7625,7 +7624,7 @@ components:
           minLength: 0
           maxLength: 20
           readOnly: true
-        Customer:
+        Date:
         Due:
         Customer:
           type: integer
@@ -7725,7 +7724,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Customer:
+                Date:
                   oneOf:
                 Due:
                   oneOf:
@@ -7934,7 +7933,7 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 20
-                Customer:
+                Date:
                   oneOf:
                 Due:
                   oneOf:
@@ -8129,7 +8128,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Customer:
+                Date:
                 Due:
                 Customer:
                 BillingAddress:
@@ -8177,7 +8176,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Customer:
+                Date:
                 Due:
                 Customer:
                   type: integer
@@ -8257,7 +8256,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Customer:
+                Date:
                 Due:
                 Customer:
                   type: integer
@@ -8337,7 +8336,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Customer:
+                Date:
                 Due:
                 Customer:
                   type: integer
@@ -8417,7 +8416,7 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 20
-                Customer:
+                Date:
                 Due:
                 Customer:
                   type: integer
@@ -8489,12 +8488,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Customer", "Due", "Customer", "BillingAddress", "ShippingAddress", "TrackingNumber", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "Status", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "Due", "Customer", "BillingAddress", "ShippingAddress", "TrackingNumber", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "Status", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Customer,Due,Customer,BillingAddress,ShippingAddress,TrackingNumber,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,SentMethod,Status,Operator,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Date,Due,Customer,BillingAddress,ShippingAddress,TrackingNumber,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,SentMethod,Status,Operator,Company,Name,UUID,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -11862,13 +11861,13 @@ components:
           readOnly: true
         Date:
         Due:
-        Customer:
-          type: integer
-          format: int32
         Task:
           type: string
           minLength: 0
           maxLength: 200
+        Customer:
+          type: integer
+          format: int32
         Net:
           type: number
           format: double
@@ -11968,14 +11967,6 @@ components:
                   oneOf:
                 Due:
                   oneOf:
-                Customer:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Task:
                   oneOf:
                     - type: string
@@ -11987,6 +11978,14 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 200
+                Customer:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Net:
                   oneOf:
                     - type: number
@@ -12188,14 +12187,6 @@ components:
                   oneOf:
                 Due:
                   oneOf:
-                Customer:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Task:
                   oneOf:
                     - type: string
@@ -12207,6 +12198,14 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 200
+                Customer:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 Net:
                   oneOf:
                     - type: number
@@ -12392,11 +12391,11 @@ components:
                   maxLength: 20
                 Date:
                 Due:
-                Customer:
                 Task:
                   type: string
                   minLength: 0
                   maxLength: 200
+                Customer:
                 Net:
                 Currency:
                 Gross:
@@ -12444,13 +12443,13 @@ components:
                   maxLength: 20
                 Date:
                 Due:
-                Customer:
-                  type: integer
-                  format: int32
                 Task:
                   type: string
                   minLength: 0
                   maxLength: 200
+                Customer:
+                  type: integer
+                  format: int32
                 Net:
                   type: number
                   format: double
@@ -12528,13 +12527,13 @@ components:
                   maxLength: 20
                 Date:
                 Due:
-                Customer:
-                  type: integer
-                  format: int32
                 Task:
                   type: string
                   minLength: 0
                   maxLength: 200
+                Customer:
+                  type: integer
+                  format: int32
                 Net:
                   type: number
                   format: double
@@ -12612,13 +12611,13 @@ components:
                   maxLength: 20
                 Date:
                 Due:
-                Customer:
-                  type: integer
-                  format: int32
                 Task:
                   type: string
                   minLength: 0
                   maxLength: 200
+                Customer:
+                  type: integer
+                  format: int32
                 Net:
                   type: number
                   format: double
@@ -12696,13 +12695,13 @@ components:
                   maxLength: 20
                 Date:
                 Due:
-                Customer:
-                  type: integer
-                  format: int32
                 Task:
                   type: string
                   minLength: 0
                   maxLength: 200
+                Customer:
+                  type: integer
+                  format: int32
                 Net:
                   type: number
                   format: double
@@ -12770,12 +12769,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "Task", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "Status", "Operator", "Document", "Company", "UUID", "Name", "Referance", "Worker", "SalesOrder"]
+          example: ["Id", "Number", "Date", "Due", "Task", "Customer", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "Status", "Operator", "Document", "Company", "UUID", "Name", "Referance", "Worker", "SalesOrder"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,Task,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,Status,Operator,Document,Company,UUID,Name,Referance,Worker,SalesOrder"
+            example: "Id,Number,Date,Due,Task,Customer,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,Status,Operator,Document,Company,UUID,Name,Referance,Worker,SalesOrder"
         $order:
           type: string
           enum: ["asc", "desc"]

@@ -31,8 +31,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		let params = ViewParameters.get();
 		if (Object.keys(params).length) {
 			$scope.action = params.action;
-			if (params.entity.Customer) {
-				params.entity.Customer = new Date(params.entity.Customer);
+			if (params.entity.Date) {
+				params.entity.Date = new Date(params.entity.Date);
 			}
 			if (params.entity.Due) {
 				params.entity.Due = new Date(params.entity.Due);

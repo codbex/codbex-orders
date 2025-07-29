@@ -11,8 +11,8 @@ export interface WorkOrderEntity {
     Number?: string;
     Date?: Date;
     Due?: Date;
-    Customer?: number;
     Task?: string;
+    Customer?: number;
     Net?: number;
     Currency?: number;
     Gross?: number;
@@ -38,8 +38,8 @@ export interface WorkOrderEntity {
 export interface WorkOrderCreateEntity {
     readonly Date?: Date;
     readonly Due?: Date;
-    readonly Customer?: number;
     readonly Task?: string;
+    readonly Customer?: number;
     readonly Net?: number;
     readonly Currency?: number;
     readonly Gross?: number;
@@ -71,8 +71,8 @@ export interface WorkOrderEntityOptions {
             Number?: string | string[];
             Date?: Date | Date[];
             Due?: Date | Date[];
-            Customer?: number | number[];
             Task?: string | string[];
+            Customer?: number | number[];
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
@@ -99,8 +99,8 @@ export interface WorkOrderEntityOptions {
             Number?: string | string[];
             Date?: Date | Date[];
             Due?: Date | Date[];
-            Customer?: number | number[];
             Task?: string | string[];
+            Customer?: number | number[];
             Net?: number | number[];
             Currency?: number | number[];
             Gross?: number | number[];
@@ -127,8 +127,8 @@ export interface WorkOrderEntityOptions {
             Number?: string;
             Date?: Date;
             Due?: Date;
-            Customer?: number;
             Task?: string;
+            Customer?: number;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -155,8 +155,8 @@ export interface WorkOrderEntityOptions {
             Number?: string;
             Date?: Date;
             Due?: Date;
-            Customer?: number;
             Task?: string;
+            Customer?: number;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -183,8 +183,8 @@ export interface WorkOrderEntityOptions {
             Number?: string;
             Date?: Date;
             Due?: Date;
-            Customer?: number;
             Task?: string;
+            Customer?: number;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -211,8 +211,8 @@ export interface WorkOrderEntityOptions {
             Number?: string;
             Date?: Date;
             Due?: Date;
-            Customer?: number;
             Task?: string;
+            Customer?: number;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -239,8 +239,8 @@ export interface WorkOrderEntityOptions {
             Number?: string;
             Date?: Date;
             Due?: Date;
-            Customer?: number;
             Task?: string;
+            Customer?: number;
             Net?: number;
             Currency?: number;
             Gross?: number;
@@ -313,14 +313,14 @@ export class WorkOrderRepository {
                 type: "DATE",
             },
             {
-                name: "Customer",
-                column: "WORKORDER_CUSTOMER",
-                type: "INTEGER",
-            },
-            {
                 name: "Task",
                 column: "WORKORDER_TASK",
                 type: "VARCHAR",
+            },
+            {
+                name: "Customer",
+                column: "WORKORDER_CUSTOMER",
+                type: "INTEGER",
             },
             {
                 name: "Net",

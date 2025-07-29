@@ -64,8 +64,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		}});
 		Dialogs.addMessageListener({ topic: 'codbex-orders.SalesOrder.SalesOrder.entitySelected', handler: (data) => {
 			$scope.$evalAsync(() => {
-				if (data.entity.Customer) {
-					data.entity.Customer = new Date(data.entity.Customer);
+				if (data.entity.Date) {
+					data.entity.Date = new Date(data.entity.Date);
 				}
 				if (data.entity.Due) {
 					data.entity.Due = new Date(data.entity.Due);
@@ -100,8 +100,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		}});
 		Dialogs.addMessageListener({ topic: 'codbex-orders.SalesOrder.SalesOrder.updateEntity', handler: (data) => {
 			$scope.$evalAsync(() => {
-				if (data.entity.Customer) {
-					data.entity.Customer = new Date(data.entity.Customer);
+				if (data.entity.Date) {
+					data.entity.Date = new Date(data.entity.Date);
 				}
 				if (data.entity.Due) {
 					data.entity.Due = new Date(data.entity.Due);

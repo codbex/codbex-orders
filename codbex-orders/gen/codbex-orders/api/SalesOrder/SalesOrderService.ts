@@ -24,7 +24,7 @@ class SalesOrderService {
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
             };
 
-            return this.repository.findAll(options).map(e => this.transformEntity("read", e));
+            return this.repository.findAll(options);
         } catch (error: any) {
             this.handleError(error);
         }
@@ -35,9 +35,6 @@ class SalesOrderService {
         try {
             this.checkPermissions("write");
             this.validateEntity(entity);
-            const originalEntity = this.repository.findById(entity.Id);
-            const modifiedEntity = this.transformEntity("write", entity);
-            entity = { ...originalEntity, ...modifiedEntity };
             entity.Id = this.repository.create(entity);
             response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
@@ -71,7 +68,7 @@ class SalesOrderService {
     public search(filter: any) {
         try {
             this.checkPermissions("read");
-            return this.repository.findAll(filter).map(e => this.transformEntity("read", e));
+            return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
         }
@@ -84,7 +81,7 @@ class SalesOrderService {
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
-                return this.transformEntity("read", entity);
+                return entity;
             } else {
                 HttpUtils.sendResponseNotFound("SalesOrder not found");
             }
@@ -99,9 +96,6 @@ class SalesOrderService {
             this.checkPermissions("write");
             entity.Id = ctx.pathParameters.id;
             this.validateEntity(entity);
-            const originalEntity = this.repository.findById(entity.Id);
-            const modifiedEntity = this.transformEntity("write", entity);
-            entity = { ...originalEntity, ...modifiedEntity };
             this.repository.update(entity);
             return entity;
         } catch (error: any) {
@@ -149,14 +143,11 @@ class SalesOrderService {
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
         }
-        if (entity.Customer === null || entity.Customer === undefined) {
-            throw new ValidationError(`The 'Customer' property is required, provide a valid value`);
+        if (entity.Date === null || entity.Date === undefined) {
+            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
         }
         if (entity.Due === null || entity.Due === undefined) {
             throw new ValidationError(`The 'Due' property is required, provide a valid value`);
-        }
-        if (entity.Customer === null || entity.Customer === undefined) {
-            throw new ValidationError(`The 'Customer' property is required, provide a valid value`);
         }
         if (entity.BillingAddress === null || entity.BillingAddress === undefined) {
             throw new ValidationError(`The 'BillingAddress' property is required, provide a valid value`);
@@ -197,17 +188,6 @@ class SalesOrderService {
         for (const next of validationModules) {
             next.validate(entity);
         }
-    }
-
-    private transformEntity(operationType: string, originalEntity: any) {
-        const entity = { ...originalEntity };
-        if (operationType === "read" && !user.isInRole("codbex-partners.Customers.CustomerReadOnly")) {
-            delete entity.Customer;
-        }
-        if (operationType === "write" && !user.isInRole("codbex-partners.Customers.CustomerFullAccess")) {
-            delete entity.Customer;
-        }
-        return entity;
     }
 
 }

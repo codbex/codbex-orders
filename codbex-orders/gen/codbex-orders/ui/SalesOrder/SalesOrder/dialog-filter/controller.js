@@ -7,11 +7,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 
 	let params = ViewParameters.get();
 	if (Object.keys(params).length) {
-		if (params?.entity?.CustomerFrom) {
-			params.entity.CustomerFrom = new Date(params.entity.CustomerFrom);
+		if (params?.entity?.DateFrom) {
+			params.entity.DateFrom = new Date(params.entity.DateFrom);
 		}
-		if (params?.entity?.CustomerTo) {
-			params.entity.CustomerTo = new Date(params.entity.CustomerTo);
+		if (params?.entity?.DateTo) {
+			params.entity.DateTo = new Date(params.entity.DateTo);
 		}
 		if (params?.entity?.DueFrom) {
 			params.entity.DueFrom = new Date(params.entity.DueFrom);
@@ -59,11 +59,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.Number) {
 			filter.$filter.contains.Number = entity.Number;
 		}
-		if (entity.CustomerFrom) {
-			filter.$filter.greaterThanOrEqual.Customer = entity.CustomerFrom;
+		if (entity.DateFrom) {
+			filter.$filter.greaterThanOrEqual.Date = entity.DateFrom;
 		}
-		if (entity.CustomerTo) {
-			filter.$filter.lessThanOrEqual.Customer = entity.CustomerTo;
+		if (entity.DateTo) {
+			filter.$filter.lessThanOrEqual.Date = entity.DateTo;
 		}
 		if (entity.DueFrom) {
 			filter.$filter.greaterThanOrEqual.Due = entity.DueFrom;

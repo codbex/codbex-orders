@@ -19,7 +19,8 @@
                     },
                     {
                         "type": "DATE",
-                        "name": "CUSTOMER"
+                        "nullable": true,
+                        "name": "SALESORDER_DATE"
                     },
                     {
                         "type": "DATE",
@@ -27,6 +28,7 @@
                     },
                     {
                         "type": "INTEGER",
+                        "nullable": true,
                         "name": "SALESORDER_CUSTOMER"
                     },
                     {
@@ -566,15 +568,15 @@
                         "name": "WORKORDER_DUE"
                     },
                     {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "WORKORDER_CUSTOMER"
-                    },
-                    {
                         "type": "VARCHAR",
                         "length": 200,
                         "nullable": true,
                         "name": "WORKORDER_TASK"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "WORKORDER_CUSTOMER"
                     },
                     {
                         "type": "DECIMAL",
@@ -741,15 +743,6 @@
                         "name": "SALESORDERITEMSTATUS_NAME"
                     }
                 ]
-            },
-            {
-                "name": "SalesOrder_Customer",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_Customer",
-                "columns": "CUSTOMER",
-                "referencedTable": "CODBEX_CUSTOMER",
-                "referencedColumns": "CUSTOMER_ID"
             },
             {
                 "name": "SalesOrder_Customer",

@@ -33,20 +33,19 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCustomer" ng-required="true" colon="true">{{ 'codbex-orders:t.CUSTOMER' | t }}</bk-form-label>
+                        	<bk-form-label for="idDate" ng-required="true" colon="true">{{ 'codbex-orders:t.SALESORDER_DATE' | t }}</bk-form-label>
                         </div>
-                        <div class="fd-col fd-col-md--2 fd-col--3">
-							<bk-form-input-message state="{{ forms.details['Customer'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
-								<bk-input id="idCustomer"
-	                                name="Customer"
-	                                state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
+                        <div class="fd-col  fd-col-md--2 ">
+							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+								<bk-input id="idDate"
+	                                name="Date"
+	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
 									ng-required="true"
-	                                ng-model="entity.Customer"
+	                                ng-model="entity.Date"
 	                                ng-readonly="action === 'select'"
 	                                type="date">
 	                            </bk-input>
 							</bk-form-input-message>
-							<span class="sap-icon sap-icon--information" role="presentation" ng-click="alert('Manage entity Customer')"></span>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
@@ -68,13 +67,13 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCustomer" ng-required="true" colon="true">{{ 'codbex-orders:t.SALESORDER_CUSTOMER' | t }}</bk-form-label>
+                        	<bk-form-label for="idCustomer" ng-required="false" colon="true">{{ 'codbex-orders:t.SALESORDER_CUSTOMER' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--7 ">
 	                        <bk-combobox-input input-id="idCustomer"
 	                            name="Customer"
 	                            state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
+	                            ng-required="false"
 	                            ng-model="entity.Customer"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsCustomer"
