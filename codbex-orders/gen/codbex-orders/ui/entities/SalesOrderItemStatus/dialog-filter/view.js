@@ -12,8 +12,8 @@ const viewData = {
             content: '$t(codbex-orders:t.SALESORDERITEMSTATUS) $t(codbex-orders:defaults.filter)',
         }
     },
-    path: '/services/web/codbex-orders/gen/codbex-orders/ui/Settings/SalesOrderItemStatus/dialog-filter/index.html',
-    perspectiveName: 'Settings'
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/entities/SalesOrderItemStatus/dialog-filter/index.html',
+    perspectiveName: 'entities'
 };
 if (typeof exports !== 'undefined') {
     exports.getView = () => viewData;

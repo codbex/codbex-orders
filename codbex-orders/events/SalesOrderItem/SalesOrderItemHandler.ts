@@ -2,6 +2,9 @@ import { SalesOrderRepository } from "../../gen/codbex-orders/dao/SalesOrder/Sal
 import { SalesOrderItemRepository } from "../../gen/codbex-orders/dao/SalesOrder/SalesOrderItemRepository";
 
 export const trigger = (event) => {
+
+    console.log("event triggered!");
+
     const SalesOrderDao = new SalesOrderRepository();
     const SalesOrderItemDao = new SalesOrderItemRepository();
     const item = event.entity;
@@ -13,6 +16,8 @@ export const trigger = (event) => {
             }
         }
     });
+
+    console.log(JSON.stringify(items));
 
     let net = 0;
     let vat = 0;
@@ -29,15 +34,32 @@ export const trigger = (event) => {
 
     const header = SalesOrderDao.findById(item.SalesOrder);
 
+    console.log(JSON.stringify(header));
+
     header.Total ??= 0;
     header.Net = net;
     header.VAT = vat;
     header.Gross = gross;
 
-    total = header.Gross - (header.Gross * header.Discount / 100) + (header.Gross * header.Taxes / 100);
+    console.log("gross");
+    console.log(header.Gross);
+
+    console.log("disc");
+    console.log(header.Discount);
+
+    console.log("taxes");
+    console.log(header.Taxes);
+
+    const discount = header.Discount ?? 0;
+    const taxes = header.Taxes ?? 0;
+
+    total = header.Gross - (header.Gross * discount / 100) + (header.Gross * taxes / 100);
     header.Total = total;
 
     header.Name = header.Name.substring(0, header.Name.lastIndexOf("/") + 1) + header.Total;
+
+    console.log("updated");
+    console.log(JSON.stringify(header));
 
     SalesOrderDao.update(header);
 }

@@ -7,24 +7,24 @@ export interface SalesOrderItemEntity {
     readonly Id: number;
     SalesOrder: number;
     Product: number;
-    UoM: number;
     Quantity: number;
+    UoM?: number;
     Net?: number;
     Price: number;
     VATRate?: number;
     VAT?: number;
     Gross?: number;
-    Status: number;
+    Status?: number;
 }
 
 export interface SalesOrderItemCreateEntity {
     readonly SalesOrder: number;
     readonly Product: number;
-    readonly UoM: number;
     readonly Quantity: number;
+    readonly UoM?: number;
     readonly Price: number;
     readonly VATRate?: number;
-    readonly Status: number;
+    readonly Status?: number;
 }
 
 export interface SalesOrderItemUpdateEntity extends SalesOrderItemCreateEntity {
@@ -37,8 +37,8 @@ export interface SalesOrderItemEntityOptions {
             Id?: number | number[];
             SalesOrder?: number | number[];
             Product?: number | number[];
-            UoM?: number | number[];
             Quantity?: number | number[];
+            UoM?: number | number[];
             Net?: number | number[];
             Price?: number | number[];
             VATRate?: number | number[];
@@ -50,8 +50,8 @@ export interface SalesOrderItemEntityOptions {
             Id?: number | number[];
             SalesOrder?: number | number[];
             Product?: number | number[];
-            UoM?: number | number[];
             Quantity?: number | number[];
+            UoM?: number | number[];
             Net?: number | number[];
             Price?: number | number[];
             VATRate?: number | number[];
@@ -63,8 +63,8 @@ export interface SalesOrderItemEntityOptions {
             Id?: number;
             SalesOrder?: number;
             Product?: number;
-            UoM?: number;
             Quantity?: number;
+            UoM?: number;
             Net?: number;
             Price?: number;
             VATRate?: number;
@@ -76,8 +76,8 @@ export interface SalesOrderItemEntityOptions {
             Id?: number;
             SalesOrder?: number;
             Product?: number;
-            UoM?: number;
             Quantity?: number;
+            UoM?: number;
             Net?: number;
             Price?: number;
             VATRate?: number;
@@ -89,8 +89,8 @@ export interface SalesOrderItemEntityOptions {
             Id?: number;
             SalesOrder?: number;
             Product?: number;
-            UoM?: number;
             Quantity?: number;
+            UoM?: number;
             Net?: number;
             Price?: number;
             VATRate?: number;
@@ -102,8 +102,8 @@ export interface SalesOrderItemEntityOptions {
             Id?: number;
             SalesOrder?: number;
             Product?: number;
-            UoM?: number;
             Quantity?: number;
+            UoM?: number;
             Net?: number;
             Price?: number;
             VATRate?: number;
@@ -115,8 +115,8 @@ export interface SalesOrderItemEntityOptions {
             Id?: number;
             SalesOrder?: number;
             Product?: number;
-            UoM?: number;
             Quantity?: number;
+            UoM?: number;
             Net?: number;
             Price?: number;
             VATRate?: number;
@@ -172,16 +172,15 @@ export class SalesOrderItemRepository {
                 required: true
             },
             {
-                name: "UoM",
-                column: "SALESORDERITEM_UOM",
-                type: "INTEGER",
-                required: true
-            },
-            {
                 name: "Quantity",
                 column: "SALESORDERITEM_QUANTITY",
                 type: "DECIMAL",
                 required: true
+            },
+            {
+                name: "UoM",
+                column: "SALESORDERITEM_UOM",
+                type: "INTEGER",
             },
             {
                 name: "Net",
@@ -213,7 +212,6 @@ export class SalesOrderItemRepository {
                 name: "Status",
                 column: "SALESORDERITEM_STATUS",
                 type: "INTEGER",
-                required: true
             }
         ]
     };
@@ -240,9 +238,6 @@ export class SalesOrderItemRepository {
         (entity as SalesOrderItemEntity).VAT = entity["Price"]*entity["VATRate"]/100;
         // @ts-ignore
         (entity as SalesOrderItemEntity).Gross = entity["Net"]+entity["VAT"];
-        if (entity.Status === undefined || entity.Status === null) {
-            (entity as SalesOrderItemEntity).Status = 1;
-        }
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",

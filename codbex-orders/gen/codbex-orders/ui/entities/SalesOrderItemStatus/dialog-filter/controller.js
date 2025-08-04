@@ -43,7 +43,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.Name) {
 			filter.$filter.contains.Name = entity.Name;
 		}
-		Dialogs.postMessage({ topic: 'codbex-orders.Settings.SalesOrderItemStatus.entitySearch', data: {
+		Dialogs.postMessage({ topic: 'codbex-orders.entities.SalesOrderItemStatus.entitySearch', data: {
 			entity: entity,
 			filter: filter
 		}});

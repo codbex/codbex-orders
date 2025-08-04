@@ -102,13 +102,5 @@
     {
         "name": "codbex-orders.OrdersSettings.WorkOrderStatusFullAccess",
         "description": "A role that grants full access for WorkOrderStatus."
-    },
-    {
-        "name": "codbex-orders.OrdersSettings.SalesOrderItemStatusReadOnly",
-        "description": "A role that grants read only permission for SalesOrderItemStatus."
-    },
-    {
-        "name": "codbex-orders.OrdersSettings.SalesOrderItemStatusFullAccess",
-        "description": "A role that grants full access for SalesOrderItemStatus."
     }
 ]

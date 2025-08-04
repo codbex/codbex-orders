@@ -1,6 +1,0 @@
-{
-    "module": "codbex-orders/gen/codbex-orders/ui/Settings/SalesOrderItemStatus/dialog-window/view.js",
-    "extensionPoint": "application-windows",
-    "description": "codbex-orders - Application Dialog Window",
-    "role": "codbex-orders.OrdersSettings.SalesOrderItemStatusReadOnly,codbex-orders.OrdersSettings.SalesOrderItemStatusFullAccess"
-}

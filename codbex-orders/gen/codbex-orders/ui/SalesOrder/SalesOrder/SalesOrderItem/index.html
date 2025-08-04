@@ -30,8 +30,8 @@
 				<thead bk-table-header sticky="true">
 					<tr bk-table-row>
 						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_PRODUCT' | t:'Product' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_UOM' | t:'UoM' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_QUANTITY' | t:'Quantity' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_UOM' | t:'UoM' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_NET' | t:'Net' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_PRICE' | t:'Price' }}</th>
 						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_VATRATE' | t:'VATRate' }}</th>
@@ -49,10 +49,10 @@
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsProductValue(next.Product)}}
 						</td>
+						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
 							{{optionsUoMValue(next.UoM)}}
 						</td>
-						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Quantity}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Net}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.Price}}</td>
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">{{next.VATRate}}</td>

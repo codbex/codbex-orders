@@ -10,10 +10,10 @@ const viewData = {
         key: 'codbex-orders:t.SALESORDERITEMSTATUS',
     },
     region: 'center',
-    lazyLoad: true,
-	autoFocusTab: false,
-    path: '/services/web/codbex-orders/gen/codbex-orders/ui/Settings/SalesOrderItemStatus/index.html',
-    perspectiveName: 'Settings'
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/entities/SalesOrderItemStatus/index.html',
+    perspectiveName: 'entities'
 };
 if (typeof exports !== 'undefined') {
 	exports.getView = () => viewData;

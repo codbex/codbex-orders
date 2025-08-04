@@ -9,8 +9,8 @@ const viewData = {
     translation: {
         key: 'codbex-orders:t.SALESORDERITEMSTATUS',
     },
-    path: '/services/web/codbex-orders/gen/codbex-orders/ui/Settings/SalesOrderItemStatus/dialog-window/index.html',
-    perspectiveName: 'Settings'
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/entities/SalesOrderItemStatus/dialog-window/index.html',
+    perspectiveName: 'entities'
 };
 if (typeof exports !== 'undefined') {
     exports.getView = () => viewData;

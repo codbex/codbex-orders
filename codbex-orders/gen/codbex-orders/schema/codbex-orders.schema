@@ -185,15 +185,16 @@
                         "name": "SALESORDERITEM_PRODUCT"
                     },
                     {
-                        "type": "INTEGER",
-                        "name": "SALESORDERITEM_UOM"
-                    },
-                    {
                         "type": "DECIMAL",
                         "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "name": "SALESORDERITEM_QUANTITY"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "SALESORDERITEM_UOM"
                     },
                     {
                         "type": "DECIMAL",
@@ -236,7 +237,7 @@
                     },
                     {
                         "type": "INTEGER",
-                        "defaultValue": "1",
+                        "nullable": true,
                         "name": "SALESORDERITEM_STATUS"
                     }
                 ]
@@ -406,6 +407,7 @@
                     },
                     {
                         "type": "INTEGER",
+                        "nullable": true,
                         "name": "PURCHASEORDERITEM_UOM"
                     },
                     {
@@ -717,25 +719,6 @@
                 ]
             },
             {
-                "name": "CODBEX_SALESORDERITEMSTATUS",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "SALESORDERITEMSTATUS_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "SALESORDERITEMSTATUS_NAME"
-                    }
-                ]
-            },
-            {
                 "name": "CODBEX_SHIPPINGPROVIDER",
                 "type": "TABLE",
                 "columns": [
@@ -770,6 +753,25 @@
                         "length": 20,
                         "nullable": true,
                         "name": "SALESORDERSTATUS_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_SALESORDERITEMSTATUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SALESORDERITEMSTATUS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SALESORDERITEMSTATUS_NAME"
                     }
                 ]
             },

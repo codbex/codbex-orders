@@ -149,12 +149,6 @@ class SalesOrderService {
         if (entity.Due === null || entity.Due === undefined) {
             throw new ValidationError(`The 'Due' property is required, provide a valid value`);
         }
-        if (entity.BillingAddress === null || entity.BillingAddress === undefined) {
-            throw new ValidationError(`The 'BillingAddress' property is required, provide a valid value`);
-        }
-        if (entity.ShippingAddress === null || entity.ShippingAddress === undefined) {
-            throw new ValidationError(`The 'ShippingAddress' property is required, provide a valid value`);
-        }
         if (entity.Status === null || entity.Status === undefined) {
             throw new ValidationError(`The 'Status' property is required, provide a valid value`);
         }

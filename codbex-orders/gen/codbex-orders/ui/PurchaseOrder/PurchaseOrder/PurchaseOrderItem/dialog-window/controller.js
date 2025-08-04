@@ -86,38 +86,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 
 		$scope.servicePurchaseOrder = '/services/ts/codbex-orders/gen/codbex-orders/api/PurchaseOrder/PurchaseOrderService.ts';
 		$scope.serviceProduct = '/services/ts/codbex-products/gen/codbex-products/api/Products/ProductService.ts';
-		$scope.serviceUoM = '/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts';
-
-		$scope.$watch('entity.Product', function (newValue, oldValue) {
-			if (newValue !== undefined && newValue !== null) {
-				$http.get($scope.serviceProduct + '/' + newValue).then((response) => {
-					let valueFrom = response.data.BaseUnit;
-					$http.post('/services/ts/codbex-uoms/gen/codbex-uoms/api/UnitsOfMeasures/UoMService.ts/search', {
-						$filter: {
-							equals: {
-								Id: valueFrom
-							}
-						}
-					}).then((response) => {
-						$scope.optionsUoM = response.data.map(e => ({
-							value: e.Id,
-							text: e.Name
-						}));
-						if ($scope.action !== 'select' && newValue !== oldValue) {
-							if ($scope.optionsUoM.length == 1) {
-								$scope.entity.UoM = $scope.optionsUoM[0].value;
-							} else {
-								$scope.entity.UoM = undefined;
-							}
-						}
-					}, (error) => {
-						console.error(error);
-					});
-				}, (error) => {
-					console.error(error);
-				});
-			}
-		});
+		$scope.serviceUoM = '/services/ts/codbex-uoms/gen/codbex-uoms/api/Settings/UoMService.ts';
 
 		$scope.$watch('entity.Product', function (newValue, oldValue) {
 			if (newValue !== undefined && newValue !== null) {

@@ -7,7 +7,7 @@ export interface PurchaseOrderItemEntity {
     readonly Id: number;
     PurchaseOrder: number;
     Product: number;
-    UoM: number;
+    UoM?: number;
     Quantity: number;
     Price: number;
     Net?: number;
@@ -19,7 +19,7 @@ export interface PurchaseOrderItemEntity {
 export interface PurchaseOrderItemCreateEntity {
     readonly PurchaseOrder: number;
     readonly Product: number;
-    readonly UoM: number;
+    readonly UoM?: number;
     readonly Quantity: number;
     readonly Price: number;
     readonly VATRate?: number;
@@ -167,7 +167,6 @@ export class PurchaseOrderItemRepository {
                 name: "UoM",
                 column: "PURCHASEORDERITEM_UOM",
                 type: "INTEGER",
-                required: true
             },
             {
                 name: "Quantity",
