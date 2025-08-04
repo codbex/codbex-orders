@@ -51,11 +51,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.Quantity !== undefined) {
 			filter.$filter.equals.Quantity = entity.Quantity;
 		}
-		if (entity.Price !== undefined) {
-			filter.$filter.equals.Price = entity.Price;
-		}
 		if (entity.Net !== undefined) {
 			filter.$filter.equals.Net = entity.Net;
+		}
+		if (entity.Price !== undefined) {
+			filter.$filter.equals.Price = entity.Price;
 		}
 		if (entity.VATRate !== undefined) {
 			filter.$filter.equals.VATRate = entity.VATRate;

@@ -15,9 +15,11 @@ export interface SalesOrderEntity {
     BillingAddress?: number;
     ShippingAddress?: number;
     ShippingProvider?: number;
+    SentMethod?: number;
+    Status?: number;
     TrackingNumber?: string;
+    Currency?: number;
     Net?: number;
-    Currency: number;
     Gross?: number;
     Discount?: number;
     Taxes?: number;
@@ -25,8 +27,6 @@ export interface SalesOrderEntity {
     Total?: number;
     Paid?: number;
     Conditions?: string;
-    SentMethod: number;
-    Status: number;
     Operator: number;
     Company?: number;
     Name?: string;
@@ -42,9 +42,11 @@ export interface SalesOrderCreateEntity {
     readonly BillingAddress?: number;
     readonly ShippingAddress?: number;
     readonly ShippingProvider?: number;
+    readonly SentMethod?: number;
+    readonly Status?: number;
     readonly TrackingNumber?: string;
+    readonly Currency?: number;
     readonly Net?: number;
-    readonly Currency: number;
     readonly Gross?: number;
     readonly Discount?: number;
     readonly Taxes?: number;
@@ -52,8 +54,6 @@ export interface SalesOrderCreateEntity {
     readonly Total?: number;
     readonly Paid?: number;
     readonly Conditions?: string;
-    readonly SentMethod: number;
-    readonly Status: number;
     readonly Operator: number;
     readonly Company?: number;
     readonly Reference?: string;
@@ -75,9 +75,11 @@ export interface SalesOrderEntityOptions {
             BillingAddress?: number | number[];
             ShippingAddress?: number | number[];
             ShippingProvider?: number | number[];
+            SentMethod?: number | number[];
+            Status?: number | number[];
             TrackingNumber?: string | string[];
-            Net?: number | number[];
             Currency?: number | number[];
+            Net?: number | number[];
             Gross?: number | number[];
             Discount?: number | number[];
             Taxes?: number | number[];
@@ -85,8 +87,6 @@ export interface SalesOrderEntityOptions {
             Total?: number | number[];
             Paid?: number | number[];
             Conditions?: string | string[];
-            SentMethod?: number | number[];
-            Status?: number | number[];
             Operator?: number | number[];
             Company?: number | number[];
             Name?: string | string[];
@@ -103,9 +103,11 @@ export interface SalesOrderEntityOptions {
             BillingAddress?: number | number[];
             ShippingAddress?: number | number[];
             ShippingProvider?: number | number[];
+            SentMethod?: number | number[];
+            Status?: number | number[];
             TrackingNumber?: string | string[];
-            Net?: number | number[];
             Currency?: number | number[];
+            Net?: number | number[];
             Gross?: number | number[];
             Discount?: number | number[];
             Taxes?: number | number[];
@@ -113,8 +115,6 @@ export interface SalesOrderEntityOptions {
             Total?: number | number[];
             Paid?: number | number[];
             Conditions?: string | string[];
-            SentMethod?: number | number[];
-            Status?: number | number[];
             Operator?: number | number[];
             Company?: number | number[];
             Name?: string | string[];
@@ -131,9 +131,11 @@ export interface SalesOrderEntityOptions {
             BillingAddress?: number;
             ShippingAddress?: number;
             ShippingProvider?: number;
+            SentMethod?: number;
+            Status?: number;
             TrackingNumber?: string;
-            Net?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -141,8 +143,6 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Paid?: number;
             Conditions?: string;
-            SentMethod?: number;
-            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -159,9 +159,11 @@ export interface SalesOrderEntityOptions {
             BillingAddress?: number;
             ShippingAddress?: number;
             ShippingProvider?: number;
+            SentMethod?: number;
+            Status?: number;
             TrackingNumber?: string;
-            Net?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -169,8 +171,6 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Paid?: number;
             Conditions?: string;
-            SentMethod?: number;
-            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -187,9 +187,11 @@ export interface SalesOrderEntityOptions {
             BillingAddress?: number;
             ShippingAddress?: number;
             ShippingProvider?: number;
+            SentMethod?: number;
+            Status?: number;
             TrackingNumber?: string;
-            Net?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -197,8 +199,6 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Paid?: number;
             Conditions?: string;
-            SentMethod?: number;
-            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -215,9 +215,11 @@ export interface SalesOrderEntityOptions {
             BillingAddress?: number;
             ShippingAddress?: number;
             ShippingProvider?: number;
+            SentMethod?: number;
+            Status?: number;
             TrackingNumber?: string;
-            Net?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -225,8 +227,6 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Paid?: number;
             Conditions?: string;
-            SentMethod?: number;
-            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -243,9 +243,11 @@ export interface SalesOrderEntityOptions {
             BillingAddress?: number;
             ShippingAddress?: number;
             ShippingProvider?: number;
+            SentMethod?: number;
+            Status?: number;
             TrackingNumber?: string;
-            Net?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -253,8 +255,6 @@ export interface SalesOrderEntityOptions {
             Total?: number;
             Paid?: number;
             Conditions?: string;
-            SentMethod?: number;
-            Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
@@ -335,20 +335,29 @@ export class SalesOrderRepository {
                 type: "INTEGER",
             },
             {
+                name: "SentMethod",
+                column: "SALESORDER_SENTMETHOD",
+                type: "INTEGER",
+            },
+            {
+                name: "Status",
+                column: "SALESORDER_STATUS",
+                type: "INTEGER",
+            },
+            {
                 name: "TrackingNumber",
                 column: "SALESORDER_TRACKINGNUMBER",
                 type: "VARCHAR",
             },
             {
-                name: "Net",
-                column: "SALESORDER_NET",
-                type: "DECIMAL",
-            },
-            {
                 name: "Currency",
                 column: "SALESORDER_CURRENCY",
                 type: "INTEGER",
-                required: true
+            },
+            {
+                name: "Net",
+                column: "SALESORDER_NET",
+                type: "DECIMAL",
             },
             {
                 name: "Gross",
@@ -384,18 +393,6 @@ export class SalesOrderRepository {
                 name: "Conditions",
                 column: "SALESORDER_CONDITIONS",
                 type: "VARCHAR",
-            },
-            {
-                name: "SentMethod",
-                column: "SALESORDER_SENTMETHOD",
-                type: "INTEGER",
-                required: true
-            },
-            {
-                name: "Status",
-                column: "SALESORDER_STATUS",
-                type: "INTEGER",
-                required: true
             },
             {
                 name: "Operator",

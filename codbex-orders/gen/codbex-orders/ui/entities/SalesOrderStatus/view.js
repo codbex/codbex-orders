@@ -4,14 +4,17 @@
  * Do not modify the content as it may be re-generated again.
  */
 const viewData = {
-    id: 'SalesOrderStatus-details',
+    id: 'SalesOrderStatus',
     label: 'SalesOrderStatus',
     translation: {
         key: 'codbex-orders:t.SALESORDERSTATUS',
     },
-    path: '/services/web/codbex-orders/gen/codbex-orders/ui/Settings/SalesOrderStatus/dialog-window/index.html',
-    perspectiveName: 'Settings'
+    region: 'center',
+    lazyLoad: false,
+	autoFocusTab: true,
+    path: '/services/web/codbex-orders/gen/codbex-orders/ui/entities/SalesOrderStatus/index.html',
+    perspectiveName: 'entities'
 };
 if (typeof exports !== 'undefined') {
-    exports.getView = () => viewData;
+	exports.getView = () => viewData;
 }

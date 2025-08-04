@@ -9,8 +9,8 @@ export interface SalesOrderItemEntity {
     Product: number;
     UoM: number;
     Quantity: number;
-    Price: number;
     Net?: number;
+    Price: number;
     VATRate?: number;
     VAT?: number;
     Gross?: number;
@@ -39,8 +39,8 @@ export interface SalesOrderItemEntityOptions {
             Product?: number | number[];
             UoM?: number | number[];
             Quantity?: number | number[];
-            Price?: number | number[];
             Net?: number | number[];
+            Price?: number | number[];
             VATRate?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
@@ -52,8 +52,8 @@ export interface SalesOrderItemEntityOptions {
             Product?: number | number[];
             UoM?: number | number[];
             Quantity?: number | number[];
-            Price?: number | number[];
             Net?: number | number[];
+            Price?: number | number[];
             VATRate?: number | number[];
             VAT?: number | number[];
             Gross?: number | number[];
@@ -65,8 +65,8 @@ export interface SalesOrderItemEntityOptions {
             Product?: number;
             UoM?: number;
             Quantity?: number;
-            Price?: number;
             Net?: number;
+            Price?: number;
             VATRate?: number;
             VAT?: number;
             Gross?: number;
@@ -78,8 +78,8 @@ export interface SalesOrderItemEntityOptions {
             Product?: number;
             UoM?: number;
             Quantity?: number;
-            Price?: number;
             Net?: number;
+            Price?: number;
             VATRate?: number;
             VAT?: number;
             Gross?: number;
@@ -91,8 +91,8 @@ export interface SalesOrderItemEntityOptions {
             Product?: number;
             UoM?: number;
             Quantity?: number;
-            Price?: number;
             Net?: number;
+            Price?: number;
             VATRate?: number;
             VAT?: number;
             Gross?: number;
@@ -104,8 +104,8 @@ export interface SalesOrderItemEntityOptions {
             Product?: number;
             UoM?: number;
             Quantity?: number;
-            Price?: number;
             Net?: number;
+            Price?: number;
             VATRate?: number;
             VAT?: number;
             Gross?: number;
@@ -117,8 +117,8 @@ export interface SalesOrderItemEntityOptions {
             Product?: number;
             UoM?: number;
             Quantity?: number;
-            Price?: number;
             Net?: number;
+            Price?: number;
             VATRate?: number;
             VAT?: number;
             Gross?: number;
@@ -184,15 +184,15 @@ export class SalesOrderItemRepository {
                 required: true
             },
             {
+                name: "Net",
+                column: "SALESORDERITEM_NET",
+                type: "DECIMAL",
+            },
+            {
                 name: "Price",
                 column: "SALESORDERITEM_PRICE",
                 type: "DECIMAL",
                 required: true
-            },
-            {
-                name: "Net",
-                column: "SALESORDERITEM_NET",
-                type: "DECIMAL",
             },
             {
                 name: "VATRate",

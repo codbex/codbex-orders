@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts';
 	}])
 	.controller('PageController', ($scope, EntityService, Extensions, LocaleService, ButtonStates) => {
 		const Dialogs = new DialogHub();
@@ -24,8 +24,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-orders-custom-action']).then((response) => {
-			$scope.pageActions = response.data.filter(e => e.perspective === 'Settings' && e.view === 'SalesOrderStatus' && (e.type === 'page' || e.type === undefined));
-			$scope.entityActions = response.data.filter(e => e.perspective === 'Settings' && e.view === 'SalesOrderStatus' && e.type === 'entity');
+			$scope.pageActions = response.data.filter(e => e.perspective === 'entities' && e.view === 'SalesOrderStatus' && (e.type === 'page' || e.type === undefined));
+			$scope.entityActions = response.data.filter(e => e.perspective === 'entities' && e.view === 'SalesOrderStatus' && e.type === 'entity');
 		});
 
 		$scope.triggerPageAction = (action) => {
@@ -60,13 +60,13 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		resetPagination();
 
 		//-----------------Events-------------------//
-		Dialogs.addMessageListener({ topic: 'codbex-orders.Settings.SalesOrderStatus.entityCreated', handler: () => {
+		Dialogs.addMessageListener({ topic: 'codbex-orders.entities.SalesOrderStatus.entityCreated', handler: () => {
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		}});
-		Dialogs.addMessageListener({ topic: 'codbex-orders.Settings.SalesOrderStatus.entityUpdated', handler: () => {
+		Dialogs.addMessageListener({ topic: 'codbex-orders.entities.SalesOrderStatus.entityUpdated', handler: () => {
 			$scope.loadPage($scope.dataPage, $scope.filter);
 		}});
-		Dialogs.addMessageListener({ topic: 'codbex-orders.Settings.SalesOrderStatus.entitySearch', handler: (data) => {
+		Dialogs.addMessageListener({ topic: 'codbex-orders.entities.SalesOrderStatus.entitySearch', handler: (data) => {
 			resetPagination();
 			$scope.filter = data.filter;
 			$scope.filterEntity = data.entity;
@@ -182,7 +182,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				if (buttonId === 'delete-btn-yes') {
 					EntityService.delete(id).then((response) => {
 						$scope.loadPage($scope.dataPage, $scope.filter);
-						Dialogs.triggerEvent('codbex-orders.Settings.SalesOrderStatus.clearDetails');
+						Dialogs.triggerEvent('codbex-orders.entities.SalesOrderStatus.clearDetails');
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({

@@ -13,8 +13,9 @@ export interface WorkOrderEntity {
     Due?: Date;
     Task?: string;
     Customer?: number;
-    Net?: number;
+    SentMethod?: number;
     Currency?: number;
+    Net?: number;
     Gross?: number;
     Discount?: number;
     Taxes?: number;
@@ -23,7 +24,6 @@ export interface WorkOrderEntity {
     Paid?: number;
     Conditions?: string;
     PaymentMethod?: number;
-    SentMethod?: number;
     Status?: number;
     Operator?: number;
     Document?: string;
@@ -40,8 +40,9 @@ export interface WorkOrderCreateEntity {
     readonly Due?: Date;
     readonly Task?: string;
     readonly Customer?: number;
-    readonly Net?: number;
+    readonly SentMethod?: number;
     readonly Currency?: number;
+    readonly Net?: number;
     readonly Gross?: number;
     readonly Discount?: number;
     readonly Taxes?: number;
@@ -50,7 +51,6 @@ export interface WorkOrderCreateEntity {
     readonly Paid?: number;
     readonly Conditions?: string;
     readonly PaymentMethod?: number;
-    readonly SentMethod?: number;
     readonly Status?: number;
     readonly Operator?: number;
     readonly Document?: string;
@@ -73,8 +73,9 @@ export interface WorkOrderEntityOptions {
             Due?: Date | Date[];
             Task?: string | string[];
             Customer?: number | number[];
-            Net?: number | number[];
+            SentMethod?: number | number[];
             Currency?: number | number[];
+            Net?: number | number[];
             Gross?: number | number[];
             Discount?: number | number[];
             Taxes?: number | number[];
@@ -83,7 +84,6 @@ export interface WorkOrderEntityOptions {
             Paid?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethod?: number | number[];
             Status?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
@@ -101,8 +101,9 @@ export interface WorkOrderEntityOptions {
             Due?: Date | Date[];
             Task?: string | string[];
             Customer?: number | number[];
-            Net?: number | number[];
+            SentMethod?: number | number[];
             Currency?: number | number[];
+            Net?: number | number[];
             Gross?: number | number[];
             Discount?: number | number[];
             Taxes?: number | number[];
@@ -111,7 +112,6 @@ export interface WorkOrderEntityOptions {
             Paid?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethod?: number | number[];
             Status?: number | number[];
             Operator?: number | number[];
             Document?: string | string[];
@@ -129,8 +129,9 @@ export interface WorkOrderEntityOptions {
             Due?: Date;
             Task?: string;
             Customer?: number;
-            Net?: number;
+            SentMethod?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -139,7 +140,6 @@ export interface WorkOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
             Status?: number;
             Operator?: number;
             Document?: string;
@@ -157,8 +157,9 @@ export interface WorkOrderEntityOptions {
             Due?: Date;
             Task?: string;
             Customer?: number;
-            Net?: number;
+            SentMethod?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -167,7 +168,6 @@ export interface WorkOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
             Status?: number;
             Operator?: number;
             Document?: string;
@@ -185,8 +185,9 @@ export interface WorkOrderEntityOptions {
             Due?: Date;
             Task?: string;
             Customer?: number;
-            Net?: number;
+            SentMethod?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -195,7 +196,6 @@ export interface WorkOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
             Status?: number;
             Operator?: number;
             Document?: string;
@@ -213,8 +213,9 @@ export interface WorkOrderEntityOptions {
             Due?: Date;
             Task?: string;
             Customer?: number;
-            Net?: number;
+            SentMethod?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -223,7 +224,6 @@ export interface WorkOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
             Status?: number;
             Operator?: number;
             Document?: string;
@@ -241,8 +241,9 @@ export interface WorkOrderEntityOptions {
             Due?: Date;
             Task?: string;
             Customer?: number;
-            Net?: number;
+            SentMethod?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -251,7 +252,6 @@ export interface WorkOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
             Status?: number;
             Operator?: number;
             Document?: string;
@@ -323,14 +323,19 @@ export class WorkOrderRepository {
                 type: "INTEGER",
             },
             {
-                name: "Net",
-                column: "WORKORDER_NET",
-                type: "DECIMAL",
+                name: "SentMethod",
+                column: "WORKORDER_SENTMETHOD",
+                type: "INTEGER",
             },
             {
                 name: "Currency",
                 column: "WORKORDER_CURRENCY",
                 type: "INTEGER",
+            },
+            {
+                name: "Net",
+                column: "WORKORDER_NET",
+                type: "DECIMAL",
             },
             {
                 name: "Gross",
@@ -370,11 +375,6 @@ export class WorkOrderRepository {
             {
                 name: "PaymentMethod",
                 column: "WORKORDER_PAYMENTMETHOD",
-                type: "INTEGER",
-            },
-            {
-                name: "SentMethod",
-                column: "WORKORDER_SENTMETHOD",
                 type: "INTEGER",
             },
             {

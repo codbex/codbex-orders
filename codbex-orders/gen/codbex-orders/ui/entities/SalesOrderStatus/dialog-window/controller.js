@@ -1,6 +1,6 @@
 angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntityService'])
 	.config(['EntityServiceProvider', (EntityServiceProvider) => {
-		EntityServiceProvider.baseUrl = '/services/ts/codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts';
+		EntityServiceProvider.baseUrl = '/services/ts/codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts';
 	}])
 	.controller('PageController', ($scope, $http, ViewParameters, LocaleService, EntityService) => {
 		const Dialogs = new DialogHub();
@@ -41,7 +41,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.create(entity).then((response) => {
-				Dialogs.postMessage({ topic: 'codbex-orders.Settings.SalesOrderStatus.entityCreated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-orders.entities.SalesOrderStatus.entityCreated', data: response.data });
 				Notifications.show({
 					title: LocaleService.t('codbex-orders:t.SALESORDERSTATUS'),
 					description: propertySuccessfullyCreated,
@@ -62,7 +62,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			let entity = $scope.entity;
 			entity[$scope.selectedMainEntityKey] = $scope.selectedMainEntityId;
 			EntityService.update(id, entity).then((response) => {
-				Dialogs.postMessage({ topic: 'codbex-orders.Settings.SalesOrderStatus.entityUpdated', data: response.data });
+				Dialogs.postMessage({ topic: 'codbex-orders.entities.SalesOrderStatus.entityUpdated', data: response.data });
 				Notifications.show({
 					title: LocaleService.t('codbex-orders:t.SALESORDERSTATUS'),
 					description: propertySuccessfullyUpdated,

@@ -182,7 +182,7 @@ export class SalesOrderStatusRepository {
     }
 
     private async triggerEvent(data: SalesOrderStatusEntityEvent | SalesOrderStatusUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-Settings-SalesOrderStatus", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-entities-SalesOrderStatus", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -190,6 +190,6 @@ export class SalesOrderStatusRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-orders-Settings-SalesOrderStatus").send(JSON.stringify(data));
+        producer.topic("codbex-orders-entities-SalesOrderStatus").send(JSON.stringify(data));
     }
 }

@@ -1,12 +1,10 @@
 import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
-import { SalesOrderStatusRepository, SalesOrderStatusEntityOptions } from "../../dao/Settings/SalesOrderStatusRepository";
-import { user } from "sdk/security"
-import { ForbiddenError } from "../utils/ForbiddenError";
+import { SalesOrderStatusRepository, SalesOrderStatusEntityOptions } from "../../dao/entities/SalesOrderStatusRepository";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-orders-Settings-SalesOrderStatus", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-orders-entities-SalesOrderStatus", ["validate"]);
 
 @Controller
 class SalesOrderStatusService {
@@ -16,7 +14,6 @@ class SalesOrderStatusService {
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
-            this.checkPermissions("read");
             const options: SalesOrderStatusEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
@@ -31,10 +28,9 @@ class SalesOrderStatusService {
     @Post("/")
     public create(entity: any) {
         try {
-            this.checkPermissions("write");
             this.validateEntity(entity);
             entity.Id = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts/" + entity.Id);
+            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts/" + entity.Id);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -45,7 +41,6 @@ class SalesOrderStatusService {
     @Get("/count")
     public count() {
         try {
-            this.checkPermissions("read");
             return { count: this.repository.count() };
         } catch (error: any) {
             this.handleError(error);
@@ -55,7 +50,6 @@ class SalesOrderStatusService {
     @Post("/count")
     public countWithFilter(filter: any) {
         try {
-            this.checkPermissions("read");
             return { count: this.repository.count(filter) };
         } catch (error: any) {
             this.handleError(error);
@@ -65,7 +59,6 @@ class SalesOrderStatusService {
     @Post("/search")
     public search(filter: any) {
         try {
-            this.checkPermissions("read");
             return this.repository.findAll(filter);
         } catch (error: any) {
             this.handleError(error);
@@ -75,7 +68,6 @@ class SalesOrderStatusService {
     @Get("/:id")
     public getById(_: any, ctx: any) {
         try {
-            this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
             const entity = this.repository.findById(id);
             if (entity) {
@@ -91,7 +83,6 @@ class SalesOrderStatusService {
     @Put("/:id")
     public update(entity: any, ctx: any) {
         try {
-            this.checkPermissions("write");
             entity.Id = ctx.pathParameters.id;
             this.validateEntity(entity);
             this.repository.update(entity);
@@ -104,7 +95,6 @@ class SalesOrderStatusService {
     @Delete("/:id")
     public deleteById(_: any, ctx: any) {
         try {
-            this.checkPermissions("write");
             const id = ctx.pathParameters.id;
             const entity = this.repository.findById(id);
             if (entity) {
@@ -128,16 +118,10 @@ class SalesOrderStatusService {
         }
     }
 
-    private checkPermissions(operationType: string) {
-        if (operationType === "read" && !(user.isInRole("codbex-orders.OrdersSettings.SalesOrderStatusReadOnly") || user.isInRole("codbex-orders.OrdersSettings.SalesOrderStatusFullAccess"))) {
-            throw new ForbiddenError();
-        }
-        if (operationType === "write" && !user.isInRole("codbex-orders.OrdersSettings.SalesOrderStatusFullAccess")) {
-            throw new ForbiddenError();
-        }
-    }
-
     private validateEntity(entity: any): void {
+        if (entity.Name === null || entity.Name === undefined) {
+            throw new ValidationError(`The 'Name' property is required, provide a valid value`);
+        }
         if (entity.Name?.length > 20) {
             throw new ValidationError(`The 'Name' exceeds the maximum length of [20] characters`);
         }

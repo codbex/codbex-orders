@@ -161,9 +161,6 @@ class PurchaseOrderService {
         if (entity.PaymentMethod === null || entity.PaymentMethod === undefined) {
             throw new ValidationError(`The 'PaymentMethod' property is required, provide a valid value`);
         }
-        if (entity.SentMethod === null || entity.SentMethod === undefined) {
-            throw new ValidationError(`The 'SentMethod' property is required, provide a valid value`);
-        }
         if (entity.Status === null || entity.Status === undefined) {
             throw new ValidationError(`The 'Status' property is required, provide a valid value`);
         }

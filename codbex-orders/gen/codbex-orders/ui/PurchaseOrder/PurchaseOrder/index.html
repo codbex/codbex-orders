@@ -44,8 +44,9 @@
 								{{next.Date | date: "dd/MMM/yyyy"}} |
 								{{next.Due | date: "dd/MMM/yyyy"}} |
 								{{optionsSupplierValue(next.Supplier)}} |
-								{{next.Net}} |
+								{{optionsSentMethodValue(next.SentMethod)}} |
 								{{optionsCurrencyValue(next.Currency)}} |
+								{{next.Net}} |
 								{{next.Gross}} |
 								{{next.Discount}} |
 								{{next.Taxes}} |
@@ -54,7 +55,6 @@
 								{{next.Paid}} |
 								{{next.Conditions}} |
 								{{optionsPaymentMethodValue(next.PaymentMethod)}} |
-								{{optionsSentMethodValue(next.SentMethod)}} |
 								{{optionsStatusValue(next.Status)}} |
 								{{optionsOperatorValue(next.Operator)}} |
 								{{optionsCompanyValue(next.Company)}} |

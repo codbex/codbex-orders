@@ -26,9 +26,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		$scope.optionsBillingAddress = params.optionsBillingAddress;
 		$scope.optionsShippingAddress = params.optionsShippingAddress;
 		$scope.optionsShippingProvider = params.optionsShippingProvider;
-		$scope.optionsCurrency = params.optionsCurrency;
 		$scope.optionsSentMethod = params.optionsSentMethod;
 		$scope.optionsStatus = params.optionsStatus;
+		$scope.optionsCurrency = params.optionsCurrency;
 		$scope.optionsOperator = params.optionsOperator;
 		$scope.optionsCompany = params.optionsCompany;
 		$scope.optionsStore = params.optionsStore;
@@ -84,14 +84,20 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.ShippingProvider !== undefined) {
 			filter.$filter.equals.ShippingProvider = entity.ShippingProvider;
 		}
+		if (entity.SentMethod !== undefined) {
+			filter.$filter.equals.SentMethod = entity.SentMethod;
+		}
+		if (entity.Status !== undefined) {
+			filter.$filter.equals.Status = entity.Status;
+		}
 		if (entity.TrackingNumber) {
 			filter.$filter.contains.TrackingNumber = entity.TrackingNumber;
 		}
-		if (entity.Net !== undefined) {
-			filter.$filter.equals.Net = entity.Net;
-		}
 		if (entity.Currency !== undefined) {
 			filter.$filter.equals.Currency = entity.Currency;
+		}
+		if (entity.Net !== undefined) {
+			filter.$filter.equals.Net = entity.Net;
 		}
 		if (entity.Gross !== undefined) {
 			filter.$filter.equals.Gross = entity.Gross;
@@ -113,12 +119,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		}
 		if (entity.Conditions) {
 			filter.$filter.contains.Conditions = entity.Conditions;
-		}
-		if (entity.SentMethod !== undefined) {
-			filter.$filter.equals.SentMethod = entity.SentMethod;
-		}
-		if (entity.Status !== undefined) {
-			filter.$filter.equals.Status = entity.Status;
 		}
 		if (entity.Operator !== undefined) {
 			filter.$filter.equals.Operator = entity.Operator;

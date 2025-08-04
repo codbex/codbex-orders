@@ -32,14 +32,6 @@
         "description": "A role that grants full access for PurchaseOrderItem."
     },
     {
-        "name": "codbex-orders.OrdersSettings.SalesOrderStatusReadOnly",
-        "description": "A role that grants read only permission for SalesOrderStatus."
-    },
-    {
-        "name": "codbex-orders.OrdersSettings.SalesOrderStatusFullAccess",
-        "description": "A role that grants full access for SalesOrderStatus."
-    },
-    {
         "name": "codbex-orders.OrdersSettings.PurchaseOrderStatusReadOnly",
         "description": "A role that grants read only permission for PurchaseOrderStatus."
     },

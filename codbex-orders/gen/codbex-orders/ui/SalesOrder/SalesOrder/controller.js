@@ -141,9 +141,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				optionsBillingAddress: $scope.optionsBillingAddress,
 				optionsShippingAddress: $scope.optionsShippingAddress,
 				optionsShippingProvider: $scope.optionsShippingProvider,
-				optionsCurrency: $scope.optionsCurrency,
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsStatus: $scope.optionsStatus,
+				optionsCurrency: $scope.optionsCurrency,
 				optionsOperator: $scope.optionsOperator,
 				optionsCompany: $scope.optionsCompany,
 				optionsStore: $scope.optionsStore,
@@ -160,9 +160,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				optionsBillingAddress: $scope.optionsBillingAddress,
 				optionsShippingAddress: $scope.optionsShippingAddress,
 				optionsShippingProvider: $scope.optionsShippingProvider,
-				optionsCurrency: $scope.optionsCurrency,
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsStatus: $scope.optionsStatus,
+				optionsCurrency: $scope.optionsCurrency,
 				optionsOperator: $scope.optionsOperator,
 				optionsCompany: $scope.optionsCompany,
 				optionsStore: $scope.optionsStore,
@@ -177,9 +177,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				optionsBillingAddress: $scope.optionsBillingAddress,
 				optionsShippingAddress: $scope.optionsShippingAddress,
 				optionsShippingProvider: $scope.optionsShippingProvider,
-				optionsCurrency: $scope.optionsCurrency,
 				optionsSentMethod: $scope.optionsSentMethod,
 				optionsStatus: $scope.optionsStatus,
+				optionsCurrency: $scope.optionsCurrency,
 				optionsOperator: $scope.optionsOperator,
 				optionsCompany: $scope.optionsCompany,
 				optionsStore: $scope.optionsStore,
@@ -228,9 +228,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					optionsBillingAddress: $scope.optionsBillingAddress,
 					optionsShippingAddress: $scope.optionsShippingAddress,
 					optionsShippingProvider: $scope.optionsShippingProvider,
-					optionsCurrency: $scope.optionsCurrency,
 					optionsSentMethod: $scope.optionsSentMethod,
 					optionsStatus: $scope.optionsStatus,
+					optionsCurrency: $scope.optionsCurrency,
 					optionsOperator: $scope.optionsOperator,
 					optionsCompany: $scope.optionsCompany,
 					optionsStore: $scope.optionsStore,
@@ -243,9 +243,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.optionsBillingAddress = [];
 		$scope.optionsShippingAddress = [];
 		$scope.optionsShippingProvider = [];
-		$scope.optionsCurrency = [];
 		$scope.optionsSentMethod = [];
 		$scope.optionsStatus = [];
+		$scope.optionsCurrency = [];
 		$scope.optionsOperator = [];
 		$scope.optionsCompany = [];
 		$scope.optionsStore = [];
@@ -311,22 +311,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		});
 
-		$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts').then((response) => {
-			$scope.optionsCurrency = response.data.map(e => ({
-				value: e.Id,
-				text: e.Code
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'Currency',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
-				type: AlertTypes.Error
-			});
-		});
-
-		$http.get('/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts').then((response) => {
+		$http.get('/services/ts/codbex-methods/gen/codbex-methods/api/Settings/SentMethodService.ts').then((response) => {
 			$scope.optionsSentMethod = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
@@ -341,7 +326,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			});
 		});
 
-		$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderStatusService.ts').then((response) => {
+		$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts').then((response) => {
 			$scope.optionsStatus = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
@@ -351,6 +336,21 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Status',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+
+		$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts').then((response) => {
+			$scope.optionsCurrency = response.data.map(e => ({
+				value: e.Id,
+				text: e.Code
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Currency',
 				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
@@ -433,14 +433,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}
 			return null;
 		};
-		$scope.optionsCurrencyValue = (optionKey) => {
-			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
-				if ($scope.optionsCurrency[i].value === optionKey) {
-					return $scope.optionsCurrency[i].text;
-				}
-			}
-			return null;
-		};
 		$scope.optionsSentMethodValue = (optionKey) => {
 			for (let i = 0; i < $scope.optionsSentMethod.length; i++) {
 				if ($scope.optionsSentMethod[i].value === optionKey) {
@@ -453,6 +445,14 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			for (let i = 0; i < $scope.optionsStatus.length; i++) {
 				if ($scope.optionsStatus[i].value === optionKey) {
 					return $scope.optionsStatus[i].text;
+				}
+			}
+			return null;
+		};
+		$scope.optionsCurrencyValue = (optionKey) => {
+			for (let i = 0; i < $scope.optionsCurrency.length; i++) {
+				if ($scope.optionsCurrency[i].value === optionKey) {
+					return $scope.optionsCurrency[i].text;
 				}
 			}
 			return null;

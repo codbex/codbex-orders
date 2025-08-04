@@ -106,17 +106,19 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idNet" ng-required="false" colon="true">{{ 'codbex-orders:t.WORKORDER_NET' | t }}</bk-form-label>
+                        	<bk-form-label for="idSentMethod" ng-required="false" colon="true">{{ 'codbex-orders:t.WORKORDER_SENTMETHOD' | t }}</bk-form-label>
                         </div>
-                        <div class="fd-col  fd-col-md--4 ">
-	                        <bk-step-input input-id="idNet"
-								name="Net"
-								state="{{ forms.details['Net'].$valid ? '' : 'error' }}"
-								is-required="false"
-								ng-model="entity.Net"
-								is-readonly="action === 'select'"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_NET)'} }}">
-							</bk-step-input>
+                        <div class="fd-col  fd-col-md--8 ">
+	                        <bk-combobox-input input-id="idSentMethod"
+	                            name="SentMethod"
+	                            state="{{ forms.details['SentMethod'].$valid ? '' : 'error' }}"
+	                            ng-required="false"
+	                            ng-model="entity.SentMethod"
+	                            is-readonly="action === 'select'"
+	                            dropdown-items="optionsSentMethod"
+	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_SENTMETHOD)'} }}"
+								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'SentMethod'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'SentMethod'} }}">
+	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
@@ -134,6 +136,21 @@
 	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_CURRENCY)'} }}"
 								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Currency'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Currency'} }}">
 	                        </bk-combobox-input>
+	                    </div>
+                    </bk-form-item>
+                    <bk-form-item class="fd-row">
+                    	<div class="fd-col fd-col-md--2">
+                        	<bk-form-label for="idNet" ng-required="false" colon="true">{{ 'codbex-orders:t.WORKORDER_NET' | t }}</bk-form-label>
+                        </div>
+                        <div class="fd-col  fd-col-md--4 ">
+	                        <bk-step-input input-id="idNet"
+								name="Net"
+								state="{{ forms.details['Net'].$valid ? '' : 'error' }}"
+								is-required="false"
+								ng-model="entity.Net"
+								is-readonly="action === 'select'"
+								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_NET)'} }}">
+							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
@@ -260,23 +277,6 @@
 	                            dropdown-items="optionsPaymentMethod"
 	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_PAYMENTMETHOD)'} }}"
 								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'PaymentMethod'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'PaymentMethod'} }}">
-	                        </bk-combobox-input>
-	                    </div>
-                    </bk-form-item>
-                    <bk-form-item class="fd-row">
-                    	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idSentMethod" ng-required="true" colon="true">{{ 'codbex-orders:t.WORKORDER_SENTMETHOD' | t }}</bk-form-label>
-                        </div>
-                        <div class="fd-col  fd-col-md--8 ">
-	                        <bk-combobox-input input-id="idSentMethod"
-	                            name="SentMethod"
-	                            state="{{ forms.details['SentMethod'].$valid ? '' : 'error' }}"
-	                            ng-required="true"
-	                            ng-model="entity.SentMethod"
-	                            is-readonly="action === 'select'"
-	                            dropdown-items="optionsSentMethod"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_SENTMETHOD)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'SentMethod'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'SentMethod'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
