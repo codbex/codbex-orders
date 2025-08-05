@@ -8,3 +8,4 @@ SALESORDERSTATUS_ID,SALESORDERSTATUS_NAME
 7,Shipped
 8,Returned
 9,Canceled
+10,Finished
