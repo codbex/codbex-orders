@@ -3,8 +3,6 @@ import { SalesOrderItemRepository } from "../../gen/codbex-orders/dao/SalesOrder
 
 export const trigger = (event) => {
 
-    console.log("event triggered!");
-
     const SalesOrderDao = new SalesOrderRepository();
     const SalesOrderItemDao = new SalesOrderItemRepository();
     const item = event.entity;
@@ -16,8 +14,6 @@ export const trigger = (event) => {
             }
         }
     });
-
-    console.log(JSON.stringify(items));
 
     let net = 0;
     let vat = 0;
@@ -33,8 +29,6 @@ export const trigger = (event) => {
     }
 
     const header = SalesOrderDao.findById(item.SalesOrder);
-
-    console.log(JSON.stringify(header));
 
     header.Total ??= 0;
     header.Net = net;
@@ -57,9 +51,6 @@ export const trigger = (event) => {
     header.Total = total;
 
     header.Name = header.Name.substring(0, header.Name.lastIndexOf("/") + 1) + header.Total;
-
-    console.log("updated");
-    console.log(JSON.stringify(header));
 
     SalesOrderDao.update(header);
 }
