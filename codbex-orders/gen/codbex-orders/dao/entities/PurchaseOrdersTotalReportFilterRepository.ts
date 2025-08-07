@@ -64,7 +64,7 @@ export interface PurchaseOrdersTotalReportFilterEntityOptions {
     $limit?: number,
 }
 
-interface PurchaseOrdersTotalReportFilterEntityEvent {
+export interface PurchaseOrdersTotalReportFilterEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<PurchaseOrdersTotalReportFilterEntity>;
@@ -75,7 +75,7 @@ interface PurchaseOrdersTotalReportFilterEntityEvent {
     }
 }
 
-interface PurchaseOrdersTotalReportFilterUpdateEntityEvent extends PurchaseOrdersTotalReportFilterEntityEvent {
+export interface PurchaseOrdersTotalReportFilterUpdateEntityEvent extends PurchaseOrdersTotalReportFilterEntityEvent {
     readonly previousEntity: PurchaseOrdersTotalReportFilterEntity;
 }
 

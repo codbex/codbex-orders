@@ -161,9 +161,6 @@ class PurchaseOrderService {
         if (entity.PaymentMethod === null || entity.PaymentMethod === undefined) {
             throw new ValidationError(`The 'PaymentMethod' property is required, provide a valid value`);
         }
-        if (entity.SentMethod === null || entity.SentMethod === undefined) {
-            throw new ValidationError(`The 'SentMethod' property is required, provide a valid value`);
-        }
         if (entity.Status === null || entity.Status === undefined) {
             throw new ValidationError(`The 'Status' property is required, provide a valid value`);
         }
@@ -175,6 +172,9 @@ class PurchaseOrderService {
         }
         if (entity.UUID?.length > 36) {
             throw new ValidationError(`The 'UUID' exceeds the maximum length of [36] characters`);
+        }
+        if (entity.Process?.length > 36) {
+            throw new ValidationError(`The 'Process' exceeds the maximum length of [36] characters`);
         }
         if (entity.Reference?.length > 36) {
             throw new ValidationError(`The 'Reference' exceeds the maximum length of [36] characters`);

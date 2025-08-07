@@ -64,7 +64,7 @@ export interface SalesOrdersTotalReportFilterEntityOptions {
     $limit?: number,
 }
 
-interface SalesOrdersTotalReportFilterEntityEvent {
+export interface SalesOrdersTotalReportFilterEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<SalesOrdersTotalReportFilterEntity>;
@@ -75,7 +75,7 @@ interface SalesOrdersTotalReportFilterEntityEvent {
     }
 }
 
-interface SalesOrdersTotalReportFilterUpdateEntityEvent extends SalesOrdersTotalReportFilterEntityEvent {
+export interface SalesOrdersTotalReportFilterUpdateEntityEvent extends SalesOrdersTotalReportFilterEntityEvent {
     readonly previousEntity: SalesOrdersTotalReportFilterEntity;
 }
 

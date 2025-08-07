@@ -7,7 +7,7 @@ export interface PurchaseOrderItemEntity {
     readonly Id: number;
     PurchaseOrder: number;
     Product: number;
-    UoM: number;
+    UoM?: number;
     Quantity: number;
     Price: number;
     Net?: number;
@@ -19,7 +19,7 @@ export interface PurchaseOrderItemEntity {
 export interface PurchaseOrderItemCreateEntity {
     readonly PurchaseOrder: number;
     readonly Product: number;
-    readonly UoM: number;
+    readonly UoM?: number;
     readonly Quantity: number;
     readonly Price: number;
     readonly VATRate?: number;
@@ -123,7 +123,7 @@ export interface PurchaseOrderItemEntityOptions {
     $limit?: number,
 }
 
-interface PurchaseOrderItemEntityEvent {
+export interface PurchaseOrderItemEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<PurchaseOrderItemEntity>;
@@ -134,7 +134,7 @@ interface PurchaseOrderItemEntityEvent {
     }
 }
 
-interface PurchaseOrderItemUpdateEntityEvent extends PurchaseOrderItemEntityEvent {
+export interface PurchaseOrderItemUpdateEntityEvent extends PurchaseOrderItemEntityEvent {
     readonly previousEntity: PurchaseOrderItemEntity;
 }
 
@@ -167,7 +167,6 @@ export class PurchaseOrderItemRepository {
                 name: "UoM",
                 column: "PURCHASEORDERITEM_UOM",
                 type: "INTEGER",
-                required: true
             },
             {
                 name: "Quantity",

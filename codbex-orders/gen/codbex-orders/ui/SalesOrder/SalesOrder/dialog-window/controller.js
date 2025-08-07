@@ -44,9 +44,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			$scope.optionsBillingAddress = params.optionsBillingAddress;
 			$scope.optionsShippingAddress = params.optionsShippingAddress;
 			$scope.optionsShippingProvider = params.optionsShippingProvider;
-			$scope.optionsCurrency = params.optionsCurrency;
 			$scope.optionsSentMethod = params.optionsSentMethod;
 			$scope.optionsStatus = params.optionsStatus;
+			$scope.optionsCurrency = params.optionsCurrency;
 			$scope.optionsOperator = params.optionsOperator;
 			$scope.optionsCompany = params.optionsCompany;
 			$scope.optionsStore = params.optionsStore;
@@ -165,29 +165,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				type: AlertTypes.Error
 			});
 		});
-		$scope.serviceCurrency = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts';
-		
-		$scope.optionsCurrency = [];
-		
-		$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Currencies/CurrencyService.ts').then((response) => {
-			$scope.optionsCurrency = response.data.map(e => ({
-				value: e.Id,
-				text: e.Code
-			}));
-		}, (error) => {
-			console.error(error);
-			const message = error.data ? error.data.message : '';
-			Dialogs.showAlert({
-				title: 'Currency',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
-				type: AlertTypes.Error
-			});
-		});
-		$scope.serviceSentMethod = '/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts';
+		$scope.serviceSentMethod = '/services/ts/codbex-methods/gen/codbex-methods/api/Settings/SentMethodService.ts';
 		
 		$scope.optionsSentMethod = [];
 		
-		$http.get('/services/ts/codbex-methods/gen/codbex-methods/api/Methods/SentMethodService.ts').then((response) => {
+		$http.get('/services/ts/codbex-methods/gen/codbex-methods/api/Settings/SentMethodService.ts').then((response) => {
 			$scope.optionsSentMethod = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
@@ -201,11 +183,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				type: AlertTypes.Error
 			});
 		});
-		$scope.serviceStatus = '/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderStatusService.ts';
+		$scope.serviceStatus = '/services/ts/codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts';
 		
 		$scope.optionsStatus = [];
 		
-		$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/OrdersSettings/SalesOrderStatusService.ts').then((response) => {
+		$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts').then((response) => {
 			$scope.optionsStatus = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
@@ -215,6 +197,24 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Status',
+				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				type: AlertTypes.Error
+			});
+		});
+		$scope.serviceCurrency = '/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts';
+		
+		$scope.optionsCurrency = [];
+		
+		$http.get('/services/ts/codbex-currencies/gen/codbex-currencies/api/Settings/CurrencyService.ts').then((response) => {
+			$scope.optionsCurrency = response.data.map(e => ({
+				value: e.Id,
+				text: e.Code
+			}));
+		}, (error) => {
+			console.error(error);
+			const message = error.data ? error.data.message : '';
+			Dialogs.showAlert({
+				title: 'Currency',
 				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});

@@ -54,7 +54,7 @@ export interface WorkOrderStatusEntityOptions {
     $limit?: number,
 }
 
-interface WorkOrderStatusEntityEvent {
+export interface WorkOrderStatusEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<WorkOrderStatusEntity>;
@@ -65,7 +65,7 @@ interface WorkOrderStatusEntityEvent {
     }
 }
 
-interface WorkOrderStatusUpdateEntityEvent extends WorkOrderStatusEntityEvent {
+export interface WorkOrderStatusUpdateEntityEvent extends WorkOrderStatusEntityEvent {
     readonly previousEntity: WorkOrderStatusEntity;
 }
 

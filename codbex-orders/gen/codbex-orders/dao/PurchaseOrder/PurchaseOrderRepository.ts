@@ -12,8 +12,9 @@ export interface PurchaseOrderEntity {
     Date: Date;
     Due: Date;
     Supplier: number;
+    SentMethod?: number;
+    Currency?: number;
     Net?: number;
-    Currency: number;
     Gross?: number;
     Discount?: number;
     Taxes?: number;
@@ -22,12 +23,12 @@ export interface PurchaseOrderEntity {
     Paid?: number;
     Conditions?: string;
     PaymentMethod: number;
-    SentMethod: number;
     Status: number;
     Operator: number;
     Company?: number;
     Name: string;
     UUID: string;
+    Process?: string;
     Reference?: string;
     Store?: number;
 }
@@ -36,8 +37,9 @@ export interface PurchaseOrderCreateEntity {
     readonly Date: Date;
     readonly Due: Date;
     readonly Supplier: number;
+    readonly SentMethod?: number;
+    readonly Currency?: number;
     readonly Net?: number;
-    readonly Currency: number;
     readonly Gross?: number;
     readonly Discount?: number;
     readonly Taxes?: number;
@@ -46,10 +48,10 @@ export interface PurchaseOrderCreateEntity {
     readonly Paid?: number;
     readonly Conditions?: string;
     readonly PaymentMethod: number;
-    readonly SentMethod: number;
     readonly Status: number;
     readonly Operator: number;
     readonly Company?: number;
+    readonly Process?: string;
     readonly Reference?: string;
     readonly Store?: number;
 }
@@ -66,8 +68,9 @@ export interface PurchaseOrderEntityOptions {
             Date?: Date | Date[];
             Due?: Date | Date[];
             Supplier?: number | number[];
-            Net?: number | number[];
+            SentMethod?: number | number[];
             Currency?: number | number[];
+            Net?: number | number[];
             Gross?: number | number[];
             Discount?: number | number[];
             Taxes?: number | number[];
@@ -76,12 +79,12 @@ export interface PurchaseOrderEntityOptions {
             Paid?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethod?: number | number[];
             Status?: number | number[];
             Operator?: number | number[];
             Company?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
+            Process?: string | string[];
             Reference?: string | string[];
             Store?: number | number[];
         };
@@ -91,8 +94,9 @@ export interface PurchaseOrderEntityOptions {
             Date?: Date | Date[];
             Due?: Date | Date[];
             Supplier?: number | number[];
-            Net?: number | number[];
+            SentMethod?: number | number[];
             Currency?: number | number[];
+            Net?: number | number[];
             Gross?: number | number[];
             Discount?: number | number[];
             Taxes?: number | number[];
@@ -101,12 +105,12 @@ export interface PurchaseOrderEntityOptions {
             Paid?: number | number[];
             Conditions?: string | string[];
             PaymentMethod?: number | number[];
-            SentMethod?: number | number[];
             Status?: number | number[];
             Operator?: number | number[];
             Company?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
+            Process?: string | string[];
             Reference?: string | string[];
             Store?: number | number[];
         };
@@ -116,8 +120,9 @@ export interface PurchaseOrderEntityOptions {
             Date?: Date;
             Due?: Date;
             Supplier?: number;
-            Net?: number;
+            SentMethod?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -126,12 +131,12 @@ export interface PurchaseOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
             Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -141,8 +146,9 @@ export interface PurchaseOrderEntityOptions {
             Date?: Date;
             Due?: Date;
             Supplier?: number;
-            Net?: number;
+            SentMethod?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -151,12 +157,12 @@ export interface PurchaseOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
             Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -166,8 +172,9 @@ export interface PurchaseOrderEntityOptions {
             Date?: Date;
             Due?: Date;
             Supplier?: number;
-            Net?: number;
+            SentMethod?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -176,12 +183,12 @@ export interface PurchaseOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
             Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -191,8 +198,9 @@ export interface PurchaseOrderEntityOptions {
             Date?: Date;
             Due?: Date;
             Supplier?: number;
-            Net?: number;
+            SentMethod?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -201,12 +209,12 @@ export interface PurchaseOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
             Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -216,8 +224,9 @@ export interface PurchaseOrderEntityOptions {
             Date?: Date;
             Due?: Date;
             Supplier?: number;
-            Net?: number;
+            SentMethod?: number;
             Currency?: number;
+            Net?: number;
             Gross?: number;
             Discount?: number;
             Taxes?: number;
@@ -226,12 +235,12 @@ export interface PurchaseOrderEntityOptions {
             Paid?: number;
             Conditions?: string;
             PaymentMethod?: number;
-            SentMethod?: number;
             Status?: number;
             Operator?: number;
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -243,7 +252,7 @@ export interface PurchaseOrderEntityOptions {
     $limit?: number,
 }
 
-interface PurchaseOrderEntityEvent {
+export interface PurchaseOrderEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<PurchaseOrderEntity>;
@@ -254,7 +263,7 @@ interface PurchaseOrderEntityEvent {
     }
 }
 
-interface PurchaseOrderUpdateEntityEvent extends PurchaseOrderEntityEvent {
+export interface PurchaseOrderUpdateEntityEvent extends PurchaseOrderEntityEvent {
     readonly previousEntity: PurchaseOrderEntity;
 }
 
@@ -296,15 +305,19 @@ export class PurchaseOrderRepository {
                 required: true
             },
             {
-                name: "Net",
-                column: "PURCHASEORDER_NET",
-                type: "DECIMAL",
+                name: "SentMethod",
+                column: "PURCHASEORDER_SENTMETHOD",
+                type: "INTEGER",
             },
             {
                 name: "Currency",
                 column: "PURCHASEORDER_CURRENCY",
                 type: "INTEGER",
-                required: true
+            },
+            {
+                name: "Net",
+                column: "PURCHASEORDER_NET",
+                type: "DECIMAL",
             },
             {
                 name: "Gross",
@@ -348,12 +361,6 @@ export class PurchaseOrderRepository {
                 required: true
             },
             {
-                name: "SentMethod",
-                column: "PURCHASEORDER_SENTMETHOD",
-                type: "INTEGER",
-                required: true
-            },
-            {
                 name: "Status",
                 column: "PURCHASEORDER_STATUS",
                 type: "INTEGER",
@@ -381,6 +388,11 @@ export class PurchaseOrderRepository {
                 column: "PURCHASEORDER_UUID",
                 type: "VARCHAR",
                 required: true
+            },
+            {
+                name: "Process",
+                column: "PURCHASEORDER_PROCESS",
+                type: "VARCHAR",
             },
             {
                 name: "Reference",

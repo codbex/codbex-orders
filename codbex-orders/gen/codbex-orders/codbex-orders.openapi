@@ -14,7 +14,6 @@ tags:
   - name: PurchaseOrder
   - name: PurchaseOrder
   - name: Settings
-  - name: Settings
   - name: SalesOrder
   - name: PurchaseOrder
   - name: Reports
@@ -27,7 +26,8 @@ tags:
   - name: entities
   - name: WorkOrder
   - name: OrdersSettings
-  - name: Settings
+  - name: entities
+  - name: entities
   - name: entities
 paths:
   /codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderService.ts:
@@ -280,6 +280,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
                     greaterThan:
                       Id: 0
@@ -307,6 +308,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
@@ -376,6 +378,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
                     greaterThan:
                       Id: 0
@@ -403,6 +406,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
@@ -1083,6 +1087,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
                     greaterThan:
                       Id: 0
@@ -1109,6 +1114,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
@@ -1177,6 +1183,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
                     greaterThan:
                       Id: 0
@@ -1203,6 +1210,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
@@ -1622,406 +1630,6 @@ paths:
                 type: array
                 items:
                     $ref: '#/components/schemas/PurchaseOrderItem'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts:
-    get:
-      summary: List SalesOrderStatus
-      parameters:
-        - in: query
-          name: $limit
-          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
-          required: false
-          allowReserved: true
-          schema:
-            type: integer
-            allowEmptyValue: true
-        - in: query
-          name: $offset
-          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
-          required: false
-          allowReserved: true
-          schema:
-            type: integer
-            allowEmptyValue: true
-      tags:
-        - Settings
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                    $ref: '#/components/schemas/SalesOrderStatus'
-        400:
-          description: Bad Request Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      summary: Create SalesOrderStatus
-      tags:
-        - Settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SalesOrderStatus'
-        required: true
-      responses:
-        201:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SalesOrderStatus'
-        400:
-          description: Bad Request Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts/{id}:
-    get:
-      summary: Get SalesOrderStatus by Id
-      parameters:
-        - in: path
-          name: id
-          description: The Id of the entity.
-          required: true
-          schema:
-            type: string
-      tags:
-        - Settings
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                    $ref: '#/components/schemas/SalesOrderStatus'
-        404:
-          description: Entity Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    put:
-      summary: Update SalesOrderStatus by Id
-      parameters:
-        - in: path
-          name: id
-          description: The Id of the entity.
-          required: true
-          schema:
-            type: string
-      tags:
-        - Settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SalesOrderStatus'
-        required: true
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SalesOrderStatus'
-        400:
-          description: Bad Request Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        404:
-          description: Entity Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    delete:
-      summary: Delete SalesOrderStatus by Id
-      parameters:
-        - in: path
-          name: id
-          description: The Id of the entity.
-          required: true
-          schema:
-            type: string
-      tags:
-        - Settings
-      responses:
-        204:
-          description: Successful Request
-        404:
-          description: Entity Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts/count:
-    get:
-      summary: Count the number of SalesOrderStatus
-      tags:
-        - Settings
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                type: integer
-                example: 100
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      summary: Count the number of SalesOrderStatus by SalesOrderStatusFilterOptions
-      tags:
-        - Settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SalesOrderStatusFilterOptions'
-            examples:
-              countWithMultipleCriteria:
-                summary: Count with multiple criteria
-                value:
-                  $filter:
-                    notEquals:
-                      Id: 33
-                    contains:
-                      Name: "abcd"
-                    greaterThan:
-                      Id: 0
-                    lessThanOrEqual:
-                      Id: 100
-              countWithEquals:
-                summary: Count with Equals
-                value:
-                  $filter:
-                    equals:
-                      Id: 0
-              countWithNotEquals:
-                summary: Count with Not Equals
-                value:
-                  $filter:
-                    notEquals:
-                      Id: 0
-              countWithContains:
-                summary: Count with Contains
-                value:
-                  $filter:
-                    contains:
-                      Name: "abcd"
-              countWithGreaterThan:
-                summary: Count with Greater Than
-                value:
-                  $filter:
-                    greaterThan:
-                      Id: 0
-              countWithGreaterThanOrEqual:
-                summary: Count with Greater Than Or Equal
-                value:
-                  $filter:
-                    greaterThanOrEqual:
-                      Id: 0
-              countWithLessThan:
-                summary: Count with Less Than
-                value:
-                  $filter:
-                    lessThan:
-                      Id: 0
-              countWithLessThanOrEqual:
-                summary: Count with Less Than Or Equal
-                value:
-                  $filter:
-                    lessThanOrEqual:
-                      Id: 0
-        required: true
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                type: integer
-                example: 100
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts/search:
-    post:
-      summary: Search SalesOrderStatus by SalesOrderStatusFilterOptions
-      tags:
-        - Settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SalesOrderStatusFilterOptions'
-            examples:
-              searchWithMultipleCriteria:
-                summary: Search with multiple criteria
-                value:
-                  $filter:
-                    notEquals:
-                      Id: 33
-                    contains:
-                      Name: "abcd"
-                    greaterThan:
-                      Id: 0
-                    lessThanOrEqual:
-                      Id: 100
-              searchWithEquals:
-                summary: Search with Equals
-                value:
-                  $filter:
-                    equals:
-                      Id: 0
-              searchWithNotEquals:
-                summary: Search with Not Equals
-                value:
-                  $filter:
-                    notEquals:
-                      Id: 0
-              searchWithContains:
-                summary: Search with Contains
-                value:
-                  $filter:
-                    contains:
-                      Name: "abcd"
-              searchWithGreaterThan:
-                summary: Search with Greater Than
-                value:
-                  $filter:
-                    greaterThan:
-                      Id: 0
-              searchWithGreaterThanOrEqual:
-                summary: Search with Greater Than Or Equal
-                value:
-                  $filter:
-                    greaterThanOrEqual:
-                      Id: 0
-              searchWithLessThan:
-                summary: Search with Less Than
-                value:
-                  $filter:
-                    lessThan:
-                      Id: 0
-              searchWithLessThanOrEqual:
-                summary: Search with Less Than Or Equal
-                value:
-                  $filter:
-                    lessThanOrEqual:
-                      Id: 0
-        required: true
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                    $ref: '#/components/schemas/SalesOrderStatus'
         403:
           description: Forbidden Error
           content:
@@ -7202,406 +6810,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderItemStatusService.ts:
-    get:
-      summary: List SalesOrderItemStatus
-      parameters:
-        - in: query
-          name: $limit
-          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
-          required: false
-          allowReserved: true
-          schema:
-            type: integer
-            allowEmptyValue: true
-        - in: query
-          name: $offset
-          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
-          required: false
-          allowReserved: true
-          schema:
-            type: integer
-            allowEmptyValue: true
-      tags:
-        - Settings
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                    $ref: '#/components/schemas/SalesOrderItemStatus'
-        400:
-          description: Bad Request Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      summary: Create SalesOrderItemStatus
-      tags:
-        - Settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SalesOrderItemStatus'
-        required: true
-      responses:
-        201:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SalesOrderItemStatus'
-        400:
-          description: Bad Request Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderItemStatusService.ts/{id}:
-    get:
-      summary: Get SalesOrderItemStatus by Id
-      parameters:
-        - in: path
-          name: id
-          description: The Id of the entity.
-          required: true
-          schema:
-            type: string
-      tags:
-        - Settings
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                    $ref: '#/components/schemas/SalesOrderItemStatus'
-        404:
-          description: Entity Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    put:
-      summary: Update SalesOrderItemStatus by Id
-      parameters:
-        - in: path
-          name: id
-          description: The Id of the entity.
-          required: true
-          schema:
-            type: string
-      tags:
-        - Settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SalesOrderItemStatus'
-        required: true
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SalesOrderItemStatus'
-        400:
-          description: Bad Request Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        404:
-          description: Entity Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    delete:
-      summary: Delete SalesOrderItemStatus by Id
-      parameters:
-        - in: path
-          name: id
-          description: The Id of the entity.
-          required: true
-          schema:
-            type: string
-      tags:
-        - Settings
-      responses:
-        204:
-          description: Successful Request
-        404:
-          description: Entity Not Found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderItemStatusService.ts/count:
-    get:
-      summary: Count the number of SalesOrderItemStatus
-      tags:
-        - Settings
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                type: integer
-                example: 100
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      summary: Count the number of SalesOrderItemStatus by SalesOrderItemStatusFilterOptions
-      tags:
-        - Settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SalesOrderItemStatusFilterOptions'
-            examples:
-              countWithMultipleCriteria:
-                summary: Count with multiple criteria
-                value:
-                  $filter:
-                    notEquals:
-                      Id: 33
-                    contains:
-                      Name: "abcd"
-                    greaterThan:
-                      Id: 0
-                    lessThanOrEqual:
-                      Id: 100
-              countWithEquals:
-                summary: Count with Equals
-                value:
-                  $filter:
-                    equals:
-                      Id: 0
-              countWithNotEquals:
-                summary: Count with Not Equals
-                value:
-                  $filter:
-                    notEquals:
-                      Id: 0
-              countWithContains:
-                summary: Count with Contains
-                value:
-                  $filter:
-                    contains:
-                      Name: "abcd"
-              countWithGreaterThan:
-                summary: Count with Greater Than
-                value:
-                  $filter:
-                    greaterThan:
-                      Id: 0
-              countWithGreaterThanOrEqual:
-                summary: Count with Greater Than Or Equal
-                value:
-                  $filter:
-                    greaterThanOrEqual:
-                      Id: 0
-              countWithLessThan:
-                summary: Count with Less Than
-                value:
-                  $filter:
-                    lessThan:
-                      Id: 0
-              countWithLessThanOrEqual:
-                summary: Count with Less Than Or Equal
-                value:
-                  $filter:
-                    lessThanOrEqual:
-                      Id: 0
-        required: true
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                type: integer
-                example: 100
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderItemStatusService.ts/search:
-    post:
-      summary: Search SalesOrderItemStatus by SalesOrderItemStatusFilterOptions
-      tags:
-        - Settings
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SalesOrderItemStatusFilterOptions'
-            examples:
-              searchWithMultipleCriteria:
-                summary: Search with multiple criteria
-                value:
-                  $filter:
-                    notEquals:
-                      Id: 33
-                    contains:
-                      Name: "abcd"
-                    greaterThan:
-                      Id: 0
-                    lessThanOrEqual:
-                      Id: 100
-              searchWithEquals:
-                summary: Search with Equals
-                value:
-                  $filter:
-                    equals:
-                      Id: 0
-              searchWithNotEquals:
-                summary: Search with Not Equals
-                value:
-                  $filter:
-                    notEquals:
-                      Id: 0
-              searchWithContains:
-                summary: Search with Contains
-                value:
-                  $filter:
-                    contains:
-                      Name: "abcd"
-              searchWithGreaterThan:
-                summary: Search with Greater Than
-                value:
-                  $filter:
-                    greaterThan:
-                      Id: 0
-              searchWithGreaterThanOrEqual:
-                summary: Search with Greater Than Or Equal
-                value:
-                  $filter:
-                    greaterThanOrEqual:
-                      Id: 0
-              searchWithLessThan:
-                summary: Search with Less Than
-                value:
-                  $filter:
-                    lessThan:
-                      Id: 0
-              searchWithLessThanOrEqual:
-                summary: Search with Less Than Or Equal
-                value:
-                  $filter:
-                    lessThanOrEqual:
-                      Id: 0
-        required: true
-      responses:
-        200:
-          description: Successful Request
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                    $ref: '#/components/schemas/SalesOrderItemStatus'
-        403:
-          description: Forbidden Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-        500:
-          description: Internal Server Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
   /codbex-orders/gen/codbex-orders/api/entities/ShippingProviderService.ts:
     get:
       summary: List ShippingProvider
@@ -8002,6 +7210,806 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts:
+    get:
+      summary: List SalesOrderStatus
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/SalesOrderStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create SalesOrderStatus
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrderStatus'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrderStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts/{id}:
+    get:
+      summary: Get SalesOrderStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/SalesOrderStatus'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update SalesOrderStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrderStatus'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrderStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete SalesOrderStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts/count:
+    get:
+      summary: Count the number of SalesOrderStatus
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of SalesOrderStatus by SalesOrderStatusFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrderStatusFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts/search:
+    post:
+      summary: Search SalesOrderStatus by SalesOrderStatusFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrderStatusFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/SalesOrderStatus'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderItemStatusService.ts:
+    get:
+      summary: List SalesOrderItemStatus
+      parameters:
+        - in: query
+          name: $limit
+          description: The number of records to be returned _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+        - in: query
+          name: $offset
+          description: The number of records to skip _(both `$limit` and `$offset` should be provided)_.
+          required: false
+          allowReserved: true
+          schema:
+            type: integer
+            allowEmptyValue: true
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/SalesOrderItemStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create SalesOrderItemStatus
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrderItemStatus'
+        required: true
+      responses:
+        201:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrderItemStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderItemStatusService.ts/{id}:
+    get:
+      summary: Get SalesOrderItemStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/SalesOrderItemStatus'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      summary: Update SalesOrderItemStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrderItemStatus'
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesOrderItemStatus'
+        400:
+          description: Bad Request Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    delete:
+      summary: Delete SalesOrderItemStatus by Id
+      parameters:
+        - in: path
+          name: id
+          description: The Id of the entity.
+          required: true
+          schema:
+            type: string
+      tags:
+        - entities
+      responses:
+        204:
+          description: Successful Request
+        404:
+          description: Entity Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderItemStatusService.ts/count:
+    get:
+      summary: Count the number of SalesOrderItemStatus
+      tags:
+        - entities
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Count the number of SalesOrderItemStatus by SalesOrderItemStatusFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrderItemStatusFilterOptions'
+            examples:
+              countWithMultipleCriteria:
+                summary: Count with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              countWithEquals:
+                summary: Count with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              countWithNotEquals:
+                summary: Count with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              countWithContains:
+                summary: Count with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              countWithGreaterThan:
+                summary: Count with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              countWithGreaterThanOrEqual:
+                summary: Count with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              countWithLessThan:
+                summary: Count with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              countWithLessThanOrEqual:
+                summary: Count with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 100
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderItemStatusService.ts/search:
+    post:
+      summary: Search SalesOrderItemStatus by SalesOrderItemStatusFilterOptions
+      tags:
+        - entities
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SalesOrderItemStatusFilterOptions'
+            examples:
+              searchWithMultipleCriteria:
+                summary: Search with multiple criteria
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 33
+                    contains:
+                      Name: "abcd"
+                    greaterThan:
+                      Id: 0
+                    lessThanOrEqual:
+                      Id: 100
+              searchWithEquals:
+                summary: Search with Equals
+                value:
+                  $filter:
+                    equals:
+                      Id: 0
+              searchWithNotEquals:
+                summary: Search with Not Equals
+                value:
+                  $filter:
+                    notEquals:
+                      Id: 0
+              searchWithContains:
+                summary: Search with Contains
+                value:
+                  $filter:
+                    contains:
+                      Name: "abcd"
+              searchWithGreaterThan:
+                summary: Search with Greater Than
+                value:
+                  $filter:
+                    greaterThan:
+                      Id: 0
+              searchWithGreaterThanOrEqual:
+                summary: Search with Greater Than Or Equal
+                value:
+                  $filter:
+                    greaterThanOrEqual:
+                      Id: 0
+              searchWithLessThan:
+                summary: Search with Less Than
+                value:
+                  $filter:
+                    lessThan:
+                      Id: 0
+              searchWithLessThanOrEqual:
+                summary: Search with Less Than Or Equal
+                value:
+                  $filter:
+                    lessThanOrEqual:
+                      Id: 0
+        required: true
+      responses:
+        200:
+          description: Successful Request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                    $ref: '#/components/schemas/SalesOrderItemStatus'
+        403:
+          description: Forbidden Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        500:
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   schemas:
     SalesOrder:
@@ -8009,11 +8017,8 @@ components:
       required:
         - Date
         - Due
-        - BillingAddress
-        - ShippingAddress
-        - Currency
-        - SentMethod
         - Status
+        - Currency
         - Operator
         - Store
       properties:
@@ -8039,16 +8044,22 @@ components:
         ShippingProvider:
           type: integer
           format: int32
+        SentMethod:
+          type: integer
+          format: int32
+        Status:
+          type: integer
+          format: int32
         TrackingNumber:
           type: string
           minLength: 0
           maxLength: 50
-        Net:
-          type: number
-          format: double
         Currency:
           type: integer
           format: int32
+        Net:
+          type: number
+          format: double
         Gross:
           type: number
           format: double
@@ -8071,12 +8082,6 @@ components:
           type: string
           minLength: 0
           maxLength: 200
-        SentMethod:
-          type: integer
-          format: int32
-        Status:
-          type: integer
-          format: int32
         Operator:
           type: integer
           format: int32
@@ -8093,6 +8098,10 @@ components:
           minLength: 0
           maxLength: 36
           readOnly: true
+        Process:
+          type: string
+          minLength: 0
+          maxLength: 36
         Reference:
           type: string
           minLength: 0
@@ -8164,6 +8173,22 @@ components:
                       items:
                         type: integer
                         format: int32
+                SentMethod:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Status:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 TrackingNumber:
                   oneOf:
                     - type: string
@@ -8175,14 +8200,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 50
-                Net:
-                  oneOf:
-                    - type: number
-                      format: double
-                    - type: array
-                      items:
-                        type: number
-                        format: double
                 Currency:
                   oneOf:
                     - type: integer
@@ -8191,6 +8208,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Net:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Gross:
                   oneOf:
                     - type: number
@@ -8250,22 +8275,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 200
-                SentMethod:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Status:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Operator:
                   oneOf:
                     - type: integer
@@ -8294,6 +8303,17 @@ components:
                         minLength: 0
                         maxLength: 200
                 UUID:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 36
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 36
+                Process:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -8381,6 +8401,22 @@ components:
                       items:
                         type: integer
                         format: int32
+                SentMethod:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Status:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
                 TrackingNumber:
                   oneOf:
                     - type: string
@@ -8392,14 +8428,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 50
-                Net:
-                  oneOf:
-                    - type: number
-                      format: double
-                    - type: array
-                      items:
-                        type: number
-                        format: double
                 Currency:
                   oneOf:
                     - type: integer
@@ -8408,6 +8436,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Net:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Gross:
                   oneOf:
                     - type: number
@@ -8467,22 +8503,6 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 200
-                SentMethod:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Status:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Operator:
                   oneOf:
                     - type: integer
@@ -8511,6 +8531,17 @@ components:
                         minLength: 0
                         maxLength: 200
                 UUID:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 36
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 36
+                Process:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -8554,12 +8585,14 @@ components:
                 BillingAddress:
                 ShippingAddress:
                 ShippingProvider:
+                SentMethod:
+                Status:
                 TrackingNumber:
                   type: string
                   minLength: 0
                   maxLength: 50
-                Net:
                 Currency:
+                Net:
                 Gross:
                 Discount:
                 Taxes:
@@ -8570,8 +8603,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                SentMethod:
-                Status:
                 Operator:
                 Company:
                 Name:
@@ -8579,6 +8610,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -8611,16 +8646,22 @@ components:
                 ShippingProvider:
                   type: integer
                   format: int32
+                SentMethod:
+                  type: integer
+                  format: int32
+                Status:
+                  type: integer
+                  format: int32
                 TrackingNumber:
                   type: string
                   minLength: 0
                   maxLength: 50
-                Net:
-                  type: number
-                  format: double
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -8643,12 +8684,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                SentMethod:
-                  type: integer
-                  format: int32
-                Status:
-                  type: integer
-                  format: int32
                 Operator:
                   type: integer
                   format: int32
@@ -8660,6 +8695,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -8694,16 +8733,22 @@ components:
                 ShippingProvider:
                   type: integer
                   format: int32
+                SentMethod:
+                  type: integer
+                  format: int32
+                Status:
+                  type: integer
+                  format: int32
                 TrackingNumber:
                   type: string
                   minLength: 0
                   maxLength: 50
-                Net:
-                  type: number
-                  format: double
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -8726,12 +8771,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                SentMethod:
-                  type: integer
-                  format: int32
-                Status:
-                  type: integer
-                  format: int32
                 Operator:
                   type: integer
                   format: int32
@@ -8743,6 +8782,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -8777,16 +8820,22 @@ components:
                 ShippingProvider:
                   type: integer
                   format: int32
+                SentMethod:
+                  type: integer
+                  format: int32
+                Status:
+                  type: integer
+                  format: int32
                 TrackingNumber:
                   type: string
                   minLength: 0
                   maxLength: 50
-                Net:
-                  type: number
-                  format: double
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -8809,12 +8858,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                SentMethod:
-                  type: integer
-                  format: int32
-                Status:
-                  type: integer
-                  format: int32
                 Operator:
                   type: integer
                   format: int32
@@ -8826,6 +8869,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -8860,16 +8907,22 @@ components:
                 ShippingProvider:
                   type: integer
                   format: int32
+                SentMethod:
+                  type: integer
+                  format: int32
+                Status:
+                  type: integer
+                  format: int32
                 TrackingNumber:
                   type: string
                   minLength: 0
                   maxLength: 50
-                Net:
-                  type: number
-                  format: double
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -8892,12 +8945,6 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 200
-                SentMethod:
-                  type: integer
-                  format: int32
-                Status:
-                  type: integer
-                  format: int32
                 Operator:
                   type: integer
                   format: int32
@@ -8912,6 +8959,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Process:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
                 Reference:
                   type: string
                   minLength: 0
@@ -8921,12 +8972,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "BillingAddress", "ShippingAddress", "ShippingProvider", "TrackingNumber", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "SentMethod", "Status", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "Due", "Customer", "BillingAddress", "ShippingAddress", "ShippingProvider", "SentMethod", "Status", "TrackingNumber", "Currency", "Net", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "Operator", "Company", "Name", "UUID", "Process", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,BillingAddress,ShippingAddress,ShippingProvider,TrackingNumber,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,SentMethod,Status,Operator,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Date,Due,Customer,BillingAddress,ShippingAddress,ShippingProvider,SentMethod,Status,TrackingNumber,Currency,Net,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,Operator,Company,Name,UUID,Process,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -8945,6 +8996,7 @@ components:
         - Quantity
         - Price
         - VATRate
+        - Status
       properties:
         Id:
           type: integer
@@ -8955,19 +9007,19 @@ components:
         Product:
           type: integer
           format: int32
-        UoM:
-          type: integer
-          format: int32
         Quantity:
           type: number
           format: double
-        Price:
-          type: number
-          format: double
+        UoM:
+          type: integer
+          format: int32
         Net:
           type: number
           format: double
           readOnly: true
+        Price:
+          type: number
+          format: double
         VATRate:
           type: number
           format: double
@@ -9015,14 +9067,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Quantity:
                   oneOf:
                     - type: number
@@ -9031,7 +9075,15 @@ components:
                       items:
                         type: number
                         format: double
-                Price:
+                UoM:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Net:
                   oneOf:
                     - type: number
                       format: double
@@ -9039,7 +9091,7 @@ components:
                       items:
                         type: number
                         format: double
-                Net:
+                Price:
                   oneOf:
                     - type: number
                       format: double
@@ -9106,14 +9158,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                UoM:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Quantity:
                   oneOf:
                     - type: number
@@ -9122,7 +9166,15 @@ components:
                       items:
                         type: number
                         format: double
-                Price:
+                UoM:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Net:
                   oneOf:
                     - type: number
                       format: double
@@ -9130,7 +9182,7 @@ components:
                       items:
                         type: number
                         format: double
-                Net:
+                Price:
                   oneOf:
                     - type: number
                       format: double
@@ -9176,10 +9228,10 @@ components:
                 Id:
                 SalesOrder:
                 Product:
-                UoM:
                 Quantity:
-                Price:
+                UoM:
                 Net:
+                Price:
                 VATRate:
                 VAT:
                 Gross:
@@ -9196,16 +9248,16 @@ components:
                 Product:
                   type: integer
                   format: int32
-                UoM:
-                  type: integer
-                  format: int32
                 Quantity:
                   type: number
                   format: double
-                Price:
+                UoM:
+                  type: integer
+                  format: int32
+                Net:
                   type: number
                   format: double
-                Net:
+                Price:
                   type: number
                   format: double
                 VATRate:
@@ -9232,16 +9284,16 @@ components:
                 Product:
                   type: integer
                   format: int32
-                UoM:
-                  type: integer
-                  format: int32
                 Quantity:
                   type: number
                   format: double
-                Price:
+                UoM:
+                  type: integer
+                  format: int32
+                Net:
                   type: number
                   format: double
-                Net:
+                Price:
                   type: number
                   format: double
                 VATRate:
@@ -9268,16 +9320,16 @@ components:
                 Product:
                   type: integer
                   format: int32
-                UoM:
-                  type: integer
-                  format: int32
                 Quantity:
                   type: number
                   format: double
-                Price:
+                UoM:
+                  type: integer
+                  format: int32
+                Net:
                   type: number
                   format: double
-                Net:
+                Price:
                   type: number
                   format: double
                 VATRate:
@@ -9304,16 +9356,16 @@ components:
                 Product:
                   type: integer
                   format: int32
-                UoM:
-                  type: integer
-                  format: int32
                 Quantity:
                   type: number
                   format: double
-                Price:
+                UoM:
+                  type: integer
+                  format: int32
+                Net:
                   type: number
                   format: double
-                Net:
+                Price:
                   type: number
                   format: double
                 VATRate:
@@ -9330,12 +9382,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "SalesOrder", "Product", "UoM", "Quantity", "Price", "Net", "VATRate", "VAT", "Gross", "Status"]
+          example: ["Id", "SalesOrder", "Product", "Quantity", "UoM", "Net", "Price", "VATRate", "VAT", "Gross", "Status"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,SalesOrder,Product,UoM,Quantity,Price,Net,VATRate,VAT,Gross,Status"
+            example: "Id,SalesOrder,Product,Quantity,UoM,Net,Price,VATRate,VAT,Gross,Status"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -9354,7 +9406,6 @@ components:
         - Supplier
         - Currency
         - PaymentMethod
-        - SentMethod
         - Status
         - Operator
         - Store
@@ -9372,12 +9423,15 @@ components:
         Supplier:
           type: integer
           format: int32
-        Net:
-          type: number
-          format: double
+        SentMethod:
+          type: integer
+          format: int32
         Currency:
           type: integer
           format: int32
+        Net:
+          type: number
+          format: double
         Gross:
           type: number
           format: double
@@ -9403,9 +9457,6 @@ components:
         PaymentMethod:
           type: integer
           format: int32
-        SentMethod:
-          type: integer
-          format: int32
         Status:
           type: integer
           format: int32
@@ -9425,6 +9476,10 @@ components:
           minLength: 0
           maxLength: 36
           readOnly: true
+        Process:
+          type: string
+          minLength: 0
+          maxLength: 36
         Reference:
           type: string
           minLength: 0
@@ -9472,14 +9527,14 @@ components:
                       items:
                         type: integer
                         format: int32
-                Net:
+                SentMethod:
                   oneOf:
-                    - type: number
-                      format: double
+                    - type: integer
+                      format: int32
                     - type: array
                       items:
-                        type: number
-                        format: double
+                        type: integer
+                        format: int32
                 Currency:
                   oneOf:
                     - type: integer
@@ -9488,6 +9543,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Net:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Gross:
                   oneOf:
                     - type: number
@@ -9555,14 +9618,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                SentMethod:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Status:
                   oneOf:
                     - type: integer
@@ -9599,6 +9654,17 @@ components:
                         minLength: 0
                         maxLength: 200
                 UUID:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 36
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 36
+                Process:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -9662,14 +9728,14 @@ components:
                       items:
                         type: integer
                         format: int32
-                Net:
+                SentMethod:
                   oneOf:
-                    - type: number
-                      format: double
+                    - type: integer
+                      format: int32
                     - type: array
                       items:
-                        type: number
-                        format: double
+                        type: integer
+                        format: int32
                 Currency:
                   oneOf:
                     - type: integer
@@ -9678,6 +9744,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Net:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Gross:
                   oneOf:
                     - type: number
@@ -9745,14 +9819,6 @@ components:
                       items:
                         type: integer
                         format: int32
-                SentMethod:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
                 Status:
                   oneOf:
                     - type: integer
@@ -9789,6 +9855,17 @@ components:
                         minLength: 0
                         maxLength: 200
                 UUID:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 36
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 36
+                Process:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -9829,8 +9906,9 @@ components:
                 Date:
                 Due:
                 Supplier:
-                Net:
+                SentMethod:
                 Currency:
+                Net:
                 Gross:
                 Discount:
                 Taxes:
@@ -9842,7 +9920,6 @@ components:
                   minLength: 0
                   maxLength: 200
                 PaymentMethod:
-                SentMethod:
                 Status:
                 Operator:
                 Company:
@@ -9851,6 +9928,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -9874,12 +9955,15 @@ components:
                 Supplier:
                   type: integer
                   format: int32
-                Net:
-                  type: number
-                  format: double
+                SentMethod:
+                  type: integer
+                  format: int32
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -9905,9 +9989,6 @@ components:
                 PaymentMethod:
                   type: integer
                   format: int32
-                SentMethod:
-                  type: integer
-                  format: int32
                 Status:
                   type: integer
                   format: int32
@@ -9922,6 +10003,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -9947,12 +10032,15 @@ components:
                 Supplier:
                   type: integer
                   format: int32
-                Net:
-                  type: number
-                  format: double
+                SentMethod:
+                  type: integer
+                  format: int32
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -9978,9 +10066,6 @@ components:
                 PaymentMethod:
                   type: integer
                   format: int32
-                SentMethod:
-                  type: integer
-                  format: int32
                 Status:
                   type: integer
                   format: int32
@@ -9995,6 +10080,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -10020,12 +10109,15 @@ components:
                 Supplier:
                   type: integer
                   format: int32
-                Net:
-                  type: number
-                  format: double
+                SentMethod:
+                  type: integer
+                  format: int32
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -10051,9 +10143,6 @@ components:
                 PaymentMethod:
                   type: integer
                   format: int32
-                SentMethod:
-                  type: integer
-                  format: int32
                 Status:
                   type: integer
                   format: int32
@@ -10068,6 +10157,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -10093,12 +10186,15 @@ components:
                 Supplier:
                   type: integer
                   format: int32
-                Net:
-                  type: number
-                  format: double
+                SentMethod:
+                  type: integer
+                  format: int32
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -10124,9 +10220,6 @@ components:
                 PaymentMethod:
                   type: integer
                   format: int32
-                SentMethod:
-                  type: integer
-                  format: int32
                 Status:
                   type: integer
                   format: int32
@@ -10144,6 +10237,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Process:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
                 Reference:
                   type: string
                   minLength: 0
@@ -10153,12 +10250,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Supplier", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "Status", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "Due", "Supplier", "SentMethod", "Currency", "Net", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "Status", "Operator", "Company", "Name", "UUID", "Process", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Supplier,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,Status,Operator,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Date,Due,Supplier,SentMethod,Currency,Net,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,Status,Operator,Company,Name,UUID,Process,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -10174,7 +10271,6 @@ components:
       required:
         - PurchaseOrder
         - Product
-        - UoM
         - Quantity
         - Price
         - VATRate
@@ -10537,133 +10633,6 @@ components:
         $sort:
           - type: string
             example: "Id,PurchaseOrder,Product,UoM,Quantity,Price,Net,VATRate,VAT,Gross"
-        $order:
-          type: string
-          enum: ["asc", "desc"]
-          example: "asc"
-        $offset:
-          type: integer
-          example: 0
-        $limit:
-          type: integer
-          example: 10
-    SalesOrderStatus:
-      type: object
-      required:
-      properties:
-        Id:
-          type: integer
-          format: int32
-        Name:
-          type: string
-          minLength: 0
-          maxLength: 20
-    SalesOrderStatusFilterOptions:
-      type: object
-      properties:
-        $filter:
-          type: object
-          properties:
-            equals:
-              type: object
-              properties:
-                Id:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Name:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 20
-            notEquals:
-              type: object
-              properties:
-                Id:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Name:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 20
-            contains:
-              type: object
-              properties:
-                Id:
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
-            greaterThan:
-              type: object
-              properties:
-                Id:
-                  type: integer
-                  format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
-            greaterThanOrEqual:
-              type: object
-              properties:
-                Id:
-                  type: integer
-                  format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
-            lessThan:
-              type: object
-              properties:
-                Id:
-                  type: integer
-                  format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
-            lessThanOrEqual:
-              type: object
-              properties:
-                Id:
-                  type: integer
-                  format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
-        $select:
-          type: array
-          example: ["Id", "Name"]
-          items:
-            type: string
-        $sort:
-          - type: string
-            example: "Id,Name"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -12280,7 +12249,6 @@ components:
         - Due
         - Currency
         - PaymentMethod
-        - SentMethod
         - Status
         - Operator
       properties:
@@ -12301,12 +12269,15 @@ components:
         Customer:
           type: integer
           format: int32
-        Net:
-          type: number
-          format: double
+        SentMethod:
+          type: integer
+          format: int32
         Currency:
           type: integer
           format: int32
+        Net:
+          type: number
+          format: double
         Gross:
           type: number
           format: double
@@ -12330,9 +12301,6 @@ components:
           minLength: 0
           maxLength: 200
         PaymentMethod:
-          type: integer
-          format: int32
-        SentMethod:
           type: integer
           format: int32
         Status:
@@ -12419,14 +12387,14 @@ components:
                       items:
                         type: integer
                         format: int32
-                Net:
+                SentMethod:
                   oneOf:
-                    - type: number
-                      format: double
+                    - type: integer
+                      format: int32
                     - type: array
                       items:
-                        type: number
-                        format: double
+                        type: integer
+                        format: int32
                 Currency:
                   oneOf:
                     - type: integer
@@ -12435,6 +12403,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Net:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Gross:
                   oneOf:
                     - type: number
@@ -12495,14 +12471,6 @@ components:
                         minLength: 0
                         maxLength: 200
                 PaymentMethod:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                SentMethod:
                   oneOf:
                     - type: integer
                       format: int32
@@ -12639,14 +12607,14 @@ components:
                       items:
                         type: integer
                         format: int32
-                Net:
+                SentMethod:
                   oneOf:
-                    - type: number
-                      format: double
+                    - type: integer
+                      format: int32
                     - type: array
                       items:
-                        type: number
-                        format: double
+                        type: integer
+                        format: int32
                 Currency:
                   oneOf:
                     - type: integer
@@ -12655,6 +12623,14 @@ components:
                       items:
                         type: integer
                         format: int32
+                Net:
+                  oneOf:
+                    - type: number
+                      format: double
+                    - type: array
+                      items:
+                        type: number
+                        format: double
                 Gross:
                   oneOf:
                     - type: number
@@ -12715,14 +12691,6 @@ components:
                         minLength: 0
                         maxLength: 200
                 PaymentMethod:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                SentMethod:
                   oneOf:
                     - type: integer
                       format: int32
@@ -12829,8 +12797,9 @@ components:
                   minLength: 0
                   maxLength: 200
                 Customer:
-                Net:
+                SentMethod:
                 Currency:
+                Net:
                 Gross:
                 Discount:
                 Taxes:
@@ -12842,7 +12811,6 @@ components:
                   minLength: 0
                   maxLength: 200
                 PaymentMethod:
-                SentMethod:
                 Status:
                 Operator:
                 Document:
@@ -12883,12 +12851,15 @@ components:
                 Customer:
                   type: integer
                   format: int32
-                Net:
-                  type: number
-                  format: double
+                SentMethod:
+                  type: integer
+                  format: int32
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -12912,9 +12883,6 @@ components:
                   minLength: 0
                   maxLength: 200
                 PaymentMethod:
-                  type: integer
-                  format: int32
-                SentMethod:
                   type: integer
                   format: int32
                 Status:
@@ -12967,12 +12935,15 @@ components:
                 Customer:
                   type: integer
                   format: int32
-                Net:
-                  type: number
-                  format: double
+                SentMethod:
+                  type: integer
+                  format: int32
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -12996,9 +12967,6 @@ components:
                   minLength: 0
                   maxLength: 200
                 PaymentMethod:
-                  type: integer
-                  format: int32
-                SentMethod:
                   type: integer
                   format: int32
                 Status:
@@ -13051,12 +13019,15 @@ components:
                 Customer:
                   type: integer
                   format: int32
-                Net:
-                  type: number
-                  format: double
+                SentMethod:
+                  type: integer
+                  format: int32
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -13080,9 +13051,6 @@ components:
                   minLength: 0
                   maxLength: 200
                 PaymentMethod:
-                  type: integer
-                  format: int32
-                SentMethod:
                   type: integer
                   format: int32
                 Status:
@@ -13135,12 +13103,15 @@ components:
                 Customer:
                   type: integer
                   format: int32
-                Net:
-                  type: number
-                  format: double
+                SentMethod:
+                  type: integer
+                  format: int32
                 Currency:
                   type: integer
                   format: int32
+                Net:
+                  type: number
+                  format: double
                 Gross:
                   type: number
                   format: double
@@ -13164,9 +13135,6 @@ components:
                   minLength: 0
                   maxLength: 200
                 PaymentMethod:
-                  type: integer
-                  format: int32
-                SentMethod:
                   type: integer
                   format: int32
                 Status:
@@ -13202,12 +13170,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Task", "Customer", "Net", "Currency", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "SentMethod", "Status", "Operator", "Document", "Company", "UUID", "Name", "Referance", "Worker", "SalesOrder"]
+          example: ["Id", "Number", "Date", "Due", "Task", "Customer", "SentMethod", "Currency", "Net", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "Status", "Operator", "Document", "Company", "UUID", "Name", "Referance", "Worker", "SalesOrder"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Task,Customer,Net,Currency,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,SentMethod,Status,Operator,Document,Company,UUID,Name,Referance,Worker,SalesOrder"
+            example: "Id,Number,Date,Due,Task,Customer,SentMethod,Currency,Net,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,Status,Operator,Document,Company,UUID,Name,Referance,Worker,SalesOrder"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -13230,133 +13198,6 @@ components:
           minLength: 0
           maxLength: 20
     WorkOrderStatusFilterOptions:
-      type: object
-      properties:
-        $filter:
-          type: object
-          properties:
-            equals:
-              type: object
-              properties:
-                Id:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Name:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 20
-            notEquals:
-              type: object
-              properties:
-                Id:
-                  oneOf:
-                    - type: integer
-                      format: int32
-                    - type: array
-                      items:
-                        type: integer
-                        format: int32
-                Name:
-                  oneOf:
-                    - type: string
-                      minLength: 0
-                      maxLength: 20
-                    - type: array
-                      items:
-                        type: string
-                        format: double
-                        minLength: 0
-                        maxLength: 20
-            contains:
-              type: object
-              properties:
-                Id:
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
-            greaterThan:
-              type: object
-              properties:
-                Id:
-                  type: integer
-                  format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
-            greaterThanOrEqual:
-              type: object
-              properties:
-                Id:
-                  type: integer
-                  format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
-            lessThan:
-              type: object
-              properties:
-                Id:
-                  type: integer
-                  format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
-            lessThanOrEqual:
-              type: object
-              properties:
-                Id:
-                  type: integer
-                  format: int32
-                Name:
-                  type: string
-                  minLength: 0
-                  maxLength: 20
-        $select:
-          type: array
-          example: ["Id", "Name"]
-          items:
-            type: string
-        $sort:
-          - type: string
-            example: "Id,Name"
-        $order:
-          type: string
-          enum: ["asc", "desc"]
-          example: "asc"
-        $offset:
-          type: integer
-          example: 0
-        $limit:
-          type: integer
-          example: 10
-    SalesOrderItemStatus:
-      type: object
-      required:
-      properties:
-        Id:
-          type: integer
-          format: int32
-        Name:
-          type: string
-          minLength: 0
-          maxLength: 20
-    SalesOrderItemStatusFilterOptions:
       type: object
       properties:
         $filter:
@@ -13582,6 +13423,262 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 100
+        $select:
+          type: array
+          example: ["Id", "Name"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Name"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    SalesOrderStatus:
+      type: object
+      required:
+        - Name
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Name:
+          type: string
+          minLength: 0
+          maxLength: 20
+    SalesOrderStatusFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            contains:
+              type: object
+              properties:
+                Id:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+        $select:
+          type: array
+          example: ["Id", "Name"]
+          items:
+            type: string
+        $sort:
+          - type: string
+            example: "Id,Name"
+        $order:
+          type: string
+          enum: ["asc", "desc"]
+          example: "asc"
+        $offset:
+          type: integer
+          example: 0
+        $limit:
+          type: integer
+          example: 10
+    SalesOrderItemStatus:
+      type: object
+      required:
+        - Name
+      properties:
+        Id:
+          type: integer
+          format: int32
+        Name:
+          type: string
+          minLength: 0
+          maxLength: 20
+    SalesOrderItemStatusFilterOptions:
+      type: object
+      properties:
+        $filter:
+          type: object
+          properties:
+            equals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            notEquals:
+              type: object
+              properties:
+                Id:
+                  oneOf:
+                    - type: integer
+                      format: int32
+                    - type: array
+                      items:
+                        type: integer
+                        format: int32
+                Name:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 20
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 20
+            contains:
+              type: object
+              properties:
+                Id:
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            greaterThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThan:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
+            lessThanOrEqual:
+              type: object
+              properties:
+                Id:
+                  type: integer
+                  format: int32
+                Name:
+                  type: string
+                  minLength: 0
+                  maxLength: 20
         $select:
           type: array
           example: ["Id", "Name"]

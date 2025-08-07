@@ -47,10 +47,25 @@
                         "name": "SALESORDER_SHIPPINGPROVIDER"
                     },
                     {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "SALESORDER_SENTMETHOD"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "SALESORDER_STATUS"
+                    },
+                    {
                         "type": "VARCHAR",
                         "length": 50,
                         "nullable": true,
                         "name": "SALESORDER_TRACKINGNUMBER"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "SALESORDER_CURRENCY"
                     },
                     {
                         "type": "DECIMAL",
@@ -59,10 +74,6 @@
                         "scale": "2",
                         "nullable": true,
                         "name": "SALESORDER_NET"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "name": "SALESORDER_CURRENCY"
                     },
                     {
                         "type": "DECIMAL",
@@ -122,14 +133,6 @@
                     },
                     {
                         "type": "INTEGER",
-                        "name": "SALESORDER_SENTMETHOD"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "name": "SALESORDER_STATUS"
-                    },
-                    {
-                        "type": "INTEGER",
                         "name": "SALESORDER_OPERATOR"
                     },
                     {
@@ -148,6 +151,12 @@
                         "length": 36,
                         "unique": true,
                         "name": "SALESORDER_UUID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "nullable": true,
+                        "name": "SALESORDER_PROCESS"
                     },
                     {
                         "type": "VARCHAR",
@@ -182,10 +191,6 @@
                         "name": "SALESORDERITEM_PRODUCT"
                     },
                     {
-                        "type": "INTEGER",
-                        "name": "SALESORDERITEM_UOM"
-                    },
-                    {
                         "type": "DECIMAL",
                         "length": 16,
                         "precision": "16",
@@ -193,11 +198,9 @@
                         "name": "SALESORDERITEM_QUANTITY"
                     },
                     {
-                        "type": "DECIMAL",
-                        "length": 16,
-                        "precision": "16",
-                        "scale": "2",
-                        "name": "SALESORDERITEM_PRICE"
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "SALESORDERITEM_UOM"
                     },
                     {
                         "type": "DECIMAL",
@@ -206,6 +209,13 @@
                         "scale": "2",
                         "nullable": true,
                         "name": "SALESORDERITEM_NET"
+                    },
+                    {
+                        "type": "DECIMAL",
+                        "length": 16,
+                        "precision": "16",
+                        "scale": "2",
+                        "name": "SALESORDERITEM_PRICE"
                     },
                     {
                         "type": "DECIMAL",
@@ -233,7 +243,7 @@
                     },
                     {
                         "type": "INTEGER",
-                        "defaultValue": "1",
+                        "nullable": true,
                         "name": "SALESORDERITEM_STATUS"
                     }
                 ]
@@ -267,16 +277,22 @@
                         "name": "PURCHASEORDER_SUPPLIER"
                     },
                     {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "PURCHASEORDER_SENTMETHOD"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "PURCHASEORDER_CURRENCY"
+                    },
+                    {
                         "type": "DECIMAL",
                         "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDER_NET"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "name": "PURCHASEORDER_CURRENCY"
                     },
                     {
                         "type": "DECIMAL",
@@ -341,10 +357,6 @@
                     },
                     {
                         "type": "INTEGER",
-                        "name": "PURCHASEORDER_SENTMETHOD"
-                    },
-                    {
-                        "type": "INTEGER",
                         "name": "PURCHASEORDER_STATUS"
                     },
                     {
@@ -366,6 +378,12 @@
                         "length": 36,
                         "unique": true,
                         "name": "PURCHASEORDER_UUID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "nullable": true,
+                        "name": "PURCHASEORDER_PROCESS"
                     },
                     {
                         "type": "VARCHAR",
@@ -401,6 +419,7 @@
                     },
                     {
                         "type": "INTEGER",
+                        "nullable": true,
                         "name": "PURCHASEORDERITEM_UOM"
                     },
                     {
@@ -448,25 +467,6 @@
                         "scale": "2",
                         "nullable": true,
                         "name": "PURCHASEORDERITEM_GROSS"
-                    }
-                ]
-            },
-            {
-                "name": "CODBEX_SALESORDERSTATUS",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "SALESORDERSTATUS_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "SALESORDERSTATUS_NAME"
                     }
                 ]
             },
@@ -584,17 +584,22 @@
                         "name": "WORKORDER_CUSTOMER"
                     },
                     {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "WORKORDER_SENTMETHOD"
+                    },
+                    {
+                        "type": "INTEGER",
+                        "nullable": true,
+                        "name": "WORKORDER_CURRENCY"
+                    },
+                    {
                         "type": "DECIMAL",
                         "length": 16,
                         "precision": "16",
                         "scale": "2",
                         "nullable": true,
                         "name": "WORKORDER_NET"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "WORKORDER_CURRENCY"
                     },
                     {
                         "type": "DECIMAL",
@@ -654,11 +659,6 @@
                         "type": "INTEGER",
                         "nullable": true,
                         "name": "WORKORDER_PAYMENTMETHOD"
-                    },
-                    {
-                        "type": "INTEGER",
-                        "nullable": true,
-                        "name": "WORKORDER_SENTMETHOD"
                     },
                     {
                         "type": "INTEGER",
@@ -731,25 +731,6 @@
                 ]
             },
             {
-                "name": "CODBEX_SALESORDERITEMSTATUS",
-                "type": "TABLE",
-                "columns": [
-                    {
-                        "type": "INTEGER",
-                        "primaryKey": true,
-                        "identity": true,
-                        "nullable": true,
-                        "name": "SALESORDERITEMSTATUS_ID"
-                    },
-                    {
-                        "type": "VARCHAR",
-                        "length": 20,
-                        "nullable": true,
-                        "name": "SALESORDERITEMSTATUS_NAME"
-                    }
-                ]
-            },
-            {
                 "name": "CODBEX_SHIPPINGPROVIDER",
                 "type": "TABLE",
                 "columns": [
@@ -765,6 +746,44 @@
                         "length": 100,
                         "nullable": true,
                         "name": "SHIPPINGPROVIDER_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_SALESORDERSTATUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SALESORDERSTATUS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SALESORDERSTATUS_NAME"
+                    }
+                ]
+            },
+            {
+                "name": "CODBEX_SALESORDERITEMSTATUS",
+                "type": "TABLE",
+                "columns": [
+                    {
+                        "type": "INTEGER",
+                        "primaryKey": true,
+                        "identity": true,
+                        "nullable": true,
+                        "name": "SALESORDERITEMSTATUS_ID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 20,
+                        "nullable": true,
+                        "name": "SALESORDERITEMSTATUS_NAME"
                     }
                 ]
             },
@@ -805,15 +824,6 @@
                 "referencedColumns": "SHIPPINGPROVIDER_ID"
             },
             {
-                "name": "SalesOrder_Currency",
-                "type": "foreignKey",
-                "table": "CODBEX_SALESORDER",
-                "constraintName": "SalesOrder_Currency",
-                "columns": "SALESORDER_CURRENCY",
-                "referencedTable": "CODBEX_CURRENCY",
-                "referencedColumns": "CURRENCY_ID"
-            },
-            {
                 "name": "SalesOrder_SentMethod",
                 "type": "foreignKey",
                 "table": "CODBEX_SALESORDER",
@@ -830,6 +840,15 @@
                 "columns": "SALESORDER_STATUS",
                 "referencedTable": "CODBEX_SALESORDERSTATUS",
                 "referencedColumns": "SALESORDERSTATUS_ID"
+            },
+            {
+                "name": "SalesOrder_Currency",
+                "type": "foreignKey",
+                "table": "CODBEX_SALESORDER",
+                "constraintName": "SalesOrder_Currency",
+                "columns": "SALESORDER_CURRENCY",
+                "referencedTable": "CODBEX_CURRENCY",
+                "referencedColumns": "CURRENCY_ID"
             },
             {
                 "name": "SalesOrder_Employee",
@@ -904,6 +923,15 @@
                 "referencedColumns": "SUPPLIER_ID"
             },
             {
+                "name": "PurchaseOrder_SentMethod",
+                "type": "foreignKey",
+                "table": "CODBEX_PURCHASEORDER",
+                "constraintName": "PurchaseOrder_SentMethod",
+                "columns": "PURCHASEORDER_SENTMETHOD",
+                "referencedTable": "CODBEX_SENTMETHOD",
+                "referencedColumns": "SENTMETHOD_ID"
+            },
+            {
                 "name": "PurchaseOrder_Currency",
                 "type": "foreignKey",
                 "table": "CODBEX_PURCHASEORDER",
@@ -920,15 +948,6 @@
                 "columns": "PURCHASEORDER_PAYMENTMETHOD",
                 "referencedTable": "CODBEX_PAYMENTMETHOD",
                 "referencedColumns": "PAYMENTMETHOD_ID"
-            },
-            {
-                "name": "PurchaseOrder_SentMethod",
-                "type": "foreignKey",
-                "table": "CODBEX_PURCHASEORDER",
-                "constraintName": "PurchaseOrder_SentMethod",
-                "columns": "PURCHASEORDER_SENTMETHOD",
-                "referencedTable": "CODBEX_SENTMETHOD",
-                "referencedColumns": "SENTMETHOD_ID"
             },
             {
                 "name": "PurchaseOrder_PurchaseOrderStatus",
@@ -1039,6 +1058,15 @@
                 "referencedColumns": "CUSTOMER_ID"
             },
             {
+                "name": "WorkOrder_SentMethod",
+                "type": "foreignKey",
+                "table": "CODBEX_WORKORDER",
+                "constraintName": "WorkOrder_SentMethod",
+                "columns": "WORKORDER_SENTMETHOD",
+                "referencedTable": "CODBEX_SENTMETHOD",
+                "referencedColumns": "SENTMETHOD_ID"
+            },
+            {
                 "name": "WorkOrder_Currency",
                 "type": "foreignKey",
                 "table": "CODBEX_WORKORDER",
@@ -1055,15 +1083,6 @@
                 "columns": "WORKORDER_PAYMENTMETHOD",
                 "referencedTable": "CODBEX_PAYMENTMETHOD",
                 "referencedColumns": "PAYMENTMETHOD_ID"
-            },
-            {
-                "name": "WorkOrder_SentMethod",
-                "type": "foreignKey",
-                "table": "CODBEX_WORKORDER",
-                "constraintName": "WorkOrder_SentMethod",
-                "columns": "WORKORDER_SENTMETHOD",
-                "referencedTable": "CODBEX_SENTMETHOD",
-                "referencedColumns": "SENTMETHOD_ID"
             },
             {
                 "name": "WorkOrder_WorkOrderStatus",

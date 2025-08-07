@@ -23,9 +23,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
 		$scope.selectedMainEntityId = params.selectedMainEntityId;
 		$scope.optionsSupplier = params.optionsSupplier;
+		$scope.optionsSentMethod = params.optionsSentMethod;
 		$scope.optionsCurrency = params.optionsCurrency;
 		$scope.optionsPaymentMethod = params.optionsPaymentMethod;
-		$scope.optionsSentMethod = params.optionsSentMethod;
 		$scope.optionsStatus = params.optionsStatus;
 		$scope.optionsOperator = params.optionsOperator;
 		$scope.optionsCompany = params.optionsCompany;
@@ -73,11 +73,14 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.Supplier !== undefined) {
 			filter.$filter.equals.Supplier = entity.Supplier;
 		}
-		if (entity.Net !== undefined) {
-			filter.$filter.equals.Net = entity.Net;
+		if (entity.SentMethod !== undefined) {
+			filter.$filter.equals.SentMethod = entity.SentMethod;
 		}
 		if (entity.Currency !== undefined) {
 			filter.$filter.equals.Currency = entity.Currency;
+		}
+		if (entity.Net !== undefined) {
+			filter.$filter.equals.Net = entity.Net;
 		}
 		if (entity.Gross !== undefined) {
 			filter.$filter.equals.Gross = entity.Gross;
@@ -103,9 +106,6 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.PaymentMethod !== undefined) {
 			filter.$filter.equals.PaymentMethod = entity.PaymentMethod;
 		}
-		if (entity.SentMethod !== undefined) {
-			filter.$filter.equals.SentMethod = entity.SentMethod;
-		}
 		if (entity.Status !== undefined) {
 			filter.$filter.equals.Status = entity.Status;
 		}
@@ -120,6 +120,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		}
 		if (entity.UUID) {
 			filter.$filter.contains.UUID = entity.UUID;
+		}
+		if (entity.Process) {
+			filter.$filter.contains.Process = entity.Process;
 		}
 		if (entity.Reference) {
 			filter.$filter.contains.Reference = entity.Reference;

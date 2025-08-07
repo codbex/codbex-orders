@@ -3,3 +3,5 @@ SALESORDERITEMSTATUS_ID,SALESORDERITEMSTATUS_NAME
 2,Issued
 3,Needs Restock
 4,Delivered
+5,Canceled
+6,Rejected
