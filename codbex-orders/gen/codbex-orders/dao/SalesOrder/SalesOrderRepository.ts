@@ -31,6 +31,7 @@ export interface SalesOrderEntity {
     Company?: number;
     Name?: string;
     UUID: string;
+    Process?: string;
     Reference?: string;
     Store?: number;
 }
@@ -56,6 +57,7 @@ export interface SalesOrderCreateEntity {
     readonly Conditions?: string;
     readonly Operator: number;
     readonly Company?: number;
+    readonly Process?: string;
     readonly Reference?: string;
     readonly Store?: number;
 }
@@ -91,6 +93,7 @@ export interface SalesOrderEntityOptions {
             Company?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
+            Process?: string | string[];
             Reference?: string | string[];
             Store?: number | number[];
         };
@@ -119,6 +122,7 @@ export interface SalesOrderEntityOptions {
             Company?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
+            Process?: string | string[];
             Reference?: string | string[];
             Store?: number | number[];
         };
@@ -147,6 +151,7 @@ export interface SalesOrderEntityOptions {
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -175,6 +180,7 @@ export interface SalesOrderEntityOptions {
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -203,6 +209,7 @@ export interface SalesOrderEntityOptions {
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -231,6 +238,7 @@ export interface SalesOrderEntityOptions {
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -259,6 +267,7 @@ export interface SalesOrderEntityOptions {
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -270,7 +279,7 @@ export interface SalesOrderEntityOptions {
     $limit?: number,
 }
 
-interface SalesOrderEntityEvent {
+export interface SalesOrderEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<SalesOrderEntity>;
@@ -281,7 +290,7 @@ interface SalesOrderEntityEvent {
     }
 }
 
-interface SalesOrderUpdateEntityEvent extends SalesOrderEntityEvent {
+export interface SalesOrderUpdateEntityEvent extends SalesOrderEntityEvent {
     readonly previousEntity: SalesOrderEntity;
 }
 
@@ -415,6 +424,11 @@ export class SalesOrderRepository {
                 column: "SALESORDER_UUID",
                 type: "VARCHAR",
                 required: true
+            },
+            {
+                name: "Process",
+                column: "SALESORDER_PROCESS",
+                type: "VARCHAR",
             },
             {
                 name: "Reference",

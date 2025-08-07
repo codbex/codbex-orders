@@ -28,6 +28,7 @@ export interface PurchaseOrderEntity {
     Company?: number;
     Name: string;
     UUID: string;
+    Process?: string;
     Reference?: string;
     Store?: number;
 }
@@ -50,6 +51,7 @@ export interface PurchaseOrderCreateEntity {
     readonly Status: number;
     readonly Operator: number;
     readonly Company?: number;
+    readonly Process?: string;
     readonly Reference?: string;
     readonly Store?: number;
 }
@@ -82,6 +84,7 @@ export interface PurchaseOrderEntityOptions {
             Company?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
+            Process?: string | string[];
             Reference?: string | string[];
             Store?: number | number[];
         };
@@ -107,6 +110,7 @@ export interface PurchaseOrderEntityOptions {
             Company?: number | number[];
             Name?: string | string[];
             UUID?: string | string[];
+            Process?: string | string[];
             Reference?: string | string[];
             Store?: number | number[];
         };
@@ -132,6 +136,7 @@ export interface PurchaseOrderEntityOptions {
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -157,6 +162,7 @@ export interface PurchaseOrderEntityOptions {
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -182,6 +188,7 @@ export interface PurchaseOrderEntityOptions {
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -207,6 +214,7 @@ export interface PurchaseOrderEntityOptions {
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -232,6 +240,7 @@ export interface PurchaseOrderEntityOptions {
             Company?: number;
             Name?: string;
             UUID?: string;
+            Process?: string;
             Reference?: string;
             Store?: number;
         };
@@ -243,7 +252,7 @@ export interface PurchaseOrderEntityOptions {
     $limit?: number,
 }
 
-interface PurchaseOrderEntityEvent {
+export interface PurchaseOrderEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<PurchaseOrderEntity>;
@@ -254,7 +263,7 @@ interface PurchaseOrderEntityEvent {
     }
 }
 
-interface PurchaseOrderUpdateEntityEvent extends PurchaseOrderEntityEvent {
+export interface PurchaseOrderUpdateEntityEvent extends PurchaseOrderEntityEvent {
     readonly previousEntity: PurchaseOrderEntity;
 }
 
@@ -379,6 +388,11 @@ export class PurchaseOrderRepository {
                 column: "PURCHASEORDER_UUID",
                 type: "VARCHAR",
                 required: true
+            },
+            {
+                name: "Process",
+                column: "PURCHASEORDER_PROCESS",
+                type: "VARCHAR",
             },
             {
                 name: "Reference",

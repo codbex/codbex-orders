@@ -121,6 +121,9 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.UUID) {
 			filter.$filter.contains.UUID = entity.UUID;
 		}
+		if (entity.Process) {
+			filter.$filter.contains.Process = entity.Process;
+		}
 		if (entity.Reference) {
 			filter.$filter.contains.Reference = entity.Reference;
 		}

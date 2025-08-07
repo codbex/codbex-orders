@@ -132,7 +132,7 @@ export interface SalesOrderItemEntityOptions {
     $limit?: number,
 }
 
-interface SalesOrderItemEntityEvent {
+export interface SalesOrderItemEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<SalesOrderItemEntity>;
@@ -143,7 +143,7 @@ interface SalesOrderItemEntityEvent {
     }
 }
 
-interface SalesOrderItemUpdateEntityEvent extends SalesOrderItemEntityEvent {
+export interface SalesOrderItemUpdateEntityEvent extends SalesOrderItemEntityEvent {
     readonly previousEntity: SalesOrderItemEntity;
 }
 

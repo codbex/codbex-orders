@@ -170,6 +170,9 @@ class SalesOrderService {
         if (entity.UUID?.length > 36) {
             throw new ValidationError(`The 'UUID' exceeds the maximum length of [36] characters`);
         }
+        if (entity.Process?.length > 36) {
+            throw new ValidationError(`The 'Process' exceeds the maximum length of [36] characters`);
+        }
         if (entity.Reference?.length > 36) {
             throw new ValidationError(`The 'Reference' exceeds the maximum length of [36] characters`);
         }

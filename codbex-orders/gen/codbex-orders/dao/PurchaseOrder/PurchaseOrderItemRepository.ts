@@ -123,7 +123,7 @@ export interface PurchaseOrderItemEntityOptions {
     $limit?: number,
 }
 
-interface PurchaseOrderItemEntityEvent {
+export interface PurchaseOrderItemEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<PurchaseOrderItemEntity>;
@@ -134,7 +134,7 @@ interface PurchaseOrderItemEntityEvent {
     }
 }
 
-interface PurchaseOrderItemUpdateEntityEvent extends PurchaseOrderItemEntityEvent {
+export interface PurchaseOrderItemUpdateEntityEvent extends PurchaseOrderItemEntityEvent {
     readonly previousEntity: PurchaseOrderItemEntity;
 }
 

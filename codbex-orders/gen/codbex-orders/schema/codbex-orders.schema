@@ -156,6 +156,12 @@
                         "type": "VARCHAR",
                         "length": 36,
                         "nullable": true,
+                        "name": "SALESORDER_PROCESS"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "nullable": true,
                         "name": "SALESORDER_REFERENCE"
                     },
                     {
@@ -372,6 +378,12 @@
                         "length": 36,
                         "unique": true,
                         "name": "PURCHASEORDER_UUID"
+                    },
+                    {
+                        "type": "VARCHAR",
+                        "length": 36,
+                        "nullable": true,
+                        "name": "PURCHASEORDER_PROCESS"
                     },
                     {
                         "type": "VARCHAR",

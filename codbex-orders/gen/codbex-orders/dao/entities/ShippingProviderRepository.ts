@@ -54,7 +54,7 @@ export interface ShippingProviderEntityOptions {
     $limit?: number,
 }
 
-interface ShippingProviderEntityEvent {
+export interface ShippingProviderEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
     readonly entity: Partial<ShippingProviderEntity>;
@@ -65,7 +65,7 @@ interface ShippingProviderEntityEvent {
     }
 }
 
-interface ShippingProviderUpdateEntityEvent extends ShippingProviderEntityEvent {
+export interface ShippingProviderUpdateEntityEvent extends ShippingProviderEntityEvent {
     readonly previousEntity: ShippingProviderEntity;
 }
 

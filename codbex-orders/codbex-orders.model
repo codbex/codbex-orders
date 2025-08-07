@@ -398,6 +398,19 @@
                     },
                     {
                         "dataLength": "36",
+                        "dataName": "SALESORDER_PROCESS",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "name": "Process",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "36",
+                        "widgetSize": "",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "36",
                         "dataName": "SALESORDER_REFERENCE",
                         "dataNullable": "true",
                         "dataType": "VARCHAR",
@@ -1029,6 +1042,19 @@
                         "widgetIsMajor": "true",
                         "widgetLength": "36",
                         "widgetSize": "fd-col-md--4 fd-col--6",
+                        "widgetType": "TEXTBOX"
+                    },
+                    {
+                        "dataLength": "36",
+                        "dataName": "PURCHASEORDER_PROCESS",
+                        "dataNullable": "true",
+                        "dataType": "VARCHAR",
+                        "description": "",
+                        "name": "Process",
+                        "tooltip": "",
+                        "widgetIsMajor": "true",
+                        "widgetLength": "36",
+                        "widgetSize": "",
                         "widgetType": "TEXTBOX"
                     },
                     {

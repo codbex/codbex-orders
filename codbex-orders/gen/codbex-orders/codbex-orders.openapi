@@ -280,6 +280,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
                     greaterThan:
                       Id: 0
@@ -307,6 +308,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
@@ -376,6 +378,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
                     greaterThan:
                       Id: 0
@@ -403,6 +406,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
@@ -1083,6 +1087,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
                     greaterThan:
                       Id: 0
@@ -1109,6 +1114,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
               countWithGreaterThan:
                 summary: Count with Greater Than
@@ -1177,6 +1183,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
                     greaterThan:
                       Id: 0
@@ -1203,6 +1210,7 @@ paths:
                       Conditions: "abcd"
                       Name: "abcd"
                       UUID: "abcd"
+                      Process: "abcd"
                       Reference: "abcd"
               searchWithGreaterThan:
                 summary: Search with Greater Than
@@ -8090,6 +8098,10 @@ components:
           minLength: 0
           maxLength: 36
           readOnly: true
+        Process:
+          type: string
+          minLength: 0
+          maxLength: 36
         Reference:
           type: string
           minLength: 0
@@ -8291,6 +8303,17 @@ components:
                         minLength: 0
                         maxLength: 200
                 UUID:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 36
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 36
+                Process:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -8518,6 +8541,17 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 36
+                Process:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 36
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 36
                 Reference:
                   oneOf:
                     - type: string
@@ -8576,6 +8610,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -8657,6 +8695,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -8743,6 +8785,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Process:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
                 Reference:
                   type: string
                   minLength: 0
@@ -8823,6 +8869,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -8909,6 +8959,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Process:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
                 Reference:
                   type: string
                   minLength: 0
@@ -8918,12 +8972,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "BillingAddress", "ShippingAddress", "ShippingProvider", "SentMethod", "Status", "TrackingNumber", "Currency", "Net", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "Due", "Customer", "BillingAddress", "ShippingAddress", "ShippingProvider", "SentMethod", "Status", "TrackingNumber", "Currency", "Net", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "Operator", "Company", "Name", "UUID", "Process", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,BillingAddress,ShippingAddress,ShippingProvider,SentMethod,Status,TrackingNumber,Currency,Net,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,Operator,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Date,Due,Customer,BillingAddress,ShippingAddress,ShippingProvider,SentMethod,Status,TrackingNumber,Currency,Net,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,Operator,Company,Name,UUID,Process,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]
@@ -9422,6 +9476,10 @@ components:
           minLength: 0
           maxLength: 36
           readOnly: true
+        Process:
+          type: string
+          minLength: 0
+          maxLength: 36
         Reference:
           type: string
           minLength: 0
@@ -9596,6 +9654,17 @@ components:
                         minLength: 0
                         maxLength: 200
                 UUID:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 36
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 36
+                Process:
                   oneOf:
                     - type: string
                       minLength: 0
@@ -9796,6 +9865,17 @@ components:
                         format: double
                         minLength: 0
                         maxLength: 36
+                Process:
+                  oneOf:
+                    - type: string
+                      minLength: 0
+                      maxLength: 36
+                    - type: array
+                      items:
+                        type: string
+                        format: double
+                        minLength: 0
+                        maxLength: 36
                 Reference:
                   oneOf:
                     - type: string
@@ -9848,6 +9928,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -9919,6 +10003,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -9995,6 +10083,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Process:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
                 Reference:
                   type: string
                   minLength: 0
@@ -10065,6 +10157,10 @@ components:
                   minLength: 0
                   maxLength: 200
                 UUID:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
+                Process:
                   type: string
                   minLength: 0
                   maxLength: 36
@@ -10141,6 +10237,10 @@ components:
                   type: string
                   minLength: 0
                   maxLength: 36
+                Process:
+                  type: string
+                  minLength: 0
+                  maxLength: 36
                 Reference:
                   type: string
                   minLength: 0
@@ -10150,12 +10250,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Supplier", "SentMethod", "Currency", "Net", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "Status", "Operator", "Company", "Name", "UUID", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "Due", "Supplier", "SentMethod", "Currency", "Net", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "PaymentMethod", "Status", "Operator", "Company", "Name", "UUID", "Process", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Supplier,SentMethod,Currency,Net,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,Status,Operator,Company,Name,UUID,Reference,Store"
+            example: "Id,Number,Date,Due,Supplier,SentMethod,Currency,Net,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,PaymentMethod,Status,Operator,Company,Name,UUID,Process,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]
