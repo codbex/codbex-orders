@@ -9,8 +9,8 @@
         "registry": "https://npm.pkg.github.com"
     },
     "dependencies": {
-        "@codbex/codbex-products": "0.13.0",
-        "@codbex/codbex-partners": "0.8.0",
+        "@codbex/codbex-products": "0.14.0",
+        "@codbex/codbex-partners": "0.9.0",
         "@codbex/codbex-employees": "0.6.0",
         "@codbex/codbex-currencies": "0.6.0",
         "@codbex/codbex-methods": "0.6.0",
