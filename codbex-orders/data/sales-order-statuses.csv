@@ -9,4 +9,5 @@ SALESORDERSTATUS_ID,SALESORDERSTATUS_NAME
 8,Returned
 9,Canceled
 10,Finished
-11,Timeouted
+11,Expired
+
