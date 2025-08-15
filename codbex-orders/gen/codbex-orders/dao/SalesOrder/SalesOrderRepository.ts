@@ -57,7 +57,6 @@ export interface SalesOrderCreateEntity {
     readonly Conditions?: string;
     readonly Operator: number;
     readonly Company?: number;
-    readonly Process?: string;
     readonly Reference?: string;
     readonly Store?: number;
 }
