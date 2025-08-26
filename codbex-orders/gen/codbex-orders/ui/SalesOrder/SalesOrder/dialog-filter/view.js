@@ -7,9 +7,9 @@ const viewData = {
     id: 'SalesOrder-filter',
     label: 'SalesOrder Filter',
     translation: {
-        key: 'codbex-orders:extName',
+        key: 'codbex-orders:codbex-orders-model.extName',
         options: {
-            content: '$t(codbex-orders:t.SALESORDER) $t(codbex-orders:defaults.filter)',
+            content: '$t(codbex-orders:codbex-orders-model.t.SALESORDER) $t(codbex-orders:codbex-orders-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/dialog-filter/index.html',

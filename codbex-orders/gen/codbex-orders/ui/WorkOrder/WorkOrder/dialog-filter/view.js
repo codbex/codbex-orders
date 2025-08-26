@@ -7,9 +7,9 @@ const viewData = {
     id: 'WorkOrder-filter',
     label: 'WorkOrder Filter',
     translation: {
-        key: 'codbex-orders:extName',
+        key: 'codbex-orders:codbex-orders-model.extName',
         options: {
-            content: '$t(codbex-orders:t.WORKORDER) $t(codbex-orders:defaults.filter)',
+            content: '$t(codbex-orders:codbex-orders-model.t.WORKORDER) $t(codbex-orders:codbex-orders-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/dialog-filter/index.html',

@@ -136,8 +136,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_ShippingProvider",
                         "relationshipEntityName": "ShippingProvider",
-                        "relationshipEntityPerspectiveName": "entities",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "relationshipEntityPerspectiveName": "Settings",
+                        "relationshipEntityPerspectiveLabel": ""
                     },
                     {
                         "dataName": "SALESORDER_SENTMETHOD",
@@ -173,8 +173,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrder_SalesOrderStatus",
                         "relationshipEntityName": "SalesOrderStatus",
-                        "relationshipEntityPerspectiveName": "entities",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "relationshipEntityPerspectiveName": "Settings",
+                        "relationshipEntityPerspectiveLabel": ""
                     },
                     {
                         "dataLength": "50",
@@ -671,8 +671,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "SalesOrderItem_SalesOrderItemStatus",
                         "relationshipEntityName": "SalesOrderItemStatus",
-                        "relationshipEntityPerspectiveName": "entities",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "relationshipEntityPerspectiveName": "Settings",
+                        "relationshipEntityPerspectiveLabel": ""
                     }
                 ],
                 "caption": "Manage entity SalesOrderItem",
@@ -3932,8 +3932,8 @@
                         "widgetType": "DROPDOWN",
                         "relationshipName": "WorkOrder_WorkOrderStatus",
                         "relationshipEntityName": "WorkOrderStatus",
-                        "relationshipEntityPerspectiveName": "OrdersSettings",
-                        "relationshipEntityPerspectiveLabel": "Entities"
+                        "relationshipEntityPerspectiveName": "Settings",
+                        "relationshipEntityPerspectiveLabel": ""
                     },
                     {
                         "dataName": "WORKORDER_OPERATOR",
@@ -4135,23 +4135,23 @@
                 "generateDefaultRoles": "true",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "",
                 "menuIndex": "100",
                 "menuKey": "workorderstatus",
                 "menuLabel": "WorkOrderStatus",
                 "name": "WorkOrderStatus",
                 "perspectiveHeader": "",
-                "perspectiveIcon": "/services/web/resources/unicons/wrench.svg",
-                "perspectiveLabel": "Orders Settings",
-                "perspectiveName": "OrdersSettings",
+                "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
+                "perspectiveLabel": "",
+                "perspectiveName": "Settings",
                 "perspectiveNavId": "",
-                "perspectiveOrder": "590",
+                "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "roleRead": "codbex-orders.OrdersSettings.WorkOrderStatusReadOnly",
                 "roleWrite": "codbex-orders.OrdersSettings.WorkOrderStatusFullAccess",
                 "title": "WorkOrderStatus",
                 "tooltip": "WorkOrderStatus",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -4738,24 +4738,26 @@
                 "dataName": "SHIPPINGPROVIDER",
                 "dataQuery": "",
                 "description": "Manage entity ShippingProvider",
+                "feedPassword": "YWRtaW4=",
+                "feedUsername": "YWRtaW4=",
                 "generateDefaultRoles": "false",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "",
                 "menuIndex": "100",
                 "menuKey": "shippingprovider",
                 "menuLabel": "ShippingProvider",
                 "name": "ShippingProvider",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveLabel": "",
+                "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "title": "ShippingProvider",
                 "tooltip": "ShippingProvider",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -4967,24 +4969,26 @@
                 "dataName": "SALESORDERSTATUS",
                 "dataQuery": "",
                 "description": "Manage entity SalesOrderStatus",
+                "feedPassword": "YWRtaW4=",
+                "feedUsername": "YWRtaW4=",
                 "generateDefaultRoles": "false",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "",
                 "menuIndex": "100",
                 "menuKey": "salesorderstatus",
                 "menuLabel": "SalesOrderStatus",
                 "name": "SalesOrderStatus",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveLabel": "",
+                "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "title": "SalesOrderStatus",
                 "tooltip": "SalesOrderStatus",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [
@@ -5022,24 +5026,26 @@
                 "dataName": "SALESORDERITEMSTATUS",
                 "dataQuery": "",
                 "description": "Manage entity SalesOrderItemStatus",
+                "feedPassword": "YWRtaW4=",
+                "feedUsername": "YWRtaW4=",
                 "generateDefaultRoles": "false",
                 "generateReport": "false",
                 "icon": "/services/web/resources/unicons/file.svg",
-                "layoutType": "MANAGE",
+                "layoutType": "",
                 "menuIndex": "100",
                 "menuKey": "salesorderitemstatus",
                 "menuLabel": "SalesOrderItemStatus",
                 "name": "SalesOrderItemStatus",
                 "perspectiveHeader": "",
                 "perspectiveIcon": "/services/web/resources/unicons/copy.svg",
-                "perspectiveLabel": "Entities",
-                "perspectiveName": "entities",
+                "perspectiveLabel": "",
+                "perspectiveName": "Settings",
                 "perspectiveNavId": "",
                 "perspectiveOrder": "100",
                 "perspectiveRole": "",
                 "title": "SalesOrderItemStatus",
                 "tooltip": "SalesOrderItemStatus",
-                "type": "PRIMARY"
+                "type": "SETTING"
             },
             {
                 "properties": [

@@ -1,0 +1,5 @@
+{
+    "module": "codbex-orders/gen/codbex-orders/ui/Settings/ShippingProvider/view.js",
+    "extensionPoint": "application-settings",
+    "description": "codbex-orders - Application View"
+}

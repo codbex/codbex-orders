@@ -20,12 +20,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		$scope.action = 'select';
 
 		LocaleService.onInit(() => {
-			description = LocaleService.t('codbex-orders:defaults.description');
-			$scope.formHeaders.select = LocaleService.t('codbex-orders:defaults.formHeadSelect', { name: '$t(codbex-orders:t.PURCHASEORDER)' });
-			$scope.formHeaders.create = LocaleService.t('codbex-orders:defaults.formHeadCreate', { name: '$t(codbex-orders:t.PURCHASEORDER)' });
-			$scope.formHeaders.update = LocaleService.t('codbex-orders:defaults.formHeadUpdate', { name: '$t(codbex-orders:t.PURCHASEORDER)' });
-			propertySuccessfullyCreated = LocaleService.t('codbex-orders:messages.propertySuccessfullyCreated', { name: '$t(codbex-orders:t.PURCHASEORDER)' });
-			propertySuccessfullyUpdated = LocaleService.t('codbex-orders:messages.propertySuccessfullyUpdated', { name: '$t(codbex-orders:t.PURCHASEORDER)' });
+			description = LocaleService.t('codbex-orders:codbex-orders-model.defaults.description');
+			$scope.formHeaders.select = LocaleService.t('codbex-orders:codbex-orders-model.defaults.formHeadSelect', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDER)' });
+			$scope.formHeaders.create = LocaleService.t('codbex-orders:codbex-orders-model.defaults.formHeadCreate', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDER)' });
+			$scope.formHeaders.update = LocaleService.t('codbex-orders:codbex-orders-model.defaults.formHeadUpdate', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDER)' });
+			propertySuccessfullyCreated = LocaleService.t('codbex-orders:codbex-orders-model.messages.propertySuccessfullyCreated', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDER)' });
+			propertySuccessfullyUpdated = LocaleService.t('codbex-orders:codbex-orders-model.messages.propertySuccessfullyUpdated', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDER)' });
 		});
 
 		let params = ViewParameters.get();
@@ -56,7 +56,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			EntityService.create(entity).then((response) => {
 				Dialogs.postMessage({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrder.entityCreated', data: response.data });
 				Notifications.show({
-					title: LocaleService.t('codbex-orders:t.PURCHASEORDER'),
+					title: LocaleService.t('codbex-orders:codbex-orders-model.t.PURCHASEORDER'),
 					description: propertySuccessfullyCreated,
 					type: 'positive'
 				});
@@ -64,7 +64,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = LocaleService.t('codbex-orders:messages.error.unableToCreate', { name: '$t(codbex-orders:t.PURCHASEORDER)', message: message });
+					$scope.errorMessage = LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToCreate', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDER)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -78,14 +78,14 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				Dialogs.postMessage({ topic: 'codbex-orders.PurchaseOrder.PurchaseOrder.entityUpdated', data: response.data });
 				$scope.cancel();
 				Notifications.show({
-					title: LocaleService.t('codbex-orders:t.PURCHASEORDER'),
+					title: LocaleService.t('codbex-orders:codbex-orders-model.t.PURCHASEORDER'),
 					description: propertySuccessfullyUpdated,
 					type: 'positive'
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				$scope.$evalAsync(() => {
-					$scope.errorMessage = LocaleService.t('codbex-orders:messages.error.unableToUpdate', { name: '$t(codbex-orders:t.PURCHASEORDER)', message: message });
+					$scope.errorMessage = LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToUpdate', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDER)', message: message });
 				});
 				console.error('EntityService:', error);
 			});
@@ -105,7 +105,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Supplier',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -123,7 +123,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'SentMethod',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -141,7 +141,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Currency',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -159,7 +159,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'PaymentMethod',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -177,7 +177,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Status',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -195,7 +195,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Operator',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -213,7 +213,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Company',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -231,7 +231,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Store',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});

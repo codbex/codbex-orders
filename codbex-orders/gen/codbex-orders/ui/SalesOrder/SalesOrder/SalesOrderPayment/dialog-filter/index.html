@@ -17,10 +17,10 @@
 			<bk-message-strip class="fd-margin--md" ng-show="errorMessage" glyph="sap-icon--message-error" state="error" on-dismiss="clearErrorMessage()">{{ errorMessage }}</bk-message-strip>
 
             <bk-fieldset class="fd-padding-begin-end--sm" ng-form="forms.details">
-                <bk-form-group label="{{ 'codbex-orders:defaults.formGrpFilter' | t:{'name':'$t(codbex-orders:t.SALESORDERPAYMENT)'} }}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                <bk-form-group label="{{ 'codbex-orders:codbex-orders-model.defaults.formGrpFilter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.SALESORDERPAYMENT)'} }}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCustomerPayment" colon="true">{{ 'codbex-orders:t.SALESORDERPAYMENT_CUSTOMERPAYMENT' | t }}</bk-form-label>
+                        	<bk-form-label for="idCustomerPayment" colon="true">{{ 'codbex-orders:codbex-orders-model.t.SALESORDERPAYMENT_CUSTOMERPAYMENT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idCustomerPayment"
@@ -28,21 +28,21 @@
 	                            state="{{ forms.details['CustomerPayment'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.CustomerPayment"
 	                            dropdown-items="optionsCustomerPayment"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.SALESORDERPAYMENT_CUSTOMERPAYMENT)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'CustomerPayment'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'CustomerPayment'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.SALESORDERPAYMENT_CUSTOMERPAYMENT)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'CustomerPayment'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'CustomerPayment'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idAmount" colon="true">{{ 'codbex-orders:t.SALESORDERPAYMENT_AMOUNT' | t }}</bk-form-label>
+                        	<bk-form-label for="idAmount" colon="true">{{ 'codbex-orders:codbex-orders-model.t.SALESORDERPAYMENT_AMOUNT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <bk-step-input input-id="idAmount"
 								name="Amount"
 								state="{{ forms.details['Amount'].$valid ? '' : 'error' }}"
 								ng-model="entity.Amount"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.SALESORDERPAYMENT_AMOUNT)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.SALESORDERPAYMENT_AMOUNT)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
@@ -53,13 +53,13 @@
         <bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<bk-bar-right>
 				<bk-bar-element>
-					<bk-button label="{{ 'codbex-orders:defaults.filter' | t }}" state="emphasized" ng-click="filter()"></bk-button>
+					<bk-button label="{{ 'codbex-orders:codbex-orders-model.defaults.filter' | t }}" state="emphasized" ng-click="filter()"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="{{ 'codbex-orders:defaults.reset' | t }}" ng-click="resetFilter()"></bk-button>
+					<bk-button label="{{ 'codbex-orders:codbex-orders-model.defaults.reset' | t }}" ng-click="resetFilter()"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="{{ 'codbex-orders:defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
+					<bk-button label="{{ 'codbex-orders:codbex-orders-model.defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
 				</bk-bar-element>
 			</bk-bar-right>
 		</bk-bar>

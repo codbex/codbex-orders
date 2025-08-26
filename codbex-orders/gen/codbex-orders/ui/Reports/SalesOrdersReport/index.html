@@ -15,24 +15,24 @@
 
 	<body class="bk-vbox">
 		<bk-toolbar has-title="true">
-			<bk-toolbar-title>{{'codbex-orders:defaults.items' | t}} <span bk-object-status text="{{dataCount}}" inverted="true"></bk-toolbar-title>
-			<bk-button state="transparent" label="{{ 'codbex-orders:defaults.filter' | t }}" ng-click="openFilter()"></bk-button>
+			<bk-toolbar-title>{{'codbex-orders:codbex-orders-model.defaults.items' | t}} <span bk-object-status text="{{dataCount}}" inverted="true"></bk-toolbar-title>
+			<bk-button state="transparent" label="{{ 'codbex-orders:codbex-orders-model.defaults.filter' | t }}" ng-click="openFilter()"></bk-button>
 		</bk-toolbar>
 
 		<bk-scrollbar class="bk-full-height" ng-hide="data == null">
 			<table bk-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead bk-table-header sticky="true">
 					<tr bk-table-row>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.ORDERSREPORT_NUMBER' | t:'Number' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.ORDERSREPORT_NAME' | t:'Name' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.ORDERSREPORT_DATE' | t:'Date' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.ORDERSREPORT_DUE' | t:'Due' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.ORDERSREPORT_NUMBER' | t:'Number' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.ORDERSREPORT_NAME' | t:'Name' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.ORDERSREPORT_DATE' | t:'Date' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.ORDERSREPORT_DUE' | t:'Due' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
 				<tbody bk-table-body>
 					<tr bk-table-row hoverable="true" ng-show="data.length == 0">
-						<td bk-table-cell no-data="true">{{'codbex-orders:messages.noData' | t}}</td>
+						<td bk-table-cell no-data="true">{{'codbex-orders:codbex-orders-model.messages.noData' | t}}</td>
 					</tr>
 					<tr bk-table-row hoverable="true" ng-repeat="next in data"
 						selected="next.Number === selectedEntity.Number" ng-click="selectEntity(next)">
@@ -47,11 +47,11 @@
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>
-									<bk-button compact="true" glyph="sap-icon--overflow" state="transparent" aria-label="{{'codbex-orders:aria.tableRowMenuBtn' | t}}" ng-click="setTristate()"></bk-button>
+									<bk-button compact="true" glyph="sap-icon--overflow" state="transparent" aria-label="{{'codbex-orders:codbex-orders-model.aria.tableRowMenuBtn' | t}}" ng-click="setTristate()"></bk-button>
 								</bk-popover-control>
 								<bk-popover-body align="bottom-right">
-									<bk-menu aria-label="{{'codbex-orders:aria.tableRowMenu' | t}}" no-backdrop="true" no-shadow="true">
-										<bk-menu-item title="{{ 'codbex-orders:defaults.viewDetails' | t }}" ng-click="openDetails(next)"></bk-menu-item>
+									<bk-menu aria-label="{{'codbex-orders:codbex-orders-model.aria.tableRowMenu' | t}}" no-backdrop="true" no-shadow="true">
+										<bk-menu-item title="{{ 'codbex-orders:codbex-orders-model.defaults.viewDetails' | t }}" ng-click="openDetails(next)"></bk-menu-item>
 									</bk-menu>
 								</bk-popover-body>
 							</bk-popover>

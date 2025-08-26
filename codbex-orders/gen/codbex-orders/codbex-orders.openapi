@@ -25,10 +25,10 @@ tags:
   - name: Reports
   - name: entities
   - name: WorkOrder
-  - name: OrdersSettings
-  - name: entities
-  - name: entities
-  - name: entities
+  - name: Settings
+  - name: Settings
+  - name: Settings
+  - name: Settings
 paths:
   /codbex-orders/gen/codbex-orders/api/SalesOrder/SalesOrderService.ts:
     get:
@@ -6410,7 +6410,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/OrdersSettings/WorkOrderStatusService.ts:
+  /codbex-orders/gen/codbex-orders/api/Settings/WorkOrderStatusService.ts:
     get:
       summary: List WorkOrderStatus
       parameters:
@@ -6431,7 +6431,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - OrdersSettings
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -6462,7 +6462,7 @@ paths:
     post:
       summary: Create WorkOrderStatus
       tags:
-        - OrdersSettings
+        - Settings
       requestBody:
         content:
           application/json:
@@ -6494,7 +6494,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/OrdersSettings/WorkOrderStatusService.ts/{id}:
+  /codbex-orders/gen/codbex-orders/api/Settings/WorkOrderStatusService.ts/{id}:
     get:
       summary: Get WorkOrderStatus by Id
       parameters:
@@ -6505,7 +6505,7 @@ paths:
           schema:
             type: string
       tags:
-        - OrdersSettings
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -6543,7 +6543,7 @@ paths:
           schema:
             type: string
       tags:
-        - OrdersSettings
+        - Settings
       requestBody:
         content:
           application/json:
@@ -6591,7 +6591,7 @@ paths:
           schema:
             type: string
       tags:
-        - OrdersSettings
+        - Settings
       responses:
         204:
           description: Successful Request
@@ -6613,11 +6613,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/OrdersSettings/WorkOrderStatusService.ts/count:
+  /codbex-orders/gen/codbex-orders/api/Settings/WorkOrderStatusService.ts/count:
     get:
       summary: Count the number of WorkOrderStatus
       tags:
-        - OrdersSettings
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -6641,7 +6641,7 @@ paths:
     post:
       summary: Count the number of WorkOrderStatus by WorkOrderStatusFilterOptions
       tags:
-        - OrdersSettings
+        - Settings
       requestBody:
         content:
           application/json:
@@ -6723,11 +6723,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/OrdersSettings/WorkOrderStatusService.ts/search:
+  /codbex-orders/gen/codbex-orders/api/Settings/WorkOrderStatusService.ts/search:
     post:
       summary: Search WorkOrderStatus by WorkOrderStatusFilterOptions
       tags:
-        - OrdersSettings
+        - Settings
       requestBody:
         content:
           application/json:
@@ -6810,7 +6810,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/ShippingProviderService.ts:
+  /codbex-orders/gen/codbex-orders/api/Settings/ShippingProviderService.ts:
     get:
       summary: List ShippingProvider
       parameters:
@@ -6831,7 +6831,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -6862,7 +6862,7 @@ paths:
     post:
       summary: Create ShippingProvider
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -6894,7 +6894,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/ShippingProviderService.ts/{id}:
+  /codbex-orders/gen/codbex-orders/api/Settings/ShippingProviderService.ts/{id}:
     get:
       summary: Get ShippingProvider by Id
       parameters:
@@ -6905,7 +6905,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -6943,7 +6943,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -6991,7 +6991,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       responses:
         204:
           description: Successful Request
@@ -7013,11 +7013,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/ShippingProviderService.ts/count:
+  /codbex-orders/gen/codbex-orders/api/Settings/ShippingProviderService.ts/count:
     get:
       summary: Count the number of ShippingProvider
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -7041,7 +7041,7 @@ paths:
     post:
       summary: Count the number of ShippingProvider by ShippingProviderFilterOptions
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -7123,11 +7123,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/ShippingProviderService.ts/search:
+  /codbex-orders/gen/codbex-orders/api/Settings/ShippingProviderService.ts/search:
     post:
       summary: Search ShippingProvider by ShippingProviderFilterOptions
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -7210,7 +7210,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts:
+  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts:
     get:
       summary: List SalesOrderStatus
       parameters:
@@ -7231,7 +7231,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -7262,7 +7262,7 @@ paths:
     post:
       summary: Create SalesOrderStatus
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -7294,7 +7294,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts/{id}:
+  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts/{id}:
     get:
       summary: Get SalesOrderStatus by Id
       parameters:
@@ -7305,7 +7305,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -7343,7 +7343,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -7391,7 +7391,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       responses:
         204:
           description: Successful Request
@@ -7413,11 +7413,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts/count:
+  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts/count:
     get:
       summary: Count the number of SalesOrderStatus
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -7441,7 +7441,7 @@ paths:
     post:
       summary: Count the number of SalesOrderStatus by SalesOrderStatusFilterOptions
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -7523,11 +7523,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts/search:
+  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts/search:
     post:
       summary: Search SalesOrderStatus by SalesOrderStatusFilterOptions
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -7610,7 +7610,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderItemStatusService.ts:
+  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderItemStatusService.ts:
     get:
       summary: List SalesOrderItemStatus
       parameters:
@@ -7631,7 +7631,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -7662,7 +7662,7 @@ paths:
     post:
       summary: Create SalesOrderItemStatus
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -7694,7 +7694,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderItemStatusService.ts/{id}:
+  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderItemStatusService.ts/{id}:
     get:
       summary: Get SalesOrderItemStatus by Id
       parameters:
@@ -7705,7 +7705,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -7743,7 +7743,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -7791,7 +7791,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Settings
       responses:
         204:
           description: Successful Request
@@ -7813,11 +7813,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderItemStatusService.ts/count:
+  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderItemStatusService.ts/count:
     get:
       summary: Count the number of SalesOrderItemStatus
       tags:
-        - entities
+        - Settings
       responses:
         200:
           description: Successful Request
@@ -7841,7 +7841,7 @@ paths:
     post:
       summary: Count the number of SalesOrderItemStatus by SalesOrderItemStatusFilterOptions
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:
@@ -7923,11 +7923,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrderItemStatusService.ts/search:
+  /codbex-orders/gen/codbex-orders/api/Settings/SalesOrderItemStatusService.ts/search:
     post:
       summary: Search SalesOrderItemStatus by SalesOrderItemStatusFilterOptions
       tags:
-        - entities
+        - Settings
       requestBody:
         content:
           application/json:

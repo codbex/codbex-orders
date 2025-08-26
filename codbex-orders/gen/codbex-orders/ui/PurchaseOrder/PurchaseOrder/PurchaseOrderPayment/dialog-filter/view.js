@@ -7,9 +7,9 @@ const viewData = {
     id: 'PurchaseOrderPayment-filter',
     label: 'PurchaseOrderPayment Filter',
     translation: {
-        key: 'codbex-orders:extName',
+        key: 'codbex-orders:codbex-orders-model.extName',
         options: {
-            content: '$t(codbex-orders:t.PURCHASEORDERPAYMENT) $t(codbex-orders:defaults.filter)',
+            content: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERPAYMENT) $t(codbex-orders:codbex-orders-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-orders/gen/codbex-orders/ui/PurchaseOrder/PurchaseOrder/PurchaseOrderPayment/dialog-filter/index.html',

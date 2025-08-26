@@ -1,5 +1,0 @@
-{
-    "module": "codbex-orders/gen/codbex-orders/ui/entities/SalesOrderItemStatus/view.js",
-    "extensionPoint": "application-views",
-    "description": "codbex-orders - Application View"
-}

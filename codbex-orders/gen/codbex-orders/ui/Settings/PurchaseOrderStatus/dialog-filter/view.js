@@ -7,9 +7,9 @@ const viewData = {
     id: 'PurchaseOrderStatus-filter',
     label: 'PurchaseOrderStatus Filter',
     translation: {
-        key: 'codbex-orders:extName',
+        key: 'codbex-orders:codbex-orders-model.extName',
         options: {
-            content: '$t(codbex-orders:t.PURCHASEORDERSTATUS) $t(codbex-orders:defaults.filter)',
+            content: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERSTATUS) $t(codbex-orders:codbex-orders-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-orders/gen/codbex-orders/ui/Settings/PurchaseOrderStatus/dialog-filter/index.html',

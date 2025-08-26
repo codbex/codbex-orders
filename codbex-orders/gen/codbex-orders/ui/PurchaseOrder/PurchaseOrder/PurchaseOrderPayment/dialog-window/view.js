@@ -7,7 +7,7 @@ const viewData = {
     id: 'PurchaseOrderPayment-details',
     label: 'PurchaseOrderPayment',
     translation: {
-        key: 'codbex-orders:t.PURCHASEORDERPAYMENT',
+        key: 'codbex-orders:codbex-orders-model.t.PURCHASEORDERPAYMENT',
     },
     path: '/services/web/codbex-orders/gen/codbex-orders/ui/PurchaseOrder/PurchaseOrder/PurchaseOrderPayment/dialog-window/index.html',
     perspectiveName: 'PurchaseOrder'

@@ -12,10 +12,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		};
 
 		LocaleService.onInit(() => {
-			translated.yes = LocaleService.t('codbex-orders:defaults.yes');
-			translated.no = LocaleService.t('codbex-orders:defaults.no');
-			translated.deleteTitle = LocaleService.t('codbex-orders:defaults.deleteTitle', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)' });
-			translated.deleteConfirm = LocaleService.t('codbex-orders:messages.deleteConfirm', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)' });
+			translated.yes = LocaleService.t('codbex-orders:codbex-orders-model.defaults.yes');
+			translated.no = LocaleService.t('codbex-orders:codbex-orders-model.defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-orders:codbex-orders-model.defaults.deleteTitle', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERPAYMENT)' });
+			translated.deleteConfirm = LocaleService.t('codbex-orders:codbex-orders-model.messages.deleteConfirm', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERPAYMENT)' });
 		});
 		//-----------------Custom Actions-------------------//
 		Extensions.getWindows(['codbex-orders-custom-action']).then((response) => {
@@ -120,8 +120,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: LocaleService.t('codbex-orders:t.PURCHASEORDERPAYMENT'),
-						message: LocaleService.t('codbex-orders:messages.error.unableToLF', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)', message: message }),
+						title: LocaleService.t('codbex-orders:codbex-orders-model.t.PURCHASEORDERPAYMENT'),
+						message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLF', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERPAYMENT)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -129,8 +129,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-orders:t.PURCHASEORDERPAYMENT'),
-					message: LocaleService.t('codbex-orders:messages.error.unableToCount', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)', message: message }),
+					title: LocaleService.t('codbex-orders:codbex-orders-model.t.PURCHASEORDERPAYMENT'),
+					message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToCount', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERPAYMENT)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -220,8 +220,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: LocaleService.t('codbex-orders:t.PURCHASEORDERPAYMENT'),
-							message: LocaleService.t('codbex-orders:messages.error.unableToDelete', { name: '$t(codbex-orders:t.PURCHASEORDERPAYMENT)', message: message }),
+							title: LocaleService.t('codbex-orders:codbex-orders-model.t.PURCHASEORDERPAYMENT'),
+							message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToDelete', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERPAYMENT)', message: message }),
 							type: AlertTypes.Error,
 						});
 						console.error('EntityService:', error);
@@ -245,7 +245,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'PurchaseOrder',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -260,7 +260,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'SupplierPayment',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});

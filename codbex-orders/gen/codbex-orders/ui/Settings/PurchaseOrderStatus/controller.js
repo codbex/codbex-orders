@@ -12,10 +12,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		};
 
 		LocaleService.onInit(() => {
-			translated.yes = LocaleService.t('codbex-orders:defaults.yes');
-			translated.no = LocaleService.t('codbex-orders:defaults.no');
-			translated.deleteTitle = LocaleService.t('codbex-orders:defaults.deleteTitle', { name: '$t(codbex-orders:t.PURCHASEORDERSTATUS)' });
-			translated.deleteConfirm = LocaleService.t('codbex-orders:messages.deleteConfirm', { name: '$t(codbex-orders:t.PURCHASEORDERSTATUS)' });
+			translated.yes = LocaleService.t('codbex-orders:codbex-orders-model.defaults.yes');
+			translated.no = LocaleService.t('codbex-orders:codbex-orders-model.defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-orders:codbex-orders-model.defaults.deleteTitle', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERSTATUS)' });
+			translated.deleteConfirm = LocaleService.t('codbex-orders:codbex-orders-model.messages.deleteConfirm', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERSTATUS)' });
 		});
 
 		$scope.dataPage = 1;
@@ -98,8 +98,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: LocaleService.t('codbex-orders:t.PURCHASEORDERSTATUS'),
-						message: LocaleService.t('codbex-orders:messages.error.unableToLF', { name: '$t(codbex-orders:t.PURCHASEORDERSTATUS)', message: message }),
+						title: LocaleService.t('codbex-orders:codbex-orders-model.t.PURCHASEORDERSTATUS'),
+						message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLF', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERSTATUS)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -107,8 +107,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-orders:t.PURCHASEORDERSTATUS'),
-					message: LocaleService.t('codbex-orders:messages.error.unableToCount', { name: '$t(codbex-orders:t.PURCHASEORDERSTATUS)', message: message }),
+					title: LocaleService.t('codbex-orders:codbex-orders-model.t.PURCHASEORDERSTATUS'),
+					message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToCount', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERSTATUS)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -186,8 +186,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: LocaleService.t('codbex-orders:t.PURCHASEORDERSTATUS'),
-							message: LocaleService.t('codbex-orders:messages.error.unableToDelete', { name: '$t(codbex-orders:t.PURCHASEORDERSTATUS)', message: message }),
+							title: LocaleService.t('codbex-orders:codbex-orders-model.t.PURCHASEORDERSTATUS'),
+							message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToDelete', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERSTATUS)', message: message }),
 							type: AlertTypes.Error
 						});
 						console.error('EntityService:', error);

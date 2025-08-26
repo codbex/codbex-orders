@@ -7,7 +7,7 @@ const viewData = {
     id: "SalesOrder-details",
     label: "SalesOrder",
     translation: {
-        key: 'codbex-orders:t.SALESORDER',
+        key: 'codbex-orders:codbex-orders-model.t.SALESORDER',
     },
     path: "/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/dialog-window/index.html",
     perspectiveName: "SalesOrder",

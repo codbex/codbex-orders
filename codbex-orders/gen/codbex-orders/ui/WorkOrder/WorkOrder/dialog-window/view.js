@@ -7,7 +7,7 @@ const viewData = {
     id: "WorkOrder-details",
     label: "WorkOrder",
     translation: {
-        key: 'codbex-orders:t.WORKORDER',
+        key: 'codbex-orders:codbex-orders-model.t.WORKORDER',
     },
     path: "/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/WorkOrder/dialog-window/index.html",
     perspectiveName: "WorkOrder",
