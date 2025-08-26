@@ -1,6 +1,0 @@
-{
-    "module": "codbex-orders/gen/codbex-orders/ui/OrdersSettings/perspective.js",
-    "extensionPoint": "application-perspectives",
-    "description": "codbex-orders - Perspective - OrdersSettings",
-    "role": "codbex-orders.OrdersSettings.WorkOrderStatusReadOnly,codbex-orders.OrdersSettings.WorkOrderStatusFullAccess"
-}

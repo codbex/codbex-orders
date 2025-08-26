@@ -43,12 +43,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					$scope.data = response.data;
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
-					Dialogs.showAlert({ title: LocaleService.t('codbex-orders:t.PURCHASEORDERSREPORT'), message: LocaleService.t('codbex-orders:messages.error.unableToLF', { name: '$t(codbex-orders:t.PURCHASEORDERSREPORT)', message: message }), type: AlertTypes.Error });
+					Dialogs.showAlert({ title: LocaleService.t('codbex-orders:codbex-orders-model.t.PURCHASEORDERSREPORT'), message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLF', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERSREPORT)', message: message }), type: AlertTypes.Error });
 					console.error('EntityService:', error);
 				});
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
-				Dialogs.showAlertError({ title: LocaleService.t('codbex-orders:t.PURCHASEORDERSREPORT'), message: LocaleService.t('codbex-orders:messages.error.unableToCount', { name: '$t(codbex-orders:t.PURCHASEORDERSREPORT)', message: message }), type: AlertTypes.Error });
+				Dialogs.showAlertError({ title: LocaleService.t('codbex-orders:codbex-orders-model.t.PURCHASEORDERSREPORT'), message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToCount', { name: '$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERSREPORT)', message: message }), type: AlertTypes.Error });
 				console.error('EntityService:', error);
 			});
 		};

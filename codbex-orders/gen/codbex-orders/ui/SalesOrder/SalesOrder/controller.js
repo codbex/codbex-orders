@@ -12,10 +12,10 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 		};
 
 		LocaleService.onInit(() => {
-			translated.yes = LocaleService.t('codbex-orders:defaults.yes');
-			translated.no = LocaleService.t('codbex-orders:defaults.no');
-			translated.deleteTitle = LocaleService.t('codbex-orders:defaults.deleteTitle', { name: '$t(codbex-orders:t.SALESORDER)' });
-			translated.deleteConfirm = LocaleService.t('codbex-orders:messages.deleteConfirm', { name: '$t(codbex-orders:t.SALESORDER)' });
+			translated.yes = LocaleService.t('codbex-orders:codbex-orders-model.defaults.yes');
+			translated.no = LocaleService.t('codbex-orders:codbex-orders-model.defaults.no');
+			translated.deleteTitle = LocaleService.t('codbex-orders:codbex-orders-model.defaults.deleteTitle', { name: '$t(codbex-orders:codbex-orders-model.t.SALESORDER)' });
+			translated.deleteConfirm = LocaleService.t('codbex-orders:codbex-orders-model.messages.deleteConfirm', { name: '$t(codbex-orders:codbex-orders-model.t.SALESORDER)' });
 		});
 		$scope.dataPage = 1;
 		$scope.dataCount = 0;
@@ -114,8 +114,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				}, (error) => {
 					const message = error.data ? error.data.message : '';
 					Dialogs.showAlert({
-						title: LocaleService.t('codbex-orders:t.SALESORDER'),
-						message: LocaleService.t('codbex-orders:messages.error.unableToLF', { name: '$t(codbex-orders:t.SALESORDER)', message: message }),
+						title: LocaleService.t('codbex-orders:codbex-orders-model.t.SALESORDER'),
+						message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLF', { name: '$t(codbex-orders:codbex-orders-model.t.SALESORDER)', message: message }),
 						type: AlertTypes.Error
 					});
 					console.error('EntityService:', error);
@@ -123,8 +123,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			}, (error) => {
 				const message = error.data ? error.data.message : '';
 				Dialogs.showAlert({
-					title: LocaleService.t('codbex-orders:t.SALESORDER'),
-					message: LocaleService.t('codbex-orders:messages.error.unableToCount', { name: '$t(codbex-orders:t.SALESORDER)', message: message }),
+					title: LocaleService.t('codbex-orders:codbex-orders-model.t.SALESORDER'),
+					message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToCount', { name: '$t(codbex-orders:codbex-orders-model.t.SALESORDER)', message: message }),
 					type: AlertTypes.Error
 				});
 				console.error('EntityService:', error);
@@ -209,8 +209,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 					}, (error) => {
 						const message = error.data ? error.data.message : '';
 						Dialogs.showAlert({
-							title: LocaleService.t('codbex-orders:t.SALESORDER'),
-							message: LocaleService.t('codbex-orders:messages.error.unableToDelete', { name: '$t(codbex-orders:t.SALESORDER)', message: message }),
+							title: LocaleService.t('codbex-orders:codbex-orders-model.t.SALESORDER'),
+							message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToDelete', { name: '$t(codbex-orders:codbex-orders-model.t.SALESORDER)', message: message }),
 							type: AlertTypes.Error
 						});
 						console.error('EntityService:', error);
@@ -261,7 +261,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Customer',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -276,7 +276,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'BillingAddress',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -291,12 +291,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'ShippingAddress',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
 
-		$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/entities/ShippingProviderService.ts').then((response) => {
+		$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/Settings/ShippingProviderService.ts').then((response) => {
 			$scope.optionsShippingProvider = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
@@ -306,7 +306,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'ShippingProvider',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -321,12 +321,12 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'SentMethod',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
 
-		$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/entities/SalesOrderStatusService.ts').then((response) => {
+		$http.get('/services/ts/codbex-orders/gen/codbex-orders/api/Settings/SalesOrderStatusService.ts').then((response) => {
 			$scope.optionsStatus = response.data.map(e => ({
 				value: e.Id,
 				text: e.Name
@@ -336,7 +336,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Status',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -351,7 +351,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Currency',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -366,7 +366,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Operator',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -381,7 +381,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Company',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});
@@ -396,7 +396,7 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			const message = error.data ? error.data.message : '';
 			Dialogs.showAlert({
 				title: 'Store',
-				message: LocaleService.t('codbex-orders:messages.error.unableToLoad', { message: message }),
+				message: LocaleService.t('codbex-orders:codbex-orders-model.messages.error.unableToLoad', { message: message }),
 				type: AlertTypes.Error
 			});
 		});

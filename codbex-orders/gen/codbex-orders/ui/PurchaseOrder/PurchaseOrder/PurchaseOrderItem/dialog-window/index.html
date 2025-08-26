@@ -19,7 +19,7 @@
                 <bk-form-group label="{{formHeaders[action]}}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idProduct" ng-required="true" colon="true">{{ 'codbex-orders:t.PURCHASEORDERITEM_PRODUCT' | t }}</bk-form-label>
+                        	<bk-form-label for="idProduct" ng-required="true" colon="true">{{ 'codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_PRODUCT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <bk-combobox-input input-id="idProduct"
@@ -29,14 +29,14 @@
 	                            ng-model="entity.Product"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsProduct"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERITEM_PRODUCT)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Product'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Product'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_PRODUCT)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'Product'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'Product'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idUoM" ng-required="false" colon="true">{{ 'codbex-orders:t.PURCHASEORDERITEM_UOM' | t }}</bk-form-label>
+                        	<bk-form-label for="idUoM" ng-required="false" colon="true">{{ 'codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_UOM' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
 	                        <bk-combobox-input input-id="idUoM"
@@ -46,14 +46,14 @@
 	                            ng-model="entity.UoM"
 	                            is-readonly="action === 'select'"
 	                            dropdown-items="optionsUoM"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERITEM_UOM)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'UoM'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'UoM'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_UOM)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'UoM'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'UoM'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idQuantity" ng-required="true" colon="true">{{ 'codbex-orders:t.PURCHASEORDERITEM_QUANTITY' | t }}</bk-form-label>
+                        	<bk-form-label for="idQuantity" ng-required="true" colon="true">{{ 'codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_QUANTITY' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idQuantity"
@@ -62,13 +62,13 @@
 								ng-required="true"
 								ng-model="entity.Quantity"
 								is-readonly="action === 'select'"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERITEM_QUANTITY)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_QUANTITY)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idPrice" ng-required="true" colon="true">{{ 'codbex-orders:t.PURCHASEORDERITEM_PRICE' | t }}</bk-form-label>
+                        	<bk-form-label for="idPrice" ng-required="true" colon="true">{{ 'codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_PRICE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idPrice"
@@ -77,26 +77,26 @@
 								ng-required="true"
 								ng-model="entity.Price"
 								is-readonly="action === 'select'"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERITEM_PRICE)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_PRICE)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idNet" ng-required="false" colon="true">{{ 'codbex-orders:t.PURCHASEORDERITEM_NET' | t }}</bk-form-label>
+                        	<bk-form-label for="idNet" ng-required="false" colon="true">{{ 'codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_NET' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idNet"
 								name="Net"
 								ng-model="entity.Net"
 								is-readonly="true"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERITEM_NET)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_NET)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idVATRate" ng-required="true" colon="true">{{ 'codbex-orders:t.PURCHASEORDERITEM_VATRATE' | t }}</bk-form-label>
+                        	<bk-form-label for="idVATRate" ng-required="true" colon="true">{{ 'codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_VATRATE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idVATRate"
@@ -105,33 +105,33 @@
 								ng-required="true"
 								ng-model="entity.VATRate"
 								is-readonly="action === 'select'"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERITEM_VATRATE)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_VATRATE)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idVAT" ng-required="false" colon="true">{{ 'codbex-orders:t.PURCHASEORDERITEM_VAT' | t }}</bk-form-label>
+                        	<bk-form-label for="idVAT" ng-required="false" colon="true">{{ 'codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_VAT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idVAT"
 								name="VAT"
 								ng-model="entity.VAT"
 								is-readonly="true"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERITEM_VAT)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_VAT)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idGross" ng-required="false" colon="true">{{ 'codbex-orders:t.PURCHASEORDERITEM_GROSS' | t }}</bk-form-label>
+                        	<bk-form-label for="idGross" ng-required="false" colon="true">{{ 'codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_GROSS' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--4 ">
 	                        <bk-step-input input-id="idGross"
 								name="Gross"
 								ng-model="entity.Gross"
 								is-readonly="true"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.PURCHASEORDERITEM_GROSS)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.PURCHASEORDERITEM_GROSS)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
@@ -142,11 +142,11 @@
 		<bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<bk-bar-right>
 				<bk-bar-element>
-					<bk-button ng-if="action === 'create'" label="{{'codbex-orders:defaults.create' | t}}" state="emphasized" ng-click="create()" ng-disabled="!forms.details.$valid"></bk-button>
-					<bk-button ng-if="action !== 'create'" label="{{'codbex-orders:defaults.update' | t}}" state="emphasized" ng-click="update()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action === 'create'" label="{{'codbex-orders:codbex-orders-model.defaults.create' | t}}" state="emphasized" ng-click="create()" ng-disabled="!forms.details.$valid"></bk-button>
+					<bk-button ng-if="action !== 'create'" label="{{'codbex-orders:codbex-orders-model.defaults.update' | t}}" state="emphasized" ng-click="update()" ng-disabled="!forms.details.$valid"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="{{ 'codbex-orders:defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
+					<bk-button label="{{ 'codbex-orders:codbex-orders-model.defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
 				</bk-bar-element>
 			</bk-bar-right>
 		</bk-bar>

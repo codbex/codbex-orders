@@ -7,7 +7,7 @@ const perspectiveData = {
 	id: 'SalesOrder',
 	label: 'Sales Order',
 	translation: {
-        key: 'codbex-orders:t.SALESORDER',
+        key: 'codbex-orders:codbex-orders-model.t.SALESORDER',
     },
 	path: '/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/index.html',
 	order: 510,

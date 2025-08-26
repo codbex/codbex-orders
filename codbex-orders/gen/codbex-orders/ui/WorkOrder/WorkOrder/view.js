@@ -7,7 +7,7 @@ const viewData = {
     id: 'WorkOrder',
     label: 'WorkOrder',
     translation: {
-        key: 'codbex-orders:t.WORKORDER',
+        key: 'codbex-orders:codbex-orders-model.t.WORKORDER',
     },
     region: 'left',
     lazyLoad: false,

@@ -7,7 +7,7 @@ const viewData = {
     id: 'SalesOrderPayment-details',
     label: 'SalesOrderPayment',
     translation: {
-        key: 'codbex-orders:t.SALESORDERPAYMENT',
+        key: 'codbex-orders:codbex-orders-model.t.SALESORDERPAYMENT',
     },
     path: '/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/SalesOrderPayment/dialog-window/index.html',
     perspectiveName: 'SalesOrder'

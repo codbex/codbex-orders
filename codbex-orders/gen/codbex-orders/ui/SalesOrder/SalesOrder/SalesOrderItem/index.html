@@ -15,35 +15,35 @@
 
 	<body class="bk-vbox">
 		<bk-message-page glyph="sap-icon--hint" ng-show="data == null">
-			<bk-message-page-title>{{'codbex-orders:messages.detailSelectRecord' | t}}</bk-message-page-title>
+			<bk-message-page-title>{{'codbex-orders:codbex-orders-model.messages.detailSelectRecord' | t}}</bk-message-page-title>
 		</bk-message-page>
 
 		<bk-toolbar has-title="true" ng-hide="data == null">
-			<bk-toolbar-title>{{'codbex-orders:defaults.items' | t}} <span bk-object-status text="{{dataCount}}" inverted="true"></bk-toolbar-title>
-			<bk-button compact="true" state="transparent" label="{{ 'codbex-orders:defaults.filter' | t }}" ng-click="openFilter()"></bk-button>
+			<bk-toolbar-title>{{'codbex-orders:codbex-orders-model.defaults.items' | t}} <span bk-object-status text="{{dataCount}}" inverted="true"></bk-toolbar-title>
+			<bk-button compact="true" state="transparent" label="{{ 'codbex-orders:codbex-orders-model.defaults.filter' | t }}" ng-click="openFilter()"></bk-button>
 			<bk-button ng-repeat="action in pageActions track by $index" compact="true" state="transparent" label="{{action.translation.key | t:action.translation.options:action.label}}" ng-click="triggerPageAction(action)"></bk-button>
 			<bk-toolbar-spacer></bk-toolbar-spacer>
-			<bk-button compact="true" state="emphasized" label="{{'codbex-orders:defaults.create' | t}}" ng-click="createEntity()" ng-disabled="selectedMainEntityId == null"></bk-button>
+			<bk-button compact="true" state="emphasized" label="{{'codbex-orders:codbex-orders-model.defaults.create' | t}}" ng-click="createEntity()" ng-disabled="selectedMainEntityId == null"></bk-button>
 		</bk-toolbar>
 		<bk-scrollbar class="bk-full-height" ng-hide="data == null">
 			<table bk-table display-mode="compact" inner-borders="top" outer-borders="none">
 				<thead bk-table-header sticky="true">
 					<tr bk-table-row>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_PRODUCT' | t:'Product' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_QUANTITY' | t:'Quantity' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_UOM' | t:'UoM' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_NET' | t:'Net' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_PRICE' | t:'Price' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_VATRATE' | t:'VATRate' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_VAT' | t:'VAT' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_GROSS' | t:'Gross' }}</th>
-						<th bk-table-header-cell>{{ 'codbex-orders:t.SALESORDERITEM_STATUS' | t:'Status' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.SALESORDERITEM_PRODUCT' | t:'Product' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.SALESORDERITEM_QUANTITY' | t:'Quantity' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.SALESORDERITEM_UOM' | t:'UoM' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.SALESORDERITEM_NET' | t:'Net' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.SALESORDERITEM_PRICE' | t:'Price' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.SALESORDERITEM_VATRATE' | t:'VATRate' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.SALESORDERITEM_VAT' | t:'VAT' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.SALESORDERITEM_GROSS' | t:'Gross' }}</th>
+						<th bk-table-header-cell>{{ 'codbex-orders:codbex-orders-model.t.SALESORDERITEM_STATUS' | t:'Status' }}</th>
 						<th bk-table-header-cell></th>
 					</tr>
 				</thead>
 				<tbody bk-table-body>
 					<tr bk-table-row hoverable="true" ng-show="data.length == 0">
-						<td bk-table-cell no-data="true">{{'codbex-orders:messages.noData' | t}}</td>
+						<td bk-table-cell no-data="true">{{'codbex-orders:codbex-orders-model.messages.noData' | t}}</td>
 					</tr>
 					<tr bk-table-row hoverable="true" ng-repeat="next in data track by $index" selected="next.Id === selectedEntity.Id" ng-click="selectEntity(next)">
 						<td bk-table-cell ng-click="openDetails(next)" hoverable="true" activable="true">
@@ -64,14 +64,14 @@
 						<td bk-table-cell fit-content="true">
 							<bk-popover>
 								<bk-popover-control>
-									<bk-button compact="true" glyph="sap-icon--overflow" state="transparent" aria-label="{{'codbex-orders:aria.tableRowMenuBtn' | t}}" ng-click="setTristate()"></bk-button>
+									<bk-button compact="true" glyph="sap-icon--overflow" state="transparent" aria-label="{{'codbex-orders:codbex-orders-model.aria.tableRowMenuBtn' | t}}" ng-click="setTristate()"></bk-button>
 								</bk-popover-control>
 								<bk-popover-body align="bottom-right">
-									<bk-menu aria-label="{{'codbex-orders:aria.tableRowMenu' | t}}" no-backdrop="true" no-shadow="true">
+									<bk-menu aria-label="{{'codbex-orders:codbex-orders-model.aria.tableRowMenu' | t}}" no-backdrop="true" no-shadow="true">
 										<bk-menu-item ng-repeat="action in entityActions" title="{{action.translation.key | t:action.translation.options:action.label}}" ng-click="triggerEntityAction(action)"></bk-menu-item>
-										<bk-menu-item title="{{ 'codbex-orders:defaults.viewDetails' | t }}" ng-click="openDetails(next)"></bk-menu-item>
-										<bk-menu-item title="{{ 'codbex-orders:defaults.edit' | t }}" ng-click="updateEntity(next)"></bk-menu-item>
-										<bk-menu-item title="{{ 'codbex-orders:defaults.delete' | t }}" ng-click="deleteEntity(next)"></bk-menu-item>
+										<bk-menu-item title="{{ 'codbex-orders:codbex-orders-model.defaults.viewDetails' | t }}" ng-click="openDetails(next)"></bk-menu-item>
+										<bk-menu-item title="{{ 'codbex-orders:codbex-orders-model.defaults.edit' | t }}" ng-click="updateEntity(next)"></bk-menu-item>
+										<bk-menu-item title="{{ 'codbex-orders:codbex-orders-model.defaults.delete' | t }}" ng-click="deleteEntity(next)"></bk-menu-item>
 									</bk-menu>
 								</bk-popover-body>
 							</bk-popover>

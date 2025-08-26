@@ -17,30 +17,30 @@
 			<bk-message-strip class="fd-margin--md" ng-show="errorMessage" glyph="sap-icon--message-error" state="error" on-dismiss="clearErrorMessage()">{{ errorMessage }}</bk-message-strip>
 
             <bk-fieldset class="fd-padding-begin-end--sm" ng-form="forms.details">
-                <bk-form-group label="{{ 'codbex-orders:defaults.formGrpFilter' | t:{'name':'$t(codbex-orders:t.WORKORDER)'} }}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
+                <bk-form-group label="{{ 'codbex-orders:codbex-orders-model.defaults.formGrpFilter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER)'} }}" name="entityForm" transclude-classes="fd-container fd-form-layout-grid-container">
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idNumber" colon="true">{{ 'codbex-orders:t.WORKORDER_NUMBER' | t }}</bk-form-label>
+                        	<bk-form-label for="idNumber" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_NUMBER' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Number'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['Number'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idNumber"
 	                                name="Number"
 	                                state="{{ forms.details['Number'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Number"
 									ng-maxlength="20.0"
 	                                type="text"
-	                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_NUMBER)'} }}">
+	                                placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_NUMBER)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idDateFrom" colon="true">{{ 'codbex-orders:defaults.from' | t:{'text':'$t(codbex-orders:t.WORKORDER_DATE)'} }}</bk-form-label>
+                        	<bk-form-label for="idDateFrom" colon="true">{{ 'codbex-orders:codbex-orders-model.defaults.from' | t:{'text':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_DATE)'} }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
-							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idDateFrom"
 	                                name="Date"
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
@@ -50,10 +50,10 @@
 							</bk-form-input-message>
 	                    </div>
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idDateTo" colon="true">{{ 'codbex-orders:defaults.to' | t:{'text':'$t(codbex-orders:t.WORKORDER_DATE)'} }}</bk-form-label>
+                        	<bk-form-label for="idDateTo" colon="true">{{ 'codbex-orders:codbex-orders-model.defaults.to' | t:{'text':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_DATE)'} }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
-							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['Date'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idDateTo"
 	                                name="Date"
 	                                state="{{ forms.details['Date'].$valid ? '' : 'error' }}"
@@ -65,10 +65,10 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idDueFrom" colon="true">{{ 'codbex-orders:defaults.from' | t:{'text':'$t(codbex-orders:t.WORKORDER_DUE)'} }}</bk-form-label>
+                        	<bk-form-label for="idDueFrom" colon="true">{{ 'codbex-orders:codbex-orders-model.defaults.from' | t:{'text':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_DUE)'} }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
-							<bk-form-input-message state="{{ forms.details['Due'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['Due'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idDueFrom"
 	                                name="Due"
 	                                state="{{ forms.details['Due'].$valid ? '' : 'error' }}"
@@ -78,10 +78,10 @@
 							</bk-form-input-message>
 	                    </div>
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idDueTo" colon="true">{{ 'codbex-orders:defaults.to' | t:{'text':'$t(codbex-orders:t.WORKORDER_DUE)'} }}</bk-form-label>
+                        	<bk-form-label for="idDueTo" colon="true">{{ 'codbex-orders:codbex-orders-model.defaults.to' | t:{'text':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_DUE)'} }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--2">
-							<bk-form-input-message state="{{ forms.details['Due'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['Due'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idDueTo"
 	                                name="Due"
 	                                state="{{ forms.details['Due'].$valid ? '' : 'error' }}"
@@ -93,24 +93,24 @@
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idTask" colon="true">{{ 'codbex-orders:t.WORKORDER_TASK' | t }}</bk-form-label>
+                        	<bk-form-label for="idTask" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_TASK' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Task'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['Task'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idTask"
 	                                name="Task"
 	                                state="{{ forms.details['Task'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Task"
 									ng-maxlength="200.0"
 	                                type="text"
-	                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_TASK)'} }}">
+	                                placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_TASK)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCustomer" colon="true">{{ 'codbex-orders:t.WORKORDER_CUSTOMER' | t }}</bk-form-label>
+                        	<bk-form-label for="idCustomer" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_CUSTOMER' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idCustomer"
@@ -118,14 +118,14 @@
 	                            state="{{ forms.details['Customer'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.Customer"
 	                            dropdown-items="optionsCustomer"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_CUSTOMER)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Customer'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Customer'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_CUSTOMER)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'Customer'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'Customer'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idSentMethod" colon="true">{{ 'codbex-orders:t.WORKORDER_SENTMETHOD' | t }}</bk-form-label>
+                        	<bk-form-label for="idSentMethod" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_SENTMETHOD' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idSentMethod"
@@ -133,14 +133,14 @@
 	                            state="{{ forms.details['SentMethod'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.SentMethod"
 	                            dropdown-items="optionsSentMethod"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_SENTMETHOD)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'SentMethod'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'SentMethod'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_SENTMETHOD)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'SentMethod'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'SentMethod'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCurrency" colon="true">{{ 'codbex-orders:t.WORKORDER_CURRENCY' | t }}</bk-form-label>
+                        	<bk-form-label for="idCurrency" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_CURRENCY' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idCurrency"
@@ -148,122 +148,122 @@
 	                            state="{{ forms.details['Currency'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.Currency"
 	                            dropdown-items="optionsCurrency"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_CURRENCY)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Currency'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Currency'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_CURRENCY)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'Currency'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'Currency'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idNet" colon="true">{{ 'codbex-orders:t.WORKORDER_NET' | t }}</bk-form-label>
+                        	<bk-form-label for="idNet" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_NET' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <bk-step-input input-id="idNet"
 								name="Net"
 								state="{{ forms.details['Net'].$valid ? '' : 'error' }}"
 								ng-model="entity.Net"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_NET)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_NET)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idGross" colon="true">{{ 'codbex-orders:t.WORKORDER_GROSS' | t }}</bk-form-label>
+                        	<bk-form-label for="idGross" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_GROSS' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <bk-step-input input-id="idGross"
 								name="Gross"
 								state="{{ forms.details['Gross'].$valid ? '' : 'error' }}"
 								ng-model="entity.Gross"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_GROSS)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_GROSS)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idDiscount" colon="true">{{ 'codbex-orders:t.WORKORDER_DISSCOUNT' | t }}</bk-form-label>
+                        	<bk-form-label for="idDiscount" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_DISSCOUNT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <bk-step-input input-id="idDiscount"
 								name="Discount"
 								state="{{ forms.details['Discount'].$valid ? '' : 'error' }}"
 								ng-model="entity.Discount"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_DISSCOUNT)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_DISSCOUNT)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idTaxes" colon="true">{{ 'codbex-orders:t.WORKORDER_TAXES' | t }}</bk-form-label>
+                        	<bk-form-label for="idTaxes" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_TAXES' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <bk-step-input input-id="idTaxes"
 								name="Taxes"
 								state="{{ forms.details['Taxes'].$valid ? '' : 'error' }}"
 								ng-model="entity.Taxes"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_TAXES)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_TAXES)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idVAT" colon="true">{{ 'codbex-orders:t.WORKORDER_VAT' | t }}</bk-form-label>
+                        	<bk-form-label for="idVAT" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_VAT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <bk-step-input input-id="idVAT"
 								name="VAT"
 								state="{{ forms.details['VAT'].$valid ? '' : 'error' }}"
 								ng-model="entity.VAT"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_VAT)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_VAT)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idTotal" colon="true">{{ 'codbex-orders:t.WORKORDER_TOTAL' | t }}</bk-form-label>
+                        	<bk-form-label for="idTotal" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_TOTAL' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <bk-step-input input-id="idTotal"
 								name="Total"
 								state="{{ forms.details['Total'].$valid ? '' : 'error' }}"
 								ng-model="entity.Total"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_TOTAL)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_TOTAL)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idPaid" colon="true">{{ 'codbex-orders:t.WORKORDER_PAID' | t }}</bk-form-label>
+                        	<bk-form-label for="idPaid" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_PAID' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4">
 	                        <bk-step-input input-id="idPaid"
 								name="Paid"
 								state="{{ forms.details['Paid'].$valid ? '' : 'error' }}"
 								ng-model="entity.Paid"
-								placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_PAID)'} }}">
+								placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_PAID)'} }}">
 							</bk-step-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idConditions" colon="true">{{ 'codbex-orders:t.WORKORDER_CONDITIONS' | t }}</bk-form-label>
+                        	<bk-form-label for="idConditions" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_CONDITIONS' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Conditions'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['Conditions'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idConditions"
 	                                name="Conditions"
 	                                state="{{ forms.details['Conditions'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Conditions"
 									ng-maxlength="200.0"
 	                                type="text"
-	                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_CONDITIONS)'} }}">
+	                                placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_CONDITIONS)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idPaymentMethod" colon="true">{{ 'codbex-orders:t.WORKORDER_PAYMENTMETHOD' | t }}</bk-form-label>
+                        	<bk-form-label for="idPaymentMethod" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_PAYMENTMETHOD' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idPaymentMethod"
@@ -271,14 +271,14 @@
 	                            state="{{ forms.details['PaymentMethod'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.PaymentMethod"
 	                            dropdown-items="optionsPaymentMethod"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_PAYMENTMETHOD)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'PaymentMethod'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'PaymentMethod'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_PAYMENTMETHOD)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'PaymentMethod'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'PaymentMethod'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idStatus" colon="true">{{ 'codbex-orders:t.WORKORDER_STATUS' | t }}</bk-form-label>
+                        	<bk-form-label for="idStatus" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_STATUS' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idStatus"
@@ -286,14 +286,14 @@
 	                            state="{{ forms.details['Status'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.Status"
 	                            dropdown-items="optionsStatus"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_STATUS)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Status'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Status'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_STATUS)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'Status'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'Status'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idOperator" colon="true">{{ 'codbex-orders:t.WORKORDER_OPERATOR' | t }}</bk-form-label>
+                        	<bk-form-label for="idOperator" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_OPERATOR' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idOperator"
@@ -301,31 +301,31 @@
 	                            state="{{ forms.details['Operator'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.Operator"
 	                            dropdown-items="optionsOperator"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_OPERATOR)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Operator'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Operator'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_OPERATOR)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'Operator'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'Operator'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idDocument" colon="true">{{ 'codbex-orders:t.WORKORDER_DOCUMENT' | t }}</bk-form-label>
+                        	<bk-form-label for="idDocument" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_DOCUMENT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Document'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['Document'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idDocument"
 	                                name="Document"
 	                                state="{{ forms.details['Document'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Document"
 									ng-maxlength="200.0"
 	                                type="text"
-	                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_DOCUMENT)'} }}">
+	                                placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_DOCUMENT)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idCompany" colon="true">{{ 'codbex-orders:t.WORKORDER_COMPANY' | t }}</bk-form-label>
+                        	<bk-form-label for="idCompany" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_COMPANY' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idCompany"
@@ -333,65 +333,65 @@
 	                            state="{{ forms.details['Company'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.Company"
 	                            dropdown-items="optionsCompany"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_COMPANY)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Company'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Company'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_COMPANY)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'Company'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'Company'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idUUID" colon="true">{{ 'codbex-orders:t.WORKORDER_UUID' | t }}</bk-form-label>
+                        	<bk-form-label for="idUUID" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_UUID' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['UUID'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['UUID'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idUUID"
 	                                name="UUID"
 	                                state="{{ forms.details['UUID'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.UUID"
 									ng-maxlength="20.0"
 	                                type="text"
-	                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_UUID)'} }}">
+	                                placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_UUID)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idName" colon="true">{{ 'codbex-orders:t.WORKORDER_NAME' | t }}</bk-form-label>
+                        	<bk-form-label for="idName" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_NAME' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Name'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['Name'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idName"
 	                                name="Name"
 	                                state="{{ forms.details['Name'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Name"
 									ng-maxlength="200.0"
 	                                type="text"
-	                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_NAME)'} }}">
+	                                placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_NAME)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idReferance" colon="true">{{ 'codbex-orders:t.WORKORDER_REFERANCES' | t }}</bk-form-label>
+                        	<bk-form-label for="idReferance" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_REFERANCES' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
-							<bk-form-input-message state="{{ forms.details['Referance'].$valid ? '' : 'error' }}" text="{{'codbex-orders:messages.error.incorrectInput' | t}}">
+							<bk-form-input-message state="{{ forms.details['Referance'].$valid ? '' : 'error' }}" text="{{'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t}}">
 								<bk-input id="idReferance"
 	                                name="Referance"
 	                                state="{{ forms.details['Referance'].$valid ? '' : 'error' }}"
 	                                ng-model="entity.Referance"
 									ng-maxlength="20.0"
 	                                type="text"
-	                                placeholder="{{ 'codbex-orders:messages.inputEnter' | t:{'name':'$t(codbex-orders:t.WORKORDER_REFERANCES)'} }}">
+	                                placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_REFERANCES)'} }}">
 	                            </bk-input>
 							</bk-form-input-message>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idWorker" colon="true">{{ 'codbex-orders:t.WORKORDER_EXECUTOR' | t }}</bk-form-label>
+                        	<bk-form-label for="idWorker" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_EXECUTOR' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idWorker"
@@ -399,14 +399,14 @@
 	                            state="{{ forms.details['Worker'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.Worker"
 	                            dropdown-items="optionsWorker"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_EXECUTOR)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'Worker'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'Worker'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_EXECUTOR)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'Worker'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'Worker'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
                     <bk-form-item class="fd-row">
                     	<div class="fd-col fd-col-md--2">
-                        	<bk-form-label for="idSalesOrder" colon="true">{{ 'codbex-orders:t.WORKORDER_SALESORDER' | t }}</bk-form-label>
+                        	<bk-form-label for="idSalesOrder" colon="true">{{ 'codbex-orders:codbex-orders-model.t.WORKORDER_SALESORDER' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--8">
 	                        <bk-combobox-input input-id="idSalesOrder"
@@ -414,8 +414,8 @@
 	                            state="{{ forms.details['SalesOrder'].$valid ? '' : 'error' }}"
 	                            ng-model="entity.SalesOrder"
 	                            dropdown-items="optionsSalesOrder"
-	                            placeholder="{{ 'codbex-orders:messages.inputSearch' | t:{'name':'$t(codbex-orders:t.WORKORDER_SALESORDER)'} }}"
-								btn-aria-label="{{ 'codbex-orders:aria.showHide' | t:{'name':'SalesOrder'} }}" list-aria-label="{{ 'codbex-orders:aria.options' | t:{'name':'SalesOrder'} }}">
+	                            placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputSearch' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.WORKORDER_SALESORDER)'} }}"
+								btn-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.showHide' | t:{'name':'SalesOrder'} }}" list-aria-label="{{ 'codbex-orders:codbex-orders-model.aria.options' | t:{'name':'SalesOrder'} }}">
 	                        </bk-combobox-input>
 	                    </div>
                     </bk-form-item>
@@ -426,13 +426,13 @@
         <bk-bar bar-design="footer" compact="true" ng-show="action !== 'select'">
 			<bk-bar-right>
 				<bk-bar-element>
-					<bk-button label="{{ 'codbex-orders:defaults.filter' | t }}" state="emphasized" ng-click="filter()"></bk-button>
+					<bk-button label="{{ 'codbex-orders:codbex-orders-model.defaults.filter' | t }}" state="emphasized" ng-click="filter()"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="{{ 'codbex-orders:defaults.reset' | t }}" ng-click="resetFilter()"></bk-button>
+					<bk-button label="{{ 'codbex-orders:codbex-orders-model.defaults.reset' | t }}" ng-click="resetFilter()"></bk-button>
 				</bk-bar-element>
 				<bk-bar-element>
-					<bk-button label="{{ 'codbex-orders:defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
+					<bk-button label="{{ 'codbex-orders:codbex-orders-model.defaults.cancel' | t }}" ng-click="cancel()"></bk-button>
 				</bk-bar-element>
 			</bk-bar-right>
 		</bk-bar>

@@ -7,7 +7,7 @@ const viewData = {
     id: 'PurchaseOrdersReport',
     label: 'PurchaseOrdersReport',
     translation: {
-        key: 'codbex-orders:t.PURCHASEORDERSREPORT',
+        key: 'codbex-orders:codbex-orders-model.t.PURCHASEORDERSREPORT',
     },
     region: 'center',
     lazyLoad: true,

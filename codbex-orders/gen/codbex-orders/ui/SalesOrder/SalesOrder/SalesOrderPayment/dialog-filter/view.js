@@ -7,9 +7,9 @@ const viewData = {
     id: 'SalesOrderPayment-filter',
     label: 'SalesOrderPayment Filter',
     translation: {
-        key: 'codbex-orders:extName',
+        key: 'codbex-orders:codbex-orders-model.extName',
         options: {
-            content: '$t(codbex-orders:t.SALESORDERPAYMENT) $t(codbex-orders:defaults.filter)',
+            content: '$t(codbex-orders:codbex-orders-model.t.SALESORDERPAYMENT) $t(codbex-orders:codbex-orders-model.defaults.filter)',
         }
     },
     path: '/services/web/codbex-orders/gen/codbex-orders/ui/SalesOrder/SalesOrder/SalesOrderPayment/dialog-filter/index.html',

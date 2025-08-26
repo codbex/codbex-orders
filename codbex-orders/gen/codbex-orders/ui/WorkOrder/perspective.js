@@ -7,7 +7,7 @@ const perspectiveData = {
 	id: 'WorkOrder',
 	label: 'Work Order',
 	translation: {
-        key: 'codbex-orders:t.WORKORDER',
+        key: 'codbex-orders:codbex-orders-model.t.WORKORDER',
     },
 	path: '/services/web/codbex-orders/gen/codbex-orders/ui/WorkOrder/index.html',
 	order: 530,
