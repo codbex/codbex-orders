@@ -10,4 +10,6 @@ SALESORDERSTATUS_ID,SALESORDERSTATUS_NAME
 9,Canceled
 10,Finished
 11,Expired
+12,Initial
+
 
