@@ -9,7 +9,7 @@ export interface SalesOrderEntity {
     readonly Id: number;
     Number: string;
     Date?: Date;
-    DueDate?: Date;
+    Due?: Date;
     Customer?: number;
     BillingAddress?: number;
     ShippingAddress?: number;
@@ -36,6 +36,7 @@ export interface SalesOrderEntity {
 }
 
 export interface SalesOrderCreateEntity {
+    readonly Due?: Date;
     readonly Customer?: number;
     readonly BillingAddress?: number;
     readonly ShippingAddress?: number;
@@ -68,7 +69,7 @@ export interface SalesOrderEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             Date?: Date | Date[];
-            DueDate?: Date | Date[];
+            Due?: Date | Date[];
             Customer?: number | number[];
             BillingAddress?: number | number[];
             ShippingAddress?: number | number[];
@@ -97,7 +98,7 @@ export interface SalesOrderEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             Date?: Date | Date[];
-            DueDate?: Date | Date[];
+            Due?: Date | Date[];
             Customer?: number | number[];
             BillingAddress?: number | number[];
             ShippingAddress?: number | number[];
@@ -126,7 +127,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            DueDate?: Date;
+            Due?: Date;
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
@@ -155,7 +156,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            DueDate?: Date;
+            Due?: Date;
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
@@ -184,7 +185,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            DueDate?: Date;
+            Due?: Date;
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
@@ -213,7 +214,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            DueDate?: Date;
+            Due?: Date;
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
@@ -242,7 +243,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            DueDate?: Date;
+            Due?: Date;
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
@@ -315,8 +316,8 @@ export class SalesOrderRepository {
                 type: "TIMESTAMP",
             },
             {
-                name: "DueDate",
-                column: "SALESORDER_DUEDATE",
+                name: "Due",
+                column: "SALESORDER_DUE",
                 type: "TIMESTAMP",
             },
             {

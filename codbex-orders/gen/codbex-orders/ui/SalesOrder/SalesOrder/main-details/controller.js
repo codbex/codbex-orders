@@ -68,8 +68,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				if (data.entity.Date) {
 					data.entity.Date = new Date(data.entity.Date);
 				}
-				if (data.entity.DueDate) {
-					data.entity.DueDate = new Date(data.entity.DueDate);
+				if (data.entity.Due) {
+					data.entity.Due = new Date(data.entity.Due);
 				}
 				$scope.entity = data.entity;
 				$scope.optionsCustomer = data.optionsCustomer;
@@ -106,8 +106,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 				if (data.entity.Date) {
 					data.entity.Date = new Date(data.entity.Date);
 				}
-				if (data.entity.DueDate) {
-					data.entity.DueDate = new Date(data.entity.DueDate);
+				if (data.entity.Due) {
+					data.entity.Due = new Date(data.entity.Due);
 				}
 				$scope.entity = data.entity;
 				$scope.optionsCustomer = data.optionsCustomer;

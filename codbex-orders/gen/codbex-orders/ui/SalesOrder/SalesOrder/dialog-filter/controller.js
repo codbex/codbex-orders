@@ -13,11 +13,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (params?.entity?.DateTo) {
 			params.entity.DateTo = new Date(params.entity.DateTo);
 		}
-		if (params?.entity?.DueDateFrom) {
-			params.entity.DueDateFrom = new Date(params.entity.DueDateFrom);
+		if (params?.entity?.DueFrom) {
+			params.entity.DueFrom = new Date(params.entity.DueFrom);
 		}
-		if (params?.entity?.DueDateTo) {
-			params.entity.DueDateTo = new Date(params.entity.DueDateTo);
+		if (params?.entity?.DueTo) {
+			params.entity.DueTo = new Date(params.entity.DueTo);
 		}
 		$scope.entity = params.entity ?? {};
 		$scope.selectedMainEntityKey = params.selectedMainEntityKey;
@@ -66,11 +66,11 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale']).controlle
 		if (entity.DateTo) {
 			filter.$filter.lessThanOrEqual.Date = entity.DateTo;
 		}
-		if (entity.DueDateFrom) {
-			filter.$filter.greaterThanOrEqual.DueDate = entity.DueDateFrom;
+		if (entity.DueFrom) {
+			filter.$filter.greaterThanOrEqual.Due = entity.DueFrom;
 		}
-		if (entity.DueDateTo) {
-			filter.$filter.lessThanOrEqual.DueDate = entity.DueDateTo;
+		if (entity.DueTo) {
+			filter.$filter.lessThanOrEqual.Due = entity.DueTo;
 		}
 		if (entity.Customer !== undefined) {
 			filter.$filter.equals.Customer = entity.Customer;

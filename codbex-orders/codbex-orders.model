@@ -48,13 +48,11 @@
                         "widgetType": "TEXTBOX"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "",
-                        "dataName": "SALESORDER_DUEDATE",
+                        "dataName": "SALESORDER_DUE",
                         "dataNullable": "true",
                         "dataType": "TIMESTAMP",
                         "description": "",
-                        "isCalculatedProperty": "true",
-                        "name": "DueDate",
+                        "name": "Due",
                         "tooltip": "",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",

@@ -25,7 +25,7 @@
                     {
                         "type": "TIMESTAMP",
                         "nullable": true,
-                        "name": "SALESORDER_DUEDATE"
+                        "name": "SALESORDER_DUE"
                     },
                     {
                         "type": "INTEGER",
