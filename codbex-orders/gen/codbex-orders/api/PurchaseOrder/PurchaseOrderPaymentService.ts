@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { PurchaseOrderPaymentRepository, PurchaseOrderPaymentEntityOptions } from "../../dao/PurchaseOrder/PurchaseOrderPaymentRepository";
 import { user } from "sdk/security"
@@ -19,7 +19,8 @@ class PurchaseOrderPaymentService {
             this.checkPermissions("read");
             const options: PurchaseOrderPaymentEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
-                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
+                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
+                $language: request.getLocale().slice(0, 2)
             };
 
             let PurchaseOrder = parseInt(ctx.queryParameters.PurchaseOrder);
@@ -88,7 +89,10 @@ class PurchaseOrderPaymentService {
         try {
             this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
-            const entity = this.repository.findById(id);
+            const options: PurchaseOrderPaymentEntityOptions = {
+                $language: request.getLocale().slice(0, 2)
+            };
+            const entity = this.repository.findById(id, options);
             if (entity) {
                 return entity;
             } else {

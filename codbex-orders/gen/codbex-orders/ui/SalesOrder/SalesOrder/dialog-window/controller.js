@@ -34,8 +34,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 			if (params.entity.Date) {
 				params.entity.Date = new Date(params.entity.Date);
 			}
-			if (params.entity.Due) {
-				params.entity.Due = new Date(params.entity.Due);
+			if (params.entity.DueDate) {
+				params.entity.DueDate = new Date(params.entity.DueDate);
 			}
 			$scope.entity = params.entity;
 			$scope.selectedMainEntityKey = params.selectedMainEntityKey;

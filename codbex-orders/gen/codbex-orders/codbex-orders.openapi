@@ -8015,8 +8015,6 @@ components:
     SalesOrder:
       type: object
       required:
-        - Date
-        - Due
         - Status
         - Currency
         - Operator
@@ -8031,7 +8029,7 @@ components:
           maxLength: 20
           readOnly: true
         Date:
-        Due:
+        DueDate:
         Customer:
           type: integer
           format: int32
@@ -8140,7 +8138,7 @@ components:
                         maxLength: 20
                 Date:
                   oneOf:
-                Due:
+                DueDate:
                   oneOf:
                 Customer:
                   oneOf:
@@ -8368,7 +8366,7 @@ components:
                         maxLength: 20
                 Date:
                   oneOf:
-                Due:
+                DueDate:
                   oneOf:
                 Customer:
                   oneOf:
@@ -8581,7 +8579,7 @@ components:
                   minLength: 0
                   maxLength: 20
                 Date:
-                Due:
+                DueDate:
                 Customer:
                 BillingAddress:
                 ShippingAddress:
@@ -8634,7 +8632,7 @@ components:
                   minLength: 0
                   maxLength: 20
                 Date:
-                Due:
+                DueDate:
                 Customer:
                   type: integer
                   format: int32
@@ -8721,7 +8719,7 @@ components:
                   minLength: 0
                   maxLength: 20
                 Date:
-                Due:
+                DueDate:
                 Customer:
                   type: integer
                   format: int32
@@ -8808,7 +8806,7 @@ components:
                   minLength: 0
                   maxLength: 20
                 Date:
-                Due:
+                DueDate:
                 Customer:
                   type: integer
                   format: int32
@@ -8895,7 +8893,7 @@ components:
                   minLength: 0
                   maxLength: 20
                 Date:
-                Due:
+                DueDate:
                 Customer:
                   type: integer
                   format: int32
@@ -8973,12 +8971,12 @@ components:
                   format: int32
         $select:
           type: array
-          example: ["Id", "Number", "Date", "Due", "Customer", "BillingAddress", "ShippingAddress", "ShippingProvider", "SentMethod", "Status", "TrackingNumber", "Currency", "Net", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "Operator", "Company", "Name", "UUID", "Process", "Reference", "Store"]
+          example: ["Id", "Number", "Date", "DueDate", "Customer", "BillingAddress", "ShippingAddress", "ShippingProvider", "SentMethod", "Status", "TrackingNumber", "Currency", "Net", "Gross", "Discount", "Taxes", "VAT", "Total", "Paid", "Conditions", "Operator", "Company", "Name", "UUID", "Process", "Reference", "Store"]
           items:
             type: string
         $sort:
           - type: string
-            example: "Id,Number,Date,Due,Customer,BillingAddress,ShippingAddress,ShippingProvider,SentMethod,Status,TrackingNumber,Currency,Net,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,Operator,Company,Name,UUID,Process,Reference,Store"
+            example: "Id,Number,Date,DueDate,Customer,BillingAddress,ShippingAddress,ShippingProvider,SentMethod,Status,TrackingNumber,Currency,Net,Gross,Discount,Taxes,VAT,Total,Paid,Conditions,Operator,Company,Name,UUID,Process,Reference,Store"
         $order:
           type: string
           enum: ["asc", "desc"]

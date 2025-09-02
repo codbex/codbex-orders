@@ -67,7 +67,7 @@
       "SALESORDER_ID": "Id",
       "SALESORDER_NUMBER": "Number",
       "SALESORDER_DATE": "Date",
-      "SALESORDER_DUE": "Due",
+      "SALESORDER_DUEDATE": "DueDate",
       "SALESORDER_CUSTOMER": "Customer",
       "SALESORDER_BILLINGADDRESS": "BillingAddress",
       "SALESORDER_SHIPPINGADDRESS": "ShippingAddress",

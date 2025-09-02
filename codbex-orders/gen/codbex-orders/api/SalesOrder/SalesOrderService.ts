@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { SalesOrderRepository, SalesOrderEntityOptions } from "../../dao/SalesOrder/SalesOrderRepository";
 import { user } from "sdk/security"
@@ -21,7 +21,8 @@ class SalesOrderService {
             this.checkPermissions("read");
             const options: SalesOrderEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
-                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
+                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
+                $language: request.getLocale().slice(0, 2)
             };
 
             return this.repository.findAll(options);
@@ -79,7 +80,10 @@ class SalesOrderService {
         try {
             this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
-            const entity = this.repository.findById(id);
+            const options: SalesOrderEntityOptions = {
+                $language: request.getLocale().slice(0, 2)
+            };
+            const entity = this.repository.findById(id, options);
             if (entity) {
                 return entity;
             } else {
@@ -142,12 +146,6 @@ class SalesOrderService {
     private validateEntity(entity: any): void {
         if (entity.Number?.length > 20) {
             throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
-        }
-        if (entity.Date === null || entity.Date === undefined) {
-            throw new ValidationError(`The 'Date' property is required, provide a valid value`);
-        }
-        if (entity.Due === null || entity.Due === undefined) {
-            throw new ValidationError(`The 'Due' property is required, provide a valid value`);
         }
         if (entity.Status === null || entity.Status === undefined) {
             throw new ValidationError(`The 'Status' property is required, provide a valid value`);

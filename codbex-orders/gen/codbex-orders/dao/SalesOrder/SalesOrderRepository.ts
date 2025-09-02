@@ -1,8 +1,7 @@
-import { query } from "sdk/db";
+import { sql, query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
-import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
@@ -10,7 +9,7 @@ export interface SalesOrderEntity {
     readonly Id: number;
     Number: string;
     Date?: Date;
-    Due: Date;
+    DueDate?: Date;
     Customer?: number;
     BillingAddress?: number;
     ShippingAddress?: number;
@@ -37,8 +36,6 @@ export interface SalesOrderEntity {
 }
 
 export interface SalesOrderCreateEntity {
-    readonly Date?: Date;
-    readonly Due: Date;
     readonly Customer?: number;
     readonly BillingAddress?: number;
     readonly ShippingAddress?: number;
@@ -71,7 +68,7 @@ export interface SalesOrderEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             Date?: Date | Date[];
-            Due?: Date | Date[];
+            DueDate?: Date | Date[];
             Customer?: number | number[];
             BillingAddress?: number | number[];
             ShippingAddress?: number | number[];
@@ -100,7 +97,7 @@ export interface SalesOrderEntityOptions {
             Id?: number | number[];
             Number?: string | string[];
             Date?: Date | Date[];
-            Due?: Date | Date[];
+            DueDate?: Date | Date[];
             Customer?: number | number[];
             BillingAddress?: number | number[];
             ShippingAddress?: number | number[];
@@ -129,7 +126,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Due?: Date;
+            DueDate?: Date;
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
@@ -158,7 +155,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Due?: Date;
+            DueDate?: Date;
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
@@ -187,7 +184,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Due?: Date;
+            DueDate?: Date;
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
@@ -216,7 +213,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Due?: Date;
+            DueDate?: Date;
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
@@ -245,7 +242,7 @@ export interface SalesOrderEntityOptions {
             Id?: number;
             Number?: string;
             Date?: Date;
-            Due?: Date;
+            DueDate?: Date;
             Customer?: number;
             BillingAddress?: number;
             ShippingAddress?: number;
@@ -276,6 +273,7 @@ export interface SalesOrderEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
 export interface SalesOrderEntityEvent {
@@ -314,13 +312,12 @@ export class SalesOrderRepository {
             {
                 name: "Date",
                 column: "SALESORDER_DATE",
-                type: "DATE",
+                type: "TIMESTAMP",
             },
             {
-                name: "Due",
-                column: "SALESORDER_DUE",
-                type: "DATE",
-                required: true
+                name: "DueDate",
+                column: "SALESORDER_DUEDATE",
+                type: "TIMESTAMP",
             },
             {
                 name: "Customer",
@@ -453,25 +450,20 @@ export class SalesOrderRepository {
             options.$sort = "Number";
             options.$order = "DESC";
         }
-        return this.dao.list(options).map((e: SalesOrderEntity) => {
-            EntityUtils.setDate(e, "Date");
-            EntityUtils.setDate(e, "Due");
-            return e;
-        });
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): SalesOrderEntity | undefined {
+    public findById(id: number, options: SalesOrderEntityOptions = {}): SalesOrderEntity | undefined {
         const entity = this.dao.find(id);
-        EntityUtils.setDate(entity, "Date");
-        EntityUtils.setDate(entity, "Due");
         return entity ?? undefined;
     }
 
     public create(entity: SalesOrderCreateEntity): number {
-        EntityUtils.setLocalDate(entity, "Date");
-        EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
         (entity as SalesOrderEntity).Number = new NumberGeneratorService().generate(4);
+        // @ts-ignore
+        (entity as SalesOrderEntity).Date = new Date().toISOString().slice(0, 19).replace('T', ' ');
         // @ts-ignore
         (entity as SalesOrderEntity).Name = entity["Number"] + "/" + new Date(entity["Date"]).toISOString().slice(0, 10) + "/" + entity["Total"];
         // @ts-ignore
@@ -497,8 +489,6 @@ export class SalesOrderRepository {
     }
 
     public update(entity: SalesOrderUpdateEntity): void {
-        // EntityUtils.setLocalDate(entity, "Date");
-        // EntityUtils.setLocalDate(entity, "Due");
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

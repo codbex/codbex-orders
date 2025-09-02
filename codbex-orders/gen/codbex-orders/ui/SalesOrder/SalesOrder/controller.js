@@ -104,8 +104,8 @@ angular.module('page', ['blimpKit', 'platformView', 'platformLocale', 'EntitySer
 						if (e.Date) {
 							e.Date = new Date(e.Date);
 						}
-						if (e.Due) {
-							e.Due = new Date(e.Due);
+						if (e.DueDate) {
+							e.DueDate = new Date(e.DueDate);
 						}
 					});
 

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { SalesOrdersTotalReportFilterRepository, SalesOrdersTotalReportFilterEntityOptions } from "../../dao/entities/SalesOrdersTotalReportFilterRepository";
 import { user } from "sdk/security"
@@ -19,7 +19,8 @@ class SalesOrdersTotalReportFilterService {
             this.checkPermissions("read");
             const options: SalesOrdersTotalReportFilterEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
-                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
+                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
+                $language: request.getLocale().slice(0, 2)
             };
 
             return this.repository.findAll(options);
@@ -77,7 +78,10 @@ class SalesOrdersTotalReportFilterService {
         try {
             this.checkPermissions("read");
             const id = ctx.pathParameters.id;
-            const entity = this.repository.findById(id);
+            const options: SalesOrdersTotalReportFilterEntityOptions = {
+                $language: request.getLocale().slice(0, 2)
+            };
+            const entity = this.repository.findById(id, options);
             if (entity) {
                 return entity;
             } else {

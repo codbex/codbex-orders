@@ -1,4 +1,4 @@
-import { query } from "sdk/db";
+import { sql, query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
@@ -80,6 +80,7 @@ export interface PurchaseOrdersReportFilterEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
 export interface PurchaseOrdersReportFilterEntityEvent {
@@ -139,14 +140,15 @@ export class PurchaseOrdersReportFilterRepository {
     }
 
     public findAll(options: PurchaseOrdersReportFilterEntityOptions = {}): PurchaseOrdersReportFilterEntity[] {
-        return this.dao.list(options).map((e: PurchaseOrdersReportFilterEntity) => {
+        let list = this.dao.list(options).map((e: PurchaseOrdersReportFilterEntity) => {
             EntityUtils.setDate(e, "Date");
             EntityUtils.setDate(e, "Due");
             return e;
         });
+        return list;
     }
 
-    public findById(id: string): PurchaseOrdersReportFilterEntity | undefined {
+    public findById(id: string, options: PurchaseOrdersReportFilterEntityOptions = {}): PurchaseOrdersReportFilterEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "Date");
         EntityUtils.setDate(entity, "Due");

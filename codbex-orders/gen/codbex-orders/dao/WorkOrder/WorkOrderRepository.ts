@@ -1,4 +1,4 @@
-import { query } from "sdk/db";
+import { sql, query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
@@ -268,6 +268,7 @@ export interface WorkOrderEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
 export interface WorkOrderEntityEvent {
@@ -437,14 +438,15 @@ export class WorkOrderRepository {
             options.$sort = "Number";
             options.$order = "DESC";
         }
-        return this.dao.list(options).map((e: WorkOrderEntity) => {
+        let list = this.dao.list(options).map((e: WorkOrderEntity) => {
             EntityUtils.setDate(e, "Date");
             EntityUtils.setDate(e, "Due");
             return e;
         });
+        return list;
     }
 
-    public findById(id: number): WorkOrderEntity | undefined {
+    public findById(id: number, options: WorkOrderEntityOptions = {}): WorkOrderEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "Date");
         EntityUtils.setDate(entity, "Due");
