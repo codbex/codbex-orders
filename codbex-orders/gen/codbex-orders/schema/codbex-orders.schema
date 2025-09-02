@@ -18,12 +18,13 @@
                         "name": "SALESORDER_NUMBER"
                     },
                     {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
                         "nullable": true,
                         "name": "SALESORDER_DATE"
                     },
                     {
-                        "type": "DATE",
+                        "type": "TIMESTAMP",
+                        "nullable": true,
                         "name": "SALESORDER_DUE"
                     },
                     {

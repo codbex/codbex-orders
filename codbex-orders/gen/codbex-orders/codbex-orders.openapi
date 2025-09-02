@@ -8015,8 +8015,6 @@ components:
     SalesOrder:
       type: object
       required:
-        - Date
-        - Due
         - Status
         - Currency
         - Operator

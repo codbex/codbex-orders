@@ -1,4 +1,4 @@
-import { query } from "sdk/db";
+import { sql, query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
@@ -70,6 +70,7 @@ export interface SalesOrderPaymentEntityOptions {
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
+    $language?: string
 }
 
 export interface SalesOrderPaymentEntityEvent {
@@ -127,10 +128,11 @@ export class SalesOrderPaymentRepository {
     }
 
     public findAll(options: SalesOrderPaymentEntityOptions = {}): SalesOrderPaymentEntity[] {
-        return this.dao.list(options);
+        let list = this.dao.list(options);
+        return list;
     }
 
-    public findById(id: number): SalesOrderPaymentEntity | undefined {
+    public findById(id: number, options: SalesOrderPaymentEntityOptions = {}): SalesOrderPaymentEntity | undefined {
         const entity = this.dao.find(id);
         return entity ?? undefined;
     }

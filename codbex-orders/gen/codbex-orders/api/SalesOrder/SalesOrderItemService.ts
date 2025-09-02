@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, response } from "sdk/http"
+import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
 import { Extensions } from "sdk/extensions"
 import { SalesOrderItemRepository, SalesOrderItemEntityOptions } from "../../dao/SalesOrder/SalesOrderItemRepository";
 import { user } from "sdk/security"
@@ -19,7 +19,8 @@ class SalesOrderItemService {
             this.checkPermissions("read");
             const options: SalesOrderItemEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
-                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined
+                $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
+                $language: request.getLocale().slice(0, 2)
             };
 
             let SalesOrder = parseInt(ctx.queryParameters.SalesOrder);
@@ -88,7 +89,10 @@ class SalesOrderItemService {
         try {
             this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
-            const entity = this.repository.findById(id);
+            const options: SalesOrderItemEntityOptions = {
+                $language: request.getLocale().slice(0, 2)
+            };
+            const entity = this.repository.findById(id, options);
             if (entity) {
                 return entity;
             } else {
