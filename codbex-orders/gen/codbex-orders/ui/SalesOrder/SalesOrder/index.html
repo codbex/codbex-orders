@@ -42,7 +42,7 @@
 							item-title="{{next.Number}}">
 							<bk-list-byline align="left">
 								{{next.Date}} |
-								{{next.Due}} |
+								{{next.Due | date: "dd/MMM/yyyy"}} |
 								{{optionsCustomerValue(next.Customer)}} |
 								{{optionsBillingAddressValue(next.BillingAddress)}} |
 								{{optionsShippingAddressValue(next.ShippingAddress)}} |
