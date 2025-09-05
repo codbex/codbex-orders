@@ -23,7 +23,7 @@
                         "name": "SALESORDER_DATE"
                     },
                     {
-                        "type": "TIMESTAMP",
+                        "type": "DATE",
                         "nullable": true,
                         "name": "SALESORDER_DUE"
                     },

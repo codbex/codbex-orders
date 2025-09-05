@@ -2,6 +2,7 @@ import { sql, query } from "sdk/db";
 import { producer } from "sdk/messaging";
 import { extensions } from "sdk/extensions";
 import { dao as daoApi } from "sdk/db";
+import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
 
@@ -318,7 +319,7 @@ export class SalesOrderRepository {
             {
                 name: "Due",
                 column: "SALESORDER_DUE",
-                type: "TIMESTAMP",
+                type: "DATE",
             },
             {
                 name: "Customer",
@@ -451,16 +452,21 @@ export class SalesOrderRepository {
             options.$sort = "Number";
             options.$order = "DESC";
         }
-        let list = this.dao.list(options);
+        let list = this.dao.list(options).map((e: SalesOrderEntity) => {
+            EntityUtils.setDate(e, "Due");
+            return e;
+        });
         return list;
     }
 
     public findById(id: number, options: SalesOrderEntityOptions = {}): SalesOrderEntity | undefined {
         const entity = this.dao.find(id);
+        EntityUtils.setDate(entity, "Due");
         return entity ?? undefined;
     }
 
     public create(entity: SalesOrderCreateEntity): number {
+        EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
         (entity as SalesOrderEntity).Number = new NumberGeneratorService().generate(4);
         // @ts-ignore
@@ -490,6 +496,7 @@ export class SalesOrderRepository {
     }
 
     public update(entity: SalesOrderUpdateEntity): void {
+        // EntityUtils.setLocalDate(entity, "Due");
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({

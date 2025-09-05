@@ -50,14 +50,14 @@
                     {
                         "dataName": "SALESORDER_DUE",
                         "dataNullable": "true",
-                        "dataType": "TIMESTAMP",
+                        "dataType": "DATE",
                         "description": "",
                         "name": "Due",
                         "tooltip": "",
                         "widgetIsMajor": "true",
                         "widgetLength": "20",
                         "widgetSize": "",
-                        "widgetType": "TEXTBOX"
+                        "widgetType": "DATE"
                     },
                     {
                         "dataName": "SALESORDER_CUSTOMER",
