@@ -237,7 +237,7 @@ export class SalesOrderItemRepository {
         // @ts-ignore
         (entity as SalesOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as SalesOrderItemEntity).VAT = entity["Price"]*entity["VATRate"]/100;
+        (entity as SalesOrderItemEntity).VAT = entity["Quantity"]*entity["Price"]*entity["VATRate"]/100;
         // @ts-ignore
         (entity as SalesOrderItemEntity).Gross = entity["Net"]+entity["VAT"];
         const id = this.dao.insert(entity);
@@ -258,7 +258,7 @@ export class SalesOrderItemRepository {
         // @ts-ignore
         (entity as SalesOrderItemEntity).Net = entity["Quantity"] * entity["Price"];
         // @ts-ignore
-        (entity as SalesOrderItemEntity).VAT = entity["Price"]*entity["VATRate"]/100;
+        (entity as SalesOrderItemEntity).VAT = entity["Quantity"]*entity["Price"]*entity["VATRate"]/100;
         // @ts-ignore
         (entity as SalesOrderItemEntity).Gross = entity["Net"]+entity["VAT"];
         const previousEntity = this.findById(entity.Id);
