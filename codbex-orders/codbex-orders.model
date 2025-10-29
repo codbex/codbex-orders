@@ -621,8 +621,8 @@
                         "widgetType": "NUMBER"
                     },
                     {
-                        "calculatedPropertyExpressionCreate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
-                        "calculatedPropertyExpressionUpdate": "entity[\"Price\"]*entity[\"VATRate\"]/100",
+                        "calculatedPropertyExpressionCreate": "entity[\"Quantity\"]*entity[\"Price\"]*entity[\"VATRate\"]/100",
+                        "calculatedPropertyExpressionUpdate": "entity[\"Quantity\"]*entity[\"Price\"]*entity[\"VATRate\"]/100",
                         "dataLength": "16",
                         "dataName": "SALESORDERITEM_VAT",
                         "dataNullable": "true",
