@@ -1,26 +1,26 @@
-import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
-import { Extensions } from "sdk/extensions"
-import { PurchaseOrdersTotalReportFilterRepository, PurchaseOrdersTotalReportFilterEntityOptions } from "../../dao/entities/PurchaseOrdersTotalReportFilterRepository";
-import { user } from "sdk/security"
+import { Controller, Get, Post, Put, Delete, request, response } from "@aerokit/sdk/http"
+import { Extensions } from "@aerokit/sdk/extensions"
+import { PurchaseOrdersReportFilterRepository, PurchaseOrdersReportFilterEntityOptions } from "../../dao/Entities/PurchaseOrdersReportFilterRepository";
+import { user } from "@aerokit/sdk/security"
 import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-orders-entities-PurchaseOrdersTotalReportFilter", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-orders-Entities-PurchaseOrdersReportFilter", ["validate"]);
 
 @Controller
-class PurchaseOrdersTotalReportFilterService {
+class PurchaseOrdersReportFilterService {
 
-    private readonly repository = new PurchaseOrdersTotalReportFilterRepository();
+    private readonly repository = new PurchaseOrdersReportFilterRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
             this.checkPermissions("read");
-            const options: PurchaseOrdersTotalReportFilterEntityOptions = {
+            const options: PurchaseOrdersReportFilterEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
-                $language: request.getLocale().slice(0, 2)
+                $language: request.getLocale().split("_")[0]
             };
 
             return this.repository.findAll(options);
@@ -34,8 +34,8 @@ class PurchaseOrdersTotalReportFilterService {
         try {
             this.checkPermissions("write");
             this.validateEntity(entity);
-            entity.PurchaseOrdersTotalReport = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/codbex-orders/api/entities/PurchaseOrdersTotalReportFilterService.ts/" + entity.PurchaseOrdersTotalReport);
+            entity.PurchaseOrdersReport = this.repository.create(entity);
+            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/codbex-orders/api/Entities/PurchaseOrdersReportFilterService.ts/" + entity.PurchaseOrdersReport);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -77,15 +77,15 @@ class PurchaseOrdersTotalReportFilterService {
     public getById(_: any, ctx: any) {
         try {
             this.checkPermissions("read");
-            const id = new Date(parseInt(ctx.pathParameters.id));
-            const options: PurchaseOrdersTotalReportFilterEntityOptions = {
-                $language: request.getLocale().slice(0, 2)
+            const id = ctx.pathParameters.id;
+            const options: PurchaseOrdersReportFilterEntityOptions = {
+                $language: request.getLocale().split("_")[0]
             };
             const entity = this.repository.findById(id, options);
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("PurchaseOrdersTotalReportFilter not found");
+                HttpUtils.sendResponseNotFound("PurchaseOrdersReportFilter not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -96,7 +96,7 @@ class PurchaseOrdersTotalReportFilterService {
     public update(entity: any, ctx: any) {
         try {
             this.checkPermissions("write");
-            entity.PurchaseOrdersTotalReport = ctx.pathParameters.id;
+            entity.PurchaseOrdersReport = ctx.pathParameters.id;
             this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
@@ -115,7 +115,7 @@ class PurchaseOrdersTotalReportFilterService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("PurchaseOrdersTotalReportFilter not found");
+                HttpUtils.sendResponseNotFound("PurchaseOrdersReportFilter not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -133,15 +133,24 @@ class PurchaseOrdersTotalReportFilterService {
     }
 
     private checkPermissions(operationType: string) {
-        if (operationType === "read" && !(user.isInRole("codbex-orders.entities.PurchaseOrdersTotalReportFilterReadOnly") || user.isInRole("codbex-orders.entities.PurchaseOrdersTotalReportFilterFullAccess"))) {
+        if (operationType === "read" && !(user.isInRole("codbex-orders.entities.PurchaseOrdersReportFilterReadOnly") || user.isInRole("codbex-orders.entities.PurchaseOrdersReportFilterFullAccess"))) {
             throw new ForbiddenError();
         }
-        if (operationType === "write" && !user.isInRole("codbex-orders.entities.PurchaseOrdersTotalReportFilterFullAccess")) {
+        if (operationType === "write" && !user.isInRole("codbex-orders.entities.PurchaseOrdersReportFilterFullAccess")) {
             throw new ForbiddenError();
         }
     }
 
     private validateEntity(entity: any): void {
+        if (entity.PurchaseOrdersReport?.length > 20) {
+            throw new ValidationError(`The 'PurchaseOrdersReport' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Number?.length > 20) {
+            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Name?.length > 200) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
+        }
         for (const next of validationModules) {
             next.validate(entity);
         }

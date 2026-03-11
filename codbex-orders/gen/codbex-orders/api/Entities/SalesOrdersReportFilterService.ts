@@ -1,26 +1,26 @@
-import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
-import { Extensions } from "sdk/extensions"
-import { SalesOrdersTotalReportFilterRepository, SalesOrdersTotalReportFilterEntityOptions } from "../../dao/entities/SalesOrdersTotalReportFilterRepository";
-import { user } from "sdk/security"
+import { Controller, Get, Post, Put, Delete, request, response } from "@aerokit/sdk/http"
+import { Extensions } from "@aerokit/sdk/extensions"
+import { SalesOrdersReportFilterRepository, SalesOrdersReportFilterEntityOptions } from "../../dao/Entities/SalesOrdersReportFilterRepository";
+import { user } from "@aerokit/sdk/security"
 import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
 
-const validationModules = await Extensions.loadExtensionModules("codbex-orders-entities-SalesOrdersTotalReportFilter", ["validate"]);
+const validationModules = await Extensions.loadExtensionModules("codbex-orders-Entities-SalesOrdersReportFilter", ["validate"]);
 
 @Controller
-class SalesOrdersTotalReportFilterService {
+class SalesOrdersReportFilterService {
 
-    private readonly repository = new SalesOrdersTotalReportFilterRepository();
+    private readonly repository = new SalesOrdersReportFilterRepository();
 
     @Get("/")
     public getAll(_: any, ctx: any) {
         try {
             this.checkPermissions("read");
-            const options: SalesOrdersTotalReportFilterEntityOptions = {
+            const options: SalesOrdersReportFilterEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
-                $language: request.getLocale().slice(0, 2)
+                $language: request.getLocale().split("_")[0]
             };
 
             return this.repository.findAll(options);
@@ -34,8 +34,8 @@ class SalesOrdersTotalReportFilterService {
         try {
             this.checkPermissions("write");
             this.validateEntity(entity);
-            entity.SalesOrdersTotalReport = this.repository.create(entity);
-            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/codbex-orders/api/entities/SalesOrdersTotalReportFilterService.ts/" + entity.SalesOrdersTotalReport);
+            entity.SalesOrdersReport = this.repository.create(entity);
+            response.setHeader("Content-Location", "/services/ts/codbex-orders/gen/codbex-orders/api/Entities/SalesOrdersReportFilterService.ts/" + entity.SalesOrdersReport);
             response.setStatus(response.CREATED);
             return entity;
         } catch (error: any) {
@@ -78,14 +78,14 @@ class SalesOrdersTotalReportFilterService {
         try {
             this.checkPermissions("read");
             const id = ctx.pathParameters.id;
-            const options: SalesOrdersTotalReportFilterEntityOptions = {
-                $language: request.getLocale().slice(0, 2)
+            const options: SalesOrdersReportFilterEntityOptions = {
+                $language: request.getLocale().split("_")[0]
             };
             const entity = this.repository.findById(id, options);
             if (entity) {
                 return entity;
             } else {
-                HttpUtils.sendResponseNotFound("SalesOrdersTotalReportFilter not found");
+                HttpUtils.sendResponseNotFound("SalesOrdersReportFilter not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -96,7 +96,7 @@ class SalesOrdersTotalReportFilterService {
     public update(entity: any, ctx: any) {
         try {
             this.checkPermissions("write");
-            entity.SalesOrdersTotalReport = ctx.pathParameters.id;
+            entity.SalesOrdersReport = ctx.pathParameters.id;
             this.validateEntity(entity);
             this.repository.update(entity);
             return entity;
@@ -115,7 +115,7 @@ class SalesOrdersTotalReportFilterService {
                 this.repository.deleteById(id);
                 HttpUtils.sendResponseNoContent();
             } else {
-                HttpUtils.sendResponseNotFound("SalesOrdersTotalReportFilter not found");
+                HttpUtils.sendResponseNotFound("SalesOrdersReportFilter not found");
             }
         } catch (error: any) {
             this.handleError(error);
@@ -133,17 +133,23 @@ class SalesOrdersTotalReportFilterService {
     }
 
     private checkPermissions(operationType: string) {
-        if (operationType === "read" && !(user.isInRole("codbex-orders.entities.SalesOrdersTotalReportFilterReadOnly") || user.isInRole("codbex-orders.entities.SalesOrdersTotalReportFilterFullAccess"))) {
+        if (operationType === "read" && !(user.isInRole("codbex-orders.entities.SalesOrdersReportFilterReadOnly") || user.isInRole("codbex-orders.entities.SalesOrdersReportFilterFullAccess"))) {
             throw new ForbiddenError();
         }
-        if (operationType === "write" && !user.isInRole("codbex-orders.entities.SalesOrdersTotalReportFilterFullAccess")) {
+        if (operationType === "write" && !user.isInRole("codbex-orders.entities.SalesOrdersReportFilterFullAccess")) {
             throw new ForbiddenError();
         }
     }
 
     private validateEntity(entity: any): void {
-        if (entity.SalesOrdersTotalReport?.length > 20) {
-            throw new ValidationError(`The 'SalesOrdersTotalReport' exceeds the maximum length of [20] characters`);
+        if (entity.SalesOrdersReport?.length > 20) {
+            throw new ValidationError(`The 'SalesOrdersReport' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Number?.length > 20) {
+            throw new ValidationError(`The 'Number' exceeds the maximum length of [20] characters`);
+        }
+        if (entity.Name?.length > 200) {
+            throw new ValidationError(`The 'Name' exceeds the maximum length of [200] characters`);
         }
         for (const next of validationModules) {
             next.validate(entity);

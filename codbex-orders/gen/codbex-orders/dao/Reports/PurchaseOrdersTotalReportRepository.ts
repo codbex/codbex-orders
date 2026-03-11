@@ -1,4 +1,4 @@
-import { database } from "sdk/db";
+import { database } from "@aerokit/sdk/db";
 
 export interface PurchaseOrdersTotalReport {
     readonly Date: Date;

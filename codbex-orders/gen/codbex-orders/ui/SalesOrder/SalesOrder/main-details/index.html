@@ -7,9 +7,8 @@
         <link rel="icon" sizes="any" href="data:;base64,iVBORw0KGgo=">
         <title config-title></title>
         <script type="text/javascript" src="view.js"></script>
-        <script type="text/javascript" src="/services/js/platform-core/services/loader.js?id=view-js"></script>
+        <meta name="platform-links" category="ng-view">
 		<script type="text/javascript" src="/services/web/dashboard/services/entity.js"></script>
-        <link type="text/css" rel="stylesheet" href="/services/js/platform-core/services/loader.js?id=view-css" />
         <script type="text/javascript" src="controller.js"></script>
     </head>
 
@@ -193,7 +192,9 @@
                         	<bk-form-label for="idTrackingNumber" ng-required="false" colon="true">{{ 'codbex-orders:codbex-orders-model.t.SALESORDER_TRACKINGNUMBER' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message state="{{ forms.details['TrackingNumber'].$valid ? '' : 'error' }}" text="{{ 'codbex-orders:codbex-orders-model.messages.error.pattern' | t:{'rule':''} }}">
+							<bk-form-input-message
+								state="{{ forms.details['TrackingNumber'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-orders:codbex-orders-model.messages.error.lengthMax' | t:{'max':'50.0'} }}">
 								<bk-input id="idTrackingNumber"
 	                                name="TrackingNumber"
 	                                state="{{ forms.details['TrackingNumber'].$valid ? '' : 'error' }}"
@@ -201,7 +202,6 @@
 	                                ng-model="entity.TrackingNumber"
 	                                ng-readonly="action === 'select'"
 									ng-maxlength="50.0"
-	                                input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.SALESORDER_TRACKINGNUMBER)'} }}">
 	                            </bk-input>
@@ -264,14 +264,15 @@
                         	<bk-form-label for="idDiscount" ng-required="false" colon="true">{{ 'codbex-orders:codbex-orders-model.t.SALESORDER_DISCOUNT' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col  fd-col-md--8 ">
-							<bk-form-input-message state="{{ forms.details['Discount'].$valid ? '' : 'error' }}" text="{{ 'codbex-orders:codbex-orders-model.messages.error.pattern' | t:{'rule':''} }}">
+							<bk-form-input-message
+								state="{{ forms.details['Discount'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-orders:codbex-orders-model.messages.error.incorrectInput' | t }}">
 								<bk-input id="idDiscount"
 	                                name="Discount"
 	                                state="{{ forms.details['Discount'].$valid ? '' : 'error' }}"
 									ng-required="false"
 	                                ng-model="entity.Discount"
 	                                ng-readonly="action === 'select'"
-	                                input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.SALESORDER_DISCOUNT)'} }}">
 	                            </bk-input>
@@ -343,7 +344,9 @@
 							<bk-form-label for="idConditions" ng-required="false" colon="true">{{ 'codbex-orders:codbex-orders-model.t.SALESORDER_CONDITIONS' | t }}</bk-form-label>
 						</div>
 						<div class="fd-col fd-col-md--8 fd-col--12">
-							<bk-form-input-message state="{{ forms.details['Conditions'].$valid ? '' : 'error' }}" text="{{ 'codbex-orders:codbex-orders-model.messages.error.pattern' | t:{'rule':''} }}">
+							<bk-form-input-message
+								state="{{ forms.details['Conditions'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-orders:codbex-orders-model.messages.error.lengthMax' | t:{'max':'200.0'} }}">
 								<bk-textarea id="idConditions"
 									name="Conditions"
 									state="{{ forms.details['Conditions'].$valid ? '' : 'error' }}"
@@ -351,7 +354,6 @@
 									ng-model="entity.Conditions"
 	                            	ng-readonly="action === 'select'"
 									ng-maxlength="200.0"
-									input-rules="{ patterns: [''] }"
 									placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.SALESORDER_CONDITIONS)'} }}">
 								</bk-textarea>
 							</bk-form-input-message>
@@ -446,7 +448,9 @@
                         	<bk-form-label for="idReference" ng-required="false" colon="true">{{ 'codbex-orders:codbex-orders-model.t.SALESORDER_REFERENCE' | t }}</bk-form-label>
                         </div>
                         <div class="fd-col fd-col-md--4 fd-col--6">
-							<bk-form-input-message state="{{ forms.details['Reference'].$valid ? '' : 'error' }}" text="{{ 'codbex-orders:codbex-orders-model.messages.error.pattern' | t:{'rule':''} }}">
+							<bk-form-input-message
+								state="{{ forms.details['Reference'].$valid ? '' : 'error' }}"
+								text="{{ 'codbex-orders:codbex-orders-model.messages.error.lengthMax' | t:{'max':'20.0'} }}">
 								<bk-input id="idReference"
 	                                name="Reference"
 	                                state="{{ forms.details['Reference'].$valid ? '' : 'error' }}"
@@ -454,7 +458,6 @@
 	                                ng-model="entity.Reference"
 	                                ng-readonly="action === 'select'"
 									ng-maxlength="20.0"
-	                                input-rules="{ patterns: [''] }"
 	                                type="text"
 	                                placeholder="{{ 'codbex-orders:codbex-orders-model.messages.inputEnter' | t:{'name':'$t(codbex-orders:codbex-orders-model.t.SALESORDER_REFERENCE)'} }}">
 	                            </bk-input>

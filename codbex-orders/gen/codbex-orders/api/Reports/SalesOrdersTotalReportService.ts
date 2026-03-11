@@ -1,6 +1,6 @@
-import { Controller, Get } from "sdk/http"
+import { Controller, Get } from "@aerokit/sdk/http"
 import { SalesOrdersTotalReportRepository, SalesOrdersTotalReportFilter, SalesOrdersTotalReportPaginatedFilter } from "../../dao/Reports/SalesOrdersTotalReportRepository";
-import { user } from "sdk/security"
+import { user } from "@aerokit/sdk/security"
 import { ForbiddenError } from "../utils/ForbiddenError";
 import { HttpUtils } from "../utils/HttpUtils";
 
