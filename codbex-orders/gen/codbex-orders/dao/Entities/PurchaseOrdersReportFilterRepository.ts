@@ -1,92 +1,92 @@
-import { sql, query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 
-export interface SalesOrdersReportFilterEntity {
-    readonly SalesOrdersReport: string;
+export interface PurchaseOrdersReportFilterEntity {
+    readonly PurchaseOrdersReport: string;
     Number?: string;
     Name?: string;
     Date?: Date;
     Due?: Date;
 }
 
-export interface SalesOrdersReportFilterCreateEntity {
+export interface PurchaseOrdersReportFilterCreateEntity {
     readonly Number?: string;
     readonly Name?: string;
     readonly Date?: Date;
     readonly Due?: Date;
 }
 
-export interface SalesOrdersReportFilterUpdateEntity extends SalesOrdersReportFilterCreateEntity {
-    readonly SalesOrdersReport: string;
+export interface PurchaseOrdersReportFilterUpdateEntity extends PurchaseOrdersReportFilterCreateEntity {
+    readonly PurchaseOrdersReport: string;
 }
 
-export interface SalesOrdersReportFilterEntityOptions {
+export interface PurchaseOrdersReportFilterEntityOptions {
     $filter?: {
         equals?: {
-            SalesOrdersReport?: string | string[];
+            PurchaseOrdersReport?: string | string[];
             Number?: string | string[];
             Name?: string | string[];
             Date?: Date | Date[];
             Due?: Date | Date[];
         };
         notEquals?: {
-            SalesOrdersReport?: string | string[];
+            PurchaseOrdersReport?: string | string[];
             Number?: string | string[];
             Name?: string | string[];
             Date?: Date | Date[];
             Due?: Date | Date[];
         };
         contains?: {
-            SalesOrdersReport?: string;
+            PurchaseOrdersReport?: string;
             Number?: string;
             Name?: string;
             Date?: Date;
             Due?: Date;
         };
         greaterThan?: {
-            SalesOrdersReport?: string;
+            PurchaseOrdersReport?: string;
             Number?: string;
             Name?: string;
             Date?: Date;
             Due?: Date;
         };
         greaterThanOrEqual?: {
-            SalesOrdersReport?: string;
+            PurchaseOrdersReport?: string;
             Number?: string;
             Name?: string;
             Date?: Date;
             Due?: Date;
         };
         lessThan?: {
-            SalesOrdersReport?: string;
+            PurchaseOrdersReport?: string;
             Number?: string;
             Name?: string;
             Date?: Date;
             Due?: Date;
         };
         lessThanOrEqual?: {
-            SalesOrdersReport?: string;
+            PurchaseOrdersReport?: string;
             Number?: string;
             Name?: string;
             Date?: Date;
             Due?: Date;
         };
     },
-    $select?: (keyof SalesOrdersReportFilterEntity)[],
-    $sort?: string | (keyof SalesOrdersReportFilterEntity)[],
+    $select?: (keyof PurchaseOrdersReportFilterEntity)[],
+    $sort?: string | (keyof PurchaseOrdersReportFilterEntity)[],
     $order?: 'ASC' | 'DESC',
     $offset?: number,
     $limit?: number,
     $language?: string
 }
 
-export interface SalesOrdersReportFilterEntityEvent {
+export interface PurchaseOrdersReportFilterEntityEvent {
     readonly operation: 'create' | 'update' | 'delete';
     readonly table: string;
-    readonly entity: Partial<SalesOrdersReportFilterEntity>;
+    readonly entity: Partial<PurchaseOrdersReportFilterEntity>;
     readonly key: {
         name: string;
         column: string;
@@ -94,40 +94,40 @@ export interface SalesOrdersReportFilterEntityEvent {
     }
 }
 
-export interface SalesOrdersReportFilterUpdateEntityEvent extends SalesOrdersReportFilterEntityEvent {
-    readonly previousEntity: SalesOrdersReportFilterEntity;
+export interface PurchaseOrdersReportFilterUpdateEntityEvent extends PurchaseOrdersReportFilterEntityEvent {
+    readonly previousEntity: PurchaseOrdersReportFilterEntity;
 }
 
-export class SalesOrdersReportFilterRepository {
+export class PurchaseOrdersReportFilterRepository {
 
     private static readonly DEFINITION = {
-        table: "CODBEX_ORDERSREPORTFILTER",
+        table: "CODBEX_PURCHASEORDERSREPORTFILTER",
         properties: [
             {
-                name: "SalesOrdersReport",
-                column: "ORDERSREPORTFILTER_SALESORDERSREPORT",
+                name: "PurchaseOrdersReport",
+                column: "PURCHASEORDERSREPORTFILTER_PURCHASEORDERSREPORT",
                 type: "VARCHAR",
                 id: true,
                 autoIncrement: false,
             },
             {
                 name: "Number",
-                column: "ORDERSREPORTFILTER_NUMBER",
+                column: "PURCHASEORDERSREPORTFILTER_NUMBER",
                 type: "VARCHAR",
             },
             {
                 name: "Name",
-                column: "ORDERSREPORTFILTER_NAME",
+                column: "PURCHASEORDERSREPORTFILTER_NAME",
                 type: "VARCHAR",
             },
             {
                 name: "Date",
-                column: "ORDERSREPORTFILTER_DATE",
+                column: "PURCHASEORDERSREPORTFILTER_DATE",
                 type: "DATE",
             },
             {
                 name: "Due",
-                column: "ORDERSREPORTFILTER_DUE",
+                column: "PURCHASEORDERSREPORTFILTER_DUE",
                 type: "DATE",
             }
         ]
@@ -136,11 +136,11 @@ export class SalesOrdersReportFilterRepository {
     private readonly dao;
 
     constructor(dataSource = "DefaultDB") {
-        this.dao = daoApi.create(SalesOrdersReportFilterRepository.DEFINITION, undefined, dataSource);
+        this.dao = daoApi.create(PurchaseOrdersReportFilterRepository.DEFINITION, undefined, dataSource);
     }
 
-    public findAll(options: SalesOrdersReportFilterEntityOptions = {}): SalesOrdersReportFilterEntity[] {
-        let list = this.dao.list(options).map((e: SalesOrdersReportFilterEntity) => {
+    public findAll(options: PurchaseOrdersReportFilterEntityOptions = {}): PurchaseOrdersReportFilterEntity[] {
+        let list = this.dao.list(options).map((e: PurchaseOrdersReportFilterEntity) => {
             EntityUtils.setDate(e, "Date");
             EntityUtils.setDate(e, "Due");
             return e;
@@ -148,57 +148,57 @@ export class SalesOrdersReportFilterRepository {
         return list;
     }
 
-    public findById(id: string, options: SalesOrdersReportFilterEntityOptions = {}): SalesOrdersReportFilterEntity | undefined {
+    public findById(id: string, options: PurchaseOrdersReportFilterEntityOptions = {}): PurchaseOrdersReportFilterEntity | undefined {
         const entity = this.dao.find(id);
         EntityUtils.setDate(entity, "Date");
         EntityUtils.setDate(entity, "Due");
         return entity ?? undefined;
     }
 
-    public create(entity: SalesOrdersReportFilterCreateEntity): string {
+    public create(entity: PurchaseOrdersReportFilterCreateEntity): string {
         EntityUtils.setLocalDate(entity, "Date");
         EntityUtils.setLocalDate(entity, "Due");
         const id = this.dao.insert(entity);
         this.triggerEvent({
             operation: "create",
-            table: "CODBEX_ORDERSREPORTFILTER",
+            table: "CODBEX_PURCHASEORDERSREPORTFILTER",
             entity: entity,
             key: {
-                name: "SalesOrdersReport",
-                column: "ORDERSREPORTFILTER_SALESORDERSREPORT",
+                name: "PurchaseOrdersReport",
+                column: "PURCHASEORDERSREPORTFILTER_PURCHASEORDERSREPORT",
                 value: id
             }
         });
         return id;
     }
 
-    public update(entity: SalesOrdersReportFilterUpdateEntity): void {
+    public update(entity: PurchaseOrdersReportFilterUpdateEntity): void {
         // EntityUtils.setLocalDate(entity, "Date");
         // EntityUtils.setLocalDate(entity, "Due");
         const previousEntity = this.findById(entity.Id);
         this.dao.update(entity);
         this.triggerEvent({
             operation: "update",
-            table: "CODBEX_ORDERSREPORTFILTER",
+            table: "CODBEX_PURCHASEORDERSREPORTFILTER",
             entity: entity,
             previousEntity: previousEntity,
             key: {
-                name: "SalesOrdersReport",
-                column: "ORDERSREPORTFILTER_SALESORDERSREPORT",
-                value: entity.SalesOrdersReport
+                name: "PurchaseOrdersReport",
+                column: "PURCHASEORDERSREPORTFILTER_PURCHASEORDERSREPORT",
+                value: entity.PurchaseOrdersReport
             }
         });
     }
 
-    public upsert(entity: SalesOrdersReportFilterCreateEntity | SalesOrdersReportFilterUpdateEntity): string {
-        const id = (entity as SalesOrdersReportFilterUpdateEntity).SalesOrdersReport;
+    public upsert(entity: PurchaseOrdersReportFilterCreateEntity | PurchaseOrdersReportFilterUpdateEntity): string {
+        const id = (entity as PurchaseOrdersReportFilterUpdateEntity).PurchaseOrdersReport;
         if (!id) {
             return this.create(entity);
         }
 
         const existingEntity = this.findById(id);
         if (existingEntity) {
-            this.update(entity as SalesOrdersReportFilterUpdateEntity);
+            this.update(entity as PurchaseOrdersReportFilterUpdateEntity);
             return id;
         } else {
             return this.create(entity);
@@ -210,17 +210,17 @@ export class SalesOrdersReportFilterRepository {
         this.dao.remove(id);
         this.triggerEvent({
             operation: "delete",
-            table: "CODBEX_ORDERSREPORTFILTER",
+            table: "CODBEX_PURCHASEORDERSREPORTFILTER",
             entity: entity,
             key: {
-                name: "SalesOrdersReport",
-                column: "ORDERSREPORTFILTER_SALESORDERSREPORT",
+                name: "PurchaseOrdersReport",
+                column: "PURCHASEORDERSREPORTFILTER_PURCHASEORDERSREPORT",
                 value: id
             }
         });
     }
 
-    public count(options?: SalesOrdersReportFilterEntityOptions): number {
+    public count(options?: PurchaseOrdersReportFilterEntityOptions): number {
         return this.dao.count(options);
     }
 
@@ -236,8 +236,8 @@ export class SalesOrdersReportFilterRepository {
         return 0;
     }
 
-    private async triggerEvent(data: SalesOrdersReportFilterEntityEvent | SalesOrdersReportFilterUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-entities-SalesOrdersReportFilter", ["trigger"]);
+    private async triggerEvent(data: PurchaseOrdersReportFilterEntityEvent | PurchaseOrdersReportFilterUpdateEntityEvent) {
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-Entities-PurchaseOrdersReportFilter", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -245,6 +245,6 @@ export class SalesOrdersReportFilterRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-orders-entities-SalesOrdersReportFilter").send(JSON.stringify(data));
+        producer.topic("codbex-orders-Entities-PurchaseOrdersReportFilter").send(JSON.stringify(data));
     }
 }

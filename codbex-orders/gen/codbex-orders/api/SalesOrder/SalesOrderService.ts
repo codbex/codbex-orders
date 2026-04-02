@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
-import { Extensions } from "sdk/extensions"
+import { Controller, Get, Post, Put, Delete, request, response } from "@aerokit/sdk/http"
+import { Extensions } from "@aerokit/sdk/extensions"
 import { SalesOrderRepository, SalesOrderEntityOptions } from "../../dao/SalesOrder/SalesOrderRepository";
-import { user } from "sdk/security"
+import { user } from "@aerokit/sdk/security"
 import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
@@ -22,7 +22,7 @@ class SalesOrderService {
             const options: SalesOrderEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
-                $language: request.getLocale().slice(0, 2)
+                $language: request.getLocale().split("_")[0]
             };
 
             return this.repository.findAll(options);
@@ -81,7 +81,7 @@ class SalesOrderService {
             this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
             const options: SalesOrderEntityOptions = {
-                $language: request.getLocale().slice(0, 2)
+                $language: request.getLocale().split("_")[0]
             };
             const entity = this.repository.findById(id, options);
             if (entity) {

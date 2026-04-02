@@ -1,7 +1,7 @@
-import { sql, query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 // custom imports
 import { NumberGeneratorService } from "/codbex-number-generator/service/generator";
@@ -457,7 +457,7 @@ export class WorkOrderRepository {
         EntityUtils.setLocalDate(entity, "Date");
         EntityUtils.setLocalDate(entity, "Due");
         // @ts-ignore
-        (entity as WorkOrderEntity).Number = new NumberGeneratorService().generate(22);
+        (entity as WorkOrderEntity).Number = new NumberGeneratorService().generateByType('Work Order');
         // @ts-ignore
         (entity as WorkOrderEntity).UUID = require("sdk/utils/uuid").random();
         // @ts-ignore

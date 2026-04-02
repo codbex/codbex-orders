@@ -17,13 +17,13 @@ tags:
   - name: SalesOrder
   - name: PurchaseOrder
   - name: Reports
-  - name: entities
+  - name: Entities
   - name: Reports
-  - name: entities
+  - name: Entities
   - name: Reports
-  - name: entities
+  - name: Entities
   - name: Reports
-  - name: entities
+  - name: Entities
   - name: WorkOrder
   - name: Settings
   - name: Settings
@@ -3214,7 +3214,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrdersReportFilterService.ts:
+  /codbex-orders/gen/codbex-orders/api/Entities/SalesOrdersReportFilterService.ts:
     get:
       summary: List SalesOrdersReportFilter
       parameters:
@@ -3235,7 +3235,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -3266,7 +3266,7 @@ paths:
     post:
       summary: Create SalesOrdersReportFilter
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -3298,7 +3298,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrdersReportFilterService.ts/{id}:
+  /codbex-orders/gen/codbex-orders/api/Entities/SalesOrdersReportFilterService.ts/{id}:
     get:
       summary: Get SalesOrdersReportFilter by Id
       parameters:
@@ -3309,7 +3309,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -3347,7 +3347,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -3395,7 +3395,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         204:
           description: Successful Request
@@ -3417,11 +3417,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrdersReportFilterService.ts/count:
+  /codbex-orders/gen/codbex-orders/api/Entities/SalesOrdersReportFilterService.ts/count:
     get:
       summary: Count the number of SalesOrdersReportFilter
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -3445,7 +3445,7 @@ paths:
     post:
       summary: Count the number of SalesOrdersReportFilter by SalesOrdersReportFilterFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -3531,11 +3531,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrdersReportFilterService.ts/search:
+  /codbex-orders/gen/codbex-orders/api/Entities/SalesOrdersReportFilterService.ts/search:
     post:
       summary: Search SalesOrdersReportFilter by SalesOrdersReportFilterFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -4006,7 +4006,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrdersTotalReportFilterService.ts:
+  /codbex-orders/gen/codbex-orders/api/Entities/SalesOrdersTotalReportFilterService.ts:
     get:
       summary: List SalesOrdersTotalReportFilter
       parameters:
@@ -4027,7 +4027,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -4058,7 +4058,7 @@ paths:
     post:
       summary: Create SalesOrdersTotalReportFilter
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -4090,7 +4090,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrdersTotalReportFilterService.ts/{id}:
+  /codbex-orders/gen/codbex-orders/api/Entities/SalesOrdersTotalReportFilterService.ts/{id}:
     get:
       summary: Get SalesOrdersTotalReportFilter by Id
       parameters:
@@ -4101,7 +4101,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -4139,7 +4139,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -4187,7 +4187,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         204:
           description: Successful Request
@@ -4209,11 +4209,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrdersTotalReportFilterService.ts/count:
+  /codbex-orders/gen/codbex-orders/api/Entities/SalesOrdersTotalReportFilterService.ts/count:
     get:
       summary: Count the number of SalesOrdersTotalReportFilter
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -4237,7 +4237,7 @@ paths:
     post:
       summary: Count the number of SalesOrdersTotalReportFilter by SalesOrdersTotalReportFilterFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -4319,11 +4319,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/SalesOrdersTotalReportFilterService.ts/search:
+  /codbex-orders/gen/codbex-orders/api/Entities/SalesOrdersTotalReportFilterService.ts/search:
     post:
       summary: Search SalesOrdersTotalReportFilter by SalesOrdersTotalReportFilterFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -4810,7 +4810,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/PurchaseOrdersReportFilterService.ts:
+  /codbex-orders/gen/codbex-orders/api/Entities/PurchaseOrdersReportFilterService.ts:
     get:
       summary: List PurchaseOrdersReportFilter
       parameters:
@@ -4831,7 +4831,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -4862,7 +4862,7 @@ paths:
     post:
       summary: Create PurchaseOrdersReportFilter
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -4894,7 +4894,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/PurchaseOrdersReportFilterService.ts/{id}:
+  /codbex-orders/gen/codbex-orders/api/Entities/PurchaseOrdersReportFilterService.ts/{id}:
     get:
       summary: Get PurchaseOrdersReportFilter by Id
       parameters:
@@ -4905,7 +4905,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -4943,7 +4943,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -4991,7 +4991,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         204:
           description: Successful Request
@@ -5013,11 +5013,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/PurchaseOrdersReportFilterService.ts/count:
+  /codbex-orders/gen/codbex-orders/api/Entities/PurchaseOrdersReportFilterService.ts/count:
     get:
       summary: Count the number of PurchaseOrdersReportFilter
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -5041,7 +5041,7 @@ paths:
     post:
       summary: Count the number of PurchaseOrdersReportFilter by PurchaseOrdersReportFilterFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -5127,11 +5127,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/PurchaseOrdersReportFilterService.ts/search:
+  /codbex-orders/gen/codbex-orders/api/Entities/PurchaseOrdersReportFilterService.ts/search:
     post:
       summary: Search PurchaseOrdersReportFilter by PurchaseOrdersReportFilterFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -5602,7 +5602,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/PurchaseOrdersTotalReportFilterService.ts:
+  /codbex-orders/gen/codbex-orders/api/Entities/PurchaseOrdersTotalReportFilterService.ts:
     get:
       summary: List PurchaseOrdersTotalReportFilter
       parameters:
@@ -5623,7 +5623,7 @@ paths:
             type: integer
             allowEmptyValue: true
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -5654,7 +5654,7 @@ paths:
     post:
       summary: Create PurchaseOrdersTotalReportFilter
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -5686,7 +5686,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/PurchaseOrdersTotalReportFilterService.ts/{id}:
+  /codbex-orders/gen/codbex-orders/api/Entities/PurchaseOrdersTotalReportFilterService.ts/{id}:
     get:
       summary: Get PurchaseOrdersTotalReportFilter by Id
       parameters:
@@ -5697,7 +5697,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -5735,7 +5735,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -5783,7 +5783,7 @@ paths:
           schema:
             type: string
       tags:
-        - entities
+        - Entities
       responses:
         204:
           description: Successful Request
@@ -5805,11 +5805,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/PurchaseOrdersTotalReportFilterService.ts/count:
+  /codbex-orders/gen/codbex-orders/api/Entities/PurchaseOrdersTotalReportFilterService.ts/count:
     get:
       summary: Count the number of PurchaseOrdersTotalReportFilter
       tags:
-        - entities
+        - Entities
       responses:
         200:
           description: Successful Request
@@ -5833,7 +5833,7 @@ paths:
     post:
       summary: Count the number of PurchaseOrdersTotalReportFilter by PurchaseOrdersTotalReportFilterFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:
@@ -5907,11 +5907,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-  /codbex-orders/gen/codbex-orders/api/entities/PurchaseOrdersTotalReportFilterService.ts/search:
+  /codbex-orders/gen/codbex-orders/api/Entities/PurchaseOrdersTotalReportFilterService.ts/search:
     post:
       summary: Search PurchaseOrdersTotalReportFilter by PurchaseOrdersTotalReportFilterFilterOptions
       tags:
-        - entities
+        - Entities
       requestBody:
         content:
           application/json:

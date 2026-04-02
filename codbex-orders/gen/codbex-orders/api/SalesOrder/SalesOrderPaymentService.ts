@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Put, Delete, request, response } from "sdk/http"
-import { Extensions } from "sdk/extensions"
+import { Controller, Get, Post, Put, Delete, request, response } from "@aerokit/sdk/http"
+import { Extensions } from "@aerokit/sdk/extensions"
 import { SalesOrderPaymentRepository, SalesOrderPaymentEntityOptions } from "../../dao/SalesOrder/SalesOrderPaymentRepository";
-import { user } from "sdk/security"
+import { user } from "@aerokit/sdk/security"
 import { ForbiddenError } from "../utils/ForbiddenError";
 import { ValidationError } from "../utils/ValidationError";
 import { HttpUtils } from "../utils/HttpUtils";
@@ -20,7 +20,7 @@ class SalesOrderPaymentService {
             const options: SalesOrderPaymentEntityOptions = {
                 $limit: ctx.queryParameters["$limit"] ? parseInt(ctx.queryParameters["$limit"]) : undefined,
                 $offset: ctx.queryParameters["$offset"] ? parseInt(ctx.queryParameters["$offset"]) : undefined,
-                $language: request.getLocale().slice(0, 2)
+                $language: request.getLocale().split("_")[0]
             };
 
             let SalesOrder = parseInt(ctx.queryParameters.SalesOrder);
@@ -90,7 +90,7 @@ class SalesOrderPaymentService {
             this.checkPermissions("read");
             const id = parseInt(ctx.pathParameters.id);
             const options: SalesOrderPaymentEntityOptions = {
-                $language: request.getLocale().slice(0, 2)
+                $language: request.getLocale().split("_")[0]
             };
             const entity = this.repository.findById(id, options);
             if (entity) {

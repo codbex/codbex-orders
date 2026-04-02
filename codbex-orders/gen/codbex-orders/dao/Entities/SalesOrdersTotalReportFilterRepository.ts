@@ -1,7 +1,7 @@
-import { sql, query } from "sdk/db";
-import { producer } from "sdk/messaging";
-import { extensions } from "sdk/extensions";
-import { dao as daoApi } from "sdk/db";
+import { sql, query } from "@aerokit/sdk/db";
+import { producer } from "@aerokit/sdk/messaging";
+import { extensions } from "@aerokit/sdk/extensions";
+import { dao as daoApi } from "@aerokit/sdk/db";
 import { EntityUtils } from "../utils/EntityUtils";
 
 export interface SalesOrdersTotalReportFilterEntity {
@@ -209,7 +209,7 @@ export class SalesOrdersTotalReportFilterRepository {
     }
 
     private async triggerEvent(data: SalesOrdersTotalReportFilterEntityEvent | SalesOrdersTotalReportFilterUpdateEntityEvent) {
-        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-entities-SalesOrdersTotalReportFilter", ["trigger"]);
+        const triggerExtensions = await extensions.loadExtensionModules("codbex-orders-Entities-SalesOrdersTotalReportFilter", ["trigger"]);
         triggerExtensions.forEach(triggerExtension => {
             try {
                 triggerExtension.trigger(data);
@@ -217,6 +217,6 @@ export class SalesOrdersTotalReportFilterRepository {
                 console.error(error);
             }            
         });
-        producer.topic("codbex-orders-entities-SalesOrdersTotalReportFilter").send(JSON.stringify(data));
+        producer.topic("codbex-orders-Entities-SalesOrdersTotalReportFilter").send(JSON.stringify(data));
     }
 }
